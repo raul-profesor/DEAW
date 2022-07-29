@@ -1,0 +1,60 @@
+site_name: Despliegue de aplicaciones web
+
+theme:
+  name: material
+  palette: 
+    - media: "(prefers-color-scheme: light)"    
+    # Palette toggle for light mode
+      scheme: default
+      primary: green
+      accent: blue
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Cambiar a modo oscuro
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: deep orange
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Cambiar a modo claro
+  language: es
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.expand
+    - toc.integrate
+    - search.highlight
+    - content.code.annotate
+markdown_extensions:
+  - meta
+  - tables
+  - pymdownx.details
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - attr_list
+
+
+plugins: 
+  - search:
+      lang: es
+nav:
+  - Section:
+    - Índice: index.md
+    - Tema 1: T1/ArqWeb.md
+    - Tema 3 - Servidores de aplicaciones : T3/ServAplic.md
+    - Práctica 3.1 - Desplliegue de aplicaciones con Tomcat y Maven: T3/P3.1-Tomcat.md
+    - Práctica 3.2 - Despliegue de aplicaciones con Node Express: T3/P3.2-NodeJS-Express.md
+    - Práctica 3.3 - Despliegue de una aplicación "clusterizada" con Node Express: T3/P3.3-Cluster.md
+    - Práctica 3.4 - Despliegue de una aplicación Node.js en Heroku (PaaS): T3/P3.4-Heroku.md
+    - Práctica 3.5 - Despliegue de una aplicación Flask (Python): T3/P3.5-Flask.md
+

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Práctica 3.1 - Instalación de Tomcat 10 en Debian 11 - Despliegue de aplicaciones web</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Pr\u00e1ctica 3.1 - Instalaci\u00f3n de Tomcat 10 en Debian 11";
+        var mkdocs_page_input_path = "T3/P3.1-Tomcat.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Despliegue de aplicaciones web
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Section</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../..">Índice</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../T1/ArqWeb/">Tema 1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ServAplic/">Tema 3 - Servidores de aplicaciones</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Práctica 3.1 - Instalación de Tomcat 10 en Debian 11</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#introduccion">Introducción</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#por-que">¿Por qué?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#instalacion-de-tomcat">Instalación de Tomcat</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#instalacion-de-maven">Instalación de Maven</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#configuracion-de-maven">Configuración de Maven</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#referencias">Referencias</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Despliegue de aplicaciones web</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>Section &raquo;</li>
+      <li>Práctica 3.1 - Instalación de Tomcat 10 en Debian 11</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="practica-31-instalacion-de-tomcat">Práctica 3.1: Instalación de Tomcat</h1>
+<h2 id="introduccion">Introducción</h2>
+<p>Si consultamos el apartado de <a href="https://tomcat.apache.org/whichversion.html">versiones de Tomcat</a> en su página oficial, nos daremos cuenta de que no vamos a usar la última versión, la 10, para esta práctica, sino la anterior, la 9. La pregunta es casi inevitable:</p>
+<h3 id="por-que">¿Por qué?</h3>
+<p>En el enlace anterior vemos como desde su versión 9, Tomcat da soporta a Java 8 y superiores. Sin embargo, a partir de la versión 10.1.x, da soporte a Java 11 y superiores.</p>
+<p><strong>¿Qué significa esto?</strong></p>
+<p>En Java 9 se introdujeron novedades como un nuevo sistema de módulos (Jigsaw), <a href="https://blog.codmind.com/java-9-analisis-de-las-novedades/">entre otras</a>.</p>
+<p>En Java 11 se dio un paso más al haber renombrado completamente las rutas de paquetes javax.<em> a jakarta.</em>. Oracle, a pesar de haber hecho público el desarrollo de Java, no hizo lo mismo con su nombre. </p>
+<p>Así las cosas, resulta que Java 8 puede que a día de hoy aún sea la más usada en proyectos reales. Dicho esto, podría realizarse un proceso de migración de un proyecto de Java 8 a Java 11 y utilizarlo en Tomcat 10.</p>
+<p>No obstante, para Java 8 su soporte para uso comercial (pagando) acabó <a href="https://en.wikipedia.org/wiki/Java_version_history">en Marzo de 2022</a>, pero para uso no comercial sigue hasta 2030.</p>
+<p>En conclusión, no es raro encontrarse en el mundo real un proyecto a desplegar realizado en Java 8. Podría realizarse una migración y los conceptos de despliegue que veremos seguirían aplicando. Así las cosas, por facilidad en la realización de las prácticas utilizaremos Tomcat 9 y el plugin oficial de Maven para Tomcat 7 para el despliegue (luego veremos el motivo).</p>
+<h3 id="instalacion-de-tomcat">Instalación de Tomcat</h3>
+<p>Esta práctica es muy sencilla y va a consistir en realizar la instalación del servidor de aplicaciones Tomcat 9, en una máquina virtual corriendo Debian 11 Bullseye.</p>
+<p>Para ello, y como sugerencia, podéis apoyaros en <a href="https://www.how2shout.com/linux/install-apache-tomcat-10-on-debian-11-linux/">este tutorial online</a>, aunque sóis libres de consultar tantas fuentes como deseéis.</p>
+<p>Obviamente, debéis utilizar vuestro propios usuarios y contraseña.</p>
+<h3 id="instalacion-de-maven">Instalación de Maven</h3>
+<p>Para instalar Maven en nuestro Debian tenemos, de nuevo, dos opciones:</p>
+<ul>
+<li>
+<p>Instalación mediante gestor de paquetes APT</p>
+</li>
+<li>
+<p>Instalación manual</p>
+</li>
+</ul>
+<p>La primera, <u>recomendada</u>,  es mucho más sencilla y automatizada (establece todos los paths y variables de entorno), aunque con la segunda se podría conseguir un paquete más actualizado.</p>
+<p>Ambos métodos vienen explicados <a href="https://www.how2shout.com/linux/how-to-install-apache-maven-on-debian-11-bullseye/">aquí</a></p>
+<p>Si decidimos seguir el primer método, el más sencillo, vemos que es tan simple como actualizar los repositorios:</p>
+<p><code>sh
+sudo apt update</code></p>
+<p>E instalar Maven</p>
+<p><code>sh
+sudo apt install maven</code>
+Para comprobar que todo ha ido correctamente, podemos ver la versión instalada de Maven:</p>
+<p><code>sh
+maven --v</code></p>
+<h4 id="configuracion-de-maven">Configuración de Maven</h4>
+<p>Para poder realizar despliegues en nuestro Tomcat previamente instalado, necesitamos realizar la configuración adecuada para Maven. Ya sabemos que esto en Linux significa editar los archivos de configuración adecuados. Vamos a ello.</p>
+<ol>
+<li>
+<p>En primer lugar necesitamos asegurarnos de que en el apartado anterior de la práctica hemos añadido todos los usuarios necesarios, así como sus respectivos roles. </p>
+<p>Los roles utilizados por Tomcat vienen detallados en <a href="https://tomcat.apache.org/tomcat-9.0-doc/manager-howto.html">su documentación</a>, que merece ser consultada:</p>
+<p><img alt="" src="../../img/roles.png" /></p>
+<p>En dicha documentación se nos indica que, por temas de seguridad, es recomendable no otorgar los roles de <strong>manager-script</strong> o <strong>manager-jmx</strong> al mismo usuario que tenga el rol de <strong>manager-gui</strong>. </p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Tendremos dos usuarios, uno para la GUI y otro exclusivamente para hacer los deploys de Maven.</p>
+</div>
+<p>Así las cosas, modificamos el archivo <code>/etc/tomcat9/tomcat-users.xml</code> acorde a nuestras necesidades (los nombres de usuario y contraseña deberán ser los que elijáis para vosotros):</p>
+<p><img alt="" src="../../img/tomcat-users.png" /></p>
+</li>
+<li>
+<p>Editar el archivo <code>/etc/maven/settings.xml</code>  para indicarle a Maven, un identificador para el servidor sobre el que vamos a desplegar (no es más que un nombre, ponedle el nombre que consideréis), así como las credenciales. Todo esto se hará dentro del bloque <em>servers</em> del XML:</p>
+<p><img alt="" src="../../img/maven-settings.png" /></p>
+</li>
+<li>
+<p>Ahora debemos modificar el <code>POM</code> del proyecto para que haga referencia a que el despliegue se realice con el plugin de Maven para Tomcat. </p>
+</li>
+</ol>
+<p><code>yaml
+theme:
+  features:
+    - content.code.annotate # (1)</code></p>
+<ol>
+<li>
+<p>:man_raising_hand: I'm a code annotation! I can contain <code>code</code>, <strong>formatted
+    text</strong>, images, ... basically anything that can be written in Markdown.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>No existen plugins <strong>oficiales</strong> para Tomcat más allá de la versión 7 del servidor. No obstante, el plugin para Tomcat 7 sigue funcionando correctamente con Tomcat 9. </p>
+<p>Otra opción sería utilizar el plugin <a href="https://codehaus-cargo.github.io/cargo/Home.html">Cargo</a></p>
+</div>
+<p><img alt="" src="../../img/POM.png" /></p>
+<p>Donde lo que añadimos es el bloque </p>
+<p><code>yaml
+&lt;build&gt;
+        &lt;finalName&gt;war-deploy&lt;/finalName&gt; &lt;!-- (1) --&gt;
+        &lt;plugins&gt; #(1)
+        &lt;plugin&gt;
+        &lt;groupId&gt;org.apache.tomcat.maven&lt;/groupId&gt;
+        &lt;artifactId&gt;tomcat7-maven-plugin&lt;/artifactId&gt;
+        &lt;version&gt;2.2&lt;/version&gt;
+        &lt;configuration&gt;
+            &lt;url&gt;http://localhost:8080/manager/text&lt;/url&gt; (2)
+            &lt;server&gt;Tomcat.P.3.1&lt;/server&gt; (3)
+            &lt;path&gt;/myapp&lt;/path&gt; (4)
+        &lt;/configuration&gt;
+        &lt;/plugin&gt;
+        &lt;/plugins&gt;
+&lt;/build&gt;</code>
+1. Nombre final del ejecutable .jar que se va a generar</p>
+<ol>
+<li>URL del servidor Tomcat donde se hará el despliegue. Como en nuestro caso Maven y Tomcat están en el mismo servidor, la URL corresponde a localhost.
+    Esta URL debe ir seguida por <code>/manager/text</code>, tal y como leemos en la <a href="https://tomcat.apache.org/maven-plugin-2.2/">documentación del plugin</a>.</li>
+</ol>
+</li>
+</ol>
+<h2 id="referencias">Referencias</h2>
+<p><a href="https://www.how2shout.com/linux/install-apache-tomcat-10-on-debian-11-linux/">Tutorial Tomcat I</a></p>
+<p><a href="https://www.linuxtechi.com/how-to-install-apache-tomcat-on-debian/">Tutorial Tomcat II</a></p>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-10-on-ubuntu-20-04">Tutorial Tomcat para Ubuntu</a></p>
+<p><a href="https://www.how2shout.com/linux/how-to-install-apache-maven-on-debian-11-bullseye/">Instalación Maven</a></p>
+<p><a href="https://www.nestoralmeida.com/jsf-3-0-en-tomcat-10-con-java-11/#9-renombrar-javax-a-jakarta">JSF 3.0 en Tomcat 10 con Java 11</a></p>
+<p><a href="https://www.adictosaltrabajo.com/2019/05/21/migracion-de-java-8-a-java-11/">Migración de Java 8 a Java 11</a></p>
+<p><a href="https://developpaper.com/install-and-configure-jdk11-tomcat-maven-under-linux-system/">Install and configure jdk11 + Tomcat + Maven under Linux system</a></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../ServAplic/" class="btn btn-neutral float-left" title="Tema 3 - Servidores de aplicaciones"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../ServAplic/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
