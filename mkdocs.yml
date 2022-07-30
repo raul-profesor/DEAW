@@ -43,7 +43,6 @@ markdown_extensions:
       alternate_style: true 
   - attr_list
 
-
 plugins: 
   - search:
       lang: es
@@ -51,6 +50,11 @@ nav:
   - Section:
     - Índice: index.md
     - Tema 1: T1/ArqWeb.md
+    - Práctica 1.1 - Instalación y configuración de servidor web Nginx: T1/P1.1.md
+    - Práctica 1.2 - Autenticación en Nginx: T1/P1.2.md
+    - Práctica 1.3 - Proxy inverso con Nginx: T1/P1.3.md
+    - Práctica 1.4 - Balanceo de carga con proxy inverso en Nginx: T1/P1.4.md
+    - Práctica 1.5 - Proxy inverso y balanceo de carga con SSL en Nginx: T1/P1.5.md 
     - Tema 3 - Servidores de aplicaciones : T3/ServAplic.md
     - Práctica 3.1 - Desplliegue de aplicaciones con Tomcat y Maven: T3/P3.1-Tomcat.md
     - Práctica 3.2 - Despliegue de aplicaciones con Node Express: T3/P3.2-NodeJS-Express.md
