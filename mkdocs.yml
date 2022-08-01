@@ -22,9 +22,9 @@ theme:
         name: Cambiar a modo claro
   language: es
   features:
-    - navigation.sections
+    #- navigation.sections
     - navigation.top
-    - navigation.expand
+    #- navigation.expand
     - toc.integrate
     - search.highlight
     - content.code.annotate
@@ -42,23 +42,34 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true 
   - attr_list
-
+  - footnotes
+  
 plugins: 
   - search:
       lang: es
-nav:
-  - Section:
-    - Índice: index.md
-    - Tema 1 - Arquitectura Web. Implantación y administración de servidores web: T1/ArqWeb.md
-    - Práctica 1.1 - Instalación y configuración de servidor web Nginx: T1/P1.1.md
-    - Práctica 1.2 - Autenticación en Nginx: T1/P1.2.md
-    - Práctica 1.3 - Proxy inverso con Nginx: T1/P1.3.md
-    - Práctica 1.4 - Balanceo de carga con proxy inverso en Nginx: T1/P1.4.md
-    - Práctica 1.5 - Proxy inverso y balanceo de carga con SSL en Nginx: T1/P1.5.md 
-    - Tema 3 - Servidores de aplicaciones : T3/ServAplic.md
-    - Práctica 3.1 - Desplliegue de aplicaciones con Tomcat y Maven: T3/P3.1-Tomcat.md
-    - Práctica 3.2 - Despliegue de aplicaciones con Node Express: T3/P3.2-NodeJS-Express.md
-    - Práctica 3.3 - Despliegue de una aplicación "clusterizada" con Node Express: T3/P3.3-Cluster.md
-    - Práctica 3.4 - Despliegue de una aplicación Node.js en Heroku (PaaS): T3/P3.4-Heroku.md
-    - Práctica 3.5 - Despliegue de una aplicación Flask (Python): T3/P3.5-Flask.md
+  - awesome-pages:
+      collapse_single_pages: true
+
+extra_css:
+  - stylesheets/extra.css
+
+# nav:
+#   - Índice:
+#     - Home: index.md
+#     - Tema 1 - Arquitectura Web. Implantación y administración de servidores web: T1/ArqWeb.md
+#     - Práctica 1.1 - Instalación y configuración de servidor web Nginx: T1/P1.1.md
+#     - Práctica 1.2 - Autenticación en Nginx: T1/P1.2.md
+#     - Práctica 1.3 - Proxy inverso con Nginx: T1/P1.3.md
+#     - Práctica 1.4 - Balanceo de carga con proxy inverso en Nginx: T1/P1.4.md
+#     - Práctica 1.5 - Proxy inverso y balanceo de carga con SSL en Nginx: T1/P1.5.md 
+#     - Tema 3 - Implantación y administración de servidores de aplicaciones : T3/ServAplic.md
+#     - Práctica 3.1 - Desplliegue de aplicaciones con Tomcat y Maven: T3/P3.1-Tomcat.md
+#     - Práctica 3.2 - Despliegue de aplicaciones con Node Express: T3/P3.2-NodeJS-Express.md
+#     - Práctica 3.3 - Despliegue de una aplicación "clusterizada" con Node Express: T3/P3.3-Cluster.md
+#     - Práctica 3.4 - Despliegue de una aplicación Node.js en Heroku (PaaS): T3/P3.4-Heroku.md
+#     - Práctica 3.5 - Despliegue de una aplicación Flask (Python): T3/P3.5-Flask.md
+#     - Tema 4 - Servicios de red implicados en el despliegue de aplicaciones web: borrar
+#     - Tema 5 - Control de versiones: borrar
+#     - Tema 6 - Contenedores: borrar
+#     - Tema 7 -  CI/CD (Integración y despliegue continuo): borrar
 

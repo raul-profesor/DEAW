@@ -1,6 +1,8 @@
 ---
-title: 'Tema 1:Arquitectura Web. Implantación y administración de servidores web'
+title: 'Tema 1 - Arquitectura Web. Implantación y administración de servidores web'
 ---
+
+# **Arquitectura Web. Implantación y administración de servidores web**
 
 ## Introducción
 
@@ -10,7 +12,7 @@ Cabe decir que, con la popularización de Internet, tanto empresas como usuarios
 
 Las páginas web, en su mayoría en formato HTML, requieren ser alojadas en máquinas que dispongan de espacio en disco para almacenar archivos HTML, imágenes, bloques de código o archivos de vídeo en directorios específicos y, al mismo tiempo, deben ser capaces de entender todo tipo de extensión de los archivos que son enviados en ambos sentidos de la comunicación. 
 
-![](../img/servidor1.jpg){: style="height:450px;width:550px"}
+![](img/servidor1.jpg){: style="height:450px;width:550px"}
 
 Paralelamente, no podemos dejar de lado la importancia de las medidas de seguridad ante los peligros existentes en Internet. Para ello, las páginas deberán estar diseñadas considerando la incorporación de protocolos de comunicación seguros como, por ejemplo, los desarrollados con el protocolo seguro de transferencia de hipertexto (HTTPS, Hyper Text Transfer Protocol secure) que utilizan claves y estrategias de cifrado propias de las herramientas del protocolo de capa de conexión segura (SSL, secure sockets layer). 
 
@@ -25,7 +27,7 @@ Cabe decir que no todas las peticiones consumen el mismo, y, por ejemplo, aquell
 Los servidores web sirven para almacenar contenidos de Internet y facilitar su disponibilidad de forma constante y segura. Cuando visitas una página web desde tu navegador, es en realidad un servidor web el que envía los componentes individuales de dicha página directamente a tu ordenador. Esto quiere decir que para que una página web sea accesible en cualquier momento, el servidor web debe estar permanentemente online. 
 
 
-![](../img/servodpr2.jpeg){: style="height:300px;width:550px"}
+![](img/servodpr2.jpeg){: style="height:300px;width:550px"}
 
 
 Toda página accesible en Internet necesita un servidor especial para sus contenidos web. A menudo, las grandes empresas y organizaciones cuentan con un servidor web propio para disponer sus contenidos en Intranet e Internet. Sin embargo, la mayoría de administradores recurren a los centros de datos de proveedores de alojamiento web para sus proyectos. Independientemente de si tienes un servidor web propio o de si alquilas uno externo, siempre necesitarás un software para gestionar los datos de tu página y mantenerla actualizada. En este sentido, tienes la posibilidad de elegir entre varias soluciones de software para servidores web diseñadas para diferentes aplicaciones y sistemas operativos. 
@@ -38,11 +40,11 @@ Para abrir una página web, el usuario solo tiene que escribir el URL correspond
 
 El navegador interpreta la respuesta, lo que suele generar automáticamente más solicitudes al servidor a propósito de, por ejemplo, imágenes integradas o archivos CSS (hojas de estilos). 
 
-![](../img/tecnologias.png)
+![](img/tecnologias.png)
 
 El protocolo utilizado para la transmisión es HTTP (o su variante cifrada HTTPS), que se basa, a su vez, en los protocolos de red IP y TCP (y muy rara vez en UDP). Un servidor web puede entregar los contenidos simultáneamente a varios ordenadores o navegadores web. La cantidad de solicitudes (requests) y la velocidad con la que pueden ser procesadas depende, entre otras cosas, del hardware y la carga (número de solicitudes) del host. Sin embargo, la complejidad del contenido también juega un papel importante: los contenidos web dinámicos necesitan más recursos que los contenidos estáticos. 
 
-![](../img/tcpip.webp)
+![](img/tcpip.webp)
 
 La selección del equipo adecuado para el servidor y la decisión de si este debe ser dedicado, virtual o en la nube, se debe hacer pensando siempre en evitar sobrecargas en el servidor. Aunque se haya encontrado un servidor web que se adapta perfectamente a las necesidades del proyecto, siempre se corre el riesgo de que se presenten fallos en él como consecuencia de imprecisiones técnicas o cortes de energía en el centro de datos del host. Aunque no es muy frecuente, durante un período de inactividad de este tipo (downtime), la web no estará disponible. 
 
@@ -69,7 +71,7 @@ Desde un punto de vista histórico, la web fue creada en 1989 en el Consejo Euro
 
 Fue a raíz de la necesidad de disponer de múltiples grupos de científicos repartidos por el mundo y colaborando entre ellos (enviándose informes, dibujos, esquemas, fotos y todo tipo de documentos) que nació la web. 
 
-![](../img/primer-ordenador.png)
+![](img/primer-ordenador.png)
 
 Es en los inicios del protocolo HTTP, a mediados del año 1990, cuando encontramos la versión 0.9. Esta versión tenía como única finalidad transferir datos por Internet en forma de páginas web escritas en lenguaje de marcado de hipertexto (HTML, HyperText Markup Language). A partir de la versión 1.0 del protocolo surgió la posibilidad de transferir mensajes con encabezados que describían el contenido de los mensajes. 
 
@@ -104,7 +106,7 @@ Por esta razón, Google desarrolló un nuevo y experimental protocolo, el SPDY o
 
 La versión HTTP/2 se extendió rápidamente y las páginas web con mucho tráfico fueron de las primeras en adoptarla. Actualmente (con fecha de enero de 2020), según W3Techs, un 42 % de las páginas web utilizan la versión HTTP/2. 
 
-![](../img/http2.png)
+![](img/http2.png)
 
 #### El futuro: HTTP/3
 
@@ -118,7 +120,7 @@ Ya hemos comentado que el protocolo HTTP tiene un funcionamiento bastante sencil
 
 Gráficamente podemos resumir el proceso de comunicación HTTP como sigue: 
 
-![](../img/funcionamiento-http.png)
+![](img/funcionamiento-http.png)
 
   1. Un usuario accede a una URL, seleccionando un enlace de un documento HTML o introduciéndola directamente en el campo correspondiente del cliente Web. 
 
@@ -136,7 +138,7 @@ Gráficamente podemos resumir el proceso de comunicación HTTP como sigue:
 
 HTTP define un conjunto de métodos de petición para indicar la acción que se desea realizar para un recurso determinado. 
 
-![](../img/metodos.png){: style="height:420px;width:600px"}
+![](img/metodos.png){: style="height:420px;width:600px"}
 
 El estándar HTTP/1.0 recoge únicamente tres comandos, que representan las operaciones de recepción y envío de información y chequeo de estado: 
 
@@ -168,12 +170,12 @@ Una solicitud HTTP es un conjunto de líneas que el navegador envía al servidor
 
 + El cuerpo de la solicitud: es un conjunto de líneas opcionales que deben estar separadas de las líneas precedentes por una línea en blanco y que, por ejemplo, permiten la transmisión de datos al servidor de un formulario a través del método POST. 
 
-![](../img/request.png)
+![](img/request.png)
  
 
 La sintaxis de una respuesta HTTP es un conjunto de líneas que el servidor envía al navegador. Incluye: 
 
- ![](../img/response.png)
+ ![](img/response.png)
 
 + Una línea de estado donde figura el versión del protocolo usada, un código de estado/error y un texto con el significado de dicho código. 
 
@@ -197,7 +199,7 @@ Para solucionar este problema se crearon los tipos MIME (Multipurpose Internet M
 
 Tipos de medios de Internet, previamente conocido como "tipos " o "tipos de contenido", es un estándar diseñado para indicar el tipo de información que presenta un archivo o un conjunto de datos. En , este identificador puede ser útil para conocer el tipo de un archivo antes de descarcarglo y tener acceso a él. Es una buena pŕactica proveer información de tipos de medios siempre que sea posible, como en el caso de los elementos que cuentan con atributos como type, enctype, formenctype y accept. 
 
-![](../img/Mime-types.png)
+![](img/Mime-types.png)
 
 Todo identificador de tipo de medio de Internet debe ajustarse al siguiente formato: 
 
@@ -213,13 +215,13 @@ Tradicionalmente,** los navegadores le han indicado a sus usuarios que se estaba
 
 Según el navegador el aspecto cambia un poco, pero todos muestran el proverbial "candadito" al lado de la dirección: 
 
-![](../img/https1.png)
+![](img/https1.png)
 
 Es decir, lo importante aquí es que hasta ahora los navegadores consideran HTTP como la norma, y HTTPS como la excepción, y por eso lo marcan de esta manera. 
 
 ### Funcionamiento de HTTPS
 
-![](../img/https2.png)
+![](img/https2.png)
 
 ## Servidores web: Apache vs Nginx
 
@@ -231,7 +233,7 @@ Los dos servidores más utilizados para montar páginas web hoy en día son Apac
 
 <u>*Nginx está orientado a mejorar el rendimiento, soportando mayores cargas de tráfico y usuarios que Apache (Problema C10K), además de ofrecer otras funcionalidades como hacer de proxy. En sus orígenes era especialmente eficiente ofreciendo contenido estático*.</u>
 
-![](../img/nginx1.png) 
+![](img/nginx1.png) 
 
 Después de ser lanzado, Nginx fue usado principalmente para servir archivos estáticos y como un balanceador de carga o proxy inverso en frente de instalaciones Apache.
 
@@ -247,7 +249,7 @@ Ejemplos de servicios de despliegue de páginas estáticas:
 
 Mientras evolucionaba la red, y la necesidad de exprimir hasta la última gota de la velocidad y eficiencia de uso de hardware con este, más sitios empezaron a reemplazar Apache con Nginx por completo, gracias a un software mucho más maduro.
 
-![](../img/nginx2.png)
+![](img/nginx2.png){: style="height:450px;width:700px"}
 
 ### Razones para usar Nginx
 

@@ -1,8 +1,8 @@
 ---
-title: 'Tema 3: Servidores de aplicaciones'
+title: 'Tema 3 - Servidores de aplicaciones'
 ---
 
-# Tema 3: Servidores de aplicaciones
+# **Servidores de aplicaciones**
 
 ## Introducción
 
@@ -91,7 +91,7 @@ Los servidores de aplicaciones también proporcionan redundancia de programas y 
 
 Las organizaciones pueden proteger aún más sus datos con un servidor proxy inverso colocado delante de sus bases de datos. Los servidores proxy y las VPN pueden hacer maravillas para anonimizar y encriptar la comunicación para proteger a los usuarios y los datos de la empresa.
 
-![a](../img/serv_apl.png)
+![a](img/serv_apl.png)
 
 ### ¿Cómo funcionan los servidores de aplicaciones? 
 
@@ -115,7 +115,7 @@ En la imagen anterior, se muestra el flujo general de los servidores de aplicaci
 
 Al recibir una solicitud de servlet de un servidor web, el servidor de aplicaciones procesa la solicitud y responde al servidor web mediante la respuesta de servlet. Dado que los servidores de aplicaciones trabajan principalmente con peticiones de lógica de negocio, el servidor web traduce la respuesta del servlet y pasa una respuesta HTTP accesible para el usuario.
 
-![](../img/capas.webp)
+![](img/capas.webp)
 
 |   |Servidor de aplicaciones   | Servidor web   |
 |---|---|---|
@@ -145,7 +145,7 @@ Si quieres tener la capacidad de hacer cambios sin afectar a tu sitio web en viv
 
 Aunque los modelos de despliegue pueden variar, el más común es el clásico modelo de despliegue "de izquierda a derecha" cuando se trabaja con múltiples entornos de despliegue. En este modelo, los cambios se realizan en entornos locales, de desarrollo o de preparación (dependiendo de la configuración) y se empujan de izquierda a derecha a través de los diferentes entornos, terminando en el entorno en vivo. Una vez completado este proceso de despliegue, los nuevos cambios serán visibles en el entorno activo.
 
-![](../img/deploy.png)
+![](img/deploy.png)
 
 En la imagen anterior se muestra una forma muy simplificada y clásica de manejar los despliegues cuando se trabaja con sitios web en un CMS. No necesariamente se necesitan todos los entornos anteriores, pero el proceso sigue siendo el mismo.
 
@@ -398,7 +398,7 @@ Por otra parte, antes de Maven, cada vez que salía una nueva versión de un ana
 
 Y… ¿cómo se ejecutaban las pruebas? ¿Cómo se generaban informes? Sin Maven, en cada proyecto esto se hacía de distinta manera.
 
-![](../img/maven-logo.png){: style="height:250px;width:600px"}
+![](img/maven-logo.png){: style="height:250px;width:600px"}
 
 **Lo cierto es que Maven es mucho más que una herramienta que hace builds del código.**
 
@@ -433,7 +433,7 @@ Node JS es un entorno de ejecución de JavaScript rápido que utilizamos para co
 
 Node.js no es un lenguaje de programación. Más bien, es un entorno de ejecución que se utiliza para ejecutar JavaScript fuera del navegador.
 
-![](../img/nodejs-new-pantone-black.svg){: style="height:250px;width:250px"}
+![](img/nodejs-new-pantone-black.svg){: style="height:250px;width:250px"}
 
 Node.js tampoco es un framework (una plataforma para desarrollar aplicaciones de software). El tiempo de ejecución de Node.js se construye sobre un lenguaje de programación -en este caso, JavaScript- y ayuda a la ejecución de los propios frameworks.
 
@@ -443,13 +443,13 @@ En resumen, Node.js no es un lenguaje de programación ni un marco de trabajo; e
 
 Express JS es un framework de Node.js diseñado para construir aplicaciones web de API's y aplicaciones móviles multiplataforma de forma rápida y hacer  que Node.js sea fácil.
 
-![](../img/express-logo.png){: style="height:250px;width:450px"}
+![](img/express-logo.png){: style="height:250px;width:450px"}
 
 ### ¿Qué es npm?
 
 NPM responde a las siglas de Node Package Manager o manejador de paquetes de node, es la herramienta por defecto de JavaScript para la tarea de compartir e instalar paquetes.
 
-![](../img/npm-logo.png){: style="height:150px;width:250px"}
+![](img/npm-logo.png){: style="height:150px;width:250px"}
 
 Tal como reza su documentación, npm se compone de al menos dos partes principales.
 
