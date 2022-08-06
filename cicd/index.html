@@ -1,0 +1,2345 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+    
+    
+      
+        <title>Tema 7 - CI/CD (Integración y despliegue continuo) - Despliegue de aplicaciones web</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="blue">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cicd-integracion-y-despliegue-continuo" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href=".." title="Despliegue de aplicaciones web" class="md-header__button md-logo" aria-label="Despliegue de aplicaciones web" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Despliegue de aplicaciones web
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tema 7 - CI/CD (Integración y despliegue continuo)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="blue"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-orange"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Despliegue de aplicaciones web" class="md-nav__button md-logo" aria-label="Despliegue de aplicaciones web" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Despliegue de aplicaciones web
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Tema 1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tema 1" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Tema 1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
+          Teoría
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Teoría" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Teoría
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ArqWeb/" class="md-nav__link">
+        Tema 1 - Arquitectura Web. Implantación y administración de servidores web
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_2">
+          Prácticas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Prácticas" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Prácticas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../P1.1/" class="md-nav__link">
+        Pràctica 1.1 – Instalación y configuración de servidor web Nginx
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../P1.2/" class="md-nav__link">
+        Práctica 1.2 – Autenticación en Nginx
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../P1.3/" class="md-nav__link">
+        Práctica 1.3 – Proxy inverso con Nginx
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../P1.4/" class="md-nav__link">
+        Práctica 1.4 – Balanceo de carga con proxy inverso en Nginx
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../P1.5/" class="md-nav__link">
+        Practica1.5 - Proxy invers y balanceo de carga con SSL en NGINX
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Tema 2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tema 2" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tema 2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Teoría
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Prácticas
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Tema 3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tema 3" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tema 3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          Teoría
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Teoría" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Teoría
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ServAplic/" class="md-nav__link">
+        Tema 3 - Servidores de aplicaciones
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          Prácticas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Prácticas" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Prácticas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../P3.1-Tomcat/" class="md-nav__link">
+        Práctica 3.1: Instalación de Tomcat y Maven para despliegue de aplicación Java
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../P3.2-NodeJS-Express/" class="md-nav__link">
+        Práctica 3.2 - Despliegue de aplicaciones con Node Express
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../P3.3-Cluster/" class="md-nav__link">
+        Práctica 3.3 - Despliegue de una aplicación "clusterizada" con Node Express
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../P3.4-Heroku/" class="md-nav__link">
+        Práctica 3.4 - Despliegue de una aplicación Node.js en Heroku (PaaS)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../P3.5-Flask/" class="md-nav__link">
+        Práctica 3.5 - Despliegue de una aplicación Flask
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Tema 4
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tema 4" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Tema 4
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_1">
+          Teoría
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Teoría" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Teoría
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dns/" class="md-nav__link">
+        Tema 4 - Servicios de red implicados en el despliegue de aplicaciones web
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2">
+          Prácticas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Prácticas" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Prácticas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../P4.1-DNS/" class="md-nav__link">
+        Práctica 4.1 - Configuraciónn de un servidor DNS
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Tema 5
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tema 5" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Tema 5
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1" type="checkbox" id="__nav_5_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1">
+          Teoría
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Teoría" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          Teoría
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Tema 5 - Control de versiones
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cvs/" class="md-nav__link">
+        Sistemas de control de versiones
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduccion/" class="md-nav__link">
+        Introducción a git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git/" class="md-nav__link">
+        Aspectos básicos de Git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usobasico/" class="md-nav__link">
+        Uso básico de Git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usoavanzado/" class="md-nav__link">
+        Uso avanzado de Git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ramas/" class="md-nav__link">
+        Ramas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github/" class="md-nav__link">
+        Github
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github-zenodo/" class="md-nav__link">
+        Citar proyectos en GitHub
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github-flow/" class="md-nav__link">
+        Flujo de trabajo en GitHub
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github-avanzado/" class="md-nav__link">
+        Github avanzado
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../commands/" class="md-nav__link">
+        Comandos de git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gitflow/" class="md-nav__link">
+        Flujo de trabajo con Git (git flow)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../referencias/" class="md-nav__link">
+        Referencias
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Prácticas
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Tema 6
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tema 6" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Tema 6
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_1" type="checkbox" id="__nav_6_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_1">
+          Teoría
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Teoría" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_1">
+          <span class="md-nav__icon md-icon"></span>
+          Teoría
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_docker/" class="md-nav__link">
+        Tema 6 - Contenedores
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        Introducción
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        Instalación
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../images/" class="md-nav__link">
+        Imágenes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../containers/" class="md-nav__link">
+        Contenedores
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/" class="md-nav__link">
+        Persistiendo datos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wordpress/" class="md-nav__link">
+        Levantar un WordPress con Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker-compose/" class="md-nav__link">
+        Levantar un WordPress con Docker Compose
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dockerfile/" class="md-nav__link">
+        Crear imágenes propias
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tips/" class="md-nav__link">
+        Trucos
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Prácticas
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Tema 7
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tema 7" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Tema 7
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_1" type="checkbox" id="__nav_7_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_1">
+          Teoría
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Teoría" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_1">
+          <span class="md-nav__icon md-icon"></span>
+          Teoría
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Tema 7 - CI/CD (Integración y despliegue continuo)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Tema 7 - CI/CD (Integración y despliegue continuo)
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#continuouos-delivery-cd" class="md-nav__link">
+    Continuouos Delivery (CD)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#el-problema-de-la-puesta-en-produccion" class="md-nav__link">
+    El problema de la puesta en producción
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integracion-continua" class="md-nav__link">
+    Integración continua
+  </a>
+  
+    <nav class="md-nav" aria-label="Integración continua">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trunk-based-vs-feature-branches" class="md-nav__link">
+    Trunk based vs. feature branches
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#herramientas-de-integracion-continua" class="md-nav__link">
+    Herramientas de integración continua
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generacion-del-ejecutable" class="md-nav__link">
+    Generación del ejecutable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#principios-y-practicas-de-integracion-continua" class="md-nav__link">
+    Principios y prácticas de integración continua
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-del-despliegue" class="md-nav__link">
+    Configuración del despliegue
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuración del despliegue">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#entornos-de-despliegue" class="md-nav__link">
+    Entornos de despliegue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-la-aplicacion" class="md-nav__link">
+    Configuración de la aplicación
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuración de la aplicación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-imagenes-docker" class="md-nav__link">
+    Configuración de imágenes Docker
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entrega-continua" class="md-nav__link">
+    Entrega continua
+  </a>
+  
+    <nav class="md-nav" aria-label="Entrega continua">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pipeline-de-despliegue" class="md-nav__link">
+    Pipeline de despliegue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pequenos-cambios" class="md-nav__link">
+    Pequeños cambios
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#canary-release" class="md-nav__link">
+    Canary release
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#devops" class="md-nav__link">
+    DevOps
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#principos-y-buenas-practicas" class="md-nav__link">
+    Principos y buenas prácticas
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consejos-adicionales" class="md-nav__link">
+    Consejos adicionales
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    Referencias
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Prácticas
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="cicd-integracion-y-despliegue-continuo">CI/CD (Integración y despliegue continuo)</h1>
+<div class="admonition note">
+<p class="admonition-title">Información</p>
+<p>Estos apuntes están basados en gran medida en unos apuntes de <a href="https://github.com/JJ/CC/">Domingo Gallardo</a> y se distribuyen porque <a href="https://github.com/JJ/CC/blob/master/LICENSE">su licencia</a> así lo permite.</p>
+</div>
+<h2 id="continuouos-delivery-cd">Continuouos Delivery (CD)</h2>
+<p>Una idea fundamental de las metodologías ágiles es entregar valor
+frecuentemente para obtener una pronta retroalimentación del
+cliente. Para ello es necesario tener muy engrasados los procesos de
+despliegue y puesta en producción del software. </p>
+<p>Una de las formas que facilita la optimización de
+la puesta en producción de software es la práctica de XP <a href="https://www.iebschool.com/blog/que-es-el-xp-programming-agile-scrum/">(<em>eXtreme Programming</em>)</a> de
+<em>Integración continua</em> (<em>Continuous Integration</em>). En esta práctica
+los miembros del equipo integran sus commits diariamente en el
+proyecto y en cada integración se lanzan tests automatizados que
+verifican que los cambios no introducen errores.</p>
+<p>Además de esta práctica, debemos tener también automatizados todos los
+procesos de compilación (<em>build</em>) y despliegue (<em>deployment</em>) de la
+aplicación en los distintos entornos de prueba. Esto es lo que se
+denomina <em>Despliegue continuo</em> (<em>Continuous Deployment</em>). En esta
+línea, se han popularizado herramientas como <em>Docker</em> o <em>Kubernetes</em>
+que facilitan el despliegue del software y su automatización y cada
+vez se demandan más profesionales (denominados <em>DevOps</em>) con capacidad
+de gestionar estos despliegues automatizados.</p>
+<p>Y en los últimos años se ha dado un paso más allá y se ha comenzado a
+hablar de <em>Entrega continua</em> (<em>Continous Delivery</em> en inglés) con la
+idea de promover software que esté listo en cualquier momento para
+salir a producción.</p>
+<p>En este tema veremos todos estos conceptos, con la idea de tomar un
+primer contacto con todos ellos. Necesitaríamos un curso (o más) para
+verlos en profundidad. Intentaremos al menos conocer los conceptos
+básicos para poder seguir profundizando en alguno de ellos en el
+futuro.</p>
+<h2 id="el-problema-de-la-puesta-en-produccion">El problema de la puesta en producción</h2>
+<p>En las empresas tradicionales no ágiles el proceso de subir a
+producción una nueva versión es un proceso muy complicado y
+estresante. Se hace pocas veces, cuatro o cinco veces al año, durante
+el fin de semana cuando todos los servicios están parados.</p>
+<p>El proceso de genera muchos trastornos y dolores de cabeza. El equipo
+de operaciones tiene que estar pendiente del móvil para detectar
+posibles problemas y caídas del sistema. Una vez puesto el software en
+producción el equipo de desarrollo se dedicará continuamente a
+corregir bugs y solucionar problemas detectados por los usuarios.</p>
+<p>Esto no es ágil. Esto no permite conseguir lo que hemos comentado
+muchas veces de un ciclo corto de retroalimentación para que el
+cliente pueda probar rápidamente las nuevas características y se pueda
+comprobar su valor. Recordemos que en ambientes inciertos y no
+predecibles es fundamental poder validar con el cliente las nuevas
+funcionalidades introducidas, para adaptarse y corregir posibles
+errores.</p>
+<p>La realización de entregas frecuentes también permite minimizar el
+riesgo. Todo el tiempo que estamos desarrollando algo sin ponerlo en
+producción es un riesgo acumulado. Hasta que no está en producción y
+ha sido aceptado por el cliente no sabemos si lo que estamos
+desarrollando va a ser validado o no. Cuanto menos tardemos en
+validarlo, menor será el riesgo.</p>
+<p>La siguiente figura está sacada de la charla de Eduardo Ferro
+(<a href="https://twitter.com/eferro">@eferro</a>) <a href="https://youtu.be/hbggtXmQcf8?t=444">Continuous Delivery:
+Germinando una cultura ágil
+moderna</a>. </p>
+<p><img src="/img/small-increments.jpg" width="500px"/></p>
+<p>En la figura de la izquierda se entrega mucho valor de golpe y el
+riesgo que se ha ido acumulando es mucho mayor que en la figura de la
+derecha, en la que se entregan pequeños incrementos de valor que
+nos permiten tener una retroalimentación más rápida y adaptar mucho
+mejor el producto a las necesidades de los clientes.</p>
+<p><img src="/img/raspberry-pi-embedded-systems.png" width="200px" align="center"/></p>
+<p>El proceso de puesta en producción del software depende mucho del tipo
+de software. En un extremo, por ejemplo, una página web se puede
+cambiar modificando directamente el fichero HTML en la propia máquina
+en la que se está ejecutando el servidor web. No hace falta ni
+recompilar, ni reiniciar el servidor. En el otro extremo, un software
+de control de una placa de un satelite espacial puede estar embebido
+en el propio firmware de la placa y para realizar un cambio puede ser
+necesario hasta volver a grabar y producir la placa.</p>
+<p>En general, la mayoría de sistemas software se encuentran entre ambos
+extremos. Es importante analizar con detalle cuál es el proceso de
+despliegue de nuestro software, cuánto tarda en subir a producción un
+cambio de una línea de código y cuáles son los cuellos de botella en
+el proceso.</p>
+<p><img src="/img/ultima-milla.png" width="600px"/></p>
+<p>La denominada <em>ultima milla</em> consiste en los pasos necesarios para la
+puesta en producción de nuestro sistema. De nada nos sirve tener un
+equipo ágil que hace iteraciones y reuniones con el cliente si después
+tenemos un equipo de QA (<em>Quality Assurance</em>) con un 90% de pruebas
+manuales y otro de operaciones que tiene que configurar manualmente
+cualquier nuevo despliegue a producción y al que le cuesta dos días
+revertir un despliegue fallido.</p>
+<p>Debemos analizar cuál es nuestro proceso de release y hacer lo posible
+por mejorarlo. Encontrar los cuellos de botella, reducir los tiempos,
+automatizar todo lo que podamos. De forma que pasemos de un release
+por trimestre a un release mensual. Y después a un release cada dos
+semanas. Y después a un release semanal. Y después a un posible
+release con cada posible cada cambio. Al final, como dice Eduardo
+Ferro en la charla mencionada anteriormente, el tiempo de subir un
+commit a producción debe ser de menos de 15 minutos y debemos de poder
+automatizar el proceso de puesta en producción hasta el extremo que lo
+podamos hacer a discreción, cuando queramos, únicamente pulsando un
+botón.</p>
+<p>Un elemento central de todo el proceso de despliegue es la
+configuración de un pipeline de despliegue lo más automatizada
+posible.</p>
+<p><img src="/img/deployment-pipeline.png" width="600px" /></p>
+<p>el pipeline representa todos los pasos necesarios que llevan el código
+fuente hasta producción. Lo veremos en detalle más adelante, pero es
+interesante adelantarla aquí. En la imagen se puede ver:</p>
+<ul>
+<li><strong>Compilación</strong> de todas las dependencias en binarios. En el caso de una
+  aplicación Java podríamos tener dependencias
+  externas (que no haría falta compilar, sólo descargarse) y
+  dependencias de librerías internas que sí que estamos modificando y
+  que deberíamos recompilar.</li>
+<li><strong>Empaquetamiento</strong>, construcción de un único binario a partir de todos
+  los binarios existentes. En el caso de una aplicación Java, la fase
+  de package (por ejemplo, realizada con Maven) generaría un fichero
+  WAR que podríamos distribuir. También, si utilizamos Docker, en esta
+  fase generaremos una máquina Docker que podremos distribuir.</li>
+<li><strong>Despliegue</strong> en distintos
+  <a href="https://en.wikipedia.org/wiki/Deployment_environment">entornos</a> de
+  prueba y lanzamiento de pruebas en los distintos entornos. Cada
+  entorno tiene su propia configuración, definida por variables de
+  entorno o parámetros de los comandos de puesta en marcha.</li>
+<li>Despliegue en entorno de <strong><em>staging</em></strong> (réplica muy similar al entorno de
+  producción).</li>
+<li>Despliegue en entorno de <strong>producción</strong>.</li>
+</ul>
+<p>En el enfoque de entrega continua el proceso anterior está
+completamente automatizado y la puesta en producción se puede modular
+y realizar en el momento que nos interese pulsando únicamente un botón
+en cualquier momento. </p>
+<p>Recordemos que la forma más tradicional de enfrentar el problema del
+lanzamiento es separar una rama de release de la rama de desarrollo.</p>
+<p><img src="/img/release-branch.jpg" width="600px"/></p>
+<p>Al separar la rama de release podemos seguir introduciendo cambios en
+la rama de desarrollo sin afectar para nada al release. En la rama de
+release se realiza todo el pipeline de despliegue y se prueba en todos
+los entornos. Se introducen correcciones de pequeños bugs encontrados
+y se también se puede incluir algún commit escogido de la rama de
+desarrollo haciendo un <code>cherry-pick</code>. Finalmente, la última versión
+comprobada se pasa a producción y mezcla con la rama de releases y con
+la de desarrollo.</p>
+<p>En el enfoque de lanzamiento continuo no existen ramas de release,
+sino que en cualquier commit de la rama principal es candidato a ser
+puesto en producción. </p>
+<p><img src="/img/continuous-delivery.png" width="600px"/></p>
+<h2 id="integracion-continua">Integración continua</h2>
+<p>La Integración continua es una práctica en la que los miembros del
+equipo integran su trabajo frecuentemente en el proyecto. Se trata de
+una práctica de XP (eXtreme Programming) en la que se recomienda que cada miembro integre
+sus cambios diariamente. Esto lleva a múltiples integraciones cada
+día. Cada integración es verificada por una compilación automática
+(<em>automated build</em>) en la que se lanzan todos los tests y se detectan
+errores lo más rápidamente posible.</p>
+<p>Esta práctica obliga a que todos los cambios realizados por los
+desarrolladores sean puestos en común continuamente, lo que promueve
+la compartición de conocimiento entre todos los miembros del
+equipo. Cuando una persona va a integrar sus cambios primero debe
+comprobar que éstos son compatibles con los cambios que ha habido en
+el proyecto. Como se integra diariamente, éstos no serán demasiados y
+si hay algún error será fácil de solucionar.</p>
+<p>Sin embargo, si se desarrolla una versión separada que tarda mucho en
+integrarse será muy posible que cuando se realice la integración
+surjan muchos problemas de más difícil solución.</p>
+<h3 id="trunk-based-vs-feature-branches">Trunk based vs. feature branches</h3>
+<p>Uno de los debates frecuentes relacionados con los flujos de trabajo
+de Git es si es más conveniente un flujo de trabajo <em>trunk based</em>
+(basado en la rama principal) o uno con <em>feature branches</em> (ramas de
+características).</p>
+<p><img src="/img/trunk-feature.png" width="500px"/></p>
+<p>La imagen anterior está también sacada de la charla de Eduardo
+Ferro. En ella se muestran los dos flujos de trabajo y se muestran
+parejas de desarrolladores porque están aplicando también<a href="https://www.ionos.es/digitalguide/paginas-web/desarrollo-web/pair-programming/"> <em>pair
+programming</em></a>.</p>
+<p>En el <strong>flujo de desarrollo <em>trunk based</em></strong> todos los desarrolladores
+publican sus commits continuamente (al menos una vez al día) sobre la
+rama principal del proyecto. Esto obliga a mantenerse continuamente al
+día sobre los cambios que otros están introduciendo y a tener cuidado
+de que nuestros cambios vayan en la misma dirección.</p>
+<p>El desarrollador actualiza su repositorio local y comienza a programar
+un pequeño incremento (código y tests). Cuando termina lanza todos los
+tests para asegurarse de que no se ha roto nada. Antes de publicar los
+cambios, vuelve a actualizar el repositorio local con los nuevos
+cambios que se han añadido a la rama principal y vuelve a lanzar los
+tests. Si todo funciona bien, publica los cambios en el repositorio
+compartido.</p>
+<p>Entre las ventajas de esta técnica se encuentran:</p>
+<ul>
+<li>La integración de un nuevo commit es fácil porque la rama principal
+  ha cambiado poco desde el commit anterior que integramos. No ha
+  habido demasiado tiempo para que el proyecto diverja mucho.</li>
+<li>La transparencia en los cambios hace que se detecten antes los
+  error</li>
+<li>El conocimiento del equipo evoluciona conjuntamente. Todo el mundo
+  tiene información actualizada a diario de los cambios que se van
+  introduciendo en el proyecto.</li>
+<li>Obliga a dividir los cambios grandes en cambios pequeños que se van
+  integrando poco a poco. Esto obliga a hacer un mayor esfuerzo de
+  diseño y utilizar mejores arquitecturas de software.</li>
+</ul>
+<p>Entre los inconvenientes podemos destacar:</p>
+<ul>
+<li>Interrupciones más frecuentes en el flujo de trabajo del equipo
+  debido a problemas introducidos por malos commits.</li>
+<li>No se pueden hacer pull requests en los que se haga una revisión de
+  código.</li>
+<li>Necesidad más frecuente de <em>reverts</em> que corrigen equivocaciones.</li>
+<li>Obliga al equipo a una gran disciplina y a una gran madurez. No se
+  deben buscar culpables por los errores introducidos. Los errores
+  nos hacen aprender.</li>
+</ul>
+<p>El <strong>flujo de desarrollo de ramas de características</strong> se basa en separar ramas de características
+de la rama principal. En cada rama de característica se desarrolla una
+característica y se integra en la rama principal cuando esté
+terminada. Esta integración se puede hacer usando un pull request.</p>
+<p>Ventajas:</p>
+<ul>
+<li>Se integran en la rama principal cambios completos.</li>
+<li>Durante el desarrollo de la característica puedes aislarte del resto
+  del desarrollo del proyecto y centrarte únicamente en la
+  característica que estás desarrollando.</li>
+<li>Los fallos son locales a la rama. Un fallo no afecta al resto del
+  equipo. Puedes tomarte un tiempo en arreglar el fallo sin que el
+  resto del equipo se quede bloqueado.</li>
+<li>Posibilidad de usar pull requests y realizar revisiones de código.</li>
+</ul>
+<p>Inconvenientes:</p>
+<ul>
+<li>Si las ramas tienen una duración muy larga el proyecto puede haberse
+  modificado mucho cuando vayamos a hacer la integración, haciéndola
+  bastante complicada.</li>
+<li>El conocimiento compartido sobre el código del proyecto es mucho
+  menor y se limita a los posibles conflictos que podemos tener en la
+  rama que hemos desarrollado.</li>
+<li>El primero que integra su rama no tiene problemas, los problemas los
+  tienen las siguientes integraciones. Esto crea un efecto perverso en
+  el que intentamos ser los primeros posiblemente a costa de menos
+  calidad en el código.</li>
+</ul>
+<p>Posiblemente, la mejor opción sea comenzar con ramas de
+características e ir haciéndolas cada vez más cortas, de forma que se
+integren cada dos o tres días como máximo. Al igual que en el enfoque
+de <em>trunk based</em> podrían no ser características completas, sino
+pequeños incrementos. Por ejemplo, una rama
+podría contener la parte de backend de la característica y después
+haríamos la de frontend. Y cuando el equipo se acostumbre a hacer ramas
+cada vez más pequeñas, podríamos plantearnos la opción de pasar a un
+modelo basado en trunk.</p>
+<h3 id="herramientas-de-integracion-continua">Herramientas de integración continua</h3>
+<p>Una de las características fundamentales de la integración continua es
+que cada vez que se integra un commit en la rama principal se debe
+realizar una construcción automática del proyecto, lanzándose todos
+los tests en el entorno de integración continua y construyéndose el
+binario candidato a desplegar en producción.</p>
+<p>La forma de realizar esto es mediante las denominadas herramientas de
+integración continua.</p>
+<p><img src="/img/ci-tools.png" width="500px"/></p>
+<p>Podemos elegir como herramientas de integración continua una
+herramienta que instalamos en nuestros propios servidores de
+integración (<em>CI server</em>) o construcción continua (<em>continuous build
+server</em>) como <a href="https://www.jenkins.io">Jenkins</a> o también en un
+servicio en la nube como <a href="https://github.com/features/actions">GitHub
+Actions</a>.</p>
+<p>Cualquiera de estas herramientas permiten automatizar el lanzamiento
+de tests y la compilación automática de la aplicación y la generación
+de una aplicación distribuible. Esta aplicación puede ser un binario,
+un JAR o WAR, una máquina Docker, etc. que puede ser desplegada en
+distintos entornos, incluido el de producción.</p>
+<p><img src="/img/integration-server.jpg" width="700px"/></p>
+<p>El servicio de integración continua genera también notificaciones
+automáticas a todos los miembros del equipo indicando el estado de la
+compilación. También suele proporcionar un panel de control con la
+indicación del estado de cada build.</p>
+<p><img src="/img/jenkins-panel.gif" width="700px"/></p>
+<h3 id="generacion-del-ejecutable">Generación del ejecutable</h3>
+<p>El resultado de la compilación automática realizada por el servidor de
+integración continua debe ser un artefacto desplegable en los
+distintos entornos en los que vamos a probar la aplicación. La
+aplicación sólo se debe compilar una única vez y el resultado debe
+almacenarse en un sitio accesible por cualquier proceso y miembro del
+equipo.</p>
+<p>Es fundamental que las herramientas usadas para construir la
+aplicación puedan ser usadas desde línea de comando. De esta forma es
+mucho más sencillo adaptar y configurar distintos tipos de scripts de
+compilación (<em>build scripts</em>). Entre las herramientas más usadas
+destacamos las siguientes:</p>
+<ul>
+<li>Make (C, Unix)</li>
+<li>Rake (Ruby) </li>
+<li>Maven (Java)</li>
+<li>Gradle (Java, Scala, etc.)</li>
+<li>sbt (Scala, Play Framework)</li>
+</ul>
+<p>Igual que hay distintas herramientas de compilación para los
+diferentes lenguajes de programación, existen diferentes formatos en
+los que se guardan los artefactos binarios resultantes de la
+compilación. </p>
+<p><img src="/img/artefacto-jar.png" width="300px"/></p>
+<p>Por ejemplo, el binario resultante de una aplicación C es
+un fichero compilado que se ejecutará en el sistema operativo para el
+que haya sido compilada la aplicación, mientras que el resultante de
+una aplicación Java es un fichero JAR que podremos desplegar en
+cualquier máquina en la que tengamos instalado un JRE (<em>Java Runtime
+Environment</em>).</p>
+<p>Además tenemos el problema añadido de generación de distintos binarios
+para diferentes sistemas operativos. Por ejemplo, si estamos
+desarrollando una aplicación de escritorio que va a funcionar en
+Windows, Linux y Mac deberemos generar los binarios correspondientes a
+esas distintas plataformas y después testearlos de forma automática en
+distintos ordenadores cada uno con su sistema operativo
+específico.</p>
+<p>En la actualidad se está haciendo cada vez más popular la utilización
+de imágenes <a href="https://www.docker.com">Docker</a> como artefacto binario a
+distribuir y ejecutar. </p>
+<p><img src="/img/docker-images.webp" /></p>
+<p>Entre las ventajas de este enfoque se
+encuentran el ser multiplaforma (para ejecutarlas basta con tener
+instalado el <em>Docker Engine</em>) y que los contenedores (servicios en
+ejecución) se pueden configurar y combinar o ejecutar en clusters
+usando herramientas como <a href="https://kubernetes.io">Kubernetes</a>.</p>
+<p>Es una buena práctica darle a cada artefacto binario compilado un
+nombre distinto en el que aparezca el número de versión. En el caso de
+la integración continua, normalmente se le da al binario un nombre en
+el que aparece la fecha e incluso la hora de la compilación. De esta
+forma, las distintas compilaciones pueden ser identificadas de forma
+única. </p>
+<p>En el caso en que nuestra aplicación dependa de paquetes externos es
+conveniente descargarlos y almacenarlos en un sitio centralizado de
+forma que no tengan que descargarse de Internet cada vez que se
+realiza una nueva compilación. Para ello es conveniente configurar
+correctamente las cachés del sistema de build que estemos utilizando.</p>
+<p>La aplicación desplegable debe consistir en un único artefacto con el
+nombre correcto que contenga todo lo necesario para ejecutarse en
+distintos entornos de prueba y pueda ser puesto en producción. El
+artefacto debe almacenarse en un lugar centralizado, accesible desde
+los distintos entornos de forma automática. Por ejemplo, podemos usar
+un servidor web local y dejar el fichero en una URL concreta.</p>
+<h3 id="principios-y-practicas-de-integracion-continua">Principios y prácticas de integración continua</h3>
+<p>A continuación presentamos en forma de ítems un resumen de los
+elementos importantes de la integración continua que hemos visto hasta
+ahora.</p>
+<ul>
+<li>Desarrollo de código<ul>
+<li>El sistema debe siempre poder ser construido (build) y probado
+con éxito. </li>
+<li>Todo el mundo hace merge de los cambios con frecuencia.</li>
+<li>Después de cada commit, el sistema se integra inmediata y automáticamente.</li>
+<li>Se desarrolla el sistema en pequeños incrementos.</li>
+</ul>
+</li>
+<li>Testing<ul>
+<li>Los desarrolladores prueban su código en sus espacios de trabajo
+privados. </li>
+<li>Después mezclan los cambios en el repositorio.</li>
+</ul>
+</li>
+<li>Servidor de integración continua (CI server):<ul>
+<li>Monitoriza el repositorio y comprueba los cambios cuando
+ocurren.</li>
+<li>Construye el sistema y ejecuta las pruebas unitarias y de
+integración.</li>
+<li>Informa al equipo de la construcción con éxito o de los fallos.</li>
+</ul>
+</li>
+<li>Errores en los build<ul>
+<li>El equipo arregla el problema lo antes posible.</li>
+<li>Continuar para integrar y probar continuamente durante todo el
+  proyecto. </li>
+</ul>
+</li>
+<li>El último ejecutable compilado debe estar fácilmente disponible<ul>
+<li>El resultado de la compilación debe ser un artefacto ejecutable
+  disponible para desplegar en distintos entornos, incluso en
+  producción.</li>
+</ul>
+</li>
+</ul>
+<h2 id="configuracion-del-despliegue">Configuración del despliegue</h2>
+<p>Para hacer integración continua es necesario tener múltiples
+entornos. En el entorno de trabajo del desarrollador se pueden lanzar
+los tests más rápidos y utilizar una
+configuración en la que usemos una base de datos en memoria (como H2)
+que acelere la velocidad de los tests que utilicen base de datos.</p>
+<p>Se puede configurar un primer entorno de integración continua para que
+se ejecuten en él tests más lentos y con una configuración más
+parecida a la del entorno de producción. Por ejemplo, se puede
+utilizar una configuración en la que se utilice una base de datos
+similar a la que se usa en producción, poblada con datos de prueba. En
+este entorno se deben lanzar los tests rápidos y también tests más
+lentos de integración.</p>
+<p>Y después tendremos otros entornos cada vez más similares al entorno
+de producción en los que también se realizarán todos los tests
+automáticos y otros tests manuales necesarios para tener la
+confirmación de que todo está funcionando correctamente.</p>
+<p>En todos estos entornos deberemos instalar la misma aplicación
+compilada, y tendremos que modificar en cada caso su configuración. Es
+importante tener la capacidad de automatizar tanto la gestión de
+entornos de despliegue (arrancar las bases de datos correctas,
+configurar puertos, etc.) como la instalación y ejecución de la
+aplicación en el entorno.</p>
+<p>Antiguamente los distintos entornos eran máquinas físicas distintas,
+con configuraciones distintas previamente instaladas en cada una de
+ellas. Hoy en día es mucho más común utilizar entornos virtuales
+fácilmente construibles a partir de scripts y código usando
+herramientas de virtualización como Docker, Kubernetes, etc. También
+es habitual la utilización de entornos en la nube (Heroku, GitHub
+Actions, Amazon Web Services, etc.) tanto para prueba como para
+producción.</p>
+<h3 id="entornos-de-despliegue">Entornos de despliegue</h3>
+<p>Podemos diferenciar diferentes tipos de entornos (configuración de
+servicios y servidores) en los que se despliega y prueba el build de
+la aplicación. En general, ordenados de menor a mayor parecido a
+producción, podemos diferenciar.</p>
+<ul>
+<li><strong>Local</strong>: ordenador del desarrollador. Se ejecutan tests unitarios
+de la característica que se está desarrollando. </li>
+<li><strong>Desarrollo/Trunk/Master</strong>: ordenador de integración continua conectado
+a la rama de desarrollo en el que se ejecutan todos los tests
+unitarios continuamente. </li>
+<li><strong>Integración</strong>: Entorno en el que se sustituyen los mocks y bases de
+datos de memoria por servicios reales, aunque con copias parciales de
+los datos de producción.</li>
+<li><strong>Test/QA</strong>: Entornos en los que se realizan pruebas funcionales, de interfaz de usuario, de performance o de seguridad, entre otros. Pueden ser manuales y/o automatizados.</li>
+<li><strong>Stage/Preproducción</strong>: Entorno idéntico al de producción en el que se
+hace la última validación de la nueva versión a desplegar a
+producción. Copia de la base de datos de producción y con servidores
+similares a los de producción, para poder comprobar rendimiento.</li>
+<li><strong>Producción</strong>: Entorno que usan los clientes reales de la aplicación.</li>
+</ul>
+<h3 id="configuracion-de-la-aplicacion">Configuración de la aplicación</h3>
+<p>La aplicación debe poder funcionar en distintos entornos sin tener que
+ser recompilada. Para ello es necesario poder configurar su
+funcionamiento definiendo parámetros que podamos modificar previamente
+a su ejecución sin tener que recompilarla.</p>
+<p>Existen multitud de elementos que podemos necesitar configurar
+dependiendo del entorno en que queremos que funcione la
+aplicación. Por ejemplo:</p>
+<ul>
+<li>URL de conexión a la base de datos</li>
+<li>Usuario y contraseña de conexión a la base de datos</li>
+<li>Puerto en el que la aplicación va a recibir las peticiones</li>
+<li>Direcciones de los servicios a los que debe conectarse (por ejemplo,
+  servicio SMTP de correo electrónico)</li>
+</ul>
+<p>En cada entorno en los que va a funcionar la aplicación estos
+parámetros van a tener unos valores distintos que hay que pasarle a la
+aplicación cuando se ponga en funcionamiento. </p>
+<p>Existen diversas formas de definir estas propiedades. Las más usuales son:</p>
+<ul>
+<li>Mediante ficheros de configuración de la aplicación.</li>
+<li>Mediante variables de entorno cuyos valores establecemos con scripts
+  antes de lanzar la aplicación.</li>
+<li>Mediante argumentos del comando que lanza la aplicación</li>
+</ul>
+<p>Estas distintas configuraciones deben estar también guardadas en el
+control de versiones, igual que el código de la aplicación, para poder
+también controlar su evolución y sus cambios.</p>
+<h4 id="configuracion-de-imagenes-docker">Configuración de imágenes Docker</h4>
+<p>Docker también tiene muchas estrategias que permiten configurar la
+ejecución de una imagen. Una de las más utilizadas es hacer que la
+imagen utilice variables de entorno que pueden ser modificadas en
+al lanzar el contenedor. Para ello debemos definir en la imagen estas
+variables con el comando <code>ENV</code>, pudiendo dar valores por defecto.</p>
+<p>Por ejemplo, podemos definir el siguiente <code>Dockerfile</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>FROM alpine
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>ENV saludo=&quot;Hola, mundo!&quot;
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>CMD echo $saludo
+</code></pre></div>
+<p>Creamos la imagen:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ docker build -t saludo .
+</code></pre></div>
+<p>Si lanzamos la imagen muestra el saludo por defecto:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ docker run saludo
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Hola, mundo!
+</code></pre></div>
+<p>Y podemos configurar el saludo de varias formas. Por ejemplo,
+indicando el valor del parámetro al hacer <code>run</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$ docker run -e &quot;saludo=¿Qué tal estás?&quot; saludo
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>¿Qué tal estás?
+</code></pre></div>
+<p>O guardando el valor del parámetro en un fichero de propiedades que
+pasamos al ejecutar la imagen. Por ejemplo, en el fichero
+<code>propiedades.txt</code> escribimos lo siguiente:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>saludo=¿Qué passsa, colega?
+</code></pre></div>
+<p>Y ejecutamos la imagen de la siguiente forma:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$ docker run --env-file=propiedades.txt saludo
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>¿Qué passsa, colega?
+</code></pre></div>
+<h2 id="entrega-continua">Entrega continua</h2>
+<p>El concepto de Entrega continua (<em>Continuous Delivery</em>) es una
+extensión de la Integración continua que se popularizó a raíz del
+libro que publicaron en 2010 Jez Humble y David Farley (ver las referencias).</p>
+<p><img src="/img/continuous-delivery.jpg" width="200px"/></p>
+<p>Es un concepto que parte de la integración continua para llegar a una
+automatización completa de la puesta en producción. El objetivo es
+conseguir una puesta en producción (release) del software:</p>
+<ul>
+<li>Poco arriesgada</li>
+<li>Frecuente</li>
+<li>Barata</li>
+<li>Rápida</li>
+<li>Predecible</li>
+<li>Reproducible</li>
+</ul>
+<p>En palabras de Jez Humble, la entrega continua consiste en:</p>
+<blockquote>
+<p>“Reduce the cost, time, and risk of delivering incremental changes
+to users”</p>
+<p>Jez Humble (2013), Charla <a href="https://vimeo.com/68320415">Adopting Continuous Delivery</a></p>
+</blockquote>
+<p>Otra frase muy importante, que ya hemos comentado alguna vez:</p>
+<blockquote>
+<p>“How long would it take your organization to deploy a change that
+involved just one single line of code? Do you do this on a
+repeatable, reliable basis?” </p>
+<p>Mary Poppendieck</p>
+</blockquote>
+<p>Algunas técnicas que se utilizan en la Entrega continua (muchas de ellas ya las hemos visto):</p>
+<ul>
+<li>Pequeños cambios que se despliegan continuamente</li>
+<li>Todos los builds son candidatos al release </li>
+<li>Todo en el control de versiones (se debe poder probar cualquier release)</li>
+<li>Pipelines de despliegue (deployment pipelines) </li>
+<li>Integración continua: automatización de builds, tests, despliegues, entornos</li>
+</ul>
+<h3 id="pipeline-de-despliegue">Pipeline de despliegue</h3>
+<p>Tal y como hemos comentado cuando hablábamos de integración continua,
+un elemento central es de la automatización es el pipeline de
+despliegue. un pipeline de despliegue es una implementación
+automatizada del proceso de construcción, despliegue, prueba y
+lanzamiento de nuestro sistema.</p>
+<p>La utilización de un pipeline de despliegue garantiza la visibilidad
+de todo el proceso, lo que garantiza un feedback temprano y un control
+continuo del mismo.</p>
+<p>Explicación del libro de Jeff Humble:</p>
+<blockquote>
+<p>Cada cambio que se realiza sobre la configuración de la aplicación, su
+código fuente o sus datos, lanza la creación de una nueva instancia de
+el pipeline. Uno de los primeros pasos en el pipeline es crear los
+binarios y los instaladores. El resto de el pipeline ejecuta una serie
+de tests sobre los binarios para probar que pueden ser lanzados. Cada
+test que pasa el candidato a release nos da más confianza de que
+funcionará correctamente esta combinación particular de código
+binario, información de configuración, entorno y datos. Si el
+candidato a release pasa todos los tests, puede ser lanzado.</p>
+</blockquote>
+<p>En el libro de Humble y Farley se muestra el siguiente
+esquema que representa sus distintos elementos.</p>
+<p><img src="/img/tuberia-despliegue.png" width="700px"/></p>
+<ul>
+<li>En la parte superior se muestra el sistema de control de versiones,
+  en donde se almacena el código del proyecto y los datos de las
+  distintas configuraciones de los entornos y de la aplicación. Las
+  configuraciones de los entornos y de la aplicación se deben guardar
+  en el sistema de control de versiones para gestionar su evolución y
+  modificación de la misma forma que gestionamos la evolución del
+  código.</li>
+<li>En la parte inferior se muestra el repositorio de artefactos en
+  donde se almacenan los binarios de la aplicación. Puede ser, por
+  ejemplo, Docker Hub en el caso de ser una aplicación dockerizada.</li>
+<li>En la fase de commit el código se compila y se lanzan los tests
+  unitarios. Se generan los binarios que se almacenan en el
+  repositorio de artefactos.</li>
+<li>En la fase de aceptación se configuran y despliegan los binarios en
+  un entorno similar al de producción. Se realizan test de
+  aceptación/integración y se valida la aplicación y se deja lista para ser
+  publicada a producción por parte de Operaciones.</li>
+<li>En la fase de UAT (User Acceptance Testing) se realizan pruebas
+  manuales en un entorno lo más parecido posible al de producción.</li>
+<li>En la fase capacidad se realizan tests de rendimiento.</li>
+<li>El binario se despliega en producción si todas las fases anteriores
+  se pasan con éxito.</li>
+</ul>
+<p>En la siguiente figura se muestra un ejemplo de posible secuencia de
+despliegue:</p>
+<p><img src="/img/fases-tubería.jpg" width="600px"/></p>
+<p>Son muy útiles los tableros de control de el pipeline de despliegue,
+como por ejemplo el que proporciona Jenkins.</p>
+<p><img src="/img/pipeline-dashboard.png" width="600px"/></p>
+<h3 id="pequenos-cambios">Pequeños cambios</h3>
+<p>Tal y como hemos comentado en la introducción del tema, una
+práctica fundamental de los equipos que utilizan las técnicas de
+entrega continua es subir a producción continuamente pequeños cambios
+con los que se van introduciendo poco a poco las nuevas
+funcionalidades.</p>
+<p><img src="/img/deploy-carto.png" width="800px" /></p>
+<p>Por ejemplo, en la charla de Juan Ignacio Sánchez <a href="https://www.slideshare.net/juanignaciosl/continuous-integration-at-cartodb-march-16">Continuous
+Integration at
+CartoDB</a>
+(<a href="https://www.youtube.com/watch?v=fRB_rlUtxys">vídeo</a>) se explica cómo
+es el proceso de integración continua en <a href="https://carto.com">Carto</a>, una importante
+empresa española de gestión de datos geográficos.</p>
+<p>Algunas de las métricas que muestra en la charla reflejan claramente
+cuál es el funcionamiento de la integración continua en la empresa. Su
+producto opensource más importante es CartoDB (enlace a su
+<a href="https://github.com/CartoDB/cartodb">repositorio GitHub</a>). En la época
+de la charla el producto integraba una media de 22 pull requests
+semanales y 15 despliegues en producción.</p>
+<p>Si todos los cambios son pequeños, ¿cómo se introducen los cambios
+grandes en el proyecto?. Por ejemplo, nuevas características complejas
+en las que se necesitan combinar distintas funcionalidades
+elementales.</p>
+<p>Es posible ir desarrollando, probando y colocando las piezas en el
+código (sin mostrar en la interfaz de usuario) para que el sistema
+evolucione hacia un momento futuro en sea fácil introducir una
+característica totalmente nueva mediante un pequeño cambio. Como dice
+Kent Beck:</p>
+<blockquote>
+<p>Make the change easy, then make the easy change.</p>
+</blockquote>
+<p>Para ello podemos usar las siguientes estrategias:</p>
+<ul>
+<li>Codificación y prueba de las pequeñas funcionalidades por separado.</li>
+<li>Buen diseño de código, por ejemplo seleccionar una implementación
+  concreta utilizando interfaces y factorías, pero dejar la estructura
+  lista para introducir futuros cambios.</li>
+<li>Pequeños cambios en las APIs compatibles con los tests de
+  regresión.</li>
+<li>Uso de mocks.</li>
+<li>Interruptores de características.</li>
+</ul>
+<p><img src="/img/feature-toggle.jpeg" width="600px" /></p>
+<p>Esta última técnica es muy interesante. Consiste en definir
+interruptores o flags booleanos en el código que hagan que ciertas
+características se muestren o no en la aplicación dependiendo de si
+los flags están o no activos.</p>
+<p>En <a href="https://martinfowler.com/articles/feature-toggles.html">este
+artículo</a> se
+puede encontrar una explicación en profundidad de múltiples técnicas
+usadas para implementar los interruptores de
+características. Dependiendo de la técnica es posible hasta definir
+interruptores que se puedan modificar en tiempo de ejecución e incluso
+que se puedan mostrar o no la funcionalidad a según qué usuarios
+implementando un sistema de <em>canary release</em>. </p>
+<h3 id="canary-release">Canary release</h3>
+<p><img src="/img/canary-releases.jpg" /></p>
+<p>La idea del <a href="https://martinfowler.com/bliki/CanaryRelease.html"><em>canary
+release</em></a> consiste
+en configurar un sistema de despliegue que permita mantener
+simultáneamente en producción dos versiones de la aplicación. En el caso
+de una aplicación web, podríamos configurar un proxy o router
+intermedio que se encargue de encauzar las peticiones de los usuarios
+a una versión de la aplicación o a otra.</p>
+<p>Cuando se lanza una característica nueva se puede configurar el proxy
+para que sólo sea probada por una pequeña cantidad de usuarios y
+detectar posibles errores en este despliegue reducido. Cuando se haya
+comprobado con este pequeño grupo que todo funciona correctamente se
+modifica la configuración del proxy para que todos accedan a la nueva
+versión.</p>
+<p>La configuración del proxy puede llegar a ser bastante compleja,
+haciendo el filtro de usuarios en función de parámetros que nos
+interesen (localización, tipo de usuario, etc.).</p>
+<p>Este sistema también puede utilizarse, junto con el de interruptores
+de características, para realizar <a href="https://en.wikipedia.org/wiki/A/B_testing">pruebas
+A/B</a> de nuevas
+características.</p>
+<h3 id="devops">DevOps</h3>
+<p><img src="/img/devops.webp" width="600px"/></p>
+<p>Tradicionalmente el trabajo de los desarrolladores y el de los
+técnicos de operaciones (responsables de la puesta en producción del
+sistema, monitorización de servidores, etc. ) son contrapuestos.</p>
+<ul>
+<li><strong>Dev</strong>elopers:<ul>
+<li>Su trabajo es añadir nuevas características.</li>
+<li>Trabajan en entornos locales (“en mimáquina funciona”).</li>
+<li>Utilizan herramientas y lenguajes que permiten abstraer y automatizar.</li>
+</ul>
+</li>
+<li><strong>Op</strong>erations: <ul>
+<li>Su trabajo es mantener el sitio web seguro, estable y rápido.</li>
+<li>Detectar problemas, apagar fuegos.</li>
+</ul>
+</li>
+</ul>
+<p>Los desarrolladores quieren introducir cambios rápidamente en el
+sistema, mientras que a los técnicos de operaciones les gustaría
+mantener el sistema lo más estable posible.</p>
+<p>Los profesionales <a href="https://en.wikipedia.org/wiki/DevOps"><strong>DevOps</strong></a> representan una nueva filosofía de
+trabajo, que combina elementos propios de los desarrolladores y de
+operaciones, incorporando todas las nuevas técnicas de las que hemos
+estado hablando en este tema y herramientas denominadas
+<a href="https://en.wikipedia.org/wiki/Infrastructure_as_code"><em>Infrastructure-as-code</em></a>
+como Docker, Kubernetes, Ansible, Terraform,etc. en las que podemos definir la
+configuración de entornos y servidores usando código y ficheros
+almacenables en un sistema de control de versiones, en lugar de tener
+que configurar físicamente el hardware.</p>
+<h3 id="principos-y-buenas-practicas">Principos y buenas prácticas</h3>
+<p>En la charla mencionada anteriormente sobre prácticas de integración
+continua en Carto, Juan Ignacio Sánchez lista 10 buenas prácticas que
+ellos están siguiendo. Muchas ya las hemos visto, pero es interesante
+repasarlas todas juntas, validadas por la experiencia de su éxito en
+una empresa puntera de desarrollo de software. Son las siguientes:</p>
+<ol>
+<li>Mantener un repositorio de código</li>
+<li>Automatizar la compilación</li>
+<li>Hacer la compilación auto-testeable (mediante test automáticos)</li>
+<li>Todo el mundo realiza commits en la rama principal todos los días</li>
+<li>Cada commit en la rama principal debe ser compilado</li>
+<li>Mantener la compilación rápida</li>
+<li>Testear en un clon del entorno de producción</li>
+<li>Hacer fácil de obtener los últimos productos compilados</li>
+<li>Todo el mundo puede ver los resultados de las últimas compilaciones</li>
+<li>Automatizar el despliegue</li>
+</ol>
+<h2 id="consejos-adicionales">Consejos adicionales</h2>
+<p>La integración continua y el despliegue continuo son dos conceptos que pueden convertirse en aliados muy poderosos para nuestro equipo si ponemos los medios necesarios.</p>
+<p>Es obvio que nada de esto es posible sin una batería de pruebas sólidas, extensas y consistentes. Si no disponemos de pruebas unitarias de calidad y que cubran la totalidad de nuestro código, lo más probable es que nuestro CI nos de muchos falsos positivos (fallos que no han sido detectados por las pruebas unitarias), que a su vez provocará que se desplieguen fallos en nuestros entornos de pre-producción y producción.</p>
+<p>Por ejemplo, si el proceso de integración continua se ejecuta en nuestro servidor de Gitlab en vez de en el ordenador de cada desarrollador de nuestro equipo, estaremos facilitando la tarea de comprobación automatizada de error. Aún más importante, si dicho proceso se ejecuta en pocos minutos, estaremos creando un hábito entre las personas del proyecto de enviar más a menudo sus cambios al repositorio, ya que hacerlo les permitirá obtener una visión rápida sobre la calidad de su trabajo. Esto a su vez hará que la frecuencia de los cambios que se envían al repositorio sea más alta, mientras que el tamaño de cada cambio enviado sea más pequeño. Las tareas de revisión se harán más amenas y fáciles, y por lo tanto, mejora la velocidad con la que se integran dichos cambios en «develop». Nuestro equipo de control de calidad podrá tener un flujo continuo de trabajo, lo cual reducirá los tiempos «muertos» (personas «bloqueadas» a la espera de que otras personas terminen su trabajo).</p>
+<p>Por último, cabe decir que no es obligatorio que el despliegue continuo tenga lugar en cuanto un cambio se mezcle en las ramas de «develop» o «master». Existen muchos casos en los que el líder del equipo (o una persona con rol similar) deberá tomar la decisión de dar luz verde al proceso de despliegue en base a más factores. Es decir, el proceso en sí puede estar automatizado (es lo mas recomendable), pero la acción que desencadena el despliegue puede ser humana.</p>
+<h2 id="referencias">Referencias</h2>
+<ul>
+<li>Charla de Eduardo Ferro (2020): <a href="https://youtu.be/hbggtXmQcf8?t=444"><em>Continuous Delivery: Germinando una
+  cultura ágil moderna</em></a>. </li>
+<li>Martin Fowler (2006): <a href="https://martinfowler.com/articles/continuousIntegration.html"><em>Continuous Integration</em></a></li>
+<li>Jez Humble y David Farley (2010): <a href="https://learning.oreilly.com/library/view/continuous-delivery-reliable/9780321670250/"><em>Continuous Delivery</em></a></li>
+<li><a href="https://blog.develat.io/pipelines-ci-cd/">Integración continua y despliegue continuo</a></li>
+</ul>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Volver al principio
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Pie" >
+      
+        
+        <a href="../tips/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Trucos" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              Trucos
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "toc.integrate", "search.highlight", "content.code.annotate"], "search": "../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      
+    
+  </body>
+</html>
