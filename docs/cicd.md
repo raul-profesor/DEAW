@@ -75,7 +75,7 @@ La siguiente figura está sacada de la charla de Eduardo Ferro
 Germinando una cultura ágil
 moderna](https://youtu.be/hbggtXmQcf8?t=444). 
 
-<img src="DEAW/img/small-increments.jpg" width="500px"/>
+![](img/small-increments.jpg){: style="width:500px"}
 
 En la figura de la izquierda se entrega mucho valor de golpe y el
 riesgo que se ha ido acumulando es mucho mayor que en la figura de la
@@ -83,7 +83,7 @@ derecha, en la que se entregan pequeños incrementos de valor que
 nos permiten tener una retroalimentación más rápida y adaptar mucho
 mejor el producto a las necesidades de los clientes.
 
-<img src="/img/raspberry-pi-embedded-systems.png" width="200px" align="center"/>
+![](img/raspberry-pi-embedded-systems.png){: style="width:200px"}
 
 El proceso de puesta en producción del software depende mucho del tipo
 de software. En un extremo, por ejemplo, una página web se puede
@@ -101,6 +101,8 @@ cambio de una línea de código y cuáles son los cuellos de botella en
 el proceso.
 
 <img src="/img/ultima-milla.png" width="600px"/>
+![](){: style="width:600px"}
+
 
 La denominada _ultima milla_ consiste en los pasos necesarios para la
 puesta en producción de nuestro sistema. De nada nos sirve tener un
@@ -127,6 +129,8 @@ configuración de un pipeline de despliegue lo más automatizada
 posible.
 
 <img src="/img/deployment-pipeline.png" width="600px" />
+![](){: style="width:600px"}
+
 
 el pipeline representa todos los pasos necesarios que llevan el código
 fuente hasta producción. Lo veremos en detalle más adelante, pero es
@@ -161,6 +165,9 @@ lanzamiento es separar una rama de release de la rama de desarrollo.
 
 <img src="/img/release-branch.jpg" width="600px"/>
 
+![](){: style="width:600px"}
+
+
 
 Al separar la rama de release podemos seguir introduciendo cambios en
 la rama de desarrollo sin afectar para nada al release. En la rama de
@@ -176,6 +183,8 @@ sino que en cualquier commit de la rama principal es candidato a ser
 puesto en producción. 
 
 <img src="/img/continuous-delivery.png" width="600px"/>
+![](){: style="width:600px"}
+
 
 
 ## Integración continua ##
@@ -208,6 +217,8 @@ de Git es si es más conveniente un flujo de trabajo _trunk based_
 características).
 
 <img src="/img/trunk-feature.png" width="500px"/>
+![](){: style="width:600px"}
+
 
 La imagen anterior está también sacada de la charla de Eduardo
 Ferro. En ella se muestran los dos flujos de trabajo y se muestran
@@ -304,6 +315,8 @@ La forma de realizar esto es mediante las denominadas herramientas de
 integración continua.
 
 <img src="/img/ci-tools.png" width="500px"/>
+![](){: style="width:600px"}
+
 
 Podemos elegir como herramientas de integración continua una
 herramienta que instalamos en nuestros propios servidores de
@@ -319,6 +332,7 @@ un JAR o WAR, una máquina Docker, etc. que puede ser desplegada en
 distintos entornos, incluido el de producción.
 
 <img src="/img/integration-server.jpg" width="700px"/>
+![](){: style="width:600px"}
 
 El servicio de integración continua genera también notificaciones
 automáticas a todos los miembros del equipo indicando el estado de la
@@ -326,6 +340,8 @@ compilación. También suele proporcionar un panel de control con la
 indicación del estado de cada build.
 
 <img src="/img/jenkins-panel.gif" width="700px"/>
+![](){: style="width:600px"}
+
 
 
 ### Generación del ejecutable ###
@@ -355,6 +371,8 @@ los que se guardan los artefactos binarios resultantes de la
 compilación. 
 
 <img src="/img/artefacto-jar.png" width="300px"/>
+![](){: style="width:600px"}
+
 
 Por ejemplo, el binario resultante de una aplicación C es
 un fichero compilado que se ejecutará en el sistema operativo para el
@@ -376,6 +394,8 @@ de imágenes [Docker](https://www.docker.com) como artefacto binario a
 distribuir y ejecutar. 
 
 <img src="/img/docker-images.webp" />
+![](){: style="width:600px"}
+
 
  Entre las ventajas de este enfoque se
 encuentran el ser multiplaforma (para ejecutarlas basta con tener
@@ -586,6 +606,8 @@ extensión de la Integración continua que se popularizó a raíz del
 libro que publicaron en 2010 Jez Humble y David Farley (ver las referencias).
 
 <img src="/img/continuous-delivery.jpg" width="200px"/>
+![](){: style="width:600px"}
+
 
 Es un concepto que parte de la integración continua para llegar a una
 automatización completa de la puesta en producción. El objetivo es
@@ -649,6 +671,8 @@ En el libro de Humble y Farley se muestra el siguiente
 esquema que representa sus distintos elementos.
 
 <img src="/img/tuberia-despliegue.png" width="700px"/>
+![](){: style="width:600px"}
+
 
 - En la parte superior se muestra el sistema de control de versiones,
   en donde se almacena el código del proyecto y los datos de las
@@ -677,11 +701,15 @@ En la siguiente figura se muestra un ejemplo de posible secuencia de
 despliegue:
 
 <img src="/img/fases-tubería.jpg" width="600px"/>
+![](){: style="width:600px"}
+
 
 Son muy útiles los tableros de control de el pipeline de despliegue,
 como por ejemplo el que proporciona Jenkins.
 
 <img src="/img/pipeline-dashboard.png" width="600px"/>
+![](){: style="width:600px"}
+
 
 
 ### Pequeños cambios ###
@@ -693,6 +721,8 @@ con los que se van introduciendo poco a poco las nuevas
 funcionalidades.
 
 <img src="/img/deploy-carto.png" width="800px" />
+![](){: style="width:600px"}
+
 
 Por ejemplo, en la charla de Juan Ignacio Sánchez [Continuous
 Integration at
@@ -733,6 +763,8 @@ Para ello podemos usar las siguientes estrategias:
 - Interruptores de características.
 
 <img src="/img/feature-toggle.jpeg" width="600px" />
+![](){: style="width:600px"}
+
 
 Esta última técnica es muy interesante. Consiste en definir
 interruptores o flags booleanos en el código que hagan que ciertas
@@ -751,6 +783,8 @@ implementando un sistema de _canary release_.
 ### Canary release ###
 
 <img src="/img/canary-releases.jpg" />
+![](){: style="width:600px"}
+
 
 La idea del [_canary
 release_](https://martinfowler.com/bliki/CanaryRelease.html) consiste
@@ -780,6 +814,8 @@ características.
 ### DevOps ###
 
 <img src="/img/devops.webp" width="600px"/>
+![](){: style="width:600px"}
+
 
 Tradicionalmente el trabajo de los desarrolladores y el de los
 técnicos de operaciones (responsables de la puesta en producción del
