@@ -14,9 +14,9 @@ nav:
         - ServAplic.md
       - Prácticas:
         - ... | P3.*.md
-    - Tema 4 - Servicios de red implicados en el despliegue de aplicaciones web:
+    - Tema 4:
       - Teoría: 
-        -  ... | dns.md
+        - dns.md
       - Prácticas:
         - ... | P4.*.md
     - Tema 5:
@@ -51,9 +51,9 @@ nav:
         - tips.md
       - Prácticas:
         - ... | P7.*.md 
-    - Tema 7 - CI/CD (Integración y despliegue continuo):
+    - Tema 7:
       - Teoría: 
-        -  ... |  CICD.md
+        - cicd.md
       - Prácticas:
         - ... | P7.*.md    
 

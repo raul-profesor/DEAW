@@ -1,5 +1,5 @@
 ---
-title: 'Tema 3 - Servicios de red implicados en el despliegue de aplicaciones web'
+title: 'Tema 4 - Servicios de red implicados en el despliegue de aplicaciones web'
 ---
 
 # Servicio DNS (Domain Name System)
@@ -12,7 +12,7 @@ El servicio DNS proporciona independencia del nombre de dominio respecto a la IP
 
 ## Sistemas de nombres planos y jerárquicos
 
-El problema de la identificación de equipos se produce desde el principio de la existencia de las redes de ordenadores y no es algo específico de TCP/IP. Hacía falta un “lenguaje humano” para realizar esta identificación. 
+El problema de la identificación de equipos se produce desde el principio de la existencia de las redes de ordenadores y no es algo específico de TCP/IP. Hacía falta un *lenguaje humano* para realizar esta identificación. 
 
 En los albores de las redes, cuando ARPANET (la red predecesora de Internet), los nombres los equipos se centralizaban en un archivo llamado host.txt (/etc/hosts en Linux), que incluía el nombre del equipo y su IP. Esto es lo que se conoce como un ***sistema de nombres plano***. Puede ser adecuado para redes pequeñas pero no es escalable ni práctico en redes grandes y mucho menos en Internet. 
 
@@ -28,7 +28,7 @@ El **espacio de nombres de dominio** está formado por los nombres válidos util
 
 #### Nombres de dominio
 
-Los nombres de dominio pueden estar formados por una o más cadenas de caracteres separadas por puntos y no se distingue entre mayúsculas y minúsculas. Por ejemplo, www.serviciosenred.es. es lo mismo que WWW.SERVICIOSENRED.ES.. 
+Los nombres de dominio pueden estar formados por una o más cadenas de caracteres separadas por puntos y no se distingue entre mayúsculas y minúsculas. Por ejemplo, www.deaw.es. es lo mismo que WWW.deaw.ES.. 
 
 ![](img/dns3.png)
 
@@ -42,7 +42,7 @@ Un dominio se lee de derecha a izquierda, empezando por el punto `.`, aunque en 
 
 #### Dominios y subdominios
 
-Como consecuencia de la organización jerárquica del espacio de nombres de dominios, podemos utilizar los términos dominio y subdominio. Por ejemplo, `serviciosenred.es.` es un subdominio del dominio `es.` y `www.serviciosenred.es`. es un subdominio del dominio `serviciosenred.es.`. 
+Como consecuencia de la organización jerárquica del espacio de nombres de dominios, podemos utilizar los términos dominio y subdominio. Por ejemplo, `deaw.es.` es un subdominio del dominio `es.` y `www.deaw.es`. es un subdominio del dominio `deaw.es.`. 
 
 Los dominios o subdominios que cuelgan del dominio raíz `.` se conocen como dominios de primer nivel o dominios de nivel superior (Top Level Domains, TLD), los que cuelgan de los dominios TLD se denominan dominios de segundo nivel y así sucesivamente
 
@@ -54,32 +54,32 @@ Los servidores que gestionan la zona tienen información completa sobre ella y s
 
 Las **zonas** se almacenan en **archivos de texto** o en **bases de datos**, según el tipo de software que se utilice para montar el **servidor DNS** y de como se configure. 
 
-Tomemos como ejemplo el dominio serviciosenred.es. y veamos parte de su archivo de zona 
+Tomemos como ejemplo el dominio deaw.es. y veamos parte de su archivo de zona 
 
 ```linuxconfig
 ...
-serviciosenred.es.		 IN	NS		ns1.serviciosenred.es.
-ns1.serviciosenred.es.	 IN	A		192.168.1.20
-natos.serviciosenred.es. IN	A		192.168.1.21
-waor.serviciosenred.es.	 IN	A		192.168.1.22
-www.serviciosenred.es.	 IN	CNAME	natos.serviciosenred.es.
-ftp.serviciosenred.es.	 IN	CNAME	waor.serviciosenred.es.
+deaw.es.		 IN	NS		ns1.deaw.es.
+ns1.deaw.es.	 IN	A		192.168.1.20
+natos.deaw.es. IN	A		192.168.1.21
+waor.deaw.es.	 IN	A		192.168.1.22
+www.deaw.es.	 IN	CNAME	natos.deaw.es.
+ftp.deaw.es.	 IN	CNAME	waor.deaw.es.
 ...
 ```
 <u>A cada una de las líneas del fichero se las conoce como registros de recurso (RR: Resource Records) y definen los tipos de datos en el Domain Name System (DNS)</u>. Se utilizan para almacenar datos sobre nombres de dominio y direcciones IP. Una base de datos o fichero de zona está formada por una serie de registros de recursos. Cada registro de recurso da información pertinente sobre un objeto determinado. Por ejemplo, los **registros de tipo (A)** asocian un nombre de host con una dirección IP, y los **registros de puntero de búsqueda inversa (PTR)** asocian una dirección IP con un nombre de host y un **registro (NS)** define un servidor DNS para la zona. El servidor DNS utiliza estos registros de recurso para resolver las consultas de los hosts de su zona. 
 
-Cuando un **servidor DNS es autorizado** para una zona, es el responsable de los nombres de dominio para esa zona. En nuestro ejemplo, ns1.serviciosenred.es es el servidor autorizado para la zona serviciosenred.es. y en él se definen los nombres que cuelgan de serviciosenred.es como por ejemplo, www.serviciosenred.es, ftp.serviciosenred.es, natos.serviciosenred.es, etc. 
+Cuando un **servidor DNS es autorizado** para una zona, es el responsable de los nombres de dominio para esa zona. En nuestro ejemplo, ns1.deaw.es es el servidor autorizado para la zona deaw.es. y en él se definen los nombres que cuelgan de deaw.es como por ejemplo, www.deaw.es, ftp.deaw.es, natos.deaw.es, etc. 
 
-![](img/dns4.png)
+![](img/dns3.webp){: style="height:450px;width:650px"}
 
-La organización que administra el servidor DNS y por lo tanto la zona, puede delegar o no alguno de sus subdominios. Supongamos que de serviciosenred.es. cuelgan los subdominios teoria.serviciosenred.es. y practicas.serviciosenred.es. y se decide delegar solo el subdominio practicas.serviciosenred.es.. Esto implica que existirá otro servidor DNS autorizado para el dominio practicas.serviciosenred.es., que almacenará el fichero de zona para dicho dominio.
+La organización que administra el servidor DNS y por lo tanto la zona, puede delegar o no alguno de sus subdominios. Supongamos que de deaw.es. cuelgan los subdominios teoria.deaw.es. y practicas.deaw.es. y se decide delegar solo el subdominio practicas.deaw.es.. Esto implica que existirá otro servidor DNS autorizado para el dominio practicas.deaw.es., que almacenará el fichero de zona para dicho dominio.
 
 <u>Una zona no es lo mismo que un dominio.</u> Un **dominio** es un **subarbol del espacio de nombres de dominio** y los datos asociados a los nombres de un **dominio** pueden estar almacenados en una o varias **zonas**, distribuidas en uno o varios **servidores DNS**. 
 
 !!!info
     Básicamente una zona es una porción de un dominio.
 
-Un **servidor DNS** puede ser autorizado sobre varias **zonas**, por ejemplo, el mismo **servidor DNS** puede ser autorizado para la zona serviciosenred.es. y para la zona seguridadinformatica.es..
+Un **servidor DNS** puede ser autorizado sobre varias **zonas**, por ejemplo, el mismo **servidor DNS** puede ser autorizado para la zona deaw.es. y para la zona seguridadinformatica.es..
 
 ![](img/dns5.png)
 
@@ -107,8 +107,8 @@ $ORIGIN nombre-dominio
 Por ejemplo:
 
 ```linuxconfig
-$ORIGIN serviciosenred.es.
-;A partir de aquí se añade serviciosenred.es. a todos los nombres relativos
+$ORIGIN deaw.es.
+;A partir de aquí se añade deaw.es. a todos los nombres relativos
 ...
 ```
 ##### Formato general de los RR
@@ -121,7 +121,7 @@ Nombre de dominio		[TTL]		Clase		Tipo		Tipo-Dato
 Así por ejemplo, un RR quedaría tal que así:
 
 ```linuxconfig
-profesor.serviciosenred.es	7200		IN		A		192.168.10.254
+profesor.deaw.es	7200		IN		A		192.168.10.254
 ```
 
 ##### Tipos de registros
@@ -133,8 +133,8 @@ Aclarados los puntos anteriores, ahora sí vamos a ver los principales tipos de 
     Ejemplo:
 
     ```linuxconfig
-        serviciosenred.es.   IN   SOA   ns1.serviciosenred.es.   super.serviciosenred.es. (
-                                20190425001	; serial
+        deaw.es.   IN   SOA   ns1.deaw.es.   super.deaw.es. (
+                    20190425001	; serial
                     604800	; refresh (7 días)
                     86400	; retry (1 día)
                     2419200	; expire (28 días)
@@ -146,16 +146,16 @@ Aclarados los puntos anteriores, ahora sí vamos a ver los principales tipos de 
 
     ```linuxconfig
     ...
-    serviciosenred.es.	IN	NS	ns1.serviciosenred.es.	;Servidor DNS maestro
-    serviciosenred.es.	IN	NS	ns2.serviciosenred.es.	;Servidor DNS esclavo
-    serviciosenred.es.	IN	NS	dns.serviciosenred.net.	;Servidor DNS esclavo
+    deaw.es.	IN	NS	ns1.deaw.es.	;Servidor DNS maestro
+    deaw.es.	IN	NS	ns2.deaw.es.	;Servidor DNS esclavo
+    deaw.es.	IN	NS	dns.deaw.net.	;Servidor DNS esclavo
     
-    ns1.serviciosenred.es.	IN	A	192.168.10.20
-    ns2.serviciosenred.es.	IN	A	192.168.10.21
+    ns1.deaw.es.	IN	A	192.168.10.20
+    ns2.deaw.es.	IN	A	192.168.10.21
     
     ;DELEGACIÓN
-    practicas.serviciosenred.es.	IN	NS	ns1.practicas.serviciosenred.es.
-    redes.serviciosenred.es.	IN	NS	dns.serviciosenred.net.
+    practicas.deaw.es.	IN	NS	ns1.practicas.deaw.es.
+    redes.deaw.es.	IN	NS	dns.deaw.net.
     
     ```
 
@@ -163,9 +163,9 @@ Aclarados los puntos anteriores, ahora sí vamos a ver los principales tipos de 
   
     ```linuxconfig
     ...
-    ns1.serviciosenred.es.	    IN	A	192.168.10.20
-    ns2.serviciosenred.es.	    IN	A	192.168.10.21
-    natos.serviciosenred.es.	IN	A	192.168.10.22
+    ns1.deaw.es.	    IN	A	192.168.10.20
+    ns2.deaw.es.	    IN	A	192.168.10.21
+    natos.deaw.es.	IN	A	192.168.10.22
     ...
     ```
 
@@ -173,9 +173,9 @@ Aclarados los puntos anteriores, ahora sí vamos a ver los principales tipos de 
 
     ```linuxconfig
     ...
-    natos.serviciosenred.es.	IN	A	192.168.1.22
-    www.serviciosenred.es.	    IN	CNAME	natos.serviciosenred.es.
-    ftp.serviciosenred.es.	    IN	CNAME	natos.serviciosenred.es.
+    natos.deaw.es.	IN	A	192.168.1.22
+    www.deaw.es.	    IN	CNAME	natos.deaw.es.
+    ftp.deaw.es.	    IN	CNAME	natos.deaw.es.
     ...
     ```
 
@@ -183,7 +183,7 @@ Aclarados los puntos anteriores, ahora sí vamos a ver los principales tipos de 
 
     ```linuxconfig
     ...
-    www.serviciosenred.es.	IN	CNAME	www.serviciosenred.com.
+    www.deaw.es.	IN	CNAME	www.deaw.com.
     ...
     ```
 
@@ -191,11 +191,11 @@ Aclarados los puntos anteriores, ahora sí vamos a ver los principales tipos de 
 
     ```linuxconfig hl_lines="2 3"
     ...
-    serviciosenred.es.	IN	MX	10	mail1.serviciosenred.es.
-    serviciosenred.es.	IN	MX	20	mail2.serviciosenred.es.
+    deaw.es.	IN	MX	10	mail1.deaw.es.
+    deaw.es.	IN	MX	20	mail2.deaw.es.
     
-    mail1.serviciosenred.es.	IN	A	192.168.1.100
-    mail2.serviciosenred.es.	IN	A	192.168.1.101
+    mail1.deaw.es.	IN	A	192.168.1.100
+    mail2.deaw.es.	IN	A	192.168.1.101
     ...
     ```
 
@@ -205,15 +205,19 @@ Aclarados los puntos anteriores, ahora sí vamos a ver los principales tipos de 
 
     ```linuxconfig
     ...
-    20.1.168.192.in-addr.arpa.    IN    PTR    ns1.serviciosenred.es.
-    21.1.168.192.in-addr.arpa.    IN    PTR    ns2.serviciosenred.es.
-    22.1.168.192.in-addr.arpa.    IN    PTR    natos.serviciosenred.es.
+    20.1.168.192.in-addr.arpa.    IN    PTR    ns1.deaw.es.
+    21.1.168.192.in-addr.arpa.    IN    PTR    ns2.deaw.es.
+    22.1.168.192.in-addr.arpa.    IN    PTR    natos.deaw.es.
     ...
+    ```
+
     o lo que es lo mismo:
+    
+    ```linuxconfig
     ...
-    20    IN    PTR    ns1.serviciosenred.es.
-    21    IN    PTR    ns2.serviciosenred.es.
-    22    IN    PTR    natos.serviciosenred.es.
+    20    IN    PTR    ns1.deaw.es.
+    21    IN    PTR    ns2.deaw.es.
+    22    IN    PTR    natos.deaw.es.
     ...
     ```
 
@@ -223,7 +227,9 @@ Aclarados los puntos anteriores, ahora sí vamos a ver los principales tipos de 
     ...
     @	IN	TXT 	"Servidor maestro de Servicios en Red"
     @	IN	TXT 	"Servidor maestro de Servicios en Red"
+
     ```
+    
 ## Tipos de servidores DNS
 
 ### Servidor maestro o primario
@@ -318,3 +324,110 @@ Una consulta iterativa es aquella en la que el servidor DNS proporciona una resp
   + Negativas: no se puede resolver el nombre de dominio
   + Referencia: el servidor DNS indica a otros servidores a los que se le puede consultar para resolver la pregunta
   + Error: debido a un fallo en la red
+
+### Ejemplos 
+
+Completando la información de la imagen del primer ejemplo del apartado del **reenviador forwarder**:
+
+![](img/dns11.png)
+
+Completando la información de la imagen del segundo ejemplo del apartado del **reenviador forwarder**:
+
+![](img/dns12.png)
+
+## Resolución inversa
+
+La resolución inversa consiste en obtener información de un nombre de dominio preguntando por la dirección IP en vez de preguntar por el nombre de domino como hemos explicado en apartados anteriores.
+
+### Mapeo de direcciones y el dominio arpa
+
+El funcionamiento de la resolución de direcciones IP es igual al de la resolución de nombrres de dominio. Las direcciones IP se tratan como nombres que cuelgan del dominio `in-addr.arpa` para las direcciones IPv4, y del dominio `ip6.arpa` para las direcciones IPv6.
+
+![](img/dns13.png)
+
+Cuando usamos una dirección IP, por ejemplo `192.168.1.21`, para realizar una pregunta DNS inversa, en realidad estamos preguntando por el nombre de dominio `21.1.168.192.in-addr.arpa`. La estructura jerárquica de la dirección IP, tratada como nombre de dominio, es de derecha a izquierda, comenzando por el dominio `in-addr.arpa`.
+
+`.arpa (Address and Routing Parameter Area)` es un dominio de nivel superior genérico utilizado sólo para la infraestructura de Internet. Los subdominios de .arpa o dominios de segundo nivel «in-addr.arpa» e «ip6.arpa» son usados por los servidores DNS inversos para la obtención de direcciones IPv4 e IPv6 respectivamente.
+
+Cuando mapeamos una dirección IP estamos asociando la dirección IP al nombre en el dominio .arpa. Por ejemplo la dirección `192.168.1.21` es mapeada al nombre `21.1.168.192.in-addr.arpa`.
+
+### Zonas de resolución inversa
+
+Los servidores DNS almacenan zonas de resolución inversa con registros de recursos (RR) que asocien nombres de dominio con direcciones IP. Las zonas de resolución inversa pueden ser maestras o primarias y esclavas o secundarias.
+
+Las zonas de resolución directa e inversa son independientes y es responsabilidad de los administradores de los servidores DNS que dichas zonas contengan información coherente y que no existan discrepancias.
+
+No es obligatorio que la entidad que administra una zona de resolución directa de un dominio tenga que administrar la zona de resolución inversa que se corresponda con las direcciones IPs asociadas a dicho dominio.
+
+```linuxconfig
+...
+deaw.es.			IN	NS		ns1.deaw.es.
+ns1.deaw.es.		IN	A		192.168.1.20
+natos.deaw.es.	IN	A		192.168.1.21
+waor.deaw.es.		IN	A		192.168.1.22
+altea.deaw.es.		IN	A		192.168.1.23
+www.deaw.es.		IN	CNAME	natos.deaw.es.
+ftp.deaw.es.		IN	CNAME	waor.deaw.es.
+...
+```
+
+Archivo de zona de resolución directa del dominio deaw.es.
+
+```linuxconfig
+...
+1.168.192.in-addr.arpa.		IN	NS	ns1.deaw.es.
+20.1.168.192.in-addr.arpa.	IN	PTR	ns1.deaw.es.
+21.1.168.192.in-addr.arpa.	IN	PTR	natos.deaw.es.
+22.1.168.192.in-addr.arpa.	IN	PTR	waor.deaw.es.
+123.1.168.192.in-addr.arpa.	IN	PTR	altea.deaw.es.
+...
+```
+
+Archivo de zona de resolución inversa `1.168.192.in-addr.arpa` que permite resolver consultas inversas sobre direcciones IP de la red `192.168.1.0/24`
+
+### Proceso de resolución
+
+El proceso de resolución inversa es similar al de resolución directa. Las direcciones IP se tratan como nombres de dominio. Por lo tanto, existen consultas recursivas, iterativas, cache, TTL...
+
+Por ejemplo, si un cliente DNS realiza una consulta recursiva de la IP 192.168.1.21 a un servidor DNS, éste, si no lo tiene en cache, iniciará una serie de consultas iterativas a los servidores DNS raíz, a los servidores autorizados para el dominio 192.in-addr.arpa y así sucesivamente. 
+
+## Herramientas
+
+### Nslookup
+
+Es un programa para consultar servidores DNS. Se utiliza para saber si un servidor DNS resuelve correctamente los nombres DNS y las direcciones IP, para solucionar problemas frecuentes de los servidores DNS o, para diagnosticar problemas ocasionales de configuración en los servidores DNS. 
+
+Con nslookup podemos obtener la dirección IP asociada a un nombre DNS y viceversa, además, podemos preguntar a los servidores de nombres información relativa a los registros de recursos (RR) de la/s zona/s de las que son autorizados.
+
+nslookup se usa de dos modos: interactivo y no interactivo. El modo interactivo permite al usuario consultar los servidores DNS para obtener información sobre varios hosts y dominios o para listar los hosts de un dominios. El modo no interactivo se usa para presentar solo el nombre y la información solicitada para un host o nombre DNS.
+
+Este comando funciona tanto en sistemas operativos UNIX/Linux como en Windows.
+En su momento se trató a nslookup como una aplicación “deprecated” u obsoleta, pero a día de  hoy parece que ha vuelto a considerarse apta para su uso normal.
+
+![](img/dns14.png)
+
+![](img/dns15.png)
+
+![](img/dns16.png)
+
+### Dig
+Es un programa utilizado para preguntar a los servidores DNS.
+
+Herramienta utilizada para solucionar problemas de DNS gracias a su flexibilidad, facilidad de uso y claridad en la presentación de la información.
+Normalmente, dig se usa pasándole argumentos desde la línea de comandos (CLI), pero también tiene un modo de operar por lotes, leyendo las consultas desde un archivo.
+
+Este comando funciona tanto en sistemas operativos UNIX/Linux como en Windows
+
+![](img/dns17.png)
+
+### Host
+Host es una herramienta CLI sencilla y fácil de usar para realizar consultas DNS, que traducen nombres de dominio a direcciones IP y viceversa. También se utiliza para consultar los registros DNS de las zonas que almacenan los servidores DNS, probar y validar el servidor DNS y la conectividad a Internet, registros de correo no deseado y listas negras, diagnóstico de problemas en el servidor DNS...
+
+### Whois 
+Aunque no es una herramienta de diagnóstico DNS si que nos ofrece información sobre el registro del dominio.
+
+Whois es un protocolo que permite realizar consultas a bases de datos que contienen información; del usuario, empresa u organización que registra un nombre de dominio y/o una dirección IP en Internet. El protocolo whois se encapsula en TCP y solo especifica el intercambio de peticiones y respuestas, no el formato de datos a intercambiar. Por eso, los resultados de las consultas whois pueden variar dependiendo de la base de datos whois a la que se pregunte. 
+
+## Referencias
+
+[</Zeppelinux>](https://www.zeppelinux.es/sistema-de-nombres-de-dominio-dns/)

@@ -7,58 +7,23 @@ title: 'Tema 3 - Servidores de aplicaciones'
 ## Introducción
 
 
-
 Un servidor de aplicaciones es un marco mixto de software que permite tanto la creación de aplicaciones web como un entorno de servidor para ejecutarlas.
 
 A menudo puede ser una pila compleja de diferentes elementos computacionales que ejecutan tareas específicas que necesitan trabajar como uno solo para alimentar múltiples nubes y software y aplicaciones basadas en la web.
 
-Situado entre el servidor web y el nivel de back-end del servidor de bases de datos, el servidor de aplicaciones es esencialmente un intermediario para el servidor de bases de datos y los usuarios de las aplicaciones empresariales o de consumo que soporta mediante el uso de varios protocolos e interfaces de programación de aplicaciones (API).
+Situado entre el servidor web y el nivel de backend del servidor de bases de datos, el servidor de aplicaciones es esencialmente un intermediario para el servidor de bases de datos y los usuarios de las aplicaciones empresariales o de consumo que soporta mediante el uso de varios protocolos e interfaces de programación de aplicaciones (API).
 
-Dependiendo de lo que se instale, un servidor de aplicaciones puede clasificarse de varias maneras, como servidor web, servidor de aplicaciones de base de datos, servidor de aplicaciones de propósito general o servidor de aplicaciones empresariales.
+![](img/application-server1.webp){: style="width:600px"}
 
 Es habitual que se utilice junto con un servidor web o que contenga un servidor web, por lo que ambos pueden converger y denominarse servidor de aplicaciones web. También es lo suficientemente versátil como para ser utilizado con otros servidores de aplicaciones simultáneamente.
 
 Los servidores de aplicaciones también pueden contener sus propias interfaces gráficas de usuario para su gestión a través de PC, pero también pueden ocuparse de sus propios recursos, así como del procesamiento de transacciones, la mensajería, la agrupación de recursos y conexiones, y la realización de tareas de seguridad.
 
-## ¿Qué pasa con Java?
+## Servidor de aplicaciones 
 
-Para los requisitos de gama alta, los servidores de aplicaciones suelen contar con supervisión de alta disponibilidad, agrupación en clústeres, equilibrio de carga, redundancia integrada y servicios de aplicaciones distribuidas de alto rendimiento, así como soporte para el acceso a bases de datos complicadas.
+Las aplicaciones vienen en todas las formas, tamaños y casos de uso. En un mundo en el que dependemos de una serie de procesos empresariales críticos, los servidores de aplicaciones son los ordenadores de gran potencia que proporcionan recursos de aplicaciones a los usuarios y clientes web.
 
-Entre las plataformas de servidores de aplicaciones más populares están J2EE, WebLogic, Glassfish, JBoss Enterprise Application Platform, Apache Tomcat y Apache Geronimo, por nombrar sólo algunas.
-
-
-
-## ¿Por qué utilizar un servidor de aplicaciones? ¿Cuáles son las ventajas?
-
-Los servidores de aplicaciones se utilizan mejor cuando es necesario integrarse con bases de datos y servidores, por ejemplo, servidores web, que ya han sido creados y forman parte de la infraestructura informática existente de una organización.
-
-Una de las razones principales es que un servidor de aplicaciones puede servir como medio para proporcionar integridad al código y a los datos, al tener un enfoque integrado y centralizado para mantener las aplicaciones actualizadas. No tener uno puede llevar a diferentes versiones de la misma aplicación en toda la empresa, lo que a su vez podría traer consigo problemas de compatibilidad de software.
-
-Otra razón fundamental para utilizar un servidor de aplicaciones es que proporciona a la empresa una capa adicional de seguridad. Al situarse entre las páginas web y las bases de datos, un servidor de aplicaciones ayuda a actuar como una barrera adicional contra los ciberataques de inyección SQL, ya que no hay un vínculo directo entre una página web y una base de datos. Esta separación conlleva la necesidad de validación y/o la exigencia de mostrar la lógica de negocio, garantizando así que el texto introducido en un formulario en un sitio web no sea explotado como una llamada SQL maliciosa.
-
-La seguridad se ve reforzada por el establecimiento de procesos de autenticación centralizados y la gestión del acceso a los datos.
-
-El rendimiento de las aplicaciones de uso intensivo y de gran tamaño también puede ser impulsado por un servidor de aplicaciones, ya que se puede establecer un mayor control sobre el tráfico de la red.
-
-Y la capacidad de trabajar a escala es otro factor importante a la hora de considerar el uso de un servidor de aplicaciones, ya que su capacidad de agrupar conexiones a bases de datos significa que puede ampliarse para actuar como una granja de servidores web sin necesidad de añadir conexiones adicionales a las bases de datos subyacentes.
-
-## ¿En qué se diferencia de otros tipos de servidores?
-
-Aunque un servidor de aplicaciones y un servidor web puedan parecer similares a primera vista, en realidad son bastante diferentes. El primero se diferencia del segundo en que se ocupa de servir la lógica de negocio a las aplicaciones a través de un conjunto de protocolos. Un servidor web, en cambio, trabaja con peticiones HTTP, respondiendo y gestionándolas para llevar a cabo las funciones del sitio web, además de alojar dicho sitio web, almacenando su contenido estático, como imágenes, JavaScript, CSS y páginas HTML.
-
-En circunstancias comunes, un servidor web puede no soportar transacciones o agrupación de conexiones a bases de datos, pero puede tener características de tolerancia a fallos y escalabilidad, incluyendo caché, clustering y balanceo de carga.
-
-A su vez, un servidor web es diferente de un servidor de base de datos, ya que este último realiza tareas como el almacenamiento de datos, la manipulación y el análisis de datos, y el archivo, entre otras tareas relacionadas con la gestión de datos. Estos servidores de bases de datos utilizan un sinfín de protocolos, como ODBC o JDBC, por nombrar algunos. Los servidores de bases de datos, como es lógico, alojan bases de datos como Oracle, SQL Server, MySQL, etc.
-
-Cabe destacar que las funciones de estos servidores a menudo pueden agruparse para ofrecer una pila de servidores, con el fin de proporcionar efectivamente los subsistemas para apoyar, por ejemplo, un conjunto de software o componentes necesarios para crear una plataforma de servicios.
-
-## Servidor de aplicaciones II
-
-as aplicaciones vienen en todas las formas, tamaños y casos de uso. En un mundo en el que dependemos de una serie de procesos empresariales críticos, los servidores de aplicaciones son los ordenadores de gran potencia que proporcionan recursos de aplicaciones a los usuarios y clientes web.
-
-Los servidores de aplicaciones se sitúan física o virtualmente entre los servidores de bases de datos que almacenan los datos de las aplicaciones y los servidores web que se comunican con los clientes. Los servidores de aplicaciones y el middleware afín son los sistemas operativos que soportan el desarrollo y la entrega de una aplicación. Ya sea una aplicación de escritorio, móvil o web, los servidores de aplicaciones desempeñan un papel fundamental en la conexión de un mundo de dispositivos.
-
-Examinamos cómo los servidores de aplicaciones encajan en la arquitectura de servicios de una red, cómo los servidores de aplicaciones soportan los servidores web, las aplicaciones nativas y las aplicaciones móviles, y el estado actual de los servidores de aplicaciones en la década de 2020.
+Los servidores de aplicaciones, como ya hemos dicho, se sitúan física o virtualmente entre los servidores de bases de datos que almacenan los datos de las aplicaciones y los servidores web que se comunican con los clientes. Los servidores de aplicaciones y el middleware afín son los sistemas operativos que soportan el desarrollo y la entrega de una aplicación. Ya sea una aplicación de escritorio, móvil o web, los servidores de aplicaciones desempeñan un papel fundamental en la conexión de un mundo de dispositivos.
 
 ## Terminología de los servidores de aplicaciones
 
@@ -66,19 +31,19 @@ Examinamos cómo los servidores de aplicaciones encajan en la arquitectura de se
 | ----------- | ------------------------------------ |
 |  **Servidor web**  | Responsable de almacenar, procesar y entregar los datos de E/S de las páginas web |
 | **Cliente web**   |  Punto final que intenta acceder a los recursos de la web o de la aplicación |
-| **HTTPS**   |  Protocolo de comunicación entre el servidor web y los clientes web |
-|  **Servlet/JSON**  | Lenguaje para el intercambio entre los servidores web y de aplicaciones |
+| **HTTPS**   |  Protocolo de comunicación seguro entre el servidor web y los clientes web |
+|  **JSON**  | Lenguaje para el intercambio entre los servidores web y de aplicaciones |
 |  **Lógica de negocio**  | Reglas para el almacenamiento de datos y la transferencia de recursos de la aplicación |
 |  **Aplicación**  | Un programa de software o un sitio web unido a una base de datos |
 
 
 ## El papel del servidor de aplicaciones en la arquitectura de servicios
 
-Cuando los usuarios de las aplicaciones, ya sea el personal o los clientes web, solicitan acceso a una aplicación, el servidor de aplicaciones suele hacer el trabajo pesado en el backend para almacenar y procesar las solicitudes dinámicas de las aplicaciones.
+Cuando los usuarios de las aplicaciones, ya sea usuarios físicos o los clientes web, solicitan acceso a una aplicación, el servidor de aplicaciones suele hacer el trabajo pesado en el backend para almacenar y procesar las solicitudes dinámicas de las aplicaciones.
 
 ### ¿Por qué necesitamos servidores de aplicaciones?
 
-Miles de millones de clientes web hacen peticiones HTTP cada día, esperando un acceso instantáneo a usted-nombre-la-aplicación. Headspace durante la rutina de la mañana, Google Docs para el informe extenso, Twitter durante la pausa para el café, no importa la aplicación en uso, está siendo extraída de un servidor de aplicaciones y entregada a través de un servidor web.
+Miles de millones de clientes web hacen peticiones HTTP cada día, esperando un acceso instantáneo a la aplicación en cuestión. Headspace durante la rutina de la mañana, Google Docs para el informe extenso, Twitter durante la pausa para el café, no importa la aplicación en uso, está siendo consultada en un servidor de aplicaciones y devuelta a través de un servidor web.
 
 Los servidores web se encargan de servir a los clientes web peticiones HTTP con respuestas HTTP. A diferencia de los servidores de aplicaciones, el diseño del servidor web es lo suficientemente ligero como para procesar las solicitudes de datos estáticos de varias aplicaciones (o sitios web), manteniendo la seguridad. Las peticiones dinámicas, a menudo en forma de aplicaciones, requieren asistencia adicional.
 
@@ -94,6 +59,8 @@ Las organizaciones pueden proteger aún más sus datos con un servidor proxy inv
 ![a](img/serv_apl.png)
 
 ### ¿Cómo funcionan los servidores de aplicaciones? 
+
+Pongamos como ejemplo un servidor de aplicaciones Java.
 
 !!! info "**¿Qué son los servlets?**" 
 
@@ -120,69 +87,67 @@ Al recibir una solicitud de servlet de un servidor web, el servidor de aplicacio
 |   |Servidor de aplicaciones   | Servidor web   |
 |---|---|---|
 |  ***Diseñado para*** | Sirve peticiones HTTP y de otra lógica de negocio  |  Sirve peticiones HTTP |
-|  ***Almacena y proporciona*** |  Lógica de negocio |  Contention web estático |
+|  ***Almacena y proporciona*** |  Lógica de negocio |  Contenido web estático |
 |  ***La utilización de los recursos es*** | Pesada  |  Ligera  |
-| ***Soporta***  | Transacciones distribuidas y Enterprise JavaBeans (EJB)  | Servlets, Java Server Pages (JSP y JSON  |
+| ***Soporta***  | Transacciones distribuidas y Enterprise JavaBeans (EJB)  | Servlets, Java Server Pages (JSP) y JSON  |
 
 ## Servidores de aplicaciones en la década de 2020
 
-El mercado de los servidores de aplicaciones espera crecer a una CAGR del 13,2%, pasando de cerca de 17.000 millones de dólares en 2020 a 41.000 millones en 2026. El crecimiento continuo no es una sorpresa, ya que la conectividad a Internet y la dependencia de las aplicaciones crecen.
+El mercado de los servidores de aplicaciones espera crecer a una [CAGR](https://es.wikipedia.org/wiki/Tasa_de_crecimiento_anual_compuesto) del 13,2%, pasando de cerca de 17.000 millones de dólares en 2020 a 41.000 millones en 2026. El crecimiento continuo no es una sorpresa, ya que la conectividad a Internet y la dependencia de las aplicaciones crece.
 
-La migración a las plataformas y servicios en la nube y el auge de los dispositivos IoT son dos impulsores clave en el mercado de infraestructura de aplicaciones y middleware moderno. A esto hay que añadir un movimiento hacia las políticas BYOD y una fuerza de trabajo remota que depende de una mayor conectividad y eficiencia operativa. No hay que confundir el valor asignado a estos potentes módulos y su papel en el servicio a los clientes con recursos de aplicaciones.
+La migración a las plataformas y servicios en la nube y el auge de los dispositivos IoT son dos impulsores clave en el mercado de infraestructura de aplicaciones y middleware moderno. A esto hay que añadir un movimiento hacia las políticas BYOD (Bring Your Own Device) y una fuerza de trabajo remota que depende de una mayor conectividad y eficiencia operativa.
 
 
 ## Servidores de aplicaciones: El mejor amigo de un servidor web
 
-Los servidores de aplicaciones son fundamentales para las exigencias actuales de interconexión. Las empresas, en última instancia, están en deuda con los intereses de los clientes, y sin una conexión escalable y estable a los recursos de las aplicaciones, los clientes modernos huyen hacia las colinas.
+Los servidores de aplicaciones son fundamentales para las exigencias actuales de interconexión. Las empresas, en última instancia, están al servicio de los intereses de los clientes por lo que sin una conexión escalable y estable a los recursos de las aplicaciones, los clientes modernos huirán sin mirar atrás.
 
 Los servidores de aplicaciones asumen el papel de conector y mejor amigo de los servidores web. Cuando los servidores web tienen una petición del cliente que es demasiado para soportar, los servidores de aplicaciones hacen posible mantener la comunicación sin problemas con el contenido web dinámico.
 
 ## ¿Qué es el despliegue de aplicaciones web?
 
-El despliegue en el desarrollo de software y web significa empujar los cambios o actualizaciones de un entorno de despliegue a otro. Al configurar un sitio web, siempre tendrás tu sitio web en vivo, que se llama el entorno en vivo o entorno de producción.
+El despliegue en el desarrollo de software y web significa pasar los cambios o actualizaciones de un entorno de funcionamiento a otro. Al configurar un sitio web, siempre se tendrá el sitio web en vivo, que se llama el entorno en vivo o entorno de producción.
 
-Si quieres tener la capacidad de hacer cambios sin afectar a tu sitio web en vivo, entonces puedes añadir entornos adicionales. Estos entornos se llaman entornos de desarrollo o entornos de despliegue. Los entornos de desarrollo adicionales suelen ser un entorno local, un entorno de desarrollo y un entorno de preparación (también conocido como sitio de preparación). El número de entornos que necesitas depende de ti y de la complejidad del proyecto en el que estás trabajando.
+Si se quiere tener la capacidad de hacer cambios sin afectar a un sitio web en producción, se puede (y se debe) añadir entornos adicionales. Estos entornos se llaman entornos de desarrollo o entornos de despliegue. Los entornos de desarrollo adicionales suelen ser un entorno local, un entorno de desarrollo y un entorno de preparación o preproducción. El número de entornos que se necesitan depende de cada caso y de la complejidad del proyecto en el que se esté trabajando.
 
-Aunque los modelos de despliegue pueden variar, el más común es el clásico modelo de despliegue "de izquierda a derecha" cuando se trabaja con múltiples entornos de despliegue. En este modelo, los cambios se realizan en entornos locales, de desarrollo o de preparación (dependiendo de la configuración) y se empujan de izquierda a derecha a través de los diferentes entornos, terminando en el entorno en vivo. Una vez completado este proceso de despliegue, los nuevos cambios serán visibles en el entorno activo.
+Aunque los modelos de despliegue pueden variar, el más común es el clásico modelo de despliegue "de izquierda a derecha" cuando se trabaja con múltiples entornos de despliegue. En este modelo, los cambios se realizan en entornos locales, de desarrollo o de preparación (dependiendo de la configuración) y se van pasando de izquierda a derecha a través de los diferentes entornos, terminando en el de producción.
+
+Una vez completado este proceso de despliegue, los nuevos cambios serán visibles en el entorno activo.
 
 ![](img/deploy.png)
 
 En la imagen anterior se muestra una forma muy simplificada y clásica de manejar los despliegues cuando se trabaja con sitios web en un CMS. No necesariamente se necesitan todos los entornos anteriores, pero el proceso sigue siendo el mismo.
 
-Al utilizar múltiples entornos se obtiene una lista de ventajas - la principal es que se pueden hacer cambios sin que afecten a su sitio web en vivo. Una vez que los cambios se hacen, se prueban y están listos para ser empujado en vivo, el proceso de despliegue se encarga del resto.
+Al utilizar múltiples entornos se obtiene una lista de ventajas - la principal es que se pueden hacer cambios sin que afecten a su sitio web en vivo. Una vez que los cambios se hacen, **se prueban** y están listos para ser pasados a producción, el proceso de despliegue se encarga del resto.
 
 
 ### ¿De qué pasos consta el proceso despliegue?
 
 El flujo del proceso de despliegue consta de 5 pasos: Planificación, desarrollo, pruebas, despliegue y supervisión.
 
-A continuación nos adentraremos en cada uno de los 5 pasos, pero antes nos gustaría añadir una nota rápida.
+A continuación nos adentraremos en cada uno de los 5 pasos, pero antes una nota rápida.
 
-El flujo del proceso de despliegue que aparece a continuación cubre los aspectos fundamentales, que se dividen en 5 pasos. Esto no significa que sea la única manera de hacerlo - podría haber un proceso mejor para usted. Hemos intentado mantenerlo lo más sencillo posible para que cubra las partes más importantes.
+El flujo del proceso de despliegue que aparece a continuación cubre los aspectos fundamentales, que se dividen en 5 pasos. Esto no significa que sea la única manera de hacerlo - podría haber un proceso mejor para cada caso. Es una simplificación para que cubra las partes más importantes.
 
-Si tu situación requiere pasos adicionales en el proceso, entonces deberías hacerlo. 
 
-1. **Recuerde tener un plan de despliegue de software**
+1. **Recordar tener un plan de despliegue de software**
 
-    Para asegurarse de que el proceso de despliegue se desarrolle con la mayor fluidez posible, lo mejor es tener un plan de despliegue que se siga en todo momento. Al tener un plan te aseguras de que todo se haga de la misma manera cada vez que se realicen cambios. Esto es especialmente útil cuando varios usuarios trabajan en el mismo proyecto.
+    Para asegurarse de que el proceso de despliegue se desarrolle con la mayor fluidez posible, lo mejor es tener un plan de despliegue que se siga en todo momento. Al tener un plan nos aseguramos de que todo se haga de la misma manera cada vez que se realicen cambios. Esto es especialmente útil cuando varios usuarios trabajan en el mismo proyecto.
 
-    Un plan de despliegue debe incluir reglas sobre cuándo desplegar desde los entornos locales a los sitios de desarrollo o de puesta en escena, así como horarios para cuando los nuevos cambios pueden ir a un entorno en vivo. Al tener un plan establecido, se reduce el riesgo de conflictos entre los diferentes cambios y se asegura que el proceso de despliegue sea lo más fácil y fluido posible. Si estás trabajando en un proyecto de código abierto, también te da la oportunidad de hacer Release Candidates y dejar que tu comunidad lo pruebe para detectar cualquier error que puedas haber pasado por alto.
+    Un plan de despliegue debe incluir reglas sobre cuándo desplegar desde los entornos locales a los sitios de desarrollo o de puesta en escena, así como horarios para cuando los nuevos cambios pueden ir a un entorno en vivo. Al tener un plan establecido, se reduce el riesgo de conflictos entre los diferentes cambios y se asegura que el proceso de despliegue sea lo más fácil y fluido posible. Si se está trabajando en un proyecto de código abierto, también da la oportunidad de hacer Release Candidates y dejar que la comunidad lo pruebe para detectar cualquier error que se pueda haber pasado por alto.
 
-    Además de un plan general, también es importante planificar cada uno de los cambios que vayas a realizar. Este proceso será muy rápido para los cambios menores, pero debería ser mucho más extenso para los grandes cambios. Si planificas con mucha antelación, estarás mucho más preparado para tener un proceso de despliegue sin problemas.
+    Además de un plan general, también es importante planificar cada uno de los cambios que se vaya a realizar. Este proceso será muy rápido para los cambios menores, pero debería ser mucho más extenso para los grandes cambios. Si se planifica con mucha antelación, se estará mucho más preparado para tener un proceso de despliegue sin problemas.
 
  
 2. **El desarrollo propiamente dicho**
 
-    Una vez que tengas el plan en marcha, es el momento de hacer el desarrollo real. Para garantizar que cualquier desarrollo pueda realizarse simultáneamente y sin romper nada, es importante trabajar únicamente en entornos locales o de desarrollo. Una vez que el proceso de desarrollo está hecho, es el momento de empezar a probar y desplegar los cambios a través de la configuración de su entorno.
-
-    ¿No estás seguro de si trabajar en local o en un entorno de desarrollo? Entonces echa un vistazo a la sección de mejores prácticas de despliegue.
-
+    Una vez que se tenga el plan en marcha, es el momento de realizar el desarrollo real. Para garantizar que cualquier desarrollo pueda realizarse simultáneamente y sin romper nada, es importante trabajar únicamente en entornos locales o de desarrollo. Una vez que el proceso de desarrollo está hecho, es el momento de empezar a probar y desplegar los cambios a través de la configuración de su entorno.
  
 3. **Probar los cambios**
 
     Probar los cambios es crucial para garantizar que no haya errores en el entorno de producción final. Pero las pruebas no pueden completarse sin desplegar los cambios en nuevos entornos. 
 
-    Una vez que hayas comprobado que todos los cambios funcionan en tu entorno local o de desarrollo, es el momento de desplegar los cambios en el siguiente entorno. Esto debe hacerse hasta el entorno de preparación, donde se deben realizar las pruebas finales de control de calidad. Si todo está correctamente probado y funciona en un entorno parecido al entorno real, es el momento de desplegarlo en vivo.
+    Una vez que se haya comprobado que todos los cambios funcionan en el entorno local o de desarrollo, es el momento de desplegar los cambios en el siguiente entorno. Esto debe hacerse hasta el entorno de preproducción, donde se deben realizar las pruebas finales de control de calidad. Si todo está correctamente probado y funciona en un entorno parecido al entorno real, es el momento de desplegarlo en vivo.
 
     Si se descubren errores por el camino en cualquier entorno, es importante tener un plan para manejarlos. Por lo general, cualquier cambio que no pase las pruebas en el entorno de ensayo debe ser enviado de nuevo a la fase de desarrollo y -una vez corregido- volver a trabajar en los entornos.
 
@@ -198,9 +163,9 @@ Si tu situación requiere pasos adicionales en el proceso, entonces deberías ha
 
     Una vez que los nuevos cambios estén en marcha y los usuarios reales utilicen activamente el sitio web o la aplicación, es importante supervisar que todo funcione según lo previsto. Independientemente de la planificación realizada, existe la posibilidad de que los usuarios se encuentren con problemas o realicen acciones que usted no había previsto durante la planificación y el desarrollo.
 
-    Un buen consejo para la monitorización es planificar los lanzamientos para los momentos en los que la menor cantidad de usuarios lo noten y en los que tengas recursos de desarrollo listos en caso de que haya que arreglar algo. De este modo, el número de usuarios afectados por cualquier error será mínimo y tendrás gente preparada para arreglarlo o revertir los cambios si es necesario. 
+    Un buen consejo para la monitorización es planificar los lanzamientos para los momentos en los que la menor cantidad de usuarios lo noten y en los que se tengan recursos de desarrollo listos en caso de que haya que arreglar algo. De este modo, el número de usuarios afectados por cualquier error será mínimo y se tendrá gente preparada para arreglarlo o revertir los cambios si es necesario. 
 
-    Si tienes que revertir los cambios, es importante mantener la calma y tener un proceso para manejarlo con la misma minuciosidad con la que manejas los despliegues.
+    Si se han de revertir los cambios, es importante mantener la calma y tener un proceso para manejarlo con la misma minuciosidad con la que se manejan los despliegues.
 
 ## Diferentes tipos de despliegue
 
@@ -208,7 +173,7 @@ Cuando se trata del tipo de despliegue, a menudo se divide en dos partes. Por lo
  
 ### Despliegue de metadatos
 
-Los metadatos incluyen los cambios en el código, las plantillas, las hojas de estilo, los archivos, etc. Estos cambios a menudo requerirán una comprobación de validación entre entornos para ver si tienen algún conflicto imprevisto que deba resolverse. Muchas herramientas de despliegue incluyen comprobaciones de coherencia y ayudan a guiarte en caso de conflictos.
+Los metadatos incluyen los cambios en el código, las plantillas, las hojas de estilo, los archivos, etc. Estos cambios a menudo requerirán una comprobación de validación entre entornos para ver si tiene algún conflicto imprevisto que deba resolverse. Muchas herramientas de despliegue incluyen comprobaciones de coherencia y ayudan a guiarte en caso de conflictos.
  
 ### Despliegue de contenidos
 
@@ -216,18 +181,18 @@ El contenido, como el texto, las imágenes y los vídeos, se maneja de forma dif
 
 ### Mejores prácticas de despliegue
 
-Cuando se trabaja con entornos de despliegue, es importante, como se ha mencionado anteriormente, tener un plan y un proceso claro para ello en su equipo. Para ampliar ese proceso hemos reunido algunas mejores prácticas que son buenas para implementar como parte de su proceso.
+Cuando se trabaja con entornos de despliegue, es importante, como se ha mencionado anteriormente, tener un plan y un proceso claro para ello en el equipo. Para ampliar ese proceso hemos reunido algunas mejores prácticas que son buenas para implementar como parte de su proceso.
 
-Ten en cuenta que las siguientes prácticas recomendadas se refieren principalmente al desarrollo de software y de la web. Si estás haciendo otros tipos de desarrollo puede haber otras cosas a considerar en tu flujo de trabajo de despliegue.
+Se ha de tener en cuenta que las siguientes prácticas recomendadas se refieren principalmente al desarrollo de software y de la web. Si  se están llevando a cabo otros tipos de desarrollo puede haber otras cosas a considerar en el flujo de trabajo de despliegue.
 
  
-#### Utiliza Git
+#### Utilizar Git
 
 Esto puede parecer obvio, pero tener un sistema de control de versiones es inestimable para cualquier flujo de trabajo de despliegue. Sin él, es probable que se produzcan errores si se trabaja en equipo.
 
 Incluso si eres el único desarrollador que trabaja en un proyecto, es muy recomendable utilizar Git en caso de que necesites volver a versiones anteriores o si alguien nuevo se une a tu equipo.
 
-Sin Git será difícil asegurar la consistencia en tu flujo de trabajo de despliegue y puede llevar a que se cometan más errores por desplegar código inacabado o por no tener a todos los miembros del equipo trabajando en la misma versión del código.
+Sin Git será difícil asegurar la consistencia en el flujo de trabajo de despliegue y puede llevar a que se cometan más errores por desplegar código inacabado o por no tener a todos los miembros del equipo trabajando en la misma versión del código.
 
 #### Trabajar en ramas
 
@@ -235,86 +200,72 @@ Como regla general, tu equipo debería trabajar en ramas. Hacerlo así permitir�
 
 Un ejemplo es cuando se encuentra un error que debe ser corregido. Si un desarrollador está utilizando una rama para trabajar en una nueva característica, puede hacer rápidamente una nueva rama del entorno de desarrollo para trabajar en el error. De este modo, habrá dos ramas diferentes que no chocarán ni crearán posibles conflictos de fusión más adelante.
 
-Trabajar con ramas también ayuda a tu equipo de preguntas y respuestas a la hora de desplegar en un entorno de preparación. Tener los cambios en ramas separadas y fusionarlas dará a los probadores una mejor visión de lo que se empujó y lo que deben probar.
-Utiliza un entorno local como entorno de desarrollo
+Trabajar con ramas también ayuda al equipo con las preguntas y respuestas a la hora de desplegar en un entorno de preproducción. Tener los cambios en ramas separadas y fusionarlas dará a los testers una mejor visión de lo que se empujó (se hizo push) y lo que deben probar.
 
-Aunque es posible trabajar directamente en un entorno de desarrollo, en la mayoría de los casos se ahorrará mucho tiempo trabajando localmente. Al instalar el sitio web o el software de forma local, podrás trabajar de forma más eficiente y acelerar las pruebas y la verificación de tu código.
+#### Utilizar un entorno local como entorno de desarrollo
 
-El único inconveniente de trabajar en local es que tienes que instalar el sitio web o el software en tu máquina. Pero el tiempo invertido en ello se recupera varias veces a largo plazo.
+Aunque es posible trabajar directamente en un entorno de desarrollo, en la mayoría de los casos se ahorrará mucho tiempo trabajando localmente. Al instalar el sitio web o el software de forma local, se podrá trabajar de forma más eficiente y acelerar las pruebas y la verificación del código.
 
-En primer lugar, no tienes que confirmar, empujar y desplegar constantemente un cambio antes de poder verificar si funciona. Y cuando algo no funciona (esto nos pasa a todos) tendrás que revertirlo, empujarlo de nuevo y volver a desplegarlo.
+En primer lugar, no tienes hay que confirmar, empujar y desplegar constantemente un cambio antes de poder verificar si funciona. Y cuando algo no funciona (esto nos pasa a todos) tendrás que revertirlo, empujarlo de nuevo y volver a desplegarlo.
 
 En lugar de eso, puedes simplemente ejecutarlo todo localmente y, una vez que funcione como es debido, puedes empujarlo directamente al entorno de preparación para una prueba más rigurosa. 
 
-#### Revise las diferencias antes de desplegarlo en el entorno real
+#### Revisar las diferencias antes de desplegarlo en el entorno real
 
 Una vez que el equipo de pruebas se haya asegurado de que todo funciona en el entorno de pruebas, es el momento de desplegar el código en el entorno real. 
 
-Pero antes de hacer el despliegue final, es importante hacer una revisión final de las diferencias entre su entorno actual en vivo y el entorno de desarrollo que está empujando. 
+Pero antes de hacer el despliegue final, es importante hacer una revisión final de las diferencias entre el entorno actual en producción y el entorno de desarrollo del que se parte. 
 
-Este paso puede parecer excesivo y a menudo puede parecer redundante, ya que no se han encontrado errores. Entonces, ¿por qué seguimos recomendando este paso?
-
-Porque en esas pocas ocasiones en las que realmente se detectó un error.
-
-Incluso después de las pruebas exhaustivas y la garantía de calidad, las cosas pueden ir mal tan pronto como se llega al entorno real. Y una vez que eso sucede, a menudo puede ser muy estresante implementar correcciones rápidas o hacer una reversión completa de la versión. Por lo general, querrás evitar esto a toda costa, por lo que te recomendamos encarecidamente que hagas una revisión final de tu código antes de pulsar el botón de despliegue.
-Tener un calendario de despliegue
-
-Como parte de tu plan de despliegue, te recomendamos encarecidamente que incluyas también un calendario de despliegue. Tener un tiempo fijo para cuando los nuevos cambios pueden ser desplegados a su entorno en vivo es una gran manera de asegurarse de que todo el mundo sabe cuando los nuevos cambios están llegando.
-
-Puede ser tentador tomar un proceso más iterativo en el que los nuevos cambios son empujados tan pronto como están listos. Y aunque esto puede funcionar definitivamente para algunos cambios y algunos equipos, también hay situaciones en las que esto puede tener consecuencias desafortunadas. 
-
-Esto es especialmente cierto en el caso de los lanzamientos importantes, en los que es importante tener ojos y manos humanos reales listos si algo no funciona como se pretende. Y al programar los despliegues, su equipo puede planificar las tareas y las horas de trabajo en torno a estas ventanas de tiempo en las que podrían tener que ayudar con una corrección en caliente o una reversión.
-
-La frecuencia de las ventanas de despliegue y la hora del día en que deben planificarse es algo que trataremos más adelante.
+Incluso después de las pruebas exhaustivas y la garantía de calidad, las cosas pueden ir mal tan pronto como se llega al entorno real. Y una vez que eso sucede, a menudo puede ser muy estresante implementar correcciones rápidas o hacer una reversión completa de la versión. Por lo general, se querrá evitar esto a toda costa, por lo que es muy recomendable hacer una revisión final del código antes de pulsar el botón de despliegue.
 
 
-Una última nota: aunque tengas un calendario de despliegue, siempre es una buena idea hacer despliegues manuales en lugar de automáticos. Además de tener a alguien que haga la última revisión, también ayuda que alguien de tu equipo sepa exactamente cuándo y qué se desplegó.
+#### Considerar tener grupos de usuarios con diferentes permisos
 
-#### Considera tener grupos de usuarios con diferentes permisos
+Mientras que cualquier desarrollador debe ser capaz de empujar los cambios a los entornos de test, puede ser una buena idea para restringir quién puede desplegarlos en vivo.
 
-Mientras que cualquier desarrollador debe ser capaz de empujar los cambios a los entornos de ensayo, puede ser una buena idea para restringir quién puede desplegar en vivo.
+Para los equipos más pequeños, esto puede no tener mucho sentido, ya que puede crear un cuello de botella para implantar nuevos cambios. Pero si se trata de un equipo más grande con un nivel de experiencia muy variado entre los miembros del equipo, puede ser una gran idea dejar que sólo los desarrolladores senior desplieguen en el entorno de producción.
 
-Para los equipos más pequeños, esto puede no tener mucho sentido, ya que puede crear un cuello de botella para obtener nuevos cambios. Pero si se trata de un equipo más grande con un nivel de experiencia variado entre los miembros del equipo, puede ser una gran idea dejar que sólo los desarrolladores senior desplieguen en el entorno en vivo.
-
-Esto asegura efectivamente un mayor nivel de control sobre el flujo de liberación y también significa que al menos un par de ojos senior han visto lo que está pasando en el entorno real. Si tienes un enfoque muy iterativo con lanzamientos rápidos, esto podría ralentizarte. Aun así, dado que los cambios que se empujan son normalmente más pequeños con este enfoque, probablemente no te ralentizará mucho. Y si significa detectar algunos errores más, el tiempo que se ahorra al no tener que corregir errores compensará el tiempo invertido.
+Esto asegura efectivamente un mayor nivel de control sobre el flujo de releases y también significa que al menos un par de ojos senior han visto lo que está pasando en el entorno real. **Si lo que se tiene es un enfoque muy iterativo con lanzamientos rápidos como el utilizado en la metodología CD (Continous Delivery), esto podría ralentizarlo todo demasiado**. Aun así, dado que los cambios que se empujan son normalmente más pequeños con este enfoque, probablemente no se sufrirán grandes retrasos. Y si significa detectar algunos errores más, el tiempo que se ahorra al no tener que corregir errores compensará el tiempo invertido.
 
 Hablando de romper cosas...
 
-#### Mantenga la calma - incluso si algo se rompe
+#### Mantener la calma, incluso si algo se rompe
 
-Acabas de desplegar en tu entorno de producción y ahora tu sitio web está roto. ¿Le resulta familiar?
+Acabas de desplegar en tu entorno de producción y ahora tu sitio web está roto. Menuda liada, ¿ahora qué se hace?
 
-Desgraciadamente, estas cosas ocurren - no importa lo cuidadoso que seas. Pero en lugar de entrar en pánico y aplicar hotfixes o retroceder inmediatamente, es importante mantener la calma y asegurarse de que lo que está haciendo no va a romper las cosas aún más.
+Desgraciadamente, estas cosas ocurren - no importa lo cuidadoso que se sea. Pero en lugar de entrar en pánico y aplicar hotfixes o retroceder inmediatamente, es importante mantener la calma y asegurarse de que lo que está haciendo no va a romper las cosas aún más.
 
-En primer lugar, deberías comprobar si es posible realizar una reversión y si realmente se arreglaría algo. En algunas situaciones, es posible que hayas hecho cambios que son irreversibles y que una reversión sólo te causaría problemas aún mayores.
+En primer lugar, se debería comprobar si es posible realizar una reversión o ***rollback*** y si realmente se arreglaría algo. En algunas situaciones, es posible que se hayan hecho cambios que son irreversibles y un *rollback* sólo causaría problemas aún mayores.
 
-También hay que comprobar si lo que se ha roto es una característica existente o nueva. De nuevo, si la cosa que se rompió no era parte de la nueva versión, probablemente no servirá de nada hacer un rollback.
+También hay que comprobar si lo que se ha roto es una característica existente o nueva. De nuevo, si la cosa que se rompió no era parte de la nueva versión, probablemente no servirá de nada hacer un *rollback*.
 
-Así que en lugar de entrar en pánico, ten un plan preparado y respira hondo antes de ponerte a trabajar en la búsqueda de una solución. Puede parecer sencillo, pero puede ayudarte a salir de una mala situación mucho más rápido que si te lanzas directamente.
+Así que en lugar de entrar en pánico, se debe tener un plan preparado y respirar hondo antes de ponerse a trabajar en la búsqueda de una solución. Puede parecer sencillo, pero puede ayudar a salir de una mala situación mucho más rápido que si lanzándose directamente.
 
 
-#### ¿A qué hora del día debes desplegar los cambios?
+#### ¿A qué hora del día se deben desplegar los cambios?
 
-En caso de que algo se rompa al desplegar en el entorno de producción, es importante encontrar el mejor momento para hacerlo. Y aunque este momento varía mucho de un proyecto a otro, hay dos preguntas que puedes hacerte para determinar cuándo desplegar los cambios:
+En caso de que algo se rompa al desplegar en el entorno de producción, es importante encontrar el mejor momento para hacerlo. Y aunque este momento varía mucho de un proyecto a otro, hay dos preguntas que pueden hacerse para determinar cuándo desplegar los cambios:
 
    1. ¿Cuándo tiene la menor cantidad de usuarios activos?
    2. ¿Cuándo tiene a alguien preparado para supervisar y solucionar los problemas después del despliegue?
 
 #### ¿Cuándo tiene el menor número de usuarios activos?
 
-Por lo general, lo que quiere es que el menor número posible de personas se vea afectado por sus nuevos cambios. Por lo tanto, como regla general, debe buscar cualquier momento del día en el que el menor número de usuarios esté utilizando activamente su sitio web o software.
+Por lo general, lo que se quiere es que el menor número posible de personas se vea afectado por sus nuevos cambios. Por lo tanto, como regla general, debe buscar cualquier momento del día en el que el menor número de usuarios esté utilizando activamente el sitio web o software.
 
-En el caso de los sitios web, esto puede hacerse consultando las herramientas de análisis de datos que hayas elegido, por ejemplo, Google Analytics. Allí podrá crear informes personalizados que le muestren a qué hora del día tiene menos tráfico, así como identificar las horas punta en las que definitivamente no debería hacer ningún cambio.
+En el caso de los sitios web, esto puede hacerse consultando las herramientas de análisis de datos que se tengan en marcha, por ejemplo, Google Analytics. Allí se podrán crear informes personalizados que muestren a qué hora del díase  tiene menos tráfico, así como identificar las horas punta en las que definitivamente no se debería hacer ningún cambio.
 
 Además de mirar la hora del día, también puede valer la pena mirar cómo se reparte la actividad de los usuarios entre los días de la semana. 
 
-Este análisis es muy bueno, pero a menudo acabará con la misma respuesta: Debería publicar los cambios durante la noche. Y aunque esto podría parecer una gran idea si sólo nos fijáramos en esta cuestión, es importante que también tengamos en cuenta la siguiente.
+Este análisis es muy bueno, pero a menudo acabará con la misma respuesta: Deberían publicarse los cambios durante la noche. Y aunque esto podría parecer una gran idea si sólo nos fijáramos en esta cuestión, es importante que también tengamos en cuenta la siguiente.
 
 #### ¿Hay alguien despierto y preparado para solucionar posibles problemas en ese momento?
 
 Si la respuesta es no, entonces desplegar los cambios en mitad de la noche podría no ser la mejor idea.
 
-En su lugar, deberías identificar las franjas horarias en las que puedas encontrar el mejor equilibrio entre el número de usuarios activos y los desarrolladores dispuestos a solucionar los problemas. Esto variará mucho dependiendo de tu proyecto y de tu equipo, pero en general, deberías ser capaz de encontrar algunas opciones. Y si ya tienes un horario fijo de despliegue, incluso puedes convencer a tu equipo de que esté listo a horas extrañas del día. Es mucho más fácil convencer a alguien de que venga unas horas antes si sabe que sólo ocurre una vez cada ciclo o sprint.
+En su lugar, se deberían identificar las franjas horarias en las que puedas encontrar el mejor equilibrio entre el número de usuarios activos y los desarrolladores dispuestos a solucionar los problemas. Esto variará mucho dependiendo del proyecto y del equipo, pero en general, se deberían encontrar algunas opciones. Y si ya se tiene un horario fijo de despliegue, incluso puede convencerse al equipo de que esté listo a horas extrañas del día. Es mucho más fácil convencer a alguien de que venga unas horas antes si sabe que sólo ocurre una vez cada ciclo o sprint. 
+
+Es por este motivo que en muchas empresas se trabaja con guardias rotativas para ofrecer una disponibilidad total.
 
 !!!info warning
         **Aunque no hay un momento perfecto para el despliegue, definitivamente hay momentos que son mejores que otros.**
@@ -330,18 +281,18 @@ Tener varios usuarios trabajando en el mismo sitio web también garantiza que na
 
 #### Ahorro de tiempo
 
-Sin la preocupación de romper algo en un sitio web en vivo, puede realizar los cambios en el orden que prefiera. Esto significa que puedes optimizar tu flujo de trabajo para realizar los cambios sin tener en cuenta el aspecto o el funcionamiento del sitio web mientras lo haces.
+Sin la preocupación de romper algo en un sitio web en vivo, se pueden realizar los cambios en el orden que se prefiera. Esto significa que se puede optimizar el flujo de trabajo para realizar los cambios sin tener en cuenta el aspecto o el funcionamiento del sitio web mientras se lleva a cabo.
 
-Si trabajas en un entorno local también tienes la ventaja de que los cambios se procesan más rápido y no dependes de ningún problema de conectividad.
+Si se trabaja en un entorno local también existe la ventaja de que los cambios se procesan más rápido y no hay dependencias de ningún problema de conectividad.
 
-A la hora de desplegar los cambios, también ahorrarás tiempo, ya que podrás realizar todos los cambios al mismo tiempo en lugar de tener que hacerlo en varios pasos más pequeños.
+A la hora de desplegar los cambios, también se ahorrará tiempo, ya que se podrán realizar todos los cambios al mismo tiempo en lugar de tener que hacerlo en varios pasos más pequeños.
 
  
 #### El contenido sensible al tiempo es más fácil de gestionar
 
-Si está llevando a cabo campañas que son sensibles al tiempo y que sólo pueden ponerse en marcha a partir de un determinado día u hora, entonces la ejecución de múltiples entornos y el uso del despliegue pueden ahorrarle una gran cantidad de estrés.
+Si se están llevando a cabo campañas que son sensibles al tiempo y que sólo pueden ponerse en marcha a partir de un determinado día u hora, entonces la ejecución de múltiples entornos y el uso del despliegue pueden ahorrar una gran cantidad de estrés.
 
-Al crear todo el contenido en un entorno de puesta en escena (o similar) puedes terminar tu campaña sin preocuparte de que sea visible para tus usuarios. Y cuando llegue el momento de lanzarla, podrá hacerla visible en muy poco tiempo desplegándola en su entorno real.
+Al crear todo el contenido en un entorno de puesta en escena/preprod (o similar) puedes terminar tu campaña sin preocuparte de que sea visible para tus usuarios. Y cuando llegue el momento de lanzarla, podrá hacerla visible en muy poco tiempo desplegándola en su entorno real.
 
 Y si la herramienta de despliegue incluye roles de usuario con configuración de permisos, es posible que un editor de contenidos haga todo esto -incluyendo el despliegue de los cambios- sin involucrar a un desarrollador en el proceso.
 
@@ -352,7 +303,7 @@ Y si la herramienta de despliegue incluye roles de usuario con configuración de
 
 En el lado del servidor, tenemos que conseguir que nuestro servidor HTTP sea capaz de ejecutar programas de aplicación que recojan los parámetros de peticiones del cliente, los procesen y devuelvan al servidor un documento que éste pasará a su vez al cliente.
 
-Así, para el cliente el servidor no habrá hecho nada distinto a lo estipulado en el protocolo HTTP, pero el servidor podrá valerse de herramientas externas para procesar y servir la petición solicitada, pudiendo así no limitarse a servir páginas estáticas, sino utilizar otras aplicaciones (servlets, JSP, PHP, etc) para servir documentos con contenido dinámico.
+Así, para el cliente el servidor no habrá hecho nada distinto a lo estipulado en el protocolo HTTP, pero el servidor podrá valerse de herramientas externas para procesar y servir la petición solicitada, pudiendo así no limitarse a servir páginas estáticas, sino utilizar otras aplicaciones (servlets, JSP...) para servir documentos con contenido dinámico.
 
 Los programas de aplicación son típicamente programas que realizan consultas a bases de datos, procesan la información resultante y devuelven la salida al servidor, entre otras tareas.
 
@@ -393,7 +344,8 @@ Antes de existir Maven, si queríamos compilar y generar ejecutables de un proye
 
 En el mejor de los casos, se empleaban unos pocos minutos para saber cómo hacer una build del proyecto. En el peor de los casos, el proceso de build era tan complejo que un desarrollador podía tardar horas en saber cómo compilar y generar los ejecutables a partir del código.
 
-Ahora, la build de cualquier proyecto Maven, independientemente de sus módulos, dependencias, librerías…consiste simplemente en ejecutar el comando mvn install.
+Ahora, la build de cualquier proyecto Maven, independientemente de sus módulos, dependencias o librerías, consiste simplemente en ejecutar el comando `mvn install`.
+
 Por otra parte, antes de Maven, cada vez que salía una nueva versión de un analizador estático de código, de un framework de pruebas unitarias (como JUnit) o cualquier librería, había que parar todo el desarrollo para reajustar el proceso de build a las nuevas necesidades.
 
 Y… ¿cómo se ejecutaban las pruebas? ¿Cómo se generaban informes? Sin Maven, en cada proyecto esto se hacía de distinta manera.
@@ -492,7 +444,67 @@ package.json también soporta la propiedad scripts que puede definirse para ejec
   }
 }
 ```
-Con eslint, prettier, ncc, jest no necesariamente instalados como ejecutables globales sino como locales de tu proyecto dentro de node_modules/.bin/.
+Con eslint, prettier, ncc, jest no necesariamente instalados como ejecutables globales sino como locales de tu proyecto dentro de `node_modules/.bin/`.
+
+## CI/CD (Continous Integration/Continous Deployment-Delivery)
+
+La CI/CD es un método para distribuir las aplicaciones a los clientes con frecuencia mediante el uso de la automatización en las etapas del desarrollo de aplicaciones. Los principales conceptos que se le atribuyen son la integración, la distribución y la implementación continuas. Se trata de una solución para los problemas que puede generar la integración del código nuevo para los equipos de desarrollo y de operaciones (también conocida como "el infierno de la integración").
+
+En concreto, el proceso de integración y distribución continuas incorpora la automatización y la supervisión permanentes en todo el ciclo de vida de las aplicaciones, desde las etapas de integración y prueba hasta las de distribución e implementación. Este conjunto de prácticas se conoce como "canales de CI/CD" y cuenta con el respaldo de los equipos de desarrollo y de operaciones que trabajan en conjunto de manera ágil, con un enfoque de DevOps o de ingeniería de confiabilidad del sitio (SRE).
+
+### ¿Cuál es la diferencia entre la integración, la distribución y la implementación continuas?
+
+Estas siglas tienen diferentes significados. "CI" siempre se refiere a la integración continua, que es un proceso de automatización para los desarrolladores. El éxito de la CI implica que se diseñen, prueben y combinen los cambios nuevos en el código de una aplicación con regularidad en un repositorio compartido. Supone una solución al problema de que se desarrollen demasiadas divisiones de una aplicación al mismo tiempo, que luego podrían entrar en conflicto entre sí.
+
+La sigla "CD" se refiere a la distribución o la implementación continuas, y se trata de conceptos relacionados que suelen usarse indistintamente. Ambos se refieren a la automatización de las etapas posteriores del proceso, pero a veces se usan por separado para explicar hasta dónde llega la automatización.
+
+Por lo general, la distribución continua se refiere a que los cambios que implementa un desarrollador en una aplicación se someten a pruebas automáticas de errores y se cargan en un repositorio (como GitHub o un registro de contenedores), para que luego el equipo de operaciones pueda implementarlos en un entorno de producción en vivo. Es una solución al problema de la falta de supervisión y comunicación entre los equipos comerciales y de desarrollo, así que su propósito es garantizar que la implementación del código nuevo se lleve a cabo con el mínimo esfuerzo.
+
+La implementación continua (la otra definición de "CD") hace referencia al lanzamiento automático de los cambios que implementa el desarrollador desde el repositorio hasta la producción, para ponerlos a disposición de los clientes. Así ya no se sobrecarga a los equipos de operaciones con procesos manuales que retrasan la distribución de las aplicaciones. Con este tipo de implementación, se aprovechan los beneficios de la distribución continua y se automatiza la siguiente etapa del proceso.
+
+![](img/ci-cd-flow-desktop.png)
+
+La CI/CD puede incluir solamente la integración y la distribución continuas, o las tres prácticas vinculadas, con la implementación continua. Para complicar un poco más las cosas, a veces se utiliza el término "distribución continua" para abarcar también los procesos de la implementación continua.
+
+En realidad, no vale la pena profundizar en la semántica. Solo debe recordar que la integración y la distribución continuas son un proceso que suele percibirse como una canalización e implica incorporar un alto nivel de automatización permanente y supervisión constante al desarrollo de las aplicaciones.
+
+El significado de los términos varía en cada caso y depende de la cantidad de automatización que se haya incorporado a la canalización de integración y distribución continuas. Muchas empresas comienzan con la incorporación de la CI, y luego van automatizando la distribución y la implementación, por ejemplo, con las aplicaciones desarrolladas directamente en la nube.
+
+Nuestros especialistas pueden ayudar a que su empresa desarrolle las prácticas, las herramientas y la cultura necesarias para modernizar las aplicaciones actuales y diseñar otras nuevas con mayor eficiencia.
+
+### Integración continua
+
+El objetivo del diseño de las aplicaciones modernas es que los desarrolladores puedan trabajar de forma simultánea en distintas funciones de la misma aplicación. Sin embargo, si una empresa fusiona todo el código fuente diversificado en un solo día (conocido como el "día de la fusión"), las tareas pueden tornarse tediosas, manuales y muy lentas. Esto se debe a que si un desarrollador que trabaja de forma aislada implementa un cambio en una aplicación, existe la posibilidad de que entre en conflicto con las modificaciones que otros desarrolladores implementaron al mismo tiempo. El problema puede agravarse aún más si cada desarrollador personaliza su propio entorno de desarrollo integrado (IDE) local, en lugar de que todo el equipo adopte un IDE basado en la nube.
+
+![](img/ci.png){: style="width:400px"}
+
+La integración continua (CI) permite que los desarrolladores incorporen los cambios del código a un repositorio compartido con mayor frecuencia, o incluso a diario. Una vez que se incorporan las modificaciones del desarrollador, se validan con la compilación automática de la aplicación y la ejecución de distintas pruebas automatizadas (generalmente, de unidad e integración), para garantizar que los cambios no hayan introducido una falla. Esto significa que se debe probar todo, desde las clases y el funcionamiento hasta los distintos módulos que conforman toda la aplicación. Si una prueba automática detecta un conflicto entre el código nuevo y el actual, la CI facilita la resolución de esos errores con rapidez.
+
+### Distribución continua
+
+Después de la automatización de las compilaciones y las pruebas de unidad e integración de la CI, la distribución continua automatiza el traslado del código validado hacia un repositorio. Por eso, para que la distribución continua sea eficaz, es importante que la CI ya esté incorporada al proceso de desarrollo. El objetivo de la distribución continua es tener una base de código que pueda implementarse en el entorno de producción en cualquier momento.
+
+![](img/cd.png){: style="width:400px"}
+
+Cada etapa (desde la incorporación de los cambios al código hasta la distribución de las compilaciones listas para la producción) implica la automatización de las pruebas y del lanzamiento del código. Al final de este proceso, el equipo de operaciones puede implementar una aplicación para la producción de forma rápida y sencilla.
+Descubra las otras implementaciones que puede automatizar
+
+
+### Implementación continua
+
+La última etapa del canal consolidado de CI/CD es la implementación continua, que automatiza el lanzamiento de una aplicación a la producción, ya que es una extensión de la distribución continua, la cual automatiza el traslado de una compilación lista para la producción a un repositorio del código. Debido a que no hay ninguna entrada manual en la etapa anterior a la producción, la implementación continua depende en gran medida del correcto diseño de la automatización de las pruebas.
+
+![](img/cd2.png){: style="width:500px"}
+
+En la práctica, los cambios que implementan los desarrolladores en la aplicación en la nube podrían ponerse en marcha unos cuantos minutos después de su creación (siempre que hayan pasado las pruebas automatizadas). Esto facilita mucho más la recepción e incorporación permanente de los comentarios de los usuarios. En conjunto, todas estas prácticas de CI/CD permiten que se implementen las aplicaciones con menos riesgos, ya que es más fácil incorporar los cambios en las aplicaciones de a poco, en lugar de hacerlo todo de una sola vez. Sin embargo, también deben realizarse muchas inversiones iniciales, ya que se deben diseñar las pruebas automatizadas para que se adapten a las distintas etapas de prueba y lanzamiento en el canal de la CI/CD.
+
+## Conclusión
+
+Se ha explicado en este tema cuáles son las características, usos y diferencias entre los servidores web y los servidores de aplicaciones.
+
+También hemos explicado detalladamente en qué consiste un proceso de despliegue clásico de una aplicación web, cuáles son sus fases y características. Para reforzar este proceso, hemos listado una serie de buenas prácticas a la hora de llevarlo a cabo.
+
+Por último, hemos presentado las nuevas tendencias en el mundo del despliegue, como son las técnicas de CI/CD, que abordaremos de forma más profunda en el Tema 7.
 
 ## Referencias
 
@@ -509,3 +521,5 @@ Con eslint, prettier, ncc, jest no necesariamente instalados como ejecutables gl
 [Título de experto universitario en desarrollo de aplicaciones y servicios con JavaEE](http://www.jtech.ua.es/j2ee/restringido/cw/sesion01-apuntes.html)
 
 [Qué es Node.js y por qué debería usarlo](https://kinsta.com/es/base-de-conocimiento/que-es-node-js/)
+
+[¿Qué son la integración y la distribución continuas (CI/CD)?](https://www.redhat.com/es/topics/devops/what-is-ci-cd)
