@@ -75,7 +75,7 @@ La siguiente figura está sacada de la charla de Eduardo Ferro
 Germinando una cultura ágil
 moderna](https://youtu.be/hbggtXmQcf8?t=444). 
 
-<img src="img/small-increments.jpg" width="500px"/>
+<img src="DEAW/img/small-increments.jpg" width="500px"/>
 
 En la figura de la izquierda se entrega mucho valor de golpe y el
 riesgo que se ha ido acumulando es mucho mayor que en la figura de la
