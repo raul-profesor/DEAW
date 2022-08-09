@@ -21,7 +21,7 @@ nav:
         - ... | P4.*.md
     - Tema 5:
       - Teoría: 
-        - index.md
+        - index_git.md
         - cvs.md
         - introduccion.md
         - git.md
