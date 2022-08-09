@@ -819,7 +819,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../index_git/" class="md-nav__link">
         Tema 5 - Control de versiones
       </a>
     </li>
@@ -1355,8 +1355,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#continuouos-delivery-cd" class="md-nav__link">
-    Continuouos Delivery (CD)
+  <a href="#continuous-delivery-cd" class="md-nav__link">
+    Continuous Delivery (CD)
   </a>
   
 </li>
@@ -1566,7 +1566,7 @@
 <p class="admonition-title">Información</p>
 <p>Estos apuntes están basados en gran medida en unos apuntes de <a href="https://github.com/JJ/CC/">Domingo Gallardo</a> y se distribuyen porque <a href="https://github.com/JJ/CC/blob/master/LICENSE">su licencia</a> así lo permite.</p>
 </div>
-<h2 id="continuouos-delivery-cd">Continuouos Delivery (CD)</h2>
+<h2 id="continuous-delivery-cd">Continuous Delivery (CD)</h2>
 <p>Una idea fundamental de las metodologías ágiles es entregar valor
 frecuentemente para obtener una pronta retroalimentación del
 cliente. Para ello es necesario tener muy engrasados los procesos de
@@ -1621,13 +1621,13 @@ validarlo, menor será el riesgo.</p>
 (<a href="https://twitter.com/eferro">@eferro</a>) <a href="https://youtu.be/hbggtXmQcf8?t=444">Continuous Delivery:
 Germinando una cultura ágil
 moderna</a>. </p>
-<p><img src="/img/small-increments.jpg" width="500px"/></p>
+<p><img alt="" src="../img/small-increments.jpg" style="width:500px" /></p>
 <p>En la figura de la izquierda se entrega mucho valor de golpe y el
 riesgo que se ha ido acumulando es mucho mayor que en la figura de la
 derecha, en la que se entregan pequeños incrementos de valor que
 nos permiten tener una retroalimentación más rápida y adaptar mucho
 mejor el producto a las necesidades de los clientes.</p>
-<p><img src="/img/raspberry-pi-embedded-systems.png" width="200px" align="center"/></p>
+<p><img alt="" src="../img/raspberry-pi-embedded-systems.png" style="width:200px" /></p>
 <p>El proceso de puesta en producción del software depende mucho del tipo
 de software. En un extremo, por ejemplo, una página web se puede
 cambiar modificando directamente el fichero HTML en la propia máquina
@@ -1641,7 +1641,8 @@ extremos. Es importante analizar con detalle cuál es el proceso de
 despliegue de nuestro software, cuánto tarda en subir a producción un
 cambio de una línea de código y cuáles son los cuellos de botella en
 el proceso.</p>
-<p><img src="/img/ultima-milla.png" width="600px"/></p>
+<p><img src="/img/ultima-milla.png" width="600px"/>
+<img alt="" src="" style="width:600px" /></p>
 <p>La denominada <em>ultima milla</em> consiste en los pasos necesarios para la
 puesta en producción de nuestro sistema. De nada nos sirve tener un
 equipo ágil que hace iteraciones y reuniones con el cliente si después
@@ -1663,7 +1664,8 @@ botón.</p>
 <p>Un elemento central de todo el proceso de despliegue es la
 configuración de un pipeline de despliegue lo más automatizada
 posible.</p>
-<p><img src="/img/deployment-pipeline.png" width="600px" /></p>
+<p><img src="/img/deployment-pipeline.png" width="600px" />
+<img alt="" src="" style="width:600px" /></p>
 <p>el pipeline representa todos los pasos necesarios que llevan el código
 fuente hasta producción. Lo veremos en detalle más adelante, pero es
 interesante adelantarla aquí. En la imagen se puede ver:</p>
@@ -1694,6 +1696,7 @@ en cualquier momento. </p>
 <p>Recordemos que la forma más tradicional de enfrentar el problema del
 lanzamiento es separar una rama de release de la rama de desarrollo.</p>
 <p><img src="/img/release-branch.jpg" width="600px"/></p>
+<p><img alt="" src="" style="width:600px" /></p>
 <p>Al separar la rama de release podemos seguir introduciendo cambios en
 la rama de desarrollo sin afectar para nada al release. En la rama de
 release se realiza todo el pipeline de despliegue y se prueba en todos
@@ -1705,7 +1708,8 @@ la de desarrollo.</p>
 <p>En el enfoque de lanzamiento continuo no existen ramas de release,
 sino que en cualquier commit de la rama principal es candidato a ser
 puesto en producción. </p>
-<p><img src="/img/continuous-delivery.png" width="600px"/></p>
+<p><img src="/img/continuous-delivery.png" width="600px"/>
+<img alt="" src="" style="width:600px" /></p>
 <h2 id="integracion-continua">Integración continua</h2>
 <p>La Integración continua es una práctica en la que los miembros del
 equipo integran su trabajo frecuentemente en el proyecto. Se trata de
@@ -1729,7 +1733,8 @@ surjan muchos problemas de más difícil solución.</p>
 de Git es si es más conveniente un flujo de trabajo <em>trunk based</em>
 (basado en la rama principal) o uno con <em>feature branches</em> (ramas de
 características).</p>
-<p><img src="/img/trunk-feature.png" width="500px"/></p>
+<p><img src="/img/trunk-feature.png" width="500px"/>
+<img alt="" src="" style="width:600px" /></p>
 <p>La imagen anterior está también sacada de la charla de Eduardo
 Ferro. En ella se muestran los dos flujos de trabajo y se muestran
 parejas de desarrolladores porque están aplicando también<a href="https://www.ionos.es/digitalguide/paginas-web/desarrollo-web/pair-programming/"> <em>pair
@@ -1816,7 +1821,8 @@ los tests en el entorno de integración continua y construyéndose el
 binario candidato a desplegar en producción.</p>
 <p>La forma de realizar esto es mediante las denominadas herramientas de
 integración continua.</p>
-<p><img src="/img/ci-tools.png" width="500px"/></p>
+<p><img src="/img/ci-tools.png" width="500px"/>
+<img alt="" src="" style="width:600px" /></p>
 <p>Podemos elegir como herramientas de integración continua una
 herramienta que instalamos en nuestros propios servidores de
 integración (<em>CI server</em>) o construcción continua (<em>continuous build
@@ -1828,12 +1834,14 @@ de tests y la compilación automática de la aplicación y la generación
 de una aplicación distribuible. Esta aplicación puede ser un binario,
 un JAR o WAR, una máquina Docker, etc. que puede ser desplegada en
 distintos entornos, incluido el de producción.</p>
-<p><img src="/img/integration-server.jpg" width="700px"/></p>
+<p><img src="/img/integration-server.jpg" width="700px"/>
+<img alt="" src="" style="width:600px" /></p>
 <p>El servicio de integración continua genera también notificaciones
 automáticas a todos los miembros del equipo indicando el estado de la
 compilación. También suele proporcionar un panel de control con la
 indicación del estado de cada build.</p>
-<p><img src="/img/jenkins-panel.gif" width="700px"/></p>
+<p><img src="/img/jenkins-panel.gif" width="700px"/>
+<img alt="" src="" style="width:600px" /></p>
 <h3 id="generacion-del-ejecutable">Generación del ejecutable</h3>
 <p>El resultado de la compilación automática realizada por el servidor de
 integración continua debe ser un artefacto desplegable en los
@@ -1857,7 +1865,8 @@ destacamos las siguientes:</p>
 diferentes lenguajes de programación, existen diferentes formatos en
 los que se guardan los artefactos binarios resultantes de la
 compilación. </p>
-<p><img src="/img/artefacto-jar.png" width="300px"/></p>
+<p><img src="/img/artefacto-jar.png" width="300px"/>
+<img alt="" src="" style="width:600px" /></p>
 <p>Por ejemplo, el binario resultante de una aplicación C es
 un fichero compilado que se ejecutará en el sistema operativo para el
 que haya sido compilada la aplicación, mientras que el resultante de
@@ -1874,7 +1883,8 @@ específico.</p>
 <p>En la actualidad se está haciendo cada vez más popular la utilización
 de imágenes <a href="https://www.docker.com">Docker</a> como artefacto binario a
 distribuir y ejecutar. </p>
-<p><img src="/img/docker-images.webp" /></p>
+<p><img src="/img/docker-images.webp" />
+<img alt="" src="" style="width:600px" /></p>
 <p>Entre las ventajas de este enfoque se
 encuentran el ser multiplaforma (para ejecutarlas basta con tener
 instalado el <em>Docker Engine</em>) y que los contenedores (servicios en
@@ -2053,7 +2063,8 @@ pasamos al ejecutar la imagen. Por ejemplo, en el fichero
 <p>El concepto de Entrega continua (<em>Continuous Delivery</em>) es una
 extensión de la Integración continua que se popularizó a raíz del
 libro que publicaron en 2010 Jez Humble y David Farley (ver las referencias).</p>
-<p><img src="/img/continuous-delivery.jpg" width="200px"/></p>
+<p><img src="/img/continuous-delivery.jpg" width="200px"/>
+<img alt="" src="" style="width:600px" /></p>
 <p>Es un concepto que parte de la integración continua para llegar a una
 automatización completa de la puesta en producción. El objetivo es
 conseguir una puesta en producción (release) del software:</p>
@@ -2109,7 +2120,8 @@ candidato a release pasa todos los tests, puede ser lanzado.</p>
 </blockquote>
 <p>En el libro de Humble y Farley se muestra el siguiente
 esquema que representa sus distintos elementos.</p>
-<p><img src="/img/tuberia-despliegue.png" width="700px"/></p>
+<p><img src="/img/tuberia-despliegue.png" width="700px"/>
+<img alt="" src="" style="width:600px" /></p>
 <ul>
 <li>En la parte superior se muestra el sistema de control de versiones,
   en donde se almacena el código del proyecto y los datos de las
@@ -2136,17 +2148,20 @@ esquema que representa sus distintos elementos.</p>
 </ul>
 <p>En la siguiente figura se muestra un ejemplo de posible secuencia de
 despliegue:</p>
-<p><img src="/img/fases-tubería.jpg" width="600px"/></p>
+<p><img src="/img/fases-tubería.jpg" width="600px"/>
+<img alt="" src="" style="width:600px" /></p>
 <p>Son muy útiles los tableros de control de el pipeline de despliegue,
 como por ejemplo el que proporciona Jenkins.</p>
-<p><img src="/img/pipeline-dashboard.png" width="600px"/></p>
+<p><img src="/img/pipeline-dashboard.png" width="600px"/>
+<img alt="" src="" style="width:600px" /></p>
 <h3 id="pequenos-cambios">Pequeños cambios</h3>
 <p>Tal y como hemos comentado en la introducción del tema, una
 práctica fundamental de los equipos que utilizan las técnicas de
 entrega continua es subir a producción continuamente pequeños cambios
 con los que se van introduciendo poco a poco las nuevas
 funcionalidades.</p>
-<p><img src="/img/deploy-carto.png" width="800px" /></p>
+<p><img src="/img/deploy-carto.png" width="800px" />
+<img alt="" src="" style="width:600px" /></p>
 <p>Por ejemplo, en la charla de Juan Ignacio Sánchez <a href="https://www.slideshare.net/juanignaciosl/continuous-integration-at-cartodb-march-16">Continuous
 Integration at
 CartoDB</a>
@@ -2182,7 +2197,8 @@ Kent Beck:</p>
 <li>Uso de mocks.</li>
 <li>Interruptores de características.</li>
 </ul>
-<p><img src="/img/feature-toggle.jpeg" width="600px" /></p>
+<p><img src="/img/feature-toggle.jpeg" width="600px" />
+<img alt="" src="" style="width:600px" /></p>
 <p>Esta última técnica es muy interesante. Consiste en definir
 interruptores o flags booleanos en el código que hagan que ciertas
 características se muestren o no en la aplicación dependiendo de si
@@ -2196,7 +2212,8 @@ interruptores que se puedan modificar en tiempo de ejecución e incluso
 que se puedan mostrar o no la funcionalidad a según qué usuarios
 implementando un sistema de <em>canary release</em>. </p>
 <h3 id="canary-release">Canary release</h3>
-<p><img src="/img/canary-releases.jpg" /></p>
+<p><img src="/img/canary-releases.jpg" />
+<img alt="" src="" style="width:600px" /></p>
 <p>La idea del <a href="https://martinfowler.com/bliki/CanaryRelease.html"><em>canary
 release</em></a> consiste
 en configurar un sistema de despliegue que permita mantener
@@ -2218,7 +2235,8 @@ de características, para realizar <a href="https://en.wikipedia.org/wiki/A/B_te
 A/B</a> de nuevas
 características.</p>
 <h3 id="devops">DevOps</h3>
-<p><img src="/img/devops.webp" width="600px"/></p>
+<p><img src="/img/devops.webp" width="600px"/>
+<img alt="" src="" style="width:600px" /></p>
 <p>Tradicionalmente el trabajo de los desarrolladores y el de los
 técnicos de operaciones (responsables de la puesta en producción del
 sistema, monitorización de servidores, etc. ) son contrapuestos.</p>
