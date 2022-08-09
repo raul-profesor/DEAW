@@ -8,7 +8,7 @@ title: 'Tema 7 - CI/CD (Integración y despliegue continuo)'
     Estos apuntes están basados en gran medida en unos apuntes de [Domingo Gallardo](https://github.com/JJ/CC/) y se distribuyen porque [su licencia](https://github.com/JJ/CC/blob/master/LICENSE) así lo permite.
 
 
-## Continuouos Delivery (CD)
+## Continuous Delivery (CD)
 
 Una idea fundamental de las metodologías ágiles es entregar valor
 frecuentemente para obtener una pronta retroalimentación del
