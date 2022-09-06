@@ -1,14 +1,12 @@
 nav:
     - Tema 1:
+      - Prácticas:
+        - ... | debian.md
+    - Tema 2:
       - Teoría:
         - ArqWeb.md
       - Prácticas:
         - ... | P1.*.md
-    - Tema 2:
-      - Teoría:
-        - ... | n*.md
-      - Prácticas:
-        - ... | P2.*.md
     - Tema 3:
       - Teoría:
         - ServAplic.md

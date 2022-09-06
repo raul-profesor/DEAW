@@ -101,7 +101,7 @@ cambio de una línea de código y cuáles son los cuellos de botella en
 el proceso.
 
 <img src="/img/ultima-milla.png" width="600px"/>
-![](){: style="width:600px"}
+#![](){: style="width:600px"}
 
 
 La denominada _ultima milla_ consiste en los pasos necesarios para la
