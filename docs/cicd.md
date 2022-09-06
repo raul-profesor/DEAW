@@ -100,8 +100,8 @@ despliegue de nuestro software, cuánto tarda en subir a producción un
 cambio de una línea de código y cuáles son los cuellos de botella en
 el proceso.
 
-<img src="/img/ultima-milla.png" width="600px"/>
-#![](){: style="width:600px"}
+<!-- <img src="/img/ultima-milla.png" width="600px"/> -->
+![](img/ultima-milla.png){: style="width:600px"}
 
 
 La denominada _ultima milla_ consiste en los pasos necesarios para la
@@ -128,8 +128,8 @@ Un elemento central de todo el proceso de despliegue es la
 configuración de un pipeline de despliegue lo más automatizada
 posible.
 
-<img src="/img/deployment-pipeline.png" width="600px" />
-![](){: style="width:600px"}
+<!-- <img src="/img/deployment-pipeline.png" width="600px" /> -->
+![](img/deployment-pipeline.png){: style="width:600px"}
 
 
 el pipeline representa todos los pasos necesarios que llevan el código
@@ -163,9 +163,9 @@ en cualquier momento.
 Recordemos que la forma más tradicional de enfrentar el problema del
 lanzamiento es separar una rama de release de la rama de desarrollo.
 
-<img src="/img/release-branch.jpg" width="600px"/>
+<!-- <img src="/img/release-branch.jpg" width="600px"/> -->
 
-![](){: style="width:600px"}
+![](img/release-branch.jpg){: style="width:600px"}
 
 
 
@@ -182,8 +182,8 @@ En el enfoque de lanzamiento continuo no existen ramas de release,
 sino que en cualquier commit de la rama principal es candidato a ser
 puesto en producción. 
 
-<img src="/img/continuous-delivery.png" width="600px"/>
-![](){: style="width:600px"}
+<!-- <img src="/img/continuous-delivery.png" width="600px"/> -->
+![](img/continuous-delivery.png){: style="width:600px"}
 
 
 
@@ -216,8 +216,8 @@ de Git es si es más conveniente un flujo de trabajo _trunk based_
 (basado en la rama principal) o uno con _feature branches_ (ramas de
 características).
 
-<img src="/img/trunk-feature.png" width="500px"/>
-![](){: style="width:600px"}
+<!-- <img src="/img/trunk-feature.png" width="500px"/> -->
+![](img/trunk-feature.png){: style="width:600px"}
 
 
 La imagen anterior está también sacada de la charla de Eduardo
@@ -314,8 +314,8 @@ binario candidato a desplegar en producción.
 La forma de realizar esto es mediante las denominadas herramientas de
 integración continua.
 
-<img src="/img/ci-tools.png" width="500px"/>
-![](){: style="width:600px"}
+<!-- <img src="/img/ci-tools.png" width="500px"/> -->
+![](img/ci-tools.png){: style="width:500px"}
 
 
 Podemos elegir como herramientas de integración continua una
@@ -331,16 +331,16 @@ de una aplicación distribuible. Esta aplicación puede ser un binario,
 un JAR o WAR, una máquina Docker, etc. que puede ser desplegada en
 distintos entornos, incluido el de producción.
 
-<img src="/img/integration-server.jpg" width="700px"/>
-![](){: style="width:600px"}
+<!-- <img src="/img/integration-server.jpg" width="700px"/> -->
+![](img/integration-server.jpg){: style="width:700px"}
 
 El servicio de integración continua genera también notificaciones
 automáticas a todos los miembros del equipo indicando el estado de la
 compilación. También suele proporcionar un panel de control con la
 indicación del estado de cada build.
-
-<img src="/img/jenkins-panel.gif" width="700px"/>
-![](){: style="width:600px"}
+<!-- 
+<img src="/img/jenkins-panel.gif" width="700px"/> -->
+![](img/jenkins-panel.gif){: style="width:700px"}
 
 
 
@@ -370,8 +370,8 @@ diferentes lenguajes de programación, existen diferentes formatos en
 los que se guardan los artefactos binarios resultantes de la
 compilación. 
 
-<img src="/img/artefacto-jar.png" width="300px"/>
-![](){: style="width:600px"}
+<!-- <img src="/img/artefacto-jar.png" width="300px"/> -->
+![](img/artefacto-jar.png){: style="width:300px"}
 
 
 Por ejemplo, el binario resultante de una aplicación C es
@@ -393,11 +393,11 @@ En la actualidad se está haciendo cada vez más popular la utilización
 de imágenes [Docker](https://www.docker.com) como artefacto binario a
 distribuir y ejecutar. 
 
-<img src="/img/docker-images.webp" />
-![](){: style="width:600px"}
+<!-- <img src="/img/docker-images.webp" /> -->
+![](img/docker-images.webp)
 
 
- Entre las ventajas de este enfoque se
+Entre las ventajas de este enfoque se
 encuentran el ser multiplaforma (para ejecutarlas basta con tener
 instalado el _Docker Engine_) y que los contenedores (servicios en
 ejecución) se pueden configurar y combinar o ejecutar en clusters
@@ -605,8 +605,8 @@ El concepto de Entrega continua (_Continuous Delivery_) es una
 extensión de la Integración continua que se popularizó a raíz del
 libro que publicaron en 2010 Jez Humble y David Farley (ver las referencias).
 
-<img src="/img/continuous-delivery.jpg" width="200px"/>
-![](){: style="width:600px"}
+<!-- <img src="/img/continuous-delivery.jpg" width="200px"/> -->
+![](img/continuous-delivery.jpg){: style="width:200px"}
 
 
 Es un concepto que parte de la integración continua para llegar a una
@@ -670,8 +670,8 @@ Explicación del libro de Jeff Humble:
 En el libro de Humble y Farley se muestra el siguiente
 esquema que representa sus distintos elementos.
 
-<img src="/img/tuberia-despliegue.png" width="700px"/>
-![](){: style="width:600px"}
+<!-- <img src="/img/tuberia-despliegue.png" width="700px"/> -->
+![](img/tuberia-despliegue.png){: style="width:700px"}
 
 
 - En la parte superior se muestra el sistema de control de versiones,
@@ -700,15 +700,15 @@ esquema que representa sus distintos elementos.
 En la siguiente figura se muestra un ejemplo de posible secuencia de
 despliegue:
 
-<img src="/img/fases-tubería.jpg" width="600px"/>
-![](){: style="width:600px"}
+<!-- <img src="/img/fases-tubería.jpg" width="600px"/> -->
+![](img/fases-tubería.jpg){: style="width:600px"}
 
 
 Son muy útiles los tableros de control de el pipeline de despliegue,
 como por ejemplo el que proporciona Jenkins.
 
-<img src="/img/pipeline-dashboard.png" width="600px"/>
-![](){: style="width:600px"}
+<!-- <img src="/img/pipeline-dashboard.png" width="600px"/> -->
+![](img/pipeline-dashboard.png){: style="width:600px"}
 
 
 
@@ -720,8 +720,8 @@ entrega continua es subir a producción continuamente pequeños cambios
 con los que se van introduciendo poco a poco las nuevas
 funcionalidades.
 
-<img src="/img/deploy-carto.png" width="800px" />
-![](){: style="width:600px"}
+<!-- <img src="/img/deploy-carto.png" width="800px" /> -->
+![](img/deploy-carto.png){: style="width:800px"}
 
 
 Por ejemplo, en la charla de Juan Ignacio Sánchez [Continuous
@@ -762,8 +762,8 @@ Para ello podemos usar las siguientes estrategias:
 - Uso de mocks.
 - Interruptores de características.
 
-<img src="/img/feature-toggle.jpeg" width="600px" />
-![](){: style="width:600px"}
+<!-- <img src="/img/feature-toggle.jpeg" width="600px" /> -->
+![](img/feature-toggle.jpeg){: style="width:600px"}
 
 
 Esta última técnica es muy interesante. Consiste en definir
@@ -782,8 +782,8 @@ implementando un sistema de _canary release_.
 
 ### Canary release ###
 
-<img src="/img/canary-releases.jpg" />
-![](){: style="width:600px"}
+<!-- <img src="/img/canary-releases.jpg" /> -->
+![](img/canary-releases.jpg){: style="width:600px"}
 
 
 La idea del [_canary
@@ -813,8 +813,8 @@ características.
 
 ### DevOps ###
 
-<img src="/img/devops.webp" width="600px"/>
-![](){: style="width:600px"}
+<!-- <img src="/img/devops.webp" width="600px"/> -->
+![](img/devops.webp){: style="width:600px"}
 
 
 Tradicionalmente el trabajo de los desarrolladores y el de los
