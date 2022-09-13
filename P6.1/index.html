@@ -14,7 +14,7 @@
     
     
       
-        <title>P6.1 - Despliegue de aplicaciones web</title>
+        <title>Práctica 6.1 - Dockerización del despliegue de una aplicación con Node.js - Despliegue de aplicaciones web</title>
       
     
     
@@ -66,6 +66,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#practica-61-dockerizacion-del-despliegue-de-una-aplicacion-nodejs" class="md-skip">
+          Saltar a contenido
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -94,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              P6.1
+              Práctica 6.1 - Dockerización del despliegue de una aplicación con Node.js
             
           </span>
         </div>
@@ -1402,10 +1407,71 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Práctica 6.1 - Dockerización del despliegue de una aplicación con Node.js
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        P6.1
+        Práctica 6.1 - Dockerización del despliegue de una aplicación con Node.js
       </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccion" class="md-nav__link">
+    Introducción
+  </a>
+  
+    <nav class="md-nav" aria-label="Introducción">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#por-que-dockerizar" class="md-nav__link">
+    ¿Por qué dockerizar?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#despliegue-con-docker" class="md-nav__link">
+    Despliegue con Docker
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    Referencias
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1533,9 +1599,81 @@
               
                 
                 
-                  <h1>P6.1</h1>
+                <h1 id="practica-61-dockerizacion-del-despliegue-de-una-aplicacion-nodejs">Práctica 6.1 - Dockerización del despliegue de una aplicación Node.js</h1>
+<h2 id="introduccion">Introducción</h2>
+<p>En este caso vamos a Dockerizar la aplicación que ya desplegamos en la <a href="../P3.2-NodeJS-Express/">práctica 3.2</a>.</p>
+<h3 id="por-que-dockerizar">¿Por qué <em>dockerizar</em>?</h3>
+<p><a href="https://www.campusmvp.es/recursos/post/los-beneficios-de-utilizar-docker-y-contenedores-a-la-hora-de-programar.aspx">Si uno trata de informarse</a>, encontrará <a href="https://developerexperience.io/practices/dockerizing">múltiples y variadas razones</a> para dockerizar nuestras aplicaciones y servicios.</p>
+<p>Por citar sólo algunas:</p>
+<p><strong>1. Configuración rápida del entorno en local para el equipo de desarrollo:</strong> si todos los servicios están implementados con contenedores, es muy rápida la configuración de dicho entorno.</p>
+<p><strong>2. Evita el clásico "en mi máquina funciona":</strong> gran parte de los problemas de desarrollo provienen de la propia configuración que los integrantes del equipo de desarrollo tienen de su entorno. Con los servicios en contenedores, esto queda solucionado en gran medida.</p>
+<p><strong>3. Despliegues más rápidos</strong></p>
+<p><strong>4. Mejor control de versiones:</strong> como ya sabéis, se puede etiquetar (tags), lo que ayuda en el CONTROL DE VERSIONES.</p>
+<p><strong>5. Rollbacks más fáciles:</strong> puesto que se tienen las cosas mas controladas por la versión, es más fácil revertir el código. A veces, simplemente apuntando a su versión de trabajo anterior.</p>
+<p><strong>6. Fácil configuración de múltiples entornos:</strong> como hacen la mayoría de los equipos de desarrollo, se establece un entorno local, de integración, de puesta en escena (preprod) y de producción. Esto se hace más fácil cuando los servicios están en contenedores y, la mayoría de las veces, con sólo un cambio de VARIABLES DE ENTORNO.</p>
+<p><strong>7. Apoyo de la comunidad:</strong> existe una fuerte comunidad de ingenieros de software que continuamente contribuyen con grandes imágenes que pueden ser reutilizadas para desarrollar un gran software. ¿Por qué reinventar la rueda, no?</p>
+<h2 id="despliegue-con-docker">Despliegue con Docker</h2>
+<p>En primer lugar, si eliminastéis el repositorio en su momento, debéis volver a clonarlo en vuestra Debian, en caso contrario obviad este paso:</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>git clone https://github.com/contentful/the-example-app.nodejs.git
+</code></pre></div>
+Ahora, puesto que la aplicación ya viene con el <code>Dockerfile</code> necesario dentro del directorio para construir la imagen y correr el contenedor, vamos a estudiar su contenido:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">FROM</span> <span class="s">node:9</span> 
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="k">WORKDIR</span><span class="s"> /app</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="k">RUN</span> npm install -g contentful-cli
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="k">COPY</span> package.json .
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="k">RUN</span> npm install
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="k">COPY</span> . .
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="k">USER</span><span class="s"> node</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="k">EXPOSE</span><span class="s"> 3000</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="k">CMD</span> <span class="p">[</span><span class="s2">&quot;npm&quot;</span><span class="p">,</span> <span class="s2">&quot;run&quot;</span><span class="p">,</span> <span class="s2">&quot;start:dev&quot;</span><span class="p">]</span>
+</code></pre></div>
+<ol>
+<li>Con <code>FROM</code> indicamos que vamos a utilizar la imagen de Docker Hub oficial de Node, en su versión 9</li>
+<li><code>WORKDIR</code> define el directorio sobre el que se ejecutarán las subsiguientes instrucciones del <code>Dockerfile</code></li>
+<li><code>RUN</code> ejecuta un comando en una nueva capa de la imagen (podemos tener varios comandos <code>RUN</code>)</li>
+<li>
+<p><code>COPY</code> como su nombre indica, copia los archivos que le indiquemos dentro del contenedor, en este caso <code>package.json</code></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Recordemos que <code>package.json</code> cumplía ciertas funciones importantes:</p>
+<ul>
+<li>Centraliza la forma de interactuar con la aplicación por medio de definición de scripts (indica comandos que podemos correr dentro de nuestro proyecto, asociándolos a una palabra clave para que npm (o yarn) los reconozca cuando queramos ejecutarlos.)</li>
+<li>Gestiona de una forma clara y sencilla las dependencias necesarias para que la aplicación pueda funcionar correctamente.</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Con otro <code>RUN</code> ejecutamos el ya conocido comando que nos instala las dependencias que se indican en el archivo que hemos copiado en el paso anterior, el <code>package.json</code></p>
+</li>
+<li>Copiamos todos los archivos de nuestro directorio de trabajo al contenedor</li>
+<li>Con <code>USER</code> le indicaremos el usuario con el que correrá el contenedor</li>
+<li><code>EXPOSE</code> nos permite documentar que puertos están expuestos o a la escucha en el contenedor (sólo será accesible desde otros contenedores)</li>
+<li>Y finalmente <code>CMD</code> nos permite ejecutar un comando <strong><u>dentro</u></strong> del contenedor. En este caso iniciamos la aplicación.</li>
+</ol>
+<p>Así pues, tener nuestra aplicación corriendo es cuestión de un par de comandos.</p>
+<p>Hacemos un build de la imagen de Docker. Le indicamos que ésta se llama <code>the-example-app.nodejs</code> y que haga el build con el contexto del directorio actual de trabajo, así como del Dockerfile que hay en él:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>docker build -t the-example-app.nodejs .
+</code></pre></div>
+<p>Y por último, iniciamos el contenedor con nuestra aplicación. Ahora sí, con la opción <code>-p</code>, le indicamos que escuche conexiones entrantes de cualquier máquina en el puerto 3000 de nuestra máquina anfitrión que haremos coincidir con el puerto 3000 del contenedor (<code>-p 3000:3000</code>). Y con la opción <code>-d</code> lo haremos correr en modo demonio, en background:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>docker run -p <span class="m">3000</span>:3000 -d the-example-app.nodejs
+</code></pre></div>
+<p>Tras esto sólo queda comprobar que, efectivamente, desde nuestra máquina podemos acceder a: <code>http://IP_Maq_Virtual:3000</code> y que allí está nuestra aplicación en funcionamiento.</p>
+<div class="admonition task">
+<p class="admonition-title">Tarea</p>
+<p>Documenta, incluyendo capturas de pantallas, el proceso que has seguido para realizar el despliegue de esta nueva aplicación, así como el resultado final.</p>
+</div>
+<h2 id="referencias">Referencias</h2>
+<p><a href="https://www.campusmvp.es/recursos/post/los-beneficios-de-utilizar-docker-y-contenedores-a-la-hora-de-programar.aspx">Los beneficios de utilizar Docker y contenedores a la hora de programar </a></p>
+<p><a href="https://developerexperience.io/practices/dockerizing">Dockerizing</a></p>
+<p><a href="https://github.com/contentful/the-example-app.nodejs">Github</a></p>
                 
-                <p>Instalar composer: https://php.tutorials24x7.com/blog/how-to-install-composer-on-ubuntu-20-04-lts</p>
+                  
                 
               
               
