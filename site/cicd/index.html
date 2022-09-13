@@ -8,8 +8,9 @@
       
       
       
+      
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
     
     
       
@@ -17,30 +18,29 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.1d29e8d0.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.a57b2b03.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
         
-      
       
     
     
     
       
-        
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
       
+    
     
     
       <link rel="stylesheet" href="../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+
 
     
     
@@ -57,8 +57,9 @@
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="blue">
   
     
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -75,7 +76,6 @@
       
     </div>
     
-    
       
 
 <header class="md-header" data-md-component="header">
@@ -83,11 +83,11 @@
     <a href=".." title="Despliegue de aplicaciones web" class="md-header__button md-logo" aria-label="Despliegue de aplicaciones web" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -131,21 +131,22 @@
     
     
       <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
-      <div class="md-search" data-md-component="search" role="dialog">
+      
+<div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
         <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
         </button>
       </nav>
       
@@ -193,7 +194,7 @@
     <a href=".." title="Despliegue de aplicaciones web" class="md-nav__button md-logo" aria-label="Despliegue de aplicaciones web" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
     </a>
     Despliegue de aplicaciones web
@@ -261,8 +262,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../ArqWeb/" class="md-nav__link">
-        Tema 1 - Arquitectura Web. Implantación y administración de servidores web
+      <a href="../debian_teoria/" class="md-nav__link">
+        Tema 1 - Introducción
       </a>
     </li>
   
@@ -308,64 +309,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../P1.1/" class="md-nav__link">
-        Pràctica 1.1 – Instalación y configuración de servidor web Nginx
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../P1.2/" class="md-nav__link">
-        Práctica 1.2 – Autenticación en Nginx
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../P1.3/" class="md-nav__link">
-        Práctica 1.3 – Proxy inverso con Nginx
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../P1.4/" class="md-nav__link">
-        Práctica 1.4 – Balanceo de carga con proxy inverso en Nginx
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../P1.5/" class="md-nav__link">
-        Practica1.5 - Proxy invers y balanceo de carga con SSL en NGINX
+      <a href="../debian/" class="md-nav__link">
+        Instalación y configuración de nuestra máquina virtual
       </a>
     </li>
   
@@ -418,9 +363,82 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          Teoría
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Teoría" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Teoría
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
-        Teoría
+      <a href="../ArqWeb/" class="md-nav__link">
+        Tema 2 - Arquitectura Web. Implantación y administración de servidores web
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Prácticas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Prácticas" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Prácticas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../P1.1/" class="md-nav__link">
+        Pràctica 2.1 – Instalación y configuración de servidor web Nginx
       </a>
     </li>
   
@@ -433,9 +451,58 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
-        Prácticas
+      <a href="../P1.2/" class="md-nav__link">
+        Práctica 2.2 – Autenticación en Nginx
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../P1.3/" class="md-nav__link">
+        Práctica 2.3 – Proxy inverso con Nginx
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../P1.4/" class="md-nav__link">
+        Práctica 2.4 – Balanceo de carga con proxy inverso en Nginx
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../P1.5/" class="md-nav__link">
+        Practica 2.5 - Proxy inverso y balanceo de carga con SSL en NGINX
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -597,7 +664,7 @@
   
     <li class="md-nav__item">
       <a href="../P3.4-Heroku/" class="md-nav__link">
-        Práctica 3.4 - Despliegue de una aplicación Node.js en Heroku (PaaS)
+        Práctica 3.4 - Despliegue de una aplicación Node.js en Heroku (PaaS) y Netlify (Paas)
       </a>
     </li>
   
@@ -739,7 +806,7 @@
   
     <li class="md-nav__item">
       <a href="../P4.1-DNS/" class="md-nav__link">
-        Práctica 4.1 - Configuraciónn de un servidor DNS
+        Práctica 4.1 - Configuración de un servidor DNS
       </a>
     </li>
   
@@ -1021,10 +1088,71 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2">
+          Prácticas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Prácticas" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          Prácticas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
-        Prácticas
+      <a href="../P5.1/" class="md-nav__link">
+        Ejercicios Git y Github
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../P5.2/" class="md-nav__link">
+        Ejercicios Git y Github (II)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../P5.3/" class="md-nav__link">
+        Git avanzado - Aprendiendo branching
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1242,10 +1370,43 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2">
+          Prácticas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Prácticas" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          Prácticas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
-        Prácticas
+      <a href="../P6.1/" class="md-nav__link">
+        P6.1
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1340,6 +1501,7 @@
       </a>
       
         
+
 
 <nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
   
@@ -1559,9 +1721,8 @@
             <article class="md-content__inner md-typeset">
               
                 
-
-
-<h1 id="cicd-integracion-y-despliegue-continuo">CI/CD (Integración y despliegue continuo)</h1>
+                
+                <h1 id="cicd-integracion-y-despliegue-continuo">CI/CD (Integración y despliegue continuo)</h1>
 <div class="admonition note">
 <p class="admonition-title">Información</p>
 <p>Estos apuntes están basados en gran medida en unos apuntes de <a href="https://github.com/JJ/CC/">Domingo Gallardo</a> y se distribuyen porque <a href="https://github.com/JJ/CC/blob/master/LICENSE">su licencia</a> así lo permite.</p>
@@ -1641,8 +1802,8 @@ extremos. Es importante analizar con detalle cuál es el proceso de
 despliegue de nuestro software, cuánto tarda en subir a producción un
 cambio de una línea de código y cuáles son los cuellos de botella en
 el proceso.</p>
-<p><img src="/img/ultima-milla.png" width="600px"/>
-<img alt="" src="" style="width:600px" /></p>
+<!-- <img src="/img/ultima-milla.png" width="600px"/> -->
+<p><img alt="" src="../img/ultima-milla.png" style="width:600px" /></p>
 <p>La denominada <em>ultima milla</em> consiste en los pasos necesarios para la
 puesta en producción de nuestro sistema. De nada nos sirve tener un
 equipo ágil que hace iteraciones y reuniones con el cliente si después
@@ -1664,8 +1825,8 @@ botón.</p>
 <p>Un elemento central de todo el proceso de despliegue es la
 configuración de un pipeline de despliegue lo más automatizada
 posible.</p>
-<p><img src="/img/deployment-pipeline.png" width="600px" />
-<img alt="" src="" style="width:600px" /></p>
+<!-- <img src="/img/deployment-pipeline.png" width="600px" /> -->
+<p><img alt="" src="../img/deployment-pipeline.png" style="width:600px" /></p>
 <p>el pipeline representa todos los pasos necesarios que llevan el código
 fuente hasta producción. Lo veremos en detalle más adelante, pero es
 interesante adelantarla aquí. En la imagen se puede ver:</p>
@@ -1695,8 +1856,9 @@ y realizar en el momento que nos interese pulsando únicamente un botón
 en cualquier momento. </p>
 <p>Recordemos que la forma más tradicional de enfrentar el problema del
 lanzamiento es separar una rama de release de la rama de desarrollo.</p>
-<p><img src="/img/release-branch.jpg" width="600px"/></p>
-<p><img alt="" src="" style="width:600px" /></p>
+<!-- <img src="/img/release-branch.jpg" width="600px"/> -->
+
+<p><img alt="" src="../img/release-branch.jpg" style="width:600px" /></p>
 <p>Al separar la rama de release podemos seguir introduciendo cambios en
 la rama de desarrollo sin afectar para nada al release. En la rama de
 release se realiza todo el pipeline de despliegue y se prueba en todos
@@ -1708,8 +1870,8 @@ la de desarrollo.</p>
 <p>En el enfoque de lanzamiento continuo no existen ramas de release,
 sino que en cualquier commit de la rama principal es candidato a ser
 puesto en producción. </p>
-<p><img src="/img/continuous-delivery.png" width="600px"/>
-<img alt="" src="" style="width:600px" /></p>
+<!-- <img src="/img/continuous-delivery.png" width="600px"/> -->
+<p><img alt="" src="../img/continuous-delivery.png" style="width:600px" /></p>
 <h2 id="integracion-continua">Integración continua</h2>
 <p>La Integración continua es una práctica en la que los miembros del
 equipo integran su trabajo frecuentemente en el proyecto. Se trata de
@@ -1733,8 +1895,8 @@ surjan muchos problemas de más difícil solución.</p>
 de Git es si es más conveniente un flujo de trabajo <em>trunk based</em>
 (basado en la rama principal) o uno con <em>feature branches</em> (ramas de
 características).</p>
-<p><img src="/img/trunk-feature.png" width="500px"/>
-<img alt="" src="" style="width:600px" /></p>
+<!-- <img src="/img/trunk-feature.png" width="500px"/> -->
+<p><img alt="" src="../img/trunk-feature.png" style="width:600px" /></p>
 <p>La imagen anterior está también sacada de la charla de Eduardo
 Ferro. En ella se muestran los dos flujos de trabajo y se muestran
 parejas de desarrolladores porque están aplicando también<a href="https://www.ionos.es/digitalguide/paginas-web/desarrollo-web/pair-programming/"> <em>pair
@@ -1821,8 +1983,8 @@ los tests en el entorno de integración continua y construyéndose el
 binario candidato a desplegar en producción.</p>
 <p>La forma de realizar esto es mediante las denominadas herramientas de
 integración continua.</p>
-<p><img src="/img/ci-tools.png" width="500px"/>
-<img alt="" src="" style="width:600px" /></p>
+<!-- <img src="/img/ci-tools.png" width="500px"/> -->
+<p><img alt="" src="../img/ci-tools.png" style="width:500px" /></p>
 <p>Podemos elegir como herramientas de integración continua una
 herramienta que instalamos en nuestros propios servidores de
 integración (<em>CI server</em>) o construcción continua (<em>continuous build
@@ -1834,14 +1996,15 @@ de tests y la compilación automática de la aplicación y la generación
 de una aplicación distribuible. Esta aplicación puede ser un binario,
 un JAR o WAR, una máquina Docker, etc. que puede ser desplegada en
 distintos entornos, incluido el de producción.</p>
-<p><img src="/img/integration-server.jpg" width="700px"/>
-<img alt="" src="" style="width:600px" /></p>
+<!-- <img src="/img/integration-server.jpg" width="700px"/> -->
+<p><img alt="" src="../img/integration-server.jpg" style="width:700px" /></p>
 <p>El servicio de integración continua genera también notificaciones
 automáticas a todos los miembros del equipo indicando el estado de la
 compilación. También suele proporcionar un panel de control con la
 indicación del estado de cada build.</p>
-<p><img src="/img/jenkins-panel.gif" width="700px"/>
-<img alt="" src="" style="width:600px" /></p>
+<!-- 
+<img src="/img/jenkins-panel.gif" width="700px"/> -->
+<p><img alt="" src="../img/jenkins-panel.gif" style="width:700px" /></p>
 <h3 id="generacion-del-ejecutable">Generación del ejecutable</h3>
 <p>El resultado de la compilación automática realizada por el servidor de
 integración continua debe ser un artefacto desplegable en los
@@ -1865,8 +2028,8 @@ destacamos las siguientes:</p>
 diferentes lenguajes de programación, existen diferentes formatos en
 los que se guardan los artefactos binarios resultantes de la
 compilación. </p>
-<p><img src="/img/artefacto-jar.png" width="300px"/>
-<img alt="" src="" style="width:600px" /></p>
+<!-- <img src="/img/artefacto-jar.png" width="300px"/> -->
+<p><img alt="" src="../img/artefacto-jar.png" style="width:300px" /></p>
 <p>Por ejemplo, el binario resultante de una aplicación C es
 un fichero compilado que se ejecutará en el sistema operativo para el
 que haya sido compilada la aplicación, mientras que el resultante de
@@ -1883,8 +2046,8 @@ específico.</p>
 <p>En la actualidad se está haciendo cada vez más popular la utilización
 de imágenes <a href="https://www.docker.com">Docker</a> como artefacto binario a
 distribuir y ejecutar. </p>
-<p><img src="/img/docker-images.webp" />
-<img alt="" src="" style="width:600px" /></p>
+<!-- <img src="/img/docker-images.webp" /> -->
+<p><img alt="" src="../img/docker-images.webp" /></p>
 <p>Entre las ventajas de este enfoque se
 encuentran el ser multiplaforma (para ejecutarlas basta con tener
 instalado el <em>Docker Engine</em>) y que los contenedores (servicios en
@@ -2034,37 +2197,37 @@ imagen utilice variables de entorno que pueden ser modificadas en
 al lanzar el contenedor. Para ello debemos definir en la imagen estas
 variables con el comando <code>ENV</code>, pudiendo dar valores por defecto.</p>
 <p>Por ejemplo, podemos definir el siguiente <code>Dockerfile</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>FROM alpine
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>ENV saludo=&quot;Hola, mundo!&quot;
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>CMD echo $saludo
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>FROM alpine
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>ENV saludo=&quot;Hola, mundo!&quot;
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>CMD echo $saludo
 </code></pre></div>
 <p>Creamos la imagen:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ docker build -t saludo .
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>$ docker build -t saludo .
 </code></pre></div>
 <p>Si lanzamos la imagen muestra el saludo por defecto:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ docker run saludo
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Hola, mundo!
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>$ docker run saludo
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>Hola, mundo!
 </code></pre></div>
 <p>Y podemos configurar el saludo de varias formas. Por ejemplo,
 indicando el valor del parámetro al hacer <code>run</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$ docker run -e &quot;saludo=¿Qué tal estás?&quot; saludo
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>¿Qué tal estás?
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>$ docker run -e &quot;saludo=¿Qué tal estás?&quot; saludo
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>¿Qué tal estás?
 </code></pre></div>
 <p>O guardando el valor del parámetro en un fichero de propiedades que
 pasamos al ejecutar la imagen. Por ejemplo, en el fichero
 <code>propiedades.txt</code> escribimos lo siguiente:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>saludo=¿Qué passsa, colega?
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>saludo=¿Qué passsa, colega?
 </code></pre></div>
 <p>Y ejecutamos la imagen de la siguiente forma:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$ docker run --env-file=propiedades.txt saludo
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>¿Qué passsa, colega?
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>$ docker run --env-file=propiedades.txt saludo
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>¿Qué passsa, colega?
 </code></pre></div>
 <h2 id="entrega-continua">Entrega continua</h2>
 <p>El concepto de Entrega continua (<em>Continuous Delivery</em>) es una
 extensión de la Integración continua que se popularizó a raíz del
 libro que publicaron en 2010 Jez Humble y David Farley (ver las referencias).</p>
-<p><img src="/img/continuous-delivery.jpg" width="200px"/>
-<img alt="" src="" style="width:600px" /></p>
+<!-- <img src="/img/continuous-delivery.jpg" width="200px"/> -->
+<p><img alt="" src="../img/continuous-delivery.jpg" style="width:200px" /></p>
 <p>Es un concepto que parte de la integración continua para llegar a una
 automatización completa de la puesta en producción. El objetivo es
 conseguir una puesta en producción (release) del software:</p>
@@ -2120,8 +2283,8 @@ candidato a release pasa todos los tests, puede ser lanzado.</p>
 </blockquote>
 <p>En el libro de Humble y Farley se muestra el siguiente
 esquema que representa sus distintos elementos.</p>
-<p><img src="/img/tuberia-despliegue.png" width="700px"/>
-<img alt="" src="" style="width:600px" /></p>
+<!-- <img src="/img/tuberia-despliegue.png" width="700px"/> -->
+<p><img alt="" src="../img/tuberia-despliegue.png" style="width:700px" /></p>
 <ul>
 <li>En la parte superior se muestra el sistema de control de versiones,
   en donde se almacena el código del proyecto y los datos de las
@@ -2148,20 +2311,20 @@ esquema que representa sus distintos elementos.</p>
 </ul>
 <p>En la siguiente figura se muestra un ejemplo de posible secuencia de
 despliegue:</p>
-<p><img src="/img/fases-tubería.jpg" width="600px"/>
-<img alt="" src="" style="width:600px" /></p>
+<!-- <img src="/img/fases-tubería.jpg" width="600px"/> -->
+<p><img alt="" src="../img/fases-tuber%C3%ADa.jpg" style="width:600px" /></p>
 <p>Son muy útiles los tableros de control de el pipeline de despliegue,
 como por ejemplo el que proporciona Jenkins.</p>
-<p><img src="/img/pipeline-dashboard.png" width="600px"/>
-<img alt="" src="" style="width:600px" /></p>
+<!-- <img src="/img/pipeline-dashboard.png" width="600px"/> -->
+<p><img alt="" src="../img/pipeline-dashboard.png" style="width:600px" /></p>
 <h3 id="pequenos-cambios">Pequeños cambios</h3>
 <p>Tal y como hemos comentado en la introducción del tema, una
 práctica fundamental de los equipos que utilizan las técnicas de
 entrega continua es subir a producción continuamente pequeños cambios
 con los que se van introduciendo poco a poco las nuevas
 funcionalidades.</p>
-<p><img src="/img/deploy-carto.png" width="800px" />
-<img alt="" src="" style="width:600px" /></p>
+<!-- <img src="/img/deploy-carto.png" width="800px" /> -->
+<p><img alt="" src="../img/deploy-carto.png" style="width:800px" /></p>
 <p>Por ejemplo, en la charla de Juan Ignacio Sánchez <a href="https://www.slideshare.net/juanignaciosl/continuous-integration-at-cartodb-march-16">Continuous
 Integration at
 CartoDB</a>
@@ -2197,8 +2360,8 @@ Kent Beck:</p>
 <li>Uso de mocks.</li>
 <li>Interruptores de características.</li>
 </ul>
-<p><img src="/img/feature-toggle.jpeg" width="600px" />
-<img alt="" src="" style="width:600px" /></p>
+<!-- <img src="/img/feature-toggle.jpeg" width="600px" /> -->
+<p><img alt="" src="../img/feature-toggle.jpeg" style="width:600px" /></p>
 <p>Esta última técnica es muy interesante. Consiste en definir
 interruptores o flags booleanos en el código que hagan que ciertas
 características se muestren o no en la aplicación dependiendo de si
@@ -2212,8 +2375,8 @@ interruptores que se puedan modificar en tiempo de ejecución e incluso
 que se puedan mostrar o no la funcionalidad a según qué usuarios
 implementando un sistema de <em>canary release</em>. </p>
 <h3 id="canary-release">Canary release</h3>
-<p><img src="/img/canary-releases.jpg" />
-<img alt="" src="" style="width:600px" /></p>
+<!-- <img src="/img/canary-releases.jpg" /> -->
+<p><img alt="" src="../img/canary-releases.jpg" style="width:600px" /></p>
 <p>La idea del <a href="https://martinfowler.com/bliki/CanaryRelease.html"><em>canary
 release</em></a> consiste
 en configurar un sistema de despliegue que permita mantener
@@ -2235,8 +2398,8 @@ de características, para realizar <a href="https://en.wikipedia.org/wiki/A/B_te
 A/B</a> de nuevas
 características.</p>
 <h3 id="devops">DevOps</h3>
-<p><img src="/img/devops.webp" width="600px"/>
-<img alt="" src="" style="width:600px" /></p>
+<!-- <img src="/img/devops.webp" width="600px"/> -->
+<p><img alt="" src="../img/devops.webp" style="width:600px" /></p>
 <p>Tradicionalmente el trabajo de los desarrolladores y el de los
 técnicos de operaciones (responsables de la puesta en producción del
 sistema, monitorización de servidores, etc. ) son contrapuestos.</p>
@@ -2296,36 +2459,42 @@ una empresa puntera de desarrollo de software. Son las siguientes:</p>
 <li>Jez Humble y David Farley (2010): <a href="https://learning.oreilly.com/library/view/continuous-delivery-reliable/9780321670250/"><em>Continuous Delivery</em></a></li>
 <li><a href="https://blog.develat.io/pipelines-ci-cd/">Integración continua y despliegue continuo</a></li>
 </ul>
+                
+                  
+                
+              
+              
+                
+
 
               
             </article>
-            
           </div>
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
             Volver al principio
           </a>
         
       </main>
       
-        <footer class="md-footer">
+        
+<footer class="md-footer">
   
-    
-    <nav class="md-footer__inner md-grid" aria-label="Pie" >
+    <nav class="md-footer__inner md-grid" aria-label="Pie">
       
         
-        <a href="../tips/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Trucos" rel="prev">
+        <a href="../P6.1/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: P6.1" rel="prev">
           <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Anterior
               </span>
-              Trucos
+              P6.1
             </div>
           </div>
         </a>
@@ -2335,15 +2504,16 @@ una empresa puntera de desarrollo de software. Son las siguientes:</p>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-  
-  
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
-</div>
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
       
     </div>
   </div>
@@ -2353,10 +2523,10 @@ una empresa puntera de desarrollo de software. Son las siguientes:</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "toc.integrate", "search.highlight", "content.code.annotate"], "search": "../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "toc.integrate", "search.highlight", "content.code.annotate"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      <script src="../assets/javascripts/bundle.b1047164.min.js"></script>
       
     
   </body>

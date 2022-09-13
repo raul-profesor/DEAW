@@ -1,5 +1,7 @@
 nav:
     - Tema 1:
+      - Teoría:
+        - debian_teoria.md
       - Prácticas:
         - ... | debian.md
     - Tema 2:
@@ -48,7 +50,7 @@ nav:
         - dockerfile.md
         - tips.md
       - Prácticas:
-        - ... | P7.*.md 
+        - ... | P6.*.md 
     - Tema 7:
       - Teoría: 
         - cicd.md
