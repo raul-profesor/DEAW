@@ -524,9 +524,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tarea-a-realizar" class="md-nav__link">
-    Tarea a realizar
+  <a href="#ftp" class="md-nav__link">
+    FTP
   </a>
+  
+    <nav class="md-nav" aria-label="FTP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#como-transferir-archivos-desde-nuestra-maquina-localanfitrion-a-nuestra-maquina-virtual-debianservidor-remoto" class="md-nav__link">
+    ¿Cómo transferir archivos desde nuestra máquina local/anfitrión a nuestra máquina virtual Debian/servidor remoto?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configurar-servidor-sftp-en-debian" class="md-nav__link">
+    Configurar servidor SFTP en Debian
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -538,8 +558,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#avaluacio" class="md-nav__link">
-    Avaluació
+  <a href="#evaluacion" class="md-nav__link">
+    Evaluación
   </a>
   
 </li>
@@ -1666,12 +1686,10 @@
 Donde el nombre de dominio puede ser la palabra que queráis, sin espacios. </p>
 <p>Ahí, dentro de esa carpeta html, debéis clonar el siguiente repositorio:</p>
 <p><code>https://github.com/cloudacademy/static-website-example</code></p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>Además, haremos que el propietario de esta carpeta y todo lo que haya dentro sea el usuario `www-data`, típicamente el usuario del servicio web.
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a>
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a>```sh
-<a id="__codelineno-3-4" name="__codelineno-3-4"></a>sudo chown -R www-data:www-data /var/www/nombre_web/html
+<p>Además, haremos que el propietario de esta carpeta y todo lo que haya dentro sea el usuario <code>www-data</code>, típicamente el usuario del servicio web.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>sudo chown -R www-data:www-data /var/www/nombre_web/html
 </code></pre></div>
-Y le daremos los permisos adecuados para que no nos de un error de acceso no autorizado al entrar en el sitio web: </p>
+<p>Y le daremos los permisos adecuados para que no nos de un error de acceso no autorizado al entrar en el sitio web: </p>
 <p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>sudo chmod -R <span class="m">755</span> /var/www/nombre_web
 </code></pre></div>
 Para comprobar que el servidor está funcionando y sirviendo páginas correctamente, podéis acceder desde vuestro cliente a: </p>
@@ -1716,7 +1734,7 @@ Y os deberá aparecer algo así: </p>
 <p>Si todo ha ido bien, debéis poder acceder a vuestro sitio web escribiendo en la caja de la URL del navegador: </p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>http://IP-Maq-virtual
 </code></pre></div>
-<p>Y como aún no poseemos un servidor DNS que traduzca los nombres a IPs, debemos hacerlo de forma manual. Vamos a editar el archivo <code>/etc/hosts</code> de nuestra máquina anfitriona para que asocie la IP de la máquina virtual, a nuestro <code>server_name</code>.</p>
+<p>Y como aún no poseemos un servidor DNS que traduzca los nombres a IPs, debemos hacerlo de forma manual. Vamos a editar el archivo <code>/etc/hosts</code> <u><strong>de nuestra máquina anfitriona</strong></u> para que asocie la IP de la máquina virtual, a nuestro <code>server_name</code>.</p>
 <p>Este archivo, en Linux, está en: <code>/etc/hosts</code></p>
 <p>Y en Windows: <code>C:\Windows\System32\drivers\etc\hosts</code></p>
 <p>Y deberemos añadirle la línea:</p>
@@ -1732,9 +1750,57 @@ Y os deberá aparecer algo así: </p>
 <p><code>/var/log/nginx/error.log</code>: cualquier error de Nginx se asentará en este registro.</p>
 </li>
 </ul>
-<h2 id="tarea-a-realizar">Tarea a realizar</h2>
-<p>Si queremos tener varios dominios o sitios web en el mismo servidor nginx (es decir, que tendrán la misma IP) debemos repetir todo el proceso anterior con el nuevo nombre de dominio. </p>
-<p>Configura un nuevo dominio (nombre web) para el ejemplo de sitio web del otro .zip y documenta el proceso.</p>
+<h2 id="ftp">FTP</h2>
+<p>Si queremos tener varios dominios o sitios web en el mismo servidor nginx (es decir, que tendrán la misma IP) debemos repetir todo el proceso anterior con el nuevo nombre de dominio que queramos configurar.</p>
+<h3 id="como-transferir-archivos-desde-nuestra-maquina-localanfitrion-a-nuestra-maquina-virtual-debianservidor-remoto">¿Cómo transferir archivos desde nuestra máquina local/anfitrión a nuestra máquina virtual Debian/servidor remoto?</h3>
+<p>A día de hoy el proceso más sencillo y seguro es a través de Github como hemos visto antes. No obstante, el currículum de la Consellería d'Educació me obliga a enseñaros un método un tanto obsoleto a día de hoy, así que vamos a ello, os presento al FTP.</p>
+<p><a href="https://es.wikipedia.org/wiki/Protocolo_de_transferencia_de_archivos">El FTP</a> es un protocolo de transferencia de archivos entre sistemas conectados a una red TCP. Como su nombre indica, se trata de un protocolo que permite transferir archivos directamente de un dispositivo a otro. Actualmente, es un protocolo que poco a poco va abandonándose, pero ha estado vigente más de 50 años.</p>
+<p>El protocolo FTP tal cual es un protocolo inseguro, ya que su información no viaja cifrada. Sin embargo, en 2001 esto se solucionó con el protocolo <strong>SFTP</strong>, que le añade una capa SSH para hacerlo más seguro y privado.</p>
+<p><strong>SFTP</strong> no es más que el mismo protocolo FTP pero implementado por un canal seguro. Son las siglas de SSH File Transfer Protocol y consiste en una extensión de Secure Shell Protocol (SSH) creada para poder hacer transmisiones de archivos.</p>
+<p>La seguridad que nos aporta <strong>SFTP</strong> es importante para la transferencia de archivos porque, si no disponemos de ella, los archivos viajarán tal cual por la red, sin ningún tipo de encriptación. Así pues, usando FTP tradicional, si algún agente consigue escuchar las transferencias, podría ocurrir que la información quedase al descubierto. Esto sería especialmente importante si los archivos que subimos contienen información confidencial o datos personales.</p>
+<p>Dado que usar <strong>SFTP</strong> aporta mayor seguridad a las transmisiones, es recomendable utilizarlo, más aún sabiendo que realmente no hay mucha dificultad en establecer las conexiones por el protocolo seguro.</p>
+<h3 id="configurar-servidor-sftp-en-debian">Configurar servidor SFTP en Debian</h3>
+<p>En primer lugar, lo instalaremos desde los repositorios:</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a>sudo apt-get update
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a>sudo apt-get install vsftpd
+</code></pre></div>
+Ahora vamos a crear una carpeta en nuestro <em>home</em> en Debian:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a>mkdir /home/nombre_usuario/ftp
+</code></pre></div>
+<p>En la configuración de <em>vsftpd</em> indicaremos que este será el directorio al cual vsftpd se cambia después de conectarse el usuario.</p>
+<p>Ahora vamos a crear los certificados de seguridad necesarios para aportar la capa de cifrado a nuestra conexión (algo parecido a HTTPS)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a>sudo openssl req -x509 -nodes -days <span class="m">365</span> -newkey rsa:2048 -keyout /etc/ssl/private/vsftpd.pem -out /etc/ssl/private/vsftpd.pem
+</code></pre></div>
+<p>Y una vez realizados estos pasos, procedemos a realizar la configuración de <em>vsftpd</em> propiamente dicha. Se trata, con el editor de texto que más os guste, de editar el archivo de configuración de este servicio, por ejemplo con <em>nano</em>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a>sudo nano /etc/vsftpd.conf
+</code></pre></div>
+<p>En primer lugar, buscaremos las siguientes líneas del archivo y las eliminaremos por completo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a>rsa_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a>rsa_private_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a>ssl_enable=NO
+</code></pre></div>
+<p>Tras ello, añadiremos estas líneas en su lugar</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a>rsa_cert_file=/etc/ssl/private/vsftpd.pem
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a>rsa_private_key_file=/etc/ssl/private/vsftpd.pem
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a>ssl_enable=YES
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a>allow_anon_ssl=NO
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a>force_local_data_ssl=YES
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a>force_local_logins_ssl=YES
+<a id="__codelineno-16-7" name="__codelineno-16-7"></a>ssl_tlsv1=YES
+<a id="__codelineno-16-8" name="__codelineno-16-8"></a>ssl_sslv2=NO
+<a id="__codelineno-16-9" name="__codelineno-16-9"></a>ssl_sslv3=NO
+<a id="__codelineno-16-10" name="__codelineno-16-10"></a>require_ssl_reuse=NO
+<a id="__codelineno-16-11" name="__codelineno-16-11"></a>ssl_ciphers=HIGH
+<a id="__codelineno-16-12" name="__codelineno-16-12"></a>
+<a id="__codelineno-16-13" name="__codelineno-16-13"></a>local_root=/home/nombre_usuario/ftp
+</code></pre></div>
+<p>Y, tras guardar los cambios, reiniciamos el servicio para que coja la nueva configuración:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a>sudo systemctl restart --now vsftpd
+</code></pre></div>
+<div class="admonition task">
+<p class="admonition-title">Tarea</p>
+<p>Configura un nuevo dominio (nombre web) para el .zip con el nuevo sitio web que os proporcionado. <strong>En este caso debéis transferir los archivos a vuestra Debian mediante SFTP.</strong></p>
+</div>
 <h2 id="cuestiones-finales">Cuestiones finales</h2>
 <div class="admonition task">
 <p class="admonition-title">Cuestión 1</p>
@@ -1744,7 +1810,7 @@ Y os deberá aparecer algo así: </p>
 <p class="admonition-title">Cuestión 2</p>
 <p>¿Qué pasa si no le doy los permisos adecuados a <code>/var/www/nombre_web</code>? </p>
 </div>
-<h2 id="avaluacio">Avaluació</h2>
+<h2 id="evaluacion">Evaluación</h2>
 <table>
 <thead>
 <tr>
