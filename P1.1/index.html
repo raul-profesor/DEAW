@@ -1805,6 +1805,26 @@ Ahora vamos a crear una carpeta en nuestro <em>home</em> en Debian:</p>
 <p class="admonition-title">Tarea</p>
 <p>Configura un nuevo dominio (nombre web) para el .zip con el nuevo sitio web que os proporcionado. <strong>En este caso debéis transferir los archivos a vuestra Debian mediante SFTP.</strong></p>
 </div>
+<p>Tras acabar esta configuración, ya podremos acceder a nuestro servidor <em>SFTP</em> mediante un cliente FTP adecuado, como por ejemplo <a href="https://filezilla-project.org/">Filezilla</a>.</p>
+<p>Tras descargar <U><strong>el cliente FTP</strong></u> en nuestro ordendor, introducimos los datos necesarios para conectarnos a nuestro servidor FTP en Debian:</p>
+<p><img alt="" src="../img/ftp1.png" /></p>
+<ul>
+<li>La IP de Debian (recuadro rojo)</li>
+<li>El nombre de usuario de Debian (recuadro verde)</li>
+<li>La contraseña de ese usuario (recuadro fucsia)</li>
+<li>El puerto de conexión, que será el 22 porque SFTP funciona mediante SSH (recuadro marrón)</li>
+</ul>
+<p>Tras darle al botón de <em>Conexión rápida</em>, nos saltará un aviso a propósito de las claves, le damos a aceptar puesto que no entraña peligro:</p>
+<p><img alt="" src="../img/ftp2.png" /></p>
+<p>Una vez conectados, buscamos la carpeta de nuestro ordenador donde hemos descargado el <em>.zip</em> (en la parte izquierda de la pantalla) y en la parte derecha de la pantalla, buscamos la carpeta donde queremos subirla. Con un doble click o utilizando <em>botón derecho &gt; subir</em>, la subimos al servidor.</p>
+<p><img alt="" src="../img/ftp3.png" /></p>
+<p>Recordemos que debemos tener nuestro sitio web en la carpeta <code>/var/www</code> y darle los permisos adecuados, de forma similiar a cómo hemos hecho con el otro sitio web. </p>
+<p>El comando que nos permite descomprimir un <em>.zip</em> en un directorio concreto es:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a>unzip -d /nombre/directorio
+</code></pre></div>
+<p>Si no tuvieráis unzip instalado, lo instaláis:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a>sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install unzip
+</code></pre></div>
 <h2 id="cuestiones-finales">Cuestiones finales</h2>
 <div class="admonition task">
 <p class="admonition-title">Cuestión 1</p>
