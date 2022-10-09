@@ -504,8 +504,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#paquets-necessaris" class="md-nav__link">
-    Paquets necessaris
+  <a href="#paquetes-necesarios" class="md-nav__link">
+    Paquetes necesarios
   </a>
   
 </li>
@@ -540,8 +540,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#combinacio-de-lautenticacio-basica-amb-la-restriccio-dacces-per-ip" class="md-nav__link">
-    Combinació de l'Autenticació Bàsica amb la restricció d'accés per IP
+  <a href="#combinacion-de-la-autenticacion-basica-con-la-restriccion-de-acces-por-ip" class="md-nav__link">
+    Combinación de la autenticación bàsica con la restricción de accés por IP
   </a>
   
 </li>
@@ -1667,15 +1667,15 @@
 <div class="admonition danger">
 <p class="admonition-title">Atención, muy importante antes de empezar</p>
 <ul>
-<li>La práctica 1.1 ha de estar funcionando correctamente</li>
-<li>No empezar la práctica antes de tener la 1.1 <strong><em>funcionando y comprobada</em></strong></li>
+<li>La práctica 2.1 ha de estar funcionando correctamente</li>
+<li>No empezar la práctica antes de tener la 2.1 <strong><em>funcionando y comprobada</em></strong></li>
 </ul>
 </div>
 <h2 id="introduccion">Introducción</h2>
 <p>En el contexto de una transacción HTTP, la autenticación de <strong>acceso básica</strong> es un método diseñado para permitir a un navegador web, u otro programa cliente, proveer credenciales en la forma de usuario y contraseña cuando se le solicita una página al servidor. </p>
 <p>La autenticación básica, como su nombre lo indica, es la forma más básica de autenticación disponible para las aplicaciones Web. Fue definida por primera vez en la especificación HTTP en sí y no es de ninguna manera elegante, pero cumple su función. </p>
 <p>Este tipo de autenticación es el tipo más simple disponible pero adolece de importantes problemas de seguridad que no la hacen recomendable en muchas situaciones. No requiere el uso ni de cookies, ni de identificadores de sesión, ni de página de ingreso. </p>
-<h2 id="paquets-necessaris">Paquets necessaris</h2>
+<h2 id="paquetes-necesarios">Paquetes necesarios</h2>
 <p>Para esta práctica podemos utilizar la herramienta openssl para crear las contraseñas. </p>
 <p>En primer lugar debemos comprobar si el paquete está instalado: </p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>dpkg -l <span class="p">|</span> grep openssl
@@ -1683,7 +1683,7 @@
 <p>Y si no lo estuviera, instalarlo. </p>
 <h2 id="creacion-de-usuarios-y-contrasenas-para-el-acceso-web">Creación de usuarios y contraseñas para el acceso web</h2>
 <p>Crearemos un archivo oculto llamado “.htpasswd” en el directorio de configuración <code>/etc/nginx</code> donde guardar nuestros usuarios y contraseñas (la -c es para crear el archivo): </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>sudo sh -c <span class="s2">&quot;echo -n &#39;teu_nom:&#39; &gt;&gt; /etc/nginx/.htpasswd&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>sudo sh -c <span class="s2">&quot;echo -n &#39;vuestro_nombre:&#39; &gt;&gt; /etc/nginx/.htpasswd&quot;</span>
 </code></pre></div>
 <p>Ahora crearemos un pasword cifrado para el usuario: </p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>sudo sh -c <span class="s2">&quot;openssl passwd -apr1 &gt;&gt; /etc/nginx/.htpasswd&quot;</span>
@@ -1696,7 +1696,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>cat /etc/nginx/.htpasswd
 </code></pre></div>
 <h2 id="configurando-el-servidor-nginx-para-usar-autenticacion-basica">Configurando el servidor Nginx para usar autenticación básica</h2>
-<p>Editaremos la configuración del server block1 sobre el cual queremos aplicar la restricción de acceso. Utilizaremos para esta autenticación el sitio web de John Doe:  </p>
+<p>Editaremos la configuración del server block sobre el cual queremos aplicar la restricción de acceso. Utilizaremos para esta autenticación el sitio web de <em>Perfect Learn</em>:  </p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>Recuerda que un <em>server block</em> es cada uno de los dominios (<code>server {...}</code> dentro del archivo de configuración) de alguno de los sitios web que hay en el seridor.</p>
@@ -1710,7 +1710,7 @@
 <a id="__codelineno-5-2" name="__codelineno-5-2"></a>        <span class="nb">listen</span> <span class="m">80</span>;
 <a id="__codelineno-5-3" name="__codelineno-5-3"></a>        <span class="nb">listen</span> [::]:80;
 <a id="__codelineno-5-4" name="__codelineno-5-4"></a>
-<a id="__codelineno-5-5" name="__codelineno-5-5"></a>        <span class="nb">root</span> <span class="sx">/var/www/nombre_web/html/retro-doe</span>;
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>        <span class="nb">root</span> <span class="sx">/var/www/webraul/html/simple-static-website</span>;
 <a id="__codelineno-5-6" name="__codelineno-5-6"></a>        <span class="nb">index</span> index.html index.htm index.nginx-debian.html;
 <a id="__codelineno-5-7" name="__codelineno-5-7"></a>
 <a id="__codelineno-5-8" name="__codelineno-5-8"></a>        <span class="nb">server_name</span> nombre_web www.nombre_web;
@@ -1732,7 +1732,12 @@ Una vez terminada la configuración, reiniciamos el servicio para que aplique nu
 </div>
 <div class="admonition cuestión">
 <p class="admonition-title">Comprobación 2</p>
-<p>Comprueba que si decides cancelar la autenticación, se te negaá el acceso al sitio con un error. ¿Qué error es?</p>
+<p>Comprueba que si decides cancelar la autenticación, se te negará el acceso al sitio con un error. ¿Qué error es?</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Cuidado</p>
+<p>Una vez os autenticáis con éxito, el navegador guardará esta autencación exitosa y no volverá a pediros <em>usuario/contraseña</em>. </p>
+<p>Llegados a ese punto, si queréis volver a probar a autenticaros, tendréis que abriros una <strong>Nueva ventana privada</strong> del navegador.</p>
 </div>
 <h3 id="tareas">Tareas</h3>
 <div class="admonition question">
@@ -1753,22 +1758,23 @@ Una vez terminada la configuración, reiniciamos el servicio para que aplique nu
 </span><a id="__codelineno-7-4" name="__codelineno-7-4"></a>            <span class="nb">try_files</span> $uri $uri/ =404;
 <a id="__codelineno-7-5" name="__codelineno-7-5"></a>        <span class="err">}</span>
 </code></pre></div>
-<p>La autenticación se aplica al directorio/archivo que le indicamos, en este caso el raíz <code>/</code>, que es: </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>/var/www/exemple1/html/retro-doe/
+<p>La autenticación se aplica al directorio/archivo que le indicamos en la declaración del <code>location</code> y que en este caso el raíz <code>/</code>.</p>
+<p>Así pues, esta restricción se aplica al directorio raíz o base donde residen los archivos del sitio web y que es: </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>/var/www/webraul/html/simple-static-website
 </code></pre></div>
 <p>Y a todos los archivos que hay dentro, ya que no hemos especificado ninguno en concreto. </p>
 <p>Ahora bien, vamos a probar a aplicar autenticación sólo a una parte de la web. Vamos a intentar que sólo se necesite autenticacíón para entrar a la parte de portfolio: </p>
 <p><img alt="" src="../img/4.1-4.png" /></p>
-<p>Esta sección se corresponde con el archivo <code>portofolio.html</code> dentro del directorio raíz. </p>
+<p>Esta sección se corresponde con el archivo <code>contact.html</code> dentro del directorio raíz. </p>
 <div class="admonition question">
 <p class="admonition-title">Tarea 2</p>
-<p>Borra las dos líneas que hacen referencia a la autenticación básica en el location del directorio raíz. Tras ello, añade un nuevo location debajo con la autenticación básica para el archivo/sección portofolio.html únicamente. </p>
+<p>Borra las dos líneas que hacen referencia a la autenticación básica en el location del directorio raíz. Tras ello, añade un nuevo location debajo con la autenticación básica para el archivo/sección <code>contact.html</code> únicamente. </p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Fijáos que debéis tener cuidado porque la última línea del archivo ha de ser <code>}</code> que cierra la primera línea <code>server {</code> del archivo.</p>
 </div>
-<h3 id="combinacio-de-lautenticacio-basica-amb-la-restriccio-dacces-per-ip">Combinació de l'Autenticació Bàsica amb la restricció d'accés per IP</h3>
+<h3 id="combinacion-de-la-autenticacion-basica-con-la-restriccion-de-acces-por-ip">Combinación de la autenticación bàsica con la restricción de accés por IP</h3>
 <p>La autenticación básica HTTP puede ser combinada de forma efectiva con la restricción de acceso por dirección IP. Se pueden implementar dos escenario: </p>
 <ul>
 <li>
@@ -1785,7 +1791,7 @@ Una vez terminada la configuración, reiniciamos el servicio para que aplique nu
 <p><img alt="" src="../img/4.1-5.png" /></p>
 <p>El acceso se garantizará ala IP <code>192.168.1.1/24</code>, excluyendo a la dirección <code>192.168.1.2</code>.</p>
 <p>Hay que tener en cuenta que las directivas allow y deny se irán aplicando en el orden en el que aparecen el archivo.</p>
-<p>Aquí aplican sobre la <code>location /api</code> (esto es sólo un ejemplo), pero podrían aplicar sobre cualquiera, incluida todo el sitio web, la location raíz <code>/</code>.</p>
+<p>Aquí aplican sobre la <code>location /api</code> (esto es sólo un ejemplo de un hipotético directorio o archivo), pero podrían aplicar sobre cualquiera, incluida todo el sitio web, la location raíz <code>/</code>.</p>
 <p>La última directiva <code>deny all</code> quiere decir que por defecto denegaremos el acceso a todo el mundo. Por eso hay que poner los allow y deny más específicos justo antes de esta, porque al evaluarse en orden de aparición, si los pusiéramos debajo se denegaría el acceso a todo el mundo, puesto que <code>deny all</code> sería lo primero que se evaluaría. </p>
 </li>
 <li>
