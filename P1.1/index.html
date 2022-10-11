@@ -8,9 +8,8 @@
       
       
       
-      
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
     
     
       
@@ -18,29 +17,30 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.a57b2b03.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.1d29e8d0.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
         
       
+      
     
     
     
       
+        
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
-    
     
     
       <link rel="stylesheet" href="../stylesheets/extra.css">
     
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-
 
     
     
@@ -57,9 +57,8 @@
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="blue">
   
     
-    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
-      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -76,6 +75,7 @@
       
     </div>
     
+    
       
 
 <header class="md-header" data-md-component="header">
@@ -83,11 +83,11 @@
     <a href=".." title="Despliegue de aplicaciones web" class="md-header__button md-logo" aria-label="Despliegue de aplicaciones web" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -131,22 +131,21 @@
     
     
       <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
         <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
       
@@ -194,7 +193,7 @@
     <a href=".." title="Despliegue de aplicaciones web" class="md-nav__button md-logo" aria-label="Despliegue de aplicaciones web" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
     Despliegue de aplicaciones web
@@ -460,7 +459,6 @@
       </a>
       
         
-
 
 <nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
   
@@ -1667,16 +1665,17 @@
             <article class="md-content__inner md-typeset">
               
                 
-                
-                <h1 id="practica-21-instalacion-y-configuracion-de-servidor-web-nginx">Pràctica 2.1 – Instalación y configuración de servidor web Nginx</h1>
+
+
+<h1 id="practica-21-instalacion-y-configuracion-de-servidor-web-nginx">Pràctica 2.1 – Instalación y configuración de servidor web Nginx</h1>
 <h2 id="instalacion-servidor-web-nginx">Instalación servidor web Nginx</h2>
 <p>Para instalar el servidor nginx en nuestra Debian, primero actualizamos los repositorios y después instalamos el paquete correspondiente: </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo apt update
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a>sudo apt install nginx
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo apt update
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sudo apt install nginx
 </code></pre></div>
 <p>Comprobamos que nginx se ha instalado y que está funcionando correctamente: </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>systemctl status nginx
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>systemctl status nginx
 </code></pre></div>
 <div class="admonition info info">
 <p class="admonition-title">Info</p>
@@ -1685,19 +1684,19 @@
 <h2 id="creacion-de-las-carpeta-del-sitio-web">Creación de las carpeta del sitio web</h2>
 <p>Igual que ocurre en Apache, todos los archivos que formarán parte de un sitio web que servirá nginx se organizarán en carpetas. Estas carpetas, típicamente están dentro de <code>/var/www</code>. </p>
 <p>Así pues, vamos a crear la carpeta de nuestro sitio web o dominio: </p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>sudo mkdir -p /var/www/nombre_web/html
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo mkdir -p /var/www/nombre_web/html
 </code></pre></div>
 Donde el nombre de dominio puede ser la palabra que queráis, sin espacios. </p>
 <p>Ahí, dentro de esa carpeta html, debéis clonar el siguiente repositorio:</p>
 <p><code>https://github.com/cloudacademy/static-website-example</code></p>
 <p>Además, haremos que el propietario de esta carpeta y todo lo que haya dentro sea el usuario <code>www-data</code>, típicamente el usuario del servicio web.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>sudo chown -R www-data:www-data /var/www/nombre_web/html
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo chown -R www-data:www-data /var/www/nombre_web/html
 </code></pre></div>
 <p>Y le daremos los permisos adecuados para que no nos de un error de acceso no autorizado al entrar en el sitio web: </p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>sudo chmod -R <span class="m">755</span> /var/www/nombre_web
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo chmod -R <span class="m">755</span> /var/www/nombre_web
 </code></pre></div>
 Para comprobar que el servidor está funcionando y sirviendo páginas correctamente, podéis acceder desde vuestro cliente a: </p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>http://IP-maq-virtual
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>http://IP-maq-virtual
 </code></pre></div>
 Y os deberá aparecer algo así: </p>
 <p><img alt="" src="../img/4.1-1.png" /></p>
@@ -1706,19 +1705,19 @@ Y os deberá aparecer algo así: </p>
 <p>En Nginx hay dos rutas importantes. La primera de ellas es <strong><code>sites-available</code></strong>, que contiene los archivos de configuración de los hosts virtuales o bloques disponibles en el servidor. Es decir, cada uno de los sitios webs que alberga el servido. La otra es <strong><code>sites-enabled</code></strong>, que contiene los archivos de configuración de los sitios habilitados, es decir, los que funcionan en ese momento. </p>
 <p>Dentro de <code>sites-available</code> hay un archivo de configuración por defecto (default), que es la página que se muestra si accedemos al servidor sin indicar ningún sitio web o cuando el sitio web no es encontrado en el servidor (debido a una mala configuración por ejemplo). Esta es la página que nos ha aparecido en el apartado anterior. </p>
 <p>Para que Nginx presente el contenido de nuestra web, es necesario crear un bloque de servidor con las directivas correctas. En vez de modificar el archivo de configuración predeterminado directamente, crearemos uno nuevo en <code>/etc/nginx/sites-available/nombre_web</code>: </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="go">sudo nano /etc/nginx/sites-available/vuestro_dominio </span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="go">sudo nano /etc/nginx/sites-available/vuestro_dominio </span>
 </code></pre></div>
 <p>Y el contenido de ese archivo de configuración: </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="nb">server</span> {
-<a id="__codelineno-7-2" name="__codelineno-7-2"></a>        <span class="nb">listen</span> <span class="m">80</span>;
-<a id="__codelineno-7-3" name="__codelineno-7-3"></a>        <span class="nb">listen</span> [::]:80;
-<a id="__codelineno-7-4" name="__codelineno-7-4"></a>        <span class="nb">root</span> <span class="sx">/ruta/absoluta/archivo/index</span>;
-<a id="__codelineno-7-5" name="__codelineno-7-5"></a>        <span class="nb">index</span> index.html index.htm index.nginx-debian.html;
-<a id="__codelineno-7-6" name="__codelineno-7-6"></a>        <span class="nb">server_name</span> nombre_web;
-<a id="__codelineno-7-7" name="__codelineno-7-7"></a>        <span class="nb">location</span> / {
-<a id="__codelineno-7-8" name="__codelineno-7-8"></a>                <span class="nb">try_files</span> $uri $uri/ =404;
-<a id="__codelineno-7-9" name="__codelineno-7-9"></a>        <span class="err">}</span>
-<a id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="err">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">server</span><span class="w"> </span>{<span class="w"></span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">        </span><span class="nb">listen</span><span class="w"> </span><span class="m">80</span>;<span class="w"></span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">        </span><span class="nb">listen</span><span class="w"> </span>[::]:80;<span class="w"></span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">        </span><span class="nb">root</span><span class="w"> </span><span class="sx">/ruta/absoluta/archivo/index</span>;<span class="w"></span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">        </span><span class="nb">index</span><span class="w"> </span>index.html<span class="w"> </span>index.htm<span class="w"> </span>index.nginx-debian.html;<span class="w"></span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">        </span><span class="nb">server_name</span><span class="w"> </span>nombre_web;<span class="w"></span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">        </span><span class="nb">location</span><span class="w"> </span>/<span class="w"> </span>{<span class="w"></span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">                </span><span class="nb">try_files</span><span class="w"> </span>$uri<span class="w"> </span>$uri/<span class="w"> </span>=404;<span class="w"></span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">        </span><span class="err">}</span><span class="w"></span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="err">}</span><span class="w"></span>
 </code></pre></div>
 <p>Aquí la directiva root debe ir seguida de la ruta absoluta absoluta dónde se encuentre el archivo index.html de nuestra página web, que se encuentra entre todos los que habéis descomprimido. </p>
 <p>Aquí tenéis un ejemplo de un sitio webs con su ruta (directorios que hay) antes del archivo index.html: </p>
@@ -1728,17 +1727,14 @@ Y os deberá aparecer algo así: </p>
 <p>Ruta → /var/www/ejemplo2/html/2016_soft_landing</p>
 </div>
 <p>Y crearemos un archivo simbólico entre este archivo y el de sitios que están habilitados, para que se dé de alta automáticamente. </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="go">sudo ln -s /etc/nginx/sites-available/nombre_web /etc/nginx/sites-enabled/</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="go">sudo ln -s /etc/nginx/sites-available/nombre_web /etc/nginx/sites-enabled/</span>
 </code></pre></div>
 <p>Y reiniciamos el servidor para aplicar la configuración: </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>sudo systemctl restart nginx
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo systemctl restart nginx
 </code></pre></div>
 <h2 id="comprobaciones">Comprobaciones</h2>
 <h3 id="comprobacion-del-correcto-funcionamiento">Comprobación del correcto funcionamiento</h3>
-<p>Si todo ha ido bien, debéis poder acceder a vuestro sitio web escribiendo en la caja de la URL del navegador: </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>http://IP-Maq-virtual
-</code></pre></div>
-<p>Y como aún no poseemos un servidor DNS que traduzca los nombres a IPs, debemos hacerlo de forma manual. Vamos a editar el archivo <code>/etc/hosts</code> <u><strong>de nuestra máquina anfitriona</strong></u> para que asocie la IP de la máquina virtual, a nuestro <code>server_name</code>.</p>
+<p>Como aún no poseemos un servidor DNS que traduzca los nombres a IPs, debemos hacerlo de forma manual. Vamos a editar el archivo <code>/etc/hosts</code> <u><strong>de nuestra máquina anfitriona</strong></u> para que asocie la IP de la máquina virtual, a nuestro <code>server_name</code>.</p>
 <p>Este archivo, en Linux, está en: <code>/etc/hosts</code></p>
 <p>Y en Windows: <code>C:\Windows\System32\drivers\etc\hosts</code></p>
 <p>Y deberemos añadirle la línea:</p>
@@ -1754,6 +1750,11 @@ Y os deberá aparecer algo así: </p>
 <p><code>/var/log/nginx/error.log</code>: cualquier error de Nginx se asentará en este registro.</p>
 </li>
 </ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Si no os aparece nada en los logs, podría pasar que el navegador ha cacheado la página web y que, por tanto, ya no está obteniendo la página del navegador sino de la propia memoria.
+Para solucionar esto, podéis acceder con el <em>modo privado</em> del navegador y ya os debería registrar esa actividad en los logs.</p>
+</div>
 <h2 id="ftp">FTP</h2>
 <p>Si queremos tener varios dominios o sitios web en el mismo servidor nginx (es decir, que tendrán la misma IP) debemos repetir todo el proceso anterior con el nuevo nombre de dominio que queramos configurar.</p>
 <h3 id="como-transferir-archivos-desde-nuestra-maquina-localanfitrion-a-nuestra-maquina-virtual-debianservidor-remoto">¿Cómo transferir archivos desde nuestra máquina local/anfitrión a nuestra máquina virtual Debian/servidor remoto?</h3>
@@ -1765,41 +1766,41 @@ Y os deberá aparecer algo así: </p>
 <p>Dado que usar <strong>SFTP</strong> aporta mayor seguridad a las transmisiones, es recomendable utilizarlo, más aún sabiendo que realmente no hay mucha dificultad en establecer las conexiones por el protocolo seguro.</p>
 <h3 id="configurar-servidor-sftp-en-debian">Configurar servidor SFTP en Debian</h3>
 <p>En primer lugar, lo instalaremos desde los repositorios:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a>sudo apt-get update
-<a id="__codelineno-11-2" name="__codelineno-11-2"></a>sudo apt-get install vsftpd
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo apt-get update
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>sudo apt-get install vsftpd
 </code></pre></div>
 Ahora vamos a crear una carpeta en nuestro <em>home</em> en Debian:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a>mkdir /home/nombre_usuario/ftp
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>mkdir /home/nombre_usuario/ftp
 </code></pre></div>
 <p>En la configuración de <em>vsftpd</em> indicaremos que este será el directorio al cual vsftpd se cambia después de conectarse el usuario.</p>
 <p>Ahora vamos a crear los certificados de seguridad necesarios para aportar la capa de cifrado a nuestra conexión (algo parecido a HTTPS)</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a>sudo openssl req -x509 -nodes -days <span class="m">365</span> -newkey rsa:2048 -keyout /etc/ssl/private/vsftpd.pem -out /etc/ssl/private/vsftpd.pem
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>sudo openssl req -x509 -nodes -days <span class="m">365</span> -newkey rsa:2048 -keyout /etc/ssl/private/vsftpd.pem -out /etc/ssl/private/vsftpd.pem
 </code></pre></div>
 <p>Y una vez realizados estos pasos, procedemos a realizar la configuración de <em>vsftpd</em> propiamente dicha. Se trata, con el editor de texto que más os guste, de editar el archivo de configuración de este servicio, por ejemplo con <em>nano</em>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a>sudo nano /etc/vsftpd.conf
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>sudo nano /etc/vsftpd.conf
 </code></pre></div>
 <p>En primer lugar, buscaremos las siguientes líneas del archivo y las eliminaremos por completo:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a>rsa_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem
-<a id="__codelineno-15-2" name="__codelineno-15-2"></a>rsa_private_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
-<a id="__codelineno-15-3" name="__codelineno-15-3"></a>ssl_enable=NO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>rsa_cert_file<span class="s">=/etc/ssl/certs/ssl-cert-snakeoil.pem</span><span class="w"></span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>rsa_private_key_file<span class="s">=/etc/ssl/private/ssl-cert-snakeoil.key</span><span class="w"></span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>ssl_enable<span class="s">=NO</span><span class="w"></span>
 </code></pre></div>
 <p>Tras ello, añadiremos estas líneas en su lugar</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a>rsa_cert_file=/etc/ssl/private/vsftpd.pem
-<a id="__codelineno-16-2" name="__codelineno-16-2"></a>rsa_private_key_file=/etc/ssl/private/vsftpd.pem
-<a id="__codelineno-16-3" name="__codelineno-16-3"></a>ssl_enable=YES
-<a id="__codelineno-16-4" name="__codelineno-16-4"></a>allow_anon_ssl=NO
-<a id="__codelineno-16-5" name="__codelineno-16-5"></a>force_local_data_ssl=YES
-<a id="__codelineno-16-6" name="__codelineno-16-6"></a>force_local_logins_ssl=YES
-<a id="__codelineno-16-7" name="__codelineno-16-7"></a>ssl_tlsv1=YES
-<a id="__codelineno-16-8" name="__codelineno-16-8"></a>ssl_sslv2=NO
-<a id="__codelineno-16-9" name="__codelineno-16-9"></a>ssl_sslv3=NO
-<a id="__codelineno-16-10" name="__codelineno-16-10"></a>require_ssl_reuse=NO
-<a id="__codelineno-16-11" name="__codelineno-16-11"></a>ssl_ciphers=HIGH
-<a id="__codelineno-16-12" name="__codelineno-16-12"></a>
-<a id="__codelineno-16-13" name="__codelineno-16-13"></a>local_root=/home/nombre_usuario/ftp
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>rsa_cert_file<span class="s">=/etc/ssl/private/vsftpd.pem</span><span class="w"></span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>rsa_private_key_file<span class="s">=/etc/ssl/private/vsftpd.pem</span><span class="w"></span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>ssl_enable<span class="s">=YES</span><span class="w"></span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>allow_anon_ssl<span class="s">=NO</span><span class="w"></span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>force_local_data_ssl<span class="s">=YES</span><span class="w"></span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>force_local_logins_ssl<span class="s">=YES</span><span class="w"></span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>ssl_tlsv1<span class="s">=YES</span><span class="w"></span>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>ssl_sslv2<span class="s">=NO</span><span class="w"></span>
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>ssl_sslv3<span class="s">=NO</span><span class="w"></span>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>require_ssl_reuse<span class="s">=NO</span><span class="w"></span>
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>ssl_ciphers<span class="s">=HIGH</span><span class="w"></span>
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>local_root<span class="s">=/home/nombre_usuario/ftp</span><span class="w"></span>
 </code></pre></div>
 <p>Y, tras guardar los cambios, reiniciamos el servicio para que coja la nueva configuración:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a>sudo systemctl restart --now vsftpd
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>sudo systemctl restart --now vsftpd
 </code></pre></div>
 <div class="admonition task">
 <p class="admonition-title">Tarea</p>
@@ -1820,10 +1821,10 @@ Ahora vamos a crear una carpeta en nuestro <em>home</em> en Debian:</p>
 <p><img alt="" src="../img/ftp3.png" /></p>
 <p>Recordemos que debemos tener nuestro sitio web en la carpeta <code>/var/www</code> y darle los permisos adecuados, de forma similiar a cómo hemos hecho con el otro sitio web. </p>
 <p>El comando que nos permite descomprimir un <em>.zip</em> en un directorio concreto es:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a>unzip -d /nombre/directorio
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>unzip -d /nombre/directorio
 </code></pre></div>
 <p>Si no tuvieráis unzip instalado, lo instaláis:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a>sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install unzip
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install unzip
 </code></pre></div>
 <h2 id="cuestiones-finales">Cuestiones finales</h2>
 <div class="admonition task">
@@ -1865,33 +1866,29 @@ Ahora vamos a crear una carpeta en nuestro <em>home</em> en Debian:</p>
 </tr>
 </tbody>
 </table>
-                
-              
-              
-                
-
 
               
             </article>
+            
           </div>
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             Volver al principio
           </a>
         
       </main>
       
-        
-<footer class="md-footer">
+        <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="Pie">
+    
+    <nav class="md-footer__inner md-grid" aria-label="Pie" >
       
         
         <a href="../ArqWeb/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Tema 2 - Arquitectura Web. Implantación y administración de servidores web" rel="prev">
           <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
           <div class="md-footer__title">
             <div class="md-ellipsis">
@@ -1915,7 +1912,7 @@ Ahora vamos a crear una carpeta en nuestro <em>home</em> en Debian:</p>
             </div>
           </div>
           <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
           </div>
         </a>
       
@@ -1923,16 +1920,15 @@ Ahora vamos a crear una carpeta en nuestro <em>home</em> en Debian:</p>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-        
-          Made with
-          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-            Material for MkDocs
-          </a>
-        
-        
-      </div>
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
     </div>
   </div>
@@ -1942,10 +1938,10 @@ Ahora vamos a crear una carpeta en nuestro <em>home</em> en Debian:</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "toc.integrate", "search.highlight", "content.code.annotate"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "toc.integrate", "search.highlight", "content.code.annotate"], "search": "../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.b1047164.min.js"></script>
+      <script src="../assets/javascripts/bundle.6c7ad80a.min.js"></script>
       
     
   </body>

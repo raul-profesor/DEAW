@@ -8,9 +8,8 @@
       
       
       
-      
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
     
     
       
@@ -18,29 +17,30 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.a57b2b03.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.1d29e8d0.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
         
       
+      
     
     
     
       
+        
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
-    
     
     
       <link rel="stylesheet" href="../stylesheets/extra.css">
     
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-
 
     
     
@@ -57,9 +57,8 @@
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="blue">
   
     
-    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
-      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -76,6 +75,7 @@
       
     </div>
     
+    
       
 
 <header class="md-header" data-md-component="header">
@@ -83,11 +83,11 @@
     <a href=".." title="Despliegue de aplicaciones web" class="md-header__button md-logo" aria-label="Despliegue de aplicaciones web" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -131,22 +131,21 @@
     
     
       <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
         <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
       
@@ -194,7 +193,7 @@
     <a href=".." title="Despliegue de aplicaciones web" class="md-nav__button md-logo" aria-label="Despliegue de aplicaciones web" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
     Despliegue de aplicaciones web
@@ -686,7 +685,6 @@
       </a>
       
         
-
 
 <nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
   
@@ -1674,8 +1672,9 @@
             <article class="md-content__inner md-typeset">
               
                 
-                
-                <h1 id="practica-34-despliegue-de-una-aplicacion-nodejs-en-heroku-paas-y-una-aplicacion-react-en-netlify-paas">Práctica 3.4: Despliegue de una aplicación Node.js en Heroku (PaaS) y una aplicación React en Netlify (PaaS)</h1>
+
+
+<h1 id="practica-34-despliegue-de-una-aplicacion-nodejs-en-heroku-paas-y-una-aplicacion-react-en-netlify-paas">Práctica 3.4: Despliegue de una aplicación Node.js en Heroku (PaaS) y una aplicación React en Netlify (PaaS)</h1>
 <!-- ## Prerrequisitos
 
 !!!note "Nota"
@@ -1731,102 +1730,102 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">head.html</label><label for="__tabbed_1_2">tail.html</label><label for="__tabbed_1_3">aplicacion.js</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a>        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Hola Mundo<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a>
-<a id="__codelineno-0-8" name="__codelineno-0-8"></a>        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Esta es la pagina principal<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a>
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/tailPage&quot;</span><span class="p">&gt;</span>Ir a la siguiente pagina<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a>
-<a id="__codelineno-0-12" name="__codelineno-0-12"></a>
-<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Hola Mundo<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Esta es la pagina principal<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/tailPage&quot;</span><span class="p">&gt;</span>Ir a la siguiente pagina<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4"></a>        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Hola Mundo<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7"></a>        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>FUNCIONA<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8"></a>
-<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Hola Mundo<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>FUNCIONA<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kd">var</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http&#39;</span><span class="p">);</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">);</span> <span class="c1">// para obtener los datos del archivo html</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a>
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5"></a>    <span class="nx">res</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mf">200</span><span class="p">,</span> <span class="p">{</span> <span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span> <span class="s1">&#39;text/html&#39;</span> <span class="p">});</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6"></a>
-<a id="__codelineno-2-7" name="__codelineno-2-7"></a>    <span class="c1">// req.url almacena el path o ruta de la URL</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8"></a>    <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">url</span><span class="p">;</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9"></a>    <span class="k">if</span> <span class="p">(</span><span class="nx">url</span> <span class="o">===</span> <span class="s2">&quot;/&quot;</span><span class="p">)</span> <span class="p">{</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="c1">// fs.readFile busca el archivo HTML</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="c1">// el primer parámetro es el path al archivo HTML</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="c1">// y el segundo es el callback de la función</span>
-<a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="c1">// si el archivo no se encuentra, la función devuelve un error</span>
-<a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="c1">// si el archivo se encuentra, el contenido del mismo se encuentra en pgres    </span>
-<a id="__codelineno-2-15" name="__codelineno-2-15"></a>        <span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="s2">&quot;head.html&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">pgres</span><span class="p">)</span> <span class="p">{</span>
-<a id="__codelineno-2-16" name="__codelineno-2-16"></a>            <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-<a id="__codelineno-2-17" name="__codelineno-2-17"></a>                <span class="nx">res</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;HEAD.HTML NOT FOUND&quot;</span><span class="p">);</span>
-<a id="__codelineno-2-18" name="__codelineno-2-18"></a>            <span class="k">else</span> <span class="p">{</span>
-<a id="__codelineno-2-19" name="__codelineno-2-19"></a>                <span class="c1">// Las siguientes 3 lineas</span>
-<a id="__codelineno-2-20" name="__codelineno-2-20"></a>                <span class="c1">// tienen la función de enviar el archivo html</span>
-<a id="__codelineno-2-21" name="__codelineno-2-21"></a>                <span class="c1">// y finalizar el proceso de respuesta</span>
-<a id="__codelineno-2-22" name="__codelineno-2-22"></a>                <span class="nx">res</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mf">200</span><span class="p">,</span> <span class="p">{</span> <span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span> <span class="s1">&#39;text/html&#39;</span> <span class="p">});</span>
-<a id="__codelineno-2-23" name="__codelineno-2-23"></a>                <span class="nx">res</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">pgres</span><span class="p">);</span>
-<a id="__codelineno-2-24" name="__codelineno-2-24"></a>                <span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
-<a id="__codelineno-2-25" name="__codelineno-2-25"></a>            <span class="p">}</span>
-<a id="__codelineno-2-26" name="__codelineno-2-26"></a>        <span class="p">});</span>
-<a id="__codelineno-2-27" name="__codelineno-2-27"></a>    <span class="p">}</span>
-<a id="__codelineno-2-28" name="__codelineno-2-28"></a>    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">url</span> <span class="o">===</span> <span class="s2">&quot;/tailPage&quot;</span><span class="p">)</span> <span class="p">{</span>
-<a id="__codelineno-2-29" name="__codelineno-2-29"></a>        <span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="s2">&quot;tail.html&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">pgres</span><span class="p">)</span> <span class="p">{</span>
-<a id="__codelineno-2-30" name="__codelineno-2-30"></a>            <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-<a id="__codelineno-2-31" name="__codelineno-2-31"></a>                <span class="nx">res</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;TAIL.HTML NOT FOUND&quot;</span><span class="p">);</span>
-<a id="__codelineno-2-32" name="__codelineno-2-32"></a>            <span class="k">else</span> <span class="p">{</span>
-<a id="__codelineno-2-33" name="__codelineno-2-33"></a>                <span class="nx">res</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mf">200</span><span class="p">,</span> <span class="p">{</span> <span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span> <span class="s1">&#39;text/html&#39;</span> <span class="p">});</span>
-<a id="__codelineno-2-34" name="__codelineno-2-34"></a>                <span class="nx">res</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">pgres</span><span class="p">);</span>
-<a id="__codelineno-2-35" name="__codelineno-2-35"></a>                <span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
-<a id="__codelineno-2-36" name="__codelineno-2-36"></a>            <span class="p">}</span>
-<a id="__codelineno-2-37" name="__codelineno-2-37"></a>        <span class="p">});</span>
-<a id="__codelineno-2-38" name="__codelineno-2-38"></a>    <span class="p">}</span>
-<a id="__codelineno-2-39" name="__codelineno-2-39"></a>
-<a id="__codelineno-2-40" name="__codelineno-2-40"></a><span class="p">}).</span><span class="nx">listen</span><span class="p">(</span><span class="mf">3000</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-<a id="__codelineno-2-41" name="__codelineno-2-41"></a>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;SERVER STARTED PORT: 3000&quot;</span><span class="p">);</span>
-<a id="__codelineno-2-42" name="__codelineno-2-42"></a><span class="p">});</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">var</span><span class="w"> </span><span class="nx">http</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http&#39;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kd">var</span><span class="w"> </span><span class="nx">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">);</span><span class="w"> </span><span class="c1">// para obtener los datos del archivo html</span><span class="w"></span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nx">res</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;text/html&#39;</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="c1">// req.url almacena el path o ruta de la URL</span><span class="w"></span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">url</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">url</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;/&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1">// fs.readFile busca el archivo HTML</span><span class="w"></span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="c1">// el primer parámetro es el path al archivo HTML</span><span class="w"></span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="c1">// y el segundo es el callback de la función</span><span class="w"></span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="c1">// si el archivo no se encuentra, la función devuelve un error</span><span class="w"></span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="c1">// si el archivo se encuentra, el contenido del mismo se encuentra en pgres    </span><span class="w"></span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">        </span><span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="s2">&quot;head.html&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">pgres</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">                </span><span class="nx">res</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;HEAD.HTML NOT FOUND&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">                </span><span class="c1">// Las siguientes 3 lineas</span><span class="w"></span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">                </span><span class="c1">// tienen la función de enviar el archivo html</span><span class="w"></span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">                </span><span class="c1">// y finalizar el proceso de respuesta</span><span class="w"></span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">                </span><span class="nx">res</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;text/html&#39;</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">                </span><span class="nx">res</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">pgres</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">                </span><span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span><span class="w"></span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">            </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">        </span><span class="p">});</span><span class="w"></span>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">url</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;/tailPage&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="w">        </span><span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="s2">&quot;tail.html&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">pgres</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="w">                </span><span class="nx">res</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;TAIL.HTML NOT FOUND&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="w">                </span><span class="nx">res</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;text/html&#39;</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
+<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="w">                </span><span class="nx">res</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">pgres</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a><span class="w">                </span><span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span><span class="w"></span>
+<a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a><span class="w">            </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a><span class="w">        </span><span class="p">});</span><span class="w"></span>
+<a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a>
+<a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a><span class="p">}).</span><span class="nx">listen</span><span class="p">(</span><span class="mf">3000</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;SERVER STARTED PORT: 3000&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a><span class="p">});</span><span class="w"></span>
 </code></pre></div>
 </div>
 </div>
 </div>
 <p>Ahora, tal y como hacemos siempre a la hora de crear nuestra aplicación <strong>Node.js</strong>, con el fin de crear el archivo <code>package.json</code>, utilizaremos en el terminal el comando:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>npm init
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>npm init
 </code></pre></div>
 <p>Podemos probar que nuestra aplicación funciona perfectamente en local:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>node aplicacion.js
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>node aplicacion.js
 </code></pre></div>
 <p>Y tras ello, debemos poder acceder, desde nuestra máquina anfitriona a <code>http://IP-maq-virtual:3000</code></p>
 <p>Ya con la aplicación creada y comprobada, podremos desplegarla en múltiples plataformas en la nube, como AWS, GCP, Azure, Digital Ocean, Heroku...</p>
 <h2 id="proceso-de-despliegue-en-heroku">Proceso de despliegue en Heroku</h2>
 <p>Para trabajar con Heroku desde nuestro terminal, debemos instalar el propio CLI de Heroku. Consultando la <a href="https://devcenter.heroku.com/articles/heroku-cli#install-the-heroku-cli">documentación</a>, vemos que hemos de ejecutar:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>curl https://cli-assets.heroku.com/install.sh <span class="p">|</span> sh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>curl https://cli-assets.heroku.com/install.sh <span class="p">|</span> sh
 </code></pre></div>
 <p>Y comprobamos que se ha instalado correctamente consultando su versión:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>heroku -v
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>heroku -v
 </code></pre></div>
 <p>Lo siguiente será loguearnos en nuestra cuenta de Heroku mediante el terminal, para ello:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>heroku login
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>heroku login
 </code></pre></div>
 Esto en teoría nos abre una pestaña del navegador para loguearnos en nuestra cuenta. Puesto que estamos conectados por SSH a nuestra Debian, no sucederá esto ya que el único puerto por el que nos comunicamos es por el 22. Necesitaríamos un túnel SSH para redirigir los puertos de la máquina Debian remota a la nuestra y que nos abriese el navegador en nuestra máquina. </p>
 <p>Puesto que esto escapa de los objetivos del módulo y con el fin de agilizar el proceso, simplemente copiaremos la URL y la pegaremos en nuestro navegador para loguearnos.</p>
 <p>Antes de continuar, conviene asegurarnos de que tenemos la última versión de git en nuestra Debian:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install git
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install git
 </code></pre></div>
 <!-- Es posible manejar nuestros repositorios de Github desde la interfaz gráfica del sitio vía navegador web o bien, desde el terminal de nuestra Debian. Nosotros utilizaremos esta última opción.
 
@@ -1903,10 +1902,10 @@ Así pues, vayamos por pasos:
 </div>
 <h3 id="despliegue-mediante-cli">Despliegue mediante CLI</h3>
 <p>Una vez registrados, debemos instalar el CLI de Netlify para ejecutar sus comandos desde el terminal:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>sudo npm install netlify-cli -g
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo npm install netlify-cli -g
 </code></pre></div>
 <p>Está claro que para realizar acciones de deploy, Netlify nos solicitará una autenticación, esto se hace mediante el comando:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>netlify login
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>netlify login
 </code></pre></div>
 <p>El cual nos muestra una pantalla del navegador para que concedamos la autorización pertinente. Sin embargo, recordemos el problema de que estamos conectados por SSH a nuestro servidor y no tenemos la posibilidad del uso de un entorno gráfico.</p>
 <p>En este caso, siguiendo las instrucciones de <a href="https://docs.netlify.com/cli/get-started/#obtain-a-token-in-the-netlify-ui">la documentación</a>:</p>
@@ -1920,20 +1919,20 @@ Así pues, vayamos por pasos:
 <p>Lo establecemos como variable de ambiente:</p>
 <p><img alt="" src="../img/token-netlify-3.png" /></p>
 <p>Y nos logueamos
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a>netlify login
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>netlify login
 </code></pre></div></p>
 </li>
 </ul>
 <p>Bueno, tenemos el código de nuestra aplicación, tenemos nuestra cuenta en Netlify y tenemos el CLI necesario para ejecutar comandos desde el terminal en esa cuenta... ¿Podemos proceder al despliegue sin mayores complicaciones?</p>
 <p>La respuesta es <strong>NO</strong>, como buenos desarrolladores y en base a experiencias anteriores, ya sabéis que hay que hacer un <em>build</em> de la aplicación para, posteriormente, desplegarla. Vamos a ello.</p>
 <p>En primer lugar, como sabemos, debemos instalar todas las dependencias que vienen indicadas en el archivo <code>package.json</code>:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a>npm install
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>npm install
 </code></pre></div>
 Y cuando ya las tengamos instaladas podemos proceder a realizar el build:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a>npm run build
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>npm run build
 </code></pre></div>
 <p>Esto nos creará una nueva carpeta llamada <code>build</code> que contendrá la aplicación que debemos desplegar. Y ya podemos hacer un pre-deploy de la aplicación de la que hemos hecho build antes:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a>netlify deploy
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>netlify deploy
 </code></pre></div>
 Nos hará algunas preguntas para el desplieuge:</p>
 <ul>
@@ -1942,8 +1941,8 @@ Nos hará algunas preguntas para el desplieuge:</p>
 <li>Le indicamos el nombre que queremos emplear para la web (<code>nombre-practica3-4</code>) y el directorio a utilizar para el deploy (directorio <code>./build</code>).</li>
 </ul>
 <p>Y si nos indica que todo ha ido bien e incluso podemos ver el "borrador" (Website Draft URL) de la web que nos aporta, podemos pasarla a producción finalmente tal y como nos indica la misma salida del comando:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a>If everything looks good on your draft URL, deploy it to your main site URL with the --prod flag.
-<a id="__codelineno-15-2" name="__codelineno-15-2"></a>netlify deploy --prod
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>If everything looks good on your draft URL, deploy it to your main site URL with the --prod flag.
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>netlify deploy --prod
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1953,30 +1952,30 @@ Nos hará algunas preguntas para el desplieuge:</p>
 <p>En primer lugar, vamos a eliminar el site que hemos desplegado antes en Netlify para evitarnos cualquier problema y/o conflicto:</p>
 <p><img alt="" src="../img/delete_site_netlify.png" /></p>
 <p>En segundo lugar, vamos a borrar el directorio donde se halla el repositorio clonado en el paso anterior para así poder empezar de 0:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a>rm -rf directorio_repositorio
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>rm -rf directorio_repositorio
 </code></pre></div>
 <p>Como queremos simular que hemos picado el código a man o en local y lo vamos a subir a Github por primera vez, nos descargaremos los fuentes en formato <code>.zip</code> sin que tenga ninguna referencia a Github:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a>wget https://github.com/StackAbuse/color-shades-generator/archive/refs/heads/main.zip
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>wget https://github.com/StackAbuse/color-shades-generator/archive/refs/heads/main.zip
 </code></pre></div>
 Creamos una carpeta nueva y descomprimimos dentro el zip:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a>mkdir practica3.4
-<a id="__codelineno-18-2" name="__codelineno-18-2"></a>
-<a id="__codelineno-18-3" name="__codelineno-18-3"></a>unzip main.zip -d practica3.4/
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>mkdir practica3.4
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>unzip main.zip -d practica3.4/
 </code></pre></div>
 <p>Entramos en la carpeta donde está el código:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a>cd practica3.4/color-shades-generator-main/
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>cd practica3.4/color-shades-generator-main/
 </code></pre></div>
 Ahora debemos crear un repositorio <u><strong>completamente vacío</strong></u> en Github que se llame <code>practicaTresCuatro</code>:</p>
 <p><img alt="" src="../img/github_new.png" /></p>
 <p>Y tras ello, volviendo al terminal a la carpeta donde estábamos, la iniciamos como repositorio, añadimos todo el contenido de la misma para el commit, hacemos el commit con el mensaje correspondiente y creamos la rama main:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a>$ git init
-<a id="__codelineno-20-2" name="__codelineno-20-2"></a>$ git add .
-<a id="__codelineno-20-3" name="__codelineno-20-3"></a>$ git commit -m <span class="s2">&quot;Subiendo el código...&quot;</span>
-<a id="__codelineno-20-4" name="__codelineno-20-4"></a>$ git branch -M main
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>$ git init
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>$ git add .
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>$ git commit -m <span class="s2">&quot;Subiendo el código...&quot;</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>$ git branch -M main
 </code></pre></div>
 <p>Y ahora sólo queda referenciar nuestra carpeta al repositorio recién creado en Github y hacer un <code>push</code> para subir todo el contenido del commit a él:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a>$ git remote add origin https://github.com/username/practicaTresCuatro.git
-<a id="__codelineno-21-2" name="__codelineno-21-2"></a>$ git push -u origin main
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>$ git remote add origin https://github.com/username/practicaTresCuatro.git
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>$ git push -u origin main
 </code></pre></div>
 <p>Ahora que ya tenemos subido el código a GitHub, de alguna manera debemos <em>enganchar</em> o enlazar nuestra cuenta de Github con la de Netlify para que éste último pueda traerse el código de allí, hacer el build y desplegarlo. Así pues, entramos en nuestro dashboard de Netlify y le damos a importar proyecto existente de <code>git</code>:</p>
 <p><img alt="" src="../img/github_netlify.png" /></p>
@@ -2004,8 +2003,8 @@ Ahora debemos crear un repositorio <u><strong>completamente vacío</strong></u> 
 </li>
 <li>
 <p>Dentro de la carpeta <code>public</code>, utilizando el editor de texto que prefiráis en vuestro terminal, modificad el archivo <code>robots.txt</code> para que excluya un directorio que se llame <code>nombre_apellido</code>, utilizando obviamente vuestro nombre y apellido.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a>User-agent: *
-<a id="__codelineno-22-2" name="__codelineno-22-2"></a>Disallow: /nombre_y_apellido/
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>User-agent: *
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>Disallow: /nombre_y_apellido/
 </code></pre></div>
 </li>
 <li>
@@ -2042,35 +2041,29 @@ Ahora debemos crear un repositorio <u><strong>completamente vacío</strong></u> 
 <p><a href="https://medium.com/geekculture/how-to-deploy-your-website-to-netlify-for-free-830e91705b7f">How to deploy your website to Netlify for free</a></p>
 <p><a href="https://prettystatic.com/4-ways-to-deploy-your-static-site-with-netlify/">4 Ways To Deploy Your Static Site with Netlify</a></p>
 <p><a href="https://stackabuse.com/guide-to-deploying-a-react-app-to-netlify/">Guide to Deploying a React App to Netlify</a></p>
-                
-                  
-                
-              
-              
-                
-
 
               
             </article>
+            
           </div>
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             Volver al principio
           </a>
         
       </main>
       
-        
-<footer class="md-footer">
+        <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="Pie">
+    
+    <nav class="md-footer__inner md-grid" aria-label="Pie" >
       
         
         <a href="../P3.3-Cluster/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Práctica 3.3 - Despliegue de una aplicación &#34;clusterizada&#34; con Node Express" rel="prev">
           <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
           <div class="md-footer__title">
             <div class="md-ellipsis">
@@ -2094,7 +2087,7 @@ Ahora debemos crear un repositorio <u><strong>completamente vacío</strong></u> 
             </div>
           </div>
           <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
           </div>
         </a>
       
@@ -2102,16 +2095,15 @@ Ahora debemos crear un repositorio <u><strong>completamente vacío</strong></u> 
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-        
-          Made with
-          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-            Material for MkDocs
-          </a>
-        
-        
-      </div>
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
     </div>
   </div>
@@ -2121,10 +2113,10 @@ Ahora debemos crear un repositorio <u><strong>completamente vacío</strong></u> 
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "toc.integrate", "search.highlight", "content.code.annotate"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "toc.integrate", "search.highlight", "content.code.annotate"], "search": "../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.b1047164.min.js"></script>
+      <script src="../assets/javascripts/bundle.6c7ad80a.min.js"></script>
       
     
   </body>
