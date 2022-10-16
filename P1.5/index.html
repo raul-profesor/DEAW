@@ -1690,7 +1690,7 @@
 <p>Ya que si el certificado no ha sido emitido y firmado por una CA de confianza, puede que se trate de una web maliciosa que nos suponga un riesgo de seguridad, como bien dice el aviso. </p>
 <h2 id="tarea">Tarea</h2>
 <p>Partimos de la configuración exacta de la práctica anterior, que recordemos era esta: </p>
-<p><img alt="" src="../img/4.1-20.png" /></p>
+<p><img alt="" src="../img/4.1-14.png" /></p>
 <p>Por lo que en esta práctica simplemente debemos añadir la configuración SSL para el cifrado en el Proxy Inverso: </p>
 <p><img alt="" src="../img/4.1-21.png" /></p>
 <p>Tal y como quedará la configuración, desde el cliente aún podríamos acceder a los dos servidores web con HTTP (podéis probarlo) pero es algo que solucionaremos en siguientes temas, configurando un firewall para que sólo la IP del proxy inverso pueda acceder por HTTP a los servidores web y nadie más. </p>
@@ -1711,7 +1711,7 @@
 </div>
 <p>En este caso no habrá peligro puesto que estamos 100% seguros que ese certificado lo hemos emitido nosotros para esta práctica, no hay dudas. </p>
 <p>Veamos pues el proceso para generar los certificados y las claves asociadas a ellos (privada/pública). En primer lugar debemos crear el siguiente directorio: </p>
-<p><code>/etc/nginx/ssl/balanceig</code></p>
+<p><code>/etc/nginx/ssl</code></p>
 <p>Podemos crear el certificado y las claves de forma simultánea con un único comando, donde: </p>
 <ul>
 <li>
@@ -1844,7 +1844,7 @@
 <div class="admonition task">
 <p class="admonition-title">Cuestión 1</p>
 <p>Hemos configurado nuestro proxy inverso con todo lo que nos hace falta pero no nos funciona y da un error del tipo <code>This site can't provide a secure connection, ERR_SSL_PROTOCOL_ERROR.</code></p>
-<p>Demtrp de nuestro server block tenemos esto:</p>
+<p>Dentro de nuestro server block tenemos esto:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nb">server</span> {
 <a id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="nb">listen</span> <span class="m">443</span>;
 <a id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="nb">ssl_certificate</span> <span class="sx">/etc/nginx/ssl/enrico-berlinguer/server.crt</span>;
@@ -1877,27 +1877,27 @@
 <tbody>
 <tr>
 <td align="left">Creación correcta del certificado</td>
-<td align="center"><strong> puntos</strong></td>
+<td align="center"><strong>1 puntos</strong></td>
 </tr>
 <tr>
 <td align="left">Configuración SSL correcta del proxy</td>
-<td align="center"><strong> puntos</strong></td>
+<td align="center"><strong>3 puntos</strong></td>
 </tr>
 <tr>
 <td align="left">Comprobaciones</td>
-<td align="center"><strong> puntos</strong></td>
+<td align="center"><strong>2 puntos</strong></td>
 </tr>
 <tr>
 <td align="left">Configuración correcta de la redirección forzosa a HTTPS y comprobaciones</td>
-<td align="center"><strong> puntos</strong></td>
+<td align="center"><strong>1 puntos</strong></td>
 </tr>
 <tr>
 <td align="left">Cuestiones finales</td>
-<td align="center"><strong> puntos</strong></td>
+<td align="center"><strong>2 puntos</strong></td>
 </tr>
 <tr>
 <td align="left">SSe ha prestado especial atención al formato del documento, utilizando la plantilla actualizada y haciendo un correcto uso del lenguaje técnico</td>
-<td align="center"><strong> puntos</strong></td>
+<td align="center"><strong>2 puntos</strong></td>
 </tr>
 </tbody>
 </table>
