@@ -1711,7 +1711,7 @@
 </div>
 <p>En este caso no habrá peligro puesto que estamos 100% seguros que ese certificado lo hemos emitido nosotros para esta práctica, no hay dudas. </p>
 <p>Veamos pues el proceso para generar los certificados y las claves asociadas a ellos (privada/pública). En primer lugar debemos crear el siguiente directorio: </p>
-<p><code>/etc/nginx/ssl/balanceig</code></p>
+<p><code>/etc/nginx/ssl</code></p>
 <p>Podemos crear el certificado y las claves de forma simultánea con un único comando, donde: </p>
 <ul>
 <li>
@@ -1741,10 +1741,10 @@
 </ul>
 <p>El comando completo sería así: </p>
 <p><img alt="" src="../img/4.1-22.png" /></p>
-<p>Os solicitará que introduzcáis una serie de parámetros, como véis en el recuadro rojo de abajo de la imagen. Debéis introducir los mismos parámetros que en la imagen excepto en el “Organizational Unit Name” que véis recuadrado en amarillo. Ahí deberéis poner <code>2DAW – SRE - Vuestronombre</code> </p>
+<p>Os solicitará que introduzcáis una serie de parámetros, como véis en el recuadro rojo de abajo de la imagen. Debéis introducir los mismos parámetros que en la imagen excepto en el “Organizational Unit Name” que véis recuadrado en amarillo. Ahí deberéis poner <code>2DAW – DEAW - Vuestronombre</code> </p>
 <h3 id="configuracion-ssl-en-el-proxy-inverso">Configuración SSL en el proxy inverso</h3>
 <p>De la práctica anterior, dentro del directorio <code>/etc/nginx/sites-available</code> ya debéis tener el archivo de configuración llamado “balanceo”. Es precisamente aquí donde realizaremos la configuración para que el acceso  al sitio web se realice mediante SSL (HTTPS). </p>
-<p>Dentro del bloque <code>server {…}</code> debéis añadir, sin quitar nada, las siguientes líneas de configuración: </p>
+<p>Dentro del bloque <code>server {…}</code> debéis cambiar el puerto de escucha (<code>listen 80</code>) por lo que véis en la imagen de abajo, añadiendo las siguientes líneas de configuración también, de tal forma que quede: </p>
 <p><img alt="" src="../img/4.1-23.png" /></p>
 <p>Donde le estáis diciendo que: </p>
 <ul>
@@ -1844,7 +1844,7 @@
 <div class="admonition task">
 <p class="admonition-title">Cuestión 1</p>
 <p>Hemos configurado nuestro proxy inverso con todo lo que nos hace falta pero no nos funciona y da un error del tipo <code>This site can't provide a secure connection, ERR_SSL_PROTOCOL_ERROR.</code></p>
-<p>Demtrp de nuestro server block tenemos esto:</p>
+<p>Dentro de nuestro server block tenemos esto:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nb">server</span> {
 <a id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="nb">listen</span> <span class="m">443</span>;
 <a id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="nb">ssl_certificate</span> <span class="sx">/etc/nginx/ssl/enrico-berlinguer/server.crt</span>;
