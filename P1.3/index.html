@@ -1787,7 +1787,7 @@
 <p>Cambiar el nombre del sitio web dentro de este archivo de configuración donde haga falta </p>
 </li>
 <li>
-<p>No os olvidéis de eliminar el link simbólico antiguo  con el comando <code>unlink nombre_del_link</code> y crear el nuevo para el nuevo nombre de archivo. </p>
+<p>No os olvidéis de eliminar el link simbólico antiguo  con el comando <code>unlink nombre_del_link</code> dentro de la carpeta <code>sites-enabled</code> y crear el nuevo para el nuevo nombre de archivo. </p>
 </li>
 </ul>
 </li>
@@ -1855,7 +1855,7 @@
 <p>Si recordáis de teoría, el servidor web es capaz de añadir cabeceras en las respuestas a las peticiones. </p>
 <p>Así pues, vamos a configurar tanto el proxy inverso como el servidor web para que añadan cada uno la cabecera “Host” que también vimos en teoría. </p>
 <p>Para añadir cabeceras, en el archivo de configuración del sitio web debemos añadir dentro del bloque <code>location / { … }</code> debemos añadir la directiva: </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nb">add_header</span> Host nombre_del_host
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nb">add_header</span> Host nombre_del_host;
 </code></pre></div>
 <ol>
 <li>
@@ -1877,7 +1877,7 @@
 <p><img alt="" src="../img/4.1-12.png" /></p>
 </li>
 </ol>
-<p>Es muy importante que para realizar estas comprobaciones tengáis marcado el checkbox <em>Desactivar caché</em>. </p>
+<p>Es muy importante que para realizar estas comprobaciones tengáis marcado el checkbox <em>Desactivar caché</em> o en <u>una ventana privada del navegador.</u></p>
 <p><img alt="" src="../img/4.1-13.png" /></p>
 <p>Si no marcáis esto, la página se guardará en la memoria caché del navegador y no estaréis recibiendo la respuesta del servidor sino de la caché del navegador, lo que puede dar lugar a resultados erróneos. </p>
 <h2 id="evaluacion">Evaluación</h2>

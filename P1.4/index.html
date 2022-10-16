@@ -607,8 +607,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#comprovacio-del-balanceig-de-carrega-quan-cau-un-servidor" class="md-nav__link">
-    Comprovació del balanceig de càrrega quan cau un servidor
+  <a href="#comprobacion-del-balancei" class="md-nav__link">
+    Comprobación del balancei
   </a>
   
 </li>
@@ -1726,7 +1726,7 @@
 <p>En esta práctica tendremos el escenario donde Nginx hará tanto de proxy inverso como de balanceador de carga al mismo tiempo.  </p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>En aquesta pràctica tindrem l'escenari on Nginx farà tant de proxy invers com de balancejador de càrrega al mateix temps.</p>
+<p>En esta práctica tendremos un escenario donde Nginx hará tanto de proxy inverso como de balanceador de carga <u>al mismo tiempo</u></p>
 </div>
 <h2 id="tarea">Tarea</h2>
 <p>Vamos a configurar dos servidores web Nginx con dos máquinas Debian, además de reutilizar el proxy inverso Nginx configurado en la práctica anterior. Partiremos por tanto de la configuración de la práctica anterior, añadiendo lo necesario: </p>
@@ -1741,17 +1741,23 @@
 <p>El proxy inverso que ya teníamos configurado, habrá ahora que configurarlo para que realice el balanceo de carga que deseamos </p>
 </li>
 <li>
-<p>Realizaremos las peticiones HTTP desde el navegador web de nuestro Xubuntu. </p>
+<p>Realizaremos las peticiones HTTP desde el navegador web de nuestra máquina anfitriona. </p>
 </li>
 </ul>
 <p>El diagrama de red quedaría así: </p>
 <p><img alt="" src="../img/4.1-14.png" /></p>
-<p>Las tres máquinas estarán en nuestra red interna. Haremos las peticiones web desde el navegador al proxy inverso, que las repartirá entre los dos servidores web que tenemos. </p>
+<p>Haremos las peticiones web desde el navegador al proxy inverso, que las repartirá entre los dos servidores web que tenemos. </p>
 <p>Accederemos a <code>http://balanceo</code> y debemos observar que las peticiones, efectivamente, se van repartiendo entre el servidor 1 y el 2. </p>
 <h3 id="configuraciones">Configuraciones</h3>
+<div class="admonition danger">
+<p class="admonition-title">Atención</p>
+<p>Ya no vamos a utilizar los sitios web que hemos configurado en las prácticas anteriores. Por ello, para evitarnos una serie de problemas que pueden surgir, vamos a desactivarlos.</p>
+<p>Dentro de la carpeta <code>/etc/nginx/sites-enabled</code> debemos ejecutar <code>unlink nombre_archivo</code> para cada uno de los archivos de los sitios web que tenemos.</p>
+<p><u><strong>Si no hacéis esto obtendréis errores en todas las prácticas que quedan de este tema.</strong></u></p>
+</div>
 <h4 id="nginx-servidor-web-1">Nginx Servidor Web 1</h4>
-<p>El primer servidor web será el servidor principal que hemos venido utilizando hasta ahora durante el curso, donde tenemos instaladoya el servicio Web. </p>
-<p>Debemos configurar este servidor web para que sirva el siguiente index.html que debéis crear dentro de la carpeta <strong><code>/var/www/webserver1/html</code></strong>: </p>
+<p>El primer servidor web será el servidor principal que hemos venido utilizando hasta ahora durante el curso, el original, donde tenemos instalado ya el servicio Web. </p>
+<p>Debemos configurar este servidor web para que sirva el siguiente <code>index.html</code> que debéis crear dentro de la carpeta <strong><code>/var/www/webserver1/html</code></strong>: </p>
 <p><img alt="" src="../img/4.1-15.png" /></p>
 <ul>
 <li>
@@ -1765,7 +1771,7 @@
 </li>
 </ul>
 <h4 id="nginx-servidor-web-2">Nginx Servidor Web 2</h4>
-<p>Debe ser una máquina Debian con todos los servicios parados excepto Nginx. </p>
+<p>Debe ser una máquina Debian, clon del servidor web 1. </p>
 <p>En este servidor web debemos realizar una configuración idéntica al servidor web 1 pero cambiando <code>webserver1</code> por <code>webserver2</code> (también en el index.html), así como el nombre de la cabecera añadida, que será <code>Serv_Web2_vuestronombre</code></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1797,7 +1803,7 @@ Donde: </p>
 <p>El bloque upstream → son los servidores entre los que se va a repartir la carga, que son los dos que hemos configurado anteriormente. </p>
 </li>
 <li>
-<p>Si miráis el diagrama y tenéis en cuenta la configuración que habéis hecho hasta ahora, aquí deberéis colocar el nombre de cada servidor, así como el puerto donde está escuchando las peticiones web. </p>
+<p>Si miráis el diagrama y tenéis en cuenta la configuración que habéis hecho hasta ahora, aquí deberéis colocar la IP de cada servidor, así como el puerto donde está escuchando las peticiones web. </p>
 </li>
 <li>
 <p>A este grupo de servidores le ponemos un nombre, que es <code>backend_hosts</code></p>
@@ -1826,12 +1832,14 @@ Donde: </p>
 </li>
 </ul>
 <div class="admonition note">
-<p class="admonition-title">Recordatori</p>
+<p class="admonition-title">Recordatorio</p>
 <p>Recordad que es muy importante que para realizar estas comprobaciones tengáis marcado el checkbox <strong>Desactivar caché</strong>.  </p>
 <p><img alt="" src="../img/4.1-13.png" /></p>
 <p>Si no marcáis esto, la página se guardará en la memoria caché del navegador y no estaréis recibiendo la respuesta del servidor sino de la caché del navegador, lo que puede dar lugar a resultados erróneos. </p>
+<p>Otra opción, si esto no funcionara, es hacer las pruebas con una nueva ventana privada del navegador.</p>
 </div>
-<h3 id="comprovacio-del-balanceig-de-carrega-quan-cau-un-servidor">Comprovació del balanceig de càrrega quan cau un servidor</h3>
+<h3 id="comprobacion-del-balancei">Comprobación del balancei</h3>
+<p>o de carga cuando cae un servidor</p>
 <p>Nuestro balanceador de carga está constantemente monitorizando “la salud” de los servidores web. De esta forma, si uno deja de funcionar por cualquier razón, siempre enviará las solicitudes a los que queden “vivos”. Vamos a comprobarlo: </p>
 <ul>
 <li>
