@@ -540,8 +540,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#combinacion-de-la-autenticacion-basica-con-la-restriccion-de-acces-por-ip" class="md-nav__link">
-    Combinación de la autenticación bàsica con la restricción de accés por IP
+  <a href="#combinacion-de-la-autenticacion-basica-con-la-restriccion-de-acceso-por-ip" class="md-nav__link">
+    Combinación de la autenticación básica con la restricción de acceso por IP
   </a>
   
 </li>
@@ -1774,7 +1774,7 @@ Una vez terminada la configuración, reiniciamos el servicio para que aplique nu
 <p class="admonition-title">Warning</p>
 <p>Fijáos que debéis tener cuidado porque la última línea del archivo ha de ser <code>}</code> que cierra la primera línea <code>server {</code> del archivo.</p>
 </div>
-<h3 id="combinacion-de-la-autenticacion-basica-con-la-restriccion-de-acces-por-ip">Combinación de la autenticación bàsica con la restricción de accés por IP</h3>
+<h3 id="combinacion-de-la-autenticacion-basica-con-la-restriccion-de-acceso-por-ip">Combinación de la autenticación básica con la restricción de acceso por IP</h3>
 <p>La autenticación básica HTTP puede ser combinada de forma efectiva con la restricción de acceso por dirección IP. Se pueden implementar dos escenario: </p>
 <ul>
 <li>
@@ -1803,7 +1803,7 @@ Una vez terminada la configuración, reiniciamos el servicio para que aplique nu
 <h2 id="tareas_1">Tareas</h2>
 <div class="admonition question">
 <p class="admonition-title">Tarea 1</p>
-<p>Configura Nginx para que no deje acceder con la IP del cliente1 al directorio raíz de la misma web de antes, la de John Doe’s. Modifica su server block o archivo de configuración. Comprueba como se deniega el acceso: </p>
+<p>Configura Nginx para que no deje acceder con la IP de la máquina anfitriona al directorio raíz de una de tus dos webs. Modifica su server block o archivo de configuración. Comprueba como se deniega el acceso: </p>
 <div class="highlight"><pre><span></span><code>* Muestra la página de error en el navegador
 
 * Muestra el mensaje de error de error.log
@@ -1811,11 +1811,7 @@ Una vez terminada la configuración, reiniciamos el servicio para que aplique nu
 </div>
 <div class="admonition question">
 <p class="admonition-title">Tarea 2</p>
-<p>Configura Nginx para que el cliente2 tenga que tener tanto una IP válida como un usuario válido, ambas cosas a la vez, y comprueba que sí puede acceder sin problemas</p>
-</div>
-<div class="admonition question">
-<p class="admonition-title">Tarea 3</p>
-<p>Configura Nginx ahora para que deje acceder si se tiene una IP válida o también si el usuario introducido es correcto. Comprueba que ahora sí pueden acceder ambos clientes, ¿por qué? ?</p>
+<p>Configura Nginx para que desde tu máquina anfitriona se tenga que tener tanto una IP válida como un usuario válido, ambas cosas a la vez, y comprueba que sí puede acceder sin problemas</p>
 </div>
 <h2 id="cuestiones-finales">Cuestiones finales</h2>
 <div class="admonition task">

@@ -1735,10 +1735,7 @@ Y os deberá aparecer algo así: </p>
 </code></pre></div>
 <h2 id="comprobaciones">Comprobaciones</h2>
 <h3 id="comprobacion-del-correcto-funcionamiento">Comprobación del correcto funcionamiento</h3>
-<p>Si todo ha ido bien, debéis poder acceder a vuestro sitio web escribiendo en la caja de la URL del navegador: </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>http://IP-Maq-virtual
-</code></pre></div>
-<p>Y como aún no poseemos un servidor DNS que traduzca los nombres a IPs, debemos hacerlo de forma manual. Vamos a editar el archivo <code>/etc/hosts</code> <u><strong>de nuestra máquina anfitriona</strong></u> para que asocie la IP de la máquina virtual, a nuestro <code>server_name</code>.</p>
+<p>Como aún no poseemos un servidor DNS que traduzca los nombres a IPs, debemos hacerlo de forma manual. Vamos a editar el archivo <code>/etc/hosts</code> <u><strong>de nuestra máquina anfitriona</strong></u> para que asocie la IP de la máquina virtual, a nuestro <code>server_name</code>.</p>
 <p>Este archivo, en Linux, está en: <code>/etc/hosts</code></p>
 <p>Y en Windows: <code>C:\Windows\System32\drivers\etc\hosts</code></p>
 <p>Y deberemos añadirle la línea:</p>
@@ -1754,6 +1751,11 @@ Y os deberá aparecer algo así: </p>
 <p><code>/var/log/nginx/error.log</code>: cualquier error de Nginx se asentará en este registro.</p>
 </li>
 </ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Si no os aparece nada en los logs, podría pasar que el navegador ha cacheado la página web y que, por tanto, ya no está obteniendo la página del navegador sino de la propia memoria.
+Para solucionar esto, podéis acceder con el <em>modo privado</em> del navegador y ya os debería registrar esa actividad en los logs.</p>
+</div>
 <h2 id="ftp">FTP</h2>
 <p>Si queremos tener varios dominios o sitios web en el mismo servidor nginx (es decir, que tendrán la misma IP) debemos repetir todo el proceso anterior con el nuevo nombre de dominio que queramos configurar.</p>
 <h3 id="como-transferir-archivos-desde-nuestra-maquina-localanfitrion-a-nuestra-maquina-virtual-debianservidor-remoto">¿Cómo transferir archivos desde nuestra máquina local/anfitrión a nuestra máquina virtual Debian/servidor remoto?</h3>
@@ -1765,41 +1767,41 @@ Y os deberá aparecer algo así: </p>
 <p>Dado que usar <strong>SFTP</strong> aporta mayor seguridad a las transmisiones, es recomendable utilizarlo, más aún sabiendo que realmente no hay mucha dificultad en establecer las conexiones por el protocolo seguro.</p>
 <h3 id="configurar-servidor-sftp-en-debian">Configurar servidor SFTP en Debian</h3>
 <p>En primer lugar, lo instalaremos desde los repositorios:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a>sudo apt-get update
-<a id="__codelineno-11-2" name="__codelineno-11-2"></a>sudo apt-get install vsftpd
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>sudo apt-get update
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a>sudo apt-get install vsftpd
 </code></pre></div>
 Ahora vamos a crear una carpeta en nuestro <em>home</em> en Debian:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a>mkdir /home/nombre_usuario/ftp
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a>mkdir /home/nombre_usuario/ftp
 </code></pre></div>
 <p>En la configuración de <em>vsftpd</em> indicaremos que este será el directorio al cual vsftpd se cambia después de conectarse el usuario.</p>
 <p>Ahora vamos a crear los certificados de seguridad necesarios para aportar la capa de cifrado a nuestra conexión (algo parecido a HTTPS)</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a>sudo openssl req -x509 -nodes -days <span class="m">365</span> -newkey rsa:2048 -keyout /etc/ssl/private/vsftpd.pem -out /etc/ssl/private/vsftpd.pem
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a>sudo openssl req -x509 -nodes -days <span class="m">365</span> -newkey rsa:2048 -keyout /etc/ssl/private/vsftpd.pem -out /etc/ssl/private/vsftpd.pem
 </code></pre></div>
 <p>Y una vez realizados estos pasos, procedemos a realizar la configuración de <em>vsftpd</em> propiamente dicha. Se trata, con el editor de texto que más os guste, de editar el archivo de configuración de este servicio, por ejemplo con <em>nano</em>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a>sudo nano /etc/vsftpd.conf
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a>sudo nano /etc/vsftpd.conf
 </code></pre></div>
 <p>En primer lugar, buscaremos las siguientes líneas del archivo y las eliminaremos por completo:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a>rsa_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem
-<a id="__codelineno-15-2" name="__codelineno-15-2"></a>rsa_private_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
-<a id="__codelineno-15-3" name="__codelineno-15-3"></a>ssl_enable=NO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a>rsa_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a>rsa_private_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a>ssl_enable=NO
 </code></pre></div>
 <p>Tras ello, añadiremos estas líneas en su lugar</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a>rsa_cert_file=/etc/ssl/private/vsftpd.pem
-<a id="__codelineno-16-2" name="__codelineno-16-2"></a>rsa_private_key_file=/etc/ssl/private/vsftpd.pem
-<a id="__codelineno-16-3" name="__codelineno-16-3"></a>ssl_enable=YES
-<a id="__codelineno-16-4" name="__codelineno-16-4"></a>allow_anon_ssl=NO
-<a id="__codelineno-16-5" name="__codelineno-16-5"></a>force_local_data_ssl=YES
-<a id="__codelineno-16-6" name="__codelineno-16-6"></a>force_local_logins_ssl=YES
-<a id="__codelineno-16-7" name="__codelineno-16-7"></a>ssl_tlsv1=YES
-<a id="__codelineno-16-8" name="__codelineno-16-8"></a>ssl_sslv2=NO
-<a id="__codelineno-16-9" name="__codelineno-16-9"></a>ssl_sslv3=NO
-<a id="__codelineno-16-10" name="__codelineno-16-10"></a>require_ssl_reuse=NO
-<a id="__codelineno-16-11" name="__codelineno-16-11"></a>ssl_ciphers=HIGH
-<a id="__codelineno-16-12" name="__codelineno-16-12"></a>
-<a id="__codelineno-16-13" name="__codelineno-16-13"></a>local_root=/home/nombre_usuario/ftp
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a>rsa_cert_file=/etc/ssl/private/vsftpd.pem
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a>rsa_private_key_file=/etc/ssl/private/vsftpd.pem
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a>ssl_enable=YES
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a>allow_anon_ssl=NO
+<a id="__codelineno-15-5" name="__codelineno-15-5"></a>force_local_data_ssl=YES
+<a id="__codelineno-15-6" name="__codelineno-15-6"></a>force_local_logins_ssl=YES
+<a id="__codelineno-15-7" name="__codelineno-15-7"></a>ssl_tlsv1=YES
+<a id="__codelineno-15-8" name="__codelineno-15-8"></a>ssl_sslv2=NO
+<a id="__codelineno-15-9" name="__codelineno-15-9"></a>ssl_sslv3=NO
+<a id="__codelineno-15-10" name="__codelineno-15-10"></a>require_ssl_reuse=NO
+<a id="__codelineno-15-11" name="__codelineno-15-11"></a>ssl_ciphers=HIGH
+<a id="__codelineno-15-12" name="__codelineno-15-12"></a>
+<a id="__codelineno-15-13" name="__codelineno-15-13"></a>local_root=/home/nombre_usuario/ftp
 </code></pre></div>
 <p>Y, tras guardar los cambios, reiniciamos el servicio para que coja la nueva configuración:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a>sudo systemctl restart --now vsftpd
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a>sudo systemctl restart --now vsftpd
 </code></pre></div>
 <div class="admonition task">
 <p class="admonition-title">Tarea</p>
@@ -1820,10 +1822,10 @@ Ahora vamos a crear una carpeta en nuestro <em>home</em> en Debian:</p>
 <p><img alt="" src="../img/ftp3.png" /></p>
 <p>Recordemos que debemos tener nuestro sitio web en la carpeta <code>/var/www</code> y darle los permisos adecuados, de forma similiar a cómo hemos hecho con el otro sitio web. </p>
 <p>El comando que nos permite descomprimir un <em>.zip</em> en un directorio concreto es:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a>unzip -d /nombre/directorio
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a>unzip -d /nombre/directorio
 </code></pre></div>
 <p>Si no tuvieráis unzip instalado, lo instaláis:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a>sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install unzip
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a>sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install unzip
 </code></pre></div>
 <h2 id="cuestiones-finales">Cuestiones finales</h2>
 <div class="admonition task">

@@ -1685,8 +1685,8 @@
 <div class="admonition danger">
 <p class="admonition-title">Atención, importante antes de comenzar</p>
 <ul>
-<li>La práctica 1.1 ha d'estar funcionant correctament</li>
-<li>No comenzar la práctica antes de tener la 1.1 <strong><em>funcionando y comprobada</em></strong></li>
+<li>La práctica 2.1 ha de estar funcionando correctamente</li>
+<li>No comenzar la práctica antes de tener la 2.1 <strong><em>funcionando y comprobada</em></strong></li>
 </ul>
 </div>
 <h2 id="introduccion">Introducción</h2>
@@ -1744,7 +1744,7 @@
 <p><strong>Balanceo de carga</strong>: es posible que un sitio web popular que recibe millones de usuarios todos los días no pueda manejar todo el tráfico entrante del sitio con un solo servidor de origen. En cambio, el sitio se puede distribuir entre un grupo de servidores diferentes, todos manejando solicitudes para el mismo sitio. En este caso, un proxy inverso puede proporcionar una solución de balanceo de carga que distribuirá el tráfico entrante de manera uniforme entre los diferentes servidores para evitar que un solo servidor se sobrecargue. En el caso de que un servidor falle por completo, otros servidores pueden intensificar para manejar el tráfico. </p>
 </li>
 <li>
-<p>P<strong>rotección contra ataques</strong>: con un proxy inverso en su lugar, un sitio web o servicio nunca necesita revelar la dirección IP de su (s) servidor (es) de origen. Esto hace que sea mucho más difícil para los atacantes aprovechar un ataque dirigido contra ellos, como un ataque DdoS. </p>
+<p><strong>Protección contra ataques</strong>: con un proxy inverso en su lugar, un sitio web o servicio nunca necesita revelar la dirección IP de su (s) servidor (es) de origen. Esto hace que sea mucho más difícil para los atacantes aprovechar un ataque dirigido contra ellos, como un ataque DdoS. </p>
 </li>
 <li>
 <p><strong>Almacenamiento en cach</strong>é: un proxy inverso también puede almacenar contenido en caché , lo que resulta en un rendimiento más rápido. Por ejemplo, si un usuario en París visita un sitio web con proxy inverso con servidores web en Los Ángeles, el usuario podría conectarse a un servidor proxy inverso local en París, que luego tendrá que comunicarse con un servidor de origen en Los Ángeles. El servidor proxy luego puede almacenar en caché (o guardar temporalmente) los datos de respuesta. Los usuarios parisinos posteriores que naveguen por el sitio obtendrán la versión en caché local del servidor proxy inverso parisino, lo que dará como resultado un rendimiento mucho más rápido. </p>
@@ -1757,27 +1757,31 @@
 <h2 id="tarea">Tarea</h2>
 <h3 id="configuraciones">Configuraciones</h3>
 <h4 id="nginx-servidor-web">Nginx servidor web</h4>
-<p>Vamos a configurar dos Debian con sendos servidores Nginx: </p>
+<p>Vamos a configurar dos Debian con sendos servidores Nginx. Tenéis la máquina virtual inicial y debéis clonarla para tener una segunda: </p>
 <ul>
 <li>
-<p>Uno servirá las páginas web que ya hemos configurado, así pues utilizaremos el servidor que ya tenemos configurado de la Práctica 1.1. </p>
+<p>Uno servirá las páginas web que ya hemos configurado, así pues utilizaremos el servidor que ya tenemos configurado de la Práctica 2.1. </p>
 </li>
 <li>
-<p>Otro servidor clon Debian con todos los servicios parados a excepción de Nginx configurado como proxy inverso → Debe tener IP fija </p>
+<p>El nuevo servidor clon Debian con Nginx configurado como proxy inverso</p>
 </li>
 <li>
-<p>Realizaremos las peticiones HTTP desde el navegador web de nuestra máquina física/anfitrión</p>
+<p>Realizaremos las peticiones HTTP desde el navegador web de nuestra máquina física/anfitrión hacia el proxy clonado, que nos redirigirá al servidor web original</p>
 </li>
 </ul>
+<div class="admonition warning">
+<p class="admonition-title">Cuidado</p>
+<p>Ojo al clonar las máquinas virtuales porque hay que darle a crear una nueva MAC, de lo contrario no tendréis IP en esa máquina.</p>
+</div>
 <p>El diagrama de red quedaría así: </p>
-<p><img alt="" src="../img/4.1-9.png" /></p>
+<p><img alt="" src="../img/p2.3.png" /></p>
 <p>Para que todo quede más diferenciado y os quede más claro que la petición está pasando por el proxy inverso y llega al servidor web destino, vamos a hacer que cada uno de los servidores escuche las peticiones en un puerto distinto. </p>
 <ol>
 <li>
-<p>En primer lugar, debéis cambiar el nombre que tuviera vuestra web por el de <code>webserver</code>: </p>
+<p>En primer lugar, debéis cambiar el nombre que tuviera vuestra web por el de <code>webserver</code>, ello implica: </p>
 <ul>
 <li>
-<p>Cambiar el nombre del archivo de configuración </p>
+<p>Cambiar el nombre del archivo de configuración de sitios disponibles par Nginx</p>
 </li>
 <li>
 <p>Cambiar el nombre del sitio web dentro de este archivo de configuración donde haga falta </p>
@@ -1795,11 +1799,11 @@
 </li>
 </ol>
 <h4 id="nginx-proxy-inverso">Nginx proxy inverso</h4>
-<p>Ahora, cuando intentamos acceder a <code>http://ejemplo1</code> (o el nombre que tengáis de vuestra web), en realidad estaremos accediendo al proxy, que nos redirigirá a <code>http://webserver:8080</code>, el servidor web que acabamos de configurar para que escuche con ese nombre en el puerto 8080. </p>
+<p>Ahora, cuando intentamos acceder a <code>http://ejemplo-proxy</code> (o el nombre que tuvieráis de vuestra web de las prácticas anteriores), en realidad estaremos accediendo al proxy, que nos redirigirá a <code>http://webserver:8080</code>, el servidor web que acabamos de configurar para que escuche con ese nombre en el puerto 8080. </p>
 <p>Para ello: </p>
 <ul>
 <li>
-<p>Crear un archivo de configuración en <em>sites-available</em> con el nombre ejemplo1 (o el que tuvieráis vosotros) </p>
+<p>Crear un archivo de configuración en <em>sites-available</em> con el nombre <code>ejemplo-proxy</code> (o el que tuvieráis vosotros) </p>
 </li>
 <li>
 <p>Este archivo de configuración será más simple, tendrá la siguiente forma </p>
@@ -1819,17 +1823,20 @@
 <p>El puerto donde está escuchando el proxy inverso </p>
 </li>
 <li>
-<p>El nombre de dominio o sitio web al que accedemos en el proxy </p>
+<p>El nombre de vuestro dominio o sitio web original al que accedemos en el proxy </p>
 </li>
 <li>
-<p>La directiva <code>proxy_pass</code> indica a dónde se van a redirigir las peticiones, esto es, al servidor web. Por tanto, debéis poner el nuevo nombre y número de puerto adecuados de vuestro sitio web configurado en el apartado anterior. </p>
+<p>La directiva <code>proxy_pass</code> indica a dónde se van a redirigir las peticiones, esto es, al servidor web. Por tanto, debéis poner la IP y número de puerto adecuados de vuestro sitio web configurado en el apartado anterior. </p>
 </li>
 <li>
 <p>Crear el link simbólico pertinente </p>
 </li>
 </ul>
 <p>Esto es para simular la situación en la que nosotros, como clientes, cuando accedamos a nuestro sitio web, no necesitemos saber cómo está todo configurado, sólo necesitamos saber el nombre de la web. </p>
-<p>Sin embargo, para identificar las máquinas internamente, nosotros como administradores las tendremos identificadas con otros nombres (proxy-server y webserver/dnsserver). </p>
+<div class="admonition warning">
+<p class="admonition-title">¡Atención, muy importante!</p>
+<p><strong>Debéis modificar el archivo host que configurastéis en la práctica 2.1. Si miráis el diagrama de red, ahora el nombre de vuestro sitio web se corresponderá con la IP de la nueva máquina clon que hace de proxy</strong>. Será ésta la encargada de redirigirnos automáticamente al verdadero sitio web.</p>
+</div>
 <h2 id="comprobaciones">Comprobaciones</h2>
 <p>Si accedéis a vuestro sitio web, debéis poder seguir accediendo sin problemas. </p>
 <ul>
@@ -1877,8 +1884,8 @@
 <table>
 <thead>
 <tr>
-<th align="left">Criteri</th>
-<th align="center">Puntuació</th>
+<th align="left">Criterio</th>
+<th align="center">Puntuación</th>
 </tr>
 </thead>
 <tbody>
