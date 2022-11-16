@@ -13,7 +13,7 @@
     
     
       
-        <title>Levantar un WordPress con Docker - Despliegue de aplicaciones web</title>
+        <title>Práctica 6.3- Servidor web con usuarios autenticados mediante servicio de directorio (LDAP) - Despliegue de aplicaciones web</title>
       
     
     
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#levantar-un-wordpress-con-docker" class="md-skip">
+        <a href="#practica-62-despliegue-de-servidores-web-con-usuarios-autenticados-mediante-ldap-usando-docker-y-docker-compose" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Levantar un WordPress con Docker
+              Práctica 6.3- Servidor web con usuarios autenticados mediante servicio de directorio (LDAP)
             
           </span>
         </div>
@@ -1196,14 +1196,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_1" type="checkbox" id="__nav_6_1" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_1" type="checkbox" id="__nav_6_1" >
       
       
       
@@ -1308,59 +1306,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Levantar un WordPress con Docker
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../wordpress/" class="md-nav__link">
         Levantar un WordPress con Docker
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#crear-un-contenedor-con-mariadb" class="md-nav__link">
-    Crear un contenedor con MariaDB.
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creando-nuestro-blog" class="md-nav__link">
-    Creando nuestro blog
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1419,12 +1369,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" checked>
       
       
       
@@ -1473,11 +1425,140 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../P6.3/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Práctica 6.3- Servidor web con usuarios autenticados mediante servicio de directorio (LDAP)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Práctica 6.3- Servidor web con usuarios autenticados mediante servicio de directorio (LDAP)
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccion" class="md-nav__link">
+    Introducción
+  </a>
+  
+    <nav class="md-nav" aria-label="Introducción">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#que-es-un-servicio-de-directorio-ldap" class="md-nav__link">
+    ¿Qué es un servicio de directorio LDAP?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementaciones-de-ldap" class="md-nav__link">
+    Implementaciones de LDAP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#como-se-organiza-la-informacion-en-ldap" class="md-nav__link">
+    ¿Cómo se organiza la información en LDAP?
+  </a>
+  
+    <nav class="md-nav" aria-label="¿Cómo se organiza la información en LDAP?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#como-se-referencia-la-informacion" class="md-nav__link">
+    ¿Cómo se referencia la información?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#como-se-accede-a-la-informacion" class="md-nav__link">
+    Cómo se accede a la información?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modulos-en-apache" class="md-nav__link">
+    Módulos en Apache
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modulos-en-nginx" class="md-nav__link">
+    Módulos en Nginx
+  </a>
+  
+    <nav class="md-nav" aria-label="Módulos en Nginx">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modulo-autenticacion-ldap-en-nginx" class="md-nav__link">
+    Módulo autenticación LDAP en Nginx
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#despliegue-con-docker-de-nginx-demonio-de-autenticacion-ldap-openldap" class="md-nav__link">
+    Despliegue con Docker de NGINX + demonio de autenticación LDAP + OpenLDAP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    Referencias
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1605,106 +1686,204 @@
                 
 
 
-<h1 id="levantar-un-wordpress-con-docker">Levantar un WordPress con Docker</h1>
-<p>Para crear un <em>blog</em> con <em>WordPress</em> necesitamos tener una base de datos dónde almacenar las entradas. Así que empezaremos creándola y después crearemos el contenedor de nuestro <em>blog</em>.</p>
-<h2 id="crear-un-contenedor-con-mariadb">Crear un contenedor con <em>MariaDB</em>.</h2>
-<p><em>WordPress</em> soporta los motores relaciones <em>MySQL</em> y <em>MariaDB</em>. Usaremos este último.</p>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<p>Vamos a crear nuestra base de datos usando este volumen.</p>
-<div class="highlight"><pre><span></span><code>docker run -d --name wordpress-db \
-    --mount source=wordpress-db,target=/var/lib/mysql \
-    -e MYSQL_ROOT_PASSWORD=secret \
-    -e MYSQL_DATABASE=wordpress \
-    -e MYSQL_USER=manager \
-    -e MYSQL_PASSWORD=secret mariadb:10.3.9
-</code></pre></div>
-</div>
-<p>La imagen se descargará, si no lo estaba ya, y se iniciará nuestro contenedor de <em>MariaDB</em>:</p>
-<div class="highlight"><pre><span></span><code>:::console hl_lines=&quot;1 2 3 4 5 6&quot;
-$ docker run -d --name wordpress-db \
-    --mount source=wordpress-db,target=/var/lib/mysql \
-    -e MYSQL_ROOT_PASSWORD=secret \
-    -e MYSQL_DATABASE=wordpress \
-    -e MYSQL_USER=manager \
-    -e MYSQL_PASSWORD=secret mariadb:10.3.9
-Unable to find image &#39;mariadb:10.3.9&#39; locally
-10.3.9: Pulling from library/mariadb
-124c757242f8: Pull complete 
-9d866f8bde2a: Pull complete 
-fa3f2f277e67: Pull complete 
-398d32b153e8: Pull complete 
-afde35469481: Pull complete 
-31f2ae82b3e3: Pull complete 
-3eeaf7e45ea6: Pull complete 
-716982328e17: Pull complete 
-34ce605c9036: Pull complete 
-4502ed9073c0: Pull complete 
-2afafbdf5a96: Pull complete 
-43d52b11dd31: Pull complete 
-30c7b70556f3: Pull complete 
-8b1b39f2f89a: Pull complete 
-41480b9319d7: Pull complete 
-Digest: sha256:b7894bd08e5752acdd41fea654cb89467c99e67b8293975bb5d787b27e66ce1a
-Status: Downloaded newer image for mariadb:10.3.9
-30634831d17108aa553a5774e27f398760bdbdf32debc3179843e73aa5957956
-
-$ docker ps
-CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
-30634831d171        mariadb:10.3.9      &quot;docker-entrypoint.s…&quot;   20 seconds ago      Up 16 seconds       3306/tcp            wordpress-db
-</code></pre></div>
-<p>El principal cambio en <code>docker run</code> con respecto a la última vez es que no hemos usado
-<code>-p</code> (el parámetro para publicar puertos) y hemos añadido el parámetro <code>-d</code>.</p>
-<p>Lo primero que habremos notado es que el contenedor ya no se queda en primer plano. El parámetro <code>-d</code> indica que debe ejecutarse como un proceso en segundo plano. Así no podremos pararlo por accidente con <code>Control+C</code>.</p>
-<p>Lo segundo es que vemos que el contenedor usa un puerto, el <code>3306/tcp</code>, pero no está linkado a la máquina anfitrión. No tenemos forma de acceder a la base de datos directamente. Nuestra intención es que solo el contenedor de <em>WordPress</em> pueda acceder.</p>
-<p>Luego una serie de parámetros <code>-e</code> que nos permite configurar nuestra base de datos.</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Los contenedores se configuran a través de variables de ambiente, que podemos configurar con el parámetro <code>-e</code> que vemos en la orden anterior. Gracias a ellos hemos creado una base de datos, un usuario y configurado las contraseñas.</p>
-<p>Se recomienda buscar en el registro de <em>Docker</em> la imagen oficial de <a href="https://hub.docker.com/_/mariadb/">MariaDB</a> para entender el uso de los parámetros.</p>
-</div>
-<p>Por último, el parámetro <code>--mount</code> nos permite enlazar el volumen que creamos en el paso anterior con el directorio <code>/var/lib/mysql</code> del contenedor. Ese directorio es donde se guardan los datos de <em>MariaDB</em>. Eso significa que si borramos el contenedor, o actualizamos el contenedor a una nueva versión, no perderemos los datos porque ya no se encuentran en él, si no en el volumen. Solo lo perderíamos si borramos explícitamente el volumen.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Cada contendor que usemos tendrá uno o varios directorios donde se deben guardar los datos no volátiles. Nos corresponde a nosotros conocer la herramienta y saber de qué directorios se tratan. Usualmente están en la documentación del contenedor, pero no siempre.</p>
-</div>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>El parámetro <code>--mount</code> se empezó a utilizar desde la versión <code>17.06</code> para contenedores independientes (los que no pertenecen a un enjambre o <em>swarm</em>). Los que conozcan <em>Docker</em> de versiones más antiguas estarán más acostumbrados a usar el parámetro <code>--volume</code> que hace algo similar. Sin embargo la documentación aconseja usar ya <code>--mount</code>, sobre todo para nuevos usuarios.</p>
-<p>Nosotros somos muy obedientes así que en este taller usaremos <code>--mount</code>.</p>
-</div>
-<h2 id="creando-nuestro-blog">Creando nuestro blog</h2>
-<p>Vamos a crear otra vez nuestro contenedor de <em>WordPress</em>, pero esta vez vamos a conectarlo con nuestra base de datos. Además, queremos poder editar los ficheros de las plantillas, por si tenemos que modificar algo, así que necesitaremos montar el directorio del contenedor donde está instalado <em>WordPress</em> con nuestra cuenta de usuario en la máquina anfitrión.</p>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<p>Vamos a crear el espacio de trabajo:</p>
-<div class="highlight"><pre><span></span><code>mkdir -p ~/Sites/wordpress/target &amp;&amp; cd ~/Sites/wordpress
-</code></pre></div>
-</div>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<p>Y dentro de este directorio arrancamos el contenedor:</p>
-<div class="highlight"><pre><span></span><code>docker run -d --name wordpress \
-    --link wordpress-db:mysql \
-    --mount type=bind,source=&quot;$(pwd)&quot;/target,target=/var/www/html \
-    -e WORDPRESS_DB_USER=manager \
-    -e WORDPRESS_DB_PASSWORD=secret \
-    -p 8080:80 \
-    wordpress:4.9.8
-</code></pre></div>
-</div>
-<p>Cuando termine la ejecución, si accedemos a la dirección <a href="http://localhost:8080/">http://localhost:8080/</a>, ahora sí podremos acabar el proceso de instalación de nuestro WordPress. Si listamos el directorio target comprobaremos que tenemos todos los archivos de instalación accesibles desde el directorio anfitrión.</p>
+<h1 id="practica-62-despliegue-de-servidores-web-con-usuarios-autenticados-mediante-ldap-usando-docker-y-docker-compose">Práctica 6.2 - Despliegue de servidores web con usuarios autenticados mediante LDAP usando <em>Docker</em> y <em>docker-compose</em></h1>
+<h2 id="introduccion">Introducción</h2>
+<h3 id="que-es-un-servicio-de-directorio-ldap">¿Qué es un servicio de directorio LDAP?</h3>
+<p>LDAP (Lightweight Directory Access Protocol) o también conocido como «Protocolo Ligero de Acceso a Directorios» es un protocolo de la capa de aplicación TCP/IP que permite el acceso a un servicio de directorio ordenado y distribuido, para buscar cualquier información en un entorno de red.</p>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Ejercicios:</p>
-<ol>
-<li>Para los contenedores, tanto el de <em>WordPress</em> como el <em>MariaDB</em>.</li>
-<li>Borra ambos.</li>
-<li>Vuelve a crearlos y mira como ya no es necesario volver a instalar <em>WordPress</em>.</li>
-<li>Vuelve a borrarlos y borra también el volumen.</li>
-<li>Vuelve a crear el volumen y los contenedores y comprueba que ahora sí hay que volver a instalar <em>WordPress</em>.</li>
-</ol>
+<p class="admonition-title">Aclaración</p>
+<p>Un directorio es un conjunto de objetos con atributos que están organizados de manera lógica y jerárquica, es decir, está en forma de árbol y perfectamente ordenado en función de lo que nosotros queramos, ya sea alfabéticamente, por usuarios, direcciones etc.</p>
 </div>
+<p>Generalmente un servidor LDAP se encarga de almacenar información de autenticación, es decir, el usuario y la contraseña, para posteriormente dar acceso a otro protocolo o servicio del sistema. Además de almacenar el nombre de usuario y la contraseña, también puede almacenar otra información como datos de contacto del usuario, ubicación de los recursos de la red local, certificados digitales de los propios usuarios y mucho más.</p>
+<p>LDAP es un protocolo que nos permite acceder a los recursos de la red local, sin necesidad de crear los diferentes usuarios en el sistema operativo, además, es mucho más versátil. Por ejemplo, LDAP permite realizar tareas de autenticación y autorización a usuarios de diferentes softwares como Docker, OpenVPN, servidores de archivos como los usados por QNAP, Synology o ASUSTOR entre otros, y muchos más usos.</p>
+<p><img alt="" src="../img/ldap1.webp" /></p>
+<p>LDAP puede ser utilizado tanto por un usuario al que se pide unos  credenciales de acceso, como también por las aplicaciones para saber si tienen acceso a determinada información del sistema o no. Generalmente un servidor LDAP se encuentra en una red privada, es decir, redes de área local, para autenticar las diferentes aplicaciones y usuarios, pero también podría funcionar sobre redes públicas sin ningún problema.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>En definitiva, LDAP nos proporciona un serivicio de autenticación y autorización para poder acceder a distintos recursos en red, como por ejemplo, a un sitio web. Si recordamos la práctica 2.2, nuestro usuario se autenticaba utilizando usuarios creados en el mismo sistema operativo (Debian Linux) donde se había instalado el servidor web Nginx.</p>
+<p>Tenemos, por tanto, la posibilidad de utilizar otra autenticación centralizada para el mismo cometido con LDAP.</p>
+</div>
+<h3 id="implementaciones-de-ldap">Implementaciones de LDAP</h3>
+<p>Microsoft Active Directory utiliza internamente el protocolo LDAP para realizar todas las comunicaciones desde los clientes hasta el servidor o servidores, por lo tanto, se encarga de que los clientes puedan autenticarse y acceder a cualquier dato almacenado, además, debemos tener en cuenta que este protocolo es multiplataforma, no solamente lo tenemos en sistemas operativos Windows sino que también es compatible con Linux, Unix y macOS, todo ello a través del protocolo. Para que os hagáis una idea, los siguientes servicios de directorio usan este protocolo para su comunicación:</p>
+<ul>
+<li>Active Directory de Microsoft</li>
+<li>Apache</li>
+<li>Servicio de directorio de Red Hat</li>
+<li>OpenLDAP</li>
+</ul>
+<p>Y muchos otros servicios también lo usan, sobre todo el último, OpenLDAP, el cual es una implementación de código abierto del protocolo y que se puede instalar en cualquier sistema, ya que está disponible el código fuente para compilarlo. No obstante, en la mayoría de distribuciones de Linux lo tenemos disponible en sus repositorios.</p>
+<h3 id="como-se-organiza-la-informacion-en-ldap">¿Cómo se organiza la información en LDAP?</h3>
+<p><strong>En LDAP, las entradas están organizadas en una estructura jerárquica en árbol</strong>. Tradicionalmente, esta estructura reflejaba los límites geográficos y organizacionales.</p>
+<p>Las entradas que representan países aparecen en la parte superior del árbol. Debajo de ellos, están las entradas que representan los estados y las organizaciones nacionales. Debajo de estás, pueden estar las entradas que representan las unidades organizacionales, empleados, impresoras, documentos o todo aquello que pueda imaginarse. La siguiente figura muestra un ejemplo de un árbol de directorio LDAP haciendo uso del nombramiento tradicional.</p>
+<p><img alt="" src="../img/ldap2.png" /></p>
+<p>El árbol también se puede organizar basándose en los nombres de dominio de Internet. Este tipo de nombramiento es muy popular, ya que permite localizar un servicio de directorio haciendo uso de los DNS. La siguiente figura muestra un ejemplo de un directorio LDAP que hace uso de los nombres basados en dominios.</p>
+<p><img alt="" src="../img/ldap3.png" /></p>
+<h4 id="como-se-referencia-la-informacion">¿Cómo se referencia la información?</h4>
+<p>Una entrada es referenciada por su nombre distinguido (DN), que es construido por el nombre de la propia entrada (llamado Nombre Relativo Distinguido o RDN) y la concatenación de los nombres de las entradas que le anteceden. </p>
+<p>Por ejemplo, la entrada para Nuno Gonçalves en el ejemplo del nombramiento de Internet anterior tiene el siguiente RDN: uid=nuno y su DN sería: uid=nuno,ou=estig,dc=ipb,dc=pt.  </p>
+<h4 id="como-se-accede-a-la-informacion">Cómo se accede a la información?</h4>
+<p>LDAP define operaciones para interrogar y actualizar el directorio. Provee operaciones para añadir y borrar entradas del directorio, modificar una entrada existente y cambiar el nombre de una entrada. La mayor parte del tiempo, sin embargo, LDAP se utiliza para buscar información almacenada en el directorio. Las operaciones de búsqueda de LDAP permiten buscar entradas que concuerdan con algún criterio especificado por un filtro de búsqueda. La información puede ser solicitada desde cada entrada que concuerda con dicho criterio.</p>
+<p>Por ejemplo, imaginemos que queremos buscar en el subárbol del directorio que está por debajo de dc=ipb,dc=pt a personas con el nombre Nuno Gonçalves, obteniendo la dirección de correo electrónico de cada entrada que concuerde. LDAP permite hacer esto fácilmente. O tal vez preferimos buscar las organizaciones que posean la cadena IPB en su nombre, posean número de fax y estén debajo de la entrada st=Bragança,c=PT. LDAP permite hacer esto también.</p>
+<p>LDAP ofrece una autenticación y autorización optimizadas y una búsqueda eficaz de datos de direcciones y de usuarios. Debido a sus muchas ventajas para las empresas. LDAP sirve a modo de un estándar de la industria y es compatible con la mayoría de los productos de software. Las ventajas principales son la rapidez de las consultas y conexiones, un lenguaje de consulta sencillo y un protocolo claramente estructurado</p>
+<h3 id="modulos-en-apache">Módulos en Apache</h3>
+<p>Un módulo es una parte independiente de un programa. La mayor parte de la funcionalidad de Apache está contenida en módulos que pueden incluirse o excluirse. Como decimos, existen una gran cantidad de Módulos para utilizarse con Apache, algunos ejemplo son: "Virtual Hosting","Mod_JK(Java)" y "Rewrite".</p>
+<p>Una de las principales razones de emplear módulos en Apache, es que no toda instalación requiere de las mismas funcionalidades, esto es, una instalación que utilice PHP probablemente no requiera de Tomcat (Java), o bien posiblemente no todas las instalaciones requieran de "Virtual Hosting".</p>
+<p>Así las cosas, para no incluir todas las funcionalidades de Apache, necesarias e innecesarias para cada ocasión, en un único paquete de instalación que lo haría demasiado grande en tamaño y pesado en recursos, se hace uso de los módulos, de tal forma que sólo cargaremos en memoria los que nos hagan falta en cada ocasión.</p>
+<p>Los módulos le permiten a los administradores del servidor activar y desactivar funcionalidades adicionales. Apache tiene módulos de seguridad, almacenamiento en caché, reescritura de URL, autenticación de contraseña y más.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>En Apache hay dos tipos de módulos:</p>
+<ul>
+<li><strong>Estáticos:</strong> Son añadidos al compilar el servidor.</li>
+<li><strong>Dinámicos:</strong> Se cargan dinámicamente al iniciar el servidor. </li>
+</ul>
+</div>
+<p>Se puede habilitar cualquiera de los módulos de la lista con el comando <code>a2enmod (nombre del módulo)</code> (usando el <code>sudo</code> si no se es superusuario), y deshabilitar cualquiera de ellos previamente habilitado mediante el comando <code>a2dismod (nombre del módulo)</code>  (usando el <code>sudo</code> si no se es superusuario).</p>
+<h3 id="modulos-en-nginx">Módulos en Nginx</h3>
+<p>Los módulos <u>estáticos</u> existen desde sus inicios en Nginx y los <u>dinámicos</u> desde la versión 1.9.11 (Febrero de 2016).</p>
+<p>Nginx es, de hecho, una colección de módulos. Incluso funciones básicas tales como HTTP o servir ficheros estáticos dentro de HTTP, están implementadas por módulos.</p>
+<p>Se puede extender la funcionalidad de Nginx añadiendo módulos propios. Esta arquitectura modular permite modificar fácilmente Nginx.</p>
+<h4 id="modulo-autenticacion-ldap-en-nginx">Módulo autenticación LDAP en Nginx</h4>
+<p>La solución aprovecha el módulo ngx_http_auth_request_module de Nginx y NGINX, que reenvía las peticiones de autenticación a un servicio externo. En la implementación de referencia, ese servicio es un demonio que llamamos ldap-auth. Está escrito en Python y se comunica con un servidor de autenticación del Protocolo Ligero de Acceso a Directorios (LDAP) - OpenLDAP por defecto, pero hemos probado el demonio ldap-auth también con configuraciones por defecto de Microsoft® Windows® Server Active Directory (tanto la versión 2003 como la 2012).</p>
+<p>Para realizar la autenticación, el módulo http_auth_request realiza una subconsulta HTTP al demonio ldap-auth, que actúa como intermediario e interpreta la subconsulta para el servidor LDAP - utiliza HTTP para la comunicación con Nginx y la API apropiada para la comunicación con el servidor LDAP.</p>
+<p><img alt="" src="../img/ldap4.jpeg" /></p>
+<p>Para realizar la autenticación, el módulo http_auth_request realiza una subconsulta HTTP al demonio ldap-auth, que actúa como intermediario e interpreta la subconsulta para el servidor LDAP - utiliza HTTP para la comunicación con Nginx y la API apropiada para la comunicación con el servidor LDAP.</p>
+<p>A continuación se describe paso a paso el proceso de autenticación en la implementación de referencia. Los detalles se determinan por los ajustes en el archivo de configuración nginx-ldap-auth.conf; ver Configuración de la implementación de referencia más abajo. </p>
+<p>El diagrama de flujo debajo de los pasos resume el proceso.</p>
+<p><img alt="" src="../img/ldap5.jpeg" /></p>
+<ol>
+<li>
+<p>Un cliente envía una solicitud HTTP para un recurso protegido alojado en un servidor para el que Nginx está actuando como proxy inverso.</p>
+</li>
+<li>
+<p>Nginx (concretamente, el módulo <em>http_auth_request</em>) reenvía la solicitud al demonio <em>ldap-auth</em>, que responde con el código HTTP 401 porque no se han proporcionado credenciales.</p>
+</li>
+<li>
+<p>Nginx reenvía la solicitud a <code>http://backend/login</code>, que corresponde al demonio del backend. Escribe el URI de la solicitud original en la cabecera X-Target de la solicitud reenviada.</p>
+</li>
+<li>
+<p>El demonio del backend envía al cliente un formulario de inicio de sesión (el formulario está definido en el código Python del demonio). Tal y como se configura en la directiva error_page, NGINX establece el código HTTP del formulario de inicio de sesión en 200.</p>
+</li>
+<li>
+<p>El usuario rellena los campos <em>Nombre de usuario</em> y <em>Contraseña</em> en el formulario y hace clic en el botón Login. Según el código del formulario, el cliente genera una petición HTTP POST dirigida a <code>/login</code>, que Nginx reenvía al demonio del backend.</p>
+</li>
+<li>
+<p>El demonio del backend construye una cadena con el formato nombre de <code>usuario:contraseña</code>, aplica la codificación Base64, genera una cookie llamada <strong>nginxauth</strong> con su valor establecido a la cadena codificada, y envía la cookie al cliente. Establece el flag httponly para evitar el uso de JavaScript para leer o manipular la cookie (protegiendo contra la vulnerabilidad cross-site scripting [XSS]).</p>
+</li>
+<li>
+<p>El cliente retransmite su solicitud original (del paso 1), esta vez incluyendo la cookie en el campo Cookie de la cabecera HTTP. Nginx reenvía la solicitud al demonio <code>ldap-auth</code> (como en el paso 2).</p>
+</li>
+<li>
+<p>El demonio <code>ldap-auth</code> decodifica la cookie y envía el nombre de usuario y la contraseña al servidor LDAP en una solicitud de autenticación.</p>
+</li>
+<li>
+<p>La siguiente acción depende de si el servidor LDAP autentifica con éxito al usuario:</p>
+<ul>
+<li>
+<p>Si la autenticación tiene éxito, el demonio <code>ldap-auth</code> envía el código HTTP 200 a Nginx. Nginx solicita el recurso al demonio del backend y éste devuelve el código del sitio web.</p>
+<p>El archivo <code>nginx-ldap-auth.conf</code> incluye directivas para el almacenamiento en caché de los resultados del intento de autenticación.</p>
+</li>
+<li>
+<p>Si la autenticación falla, el demonio <code>ldap-auth</code> envía el código HTTP 401 a Nginx. Nginx reenvía la solicitud al demonio del backend de nuevo (como en el paso 3), y el proceso se repite.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="despliegue-con-docker-de-nginx-demonio-de-autenticacion-ldap-openldap">Despliegue con Docker de <strong>NGINX + demonio de autenticación LDAP + OpenLDAP</strong></h2>
+<p>Para esta práctica nos crearemos un directorio que contendrá nuestro index.html, con un texto muy simple:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>$ mkdir app
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>$ cat <span class="s">&lt;&lt; EOF &gt; app/index.html</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="s">&lt;html&gt;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="s">&lt;body&gt;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="s">&lt;h1&gt;¡Hola Mundo!&lt;/h1&gt;</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="s">&lt;/body&gt;</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="s">&lt;/html&gt;</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="s">EOF</span>
+</code></pre></div>
+<p>Así como otro directorio, con el contenido de la configuración pertinente de Nginx:</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>$ mkdir conf
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>$ cat &lt;&lt; EOF &gt; conf/ldap_nginx.conf
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>    server <span class="o">{</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>      listen <span class="m">8080</span><span class="p">;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>      <span class="nv">location</span> <span class="o">=</span> / <span class="o">{</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a>         auth_request /auth-proxy<span class="p">;</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a>      <span class="o">}</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a>      <span class="nv">location</span> <span class="o">=</span> /auth-proxy <span class="o">{</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a>         internal<span class="p">;</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a>         proxy_pass http://nginx-ldap:8888<span class="p">;</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a>         <span class="c1"># URL y puerto para conectarse al servidor LDAP</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a>         proxy_set_header X-Ldap-URL <span class="s2">&quot;ldap://openldap:1389&quot;</span><span class="p">;</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18"></a>
+<a id="__codelineno-1-19" name="__codelineno-1-19"></a>         <span class="c1"># Base DN</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20"></a>         proxy_set_header X-Ldap-BaseDN <span class="s2">&quot;dc=example,dc=org&quot;</span><span class="p">;</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21"></a>
+<a id="__codelineno-1-22" name="__codelineno-1-22"></a>         <span class="c1"># Bind DN</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23"></a>         proxy_set_header X-Ldap-BindDN <span class="s2">&quot;cn=admin,dc=example,dc=org&quot;</span><span class="p">;</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24"></a>
+<a id="__codelineno-1-25" name="__codelineno-1-25"></a>         <span class="c1"># Bind password</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26"></a>         proxy_set_header X-Ldap-BindPass <span class="s2">&quot;adminpassword&quot;</span><span class="p">;</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27"></a>      <span class="o">}</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28"></a>   <span class="o">}</span>
+</code></pre></div>
+En esta configuración le decimos a Nginx:</p>
+<ul>
+<li>Que escuche en el puerto 8080 las peticiones HTTP</li>
+<li>Que cuando se acceda al sitio web, se solicite autorización en el directorio del sitio web llamado <em>/auth-proxy</em></li>
+<li>Se crea un nuevo location para ese directorio <em>/auth-proxy</em> y que es donde se realizará la configuración de cómo conectarnos a nuestro openldap, de acuerdo con la <a href="https://www.nginx.com/blog/nginx-plus-authenticate-users/#ldap-auth-configure">documentación oficial de Nginx</a> a propósito de su módulo de autenticación:</li>
+<li>Se indica la URL de nuestro openldap (es el nombre del contenedor que hemos levantado, ya que Docker tiene un DNS propio entre sus contenedores)</li>
+<li>El DN (Nombre distinguido) base sobre el que se realizarán las búsquedas en openldap</li>
+<li>El usuario y contraseña con el que nos conectaremos al openldap para realizar las consultas</li>
+</ul>
+<p>Y ahora, procedemos con el siguiente <code>docker-compose.yml</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nt">version</span><span class="p">:</span> <span class="s">&#39;2&#39;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="nt">services</span><span class="p">:</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>  <span class="nt">nginx-ldap</span><span class="p">:</span>  <span class="c1"># (1)</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bitnami/nginx-ldap-auth-daemon</span> <span class="c1"># (2)</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>    <span class="nt">ports</span><span class="p">:</span> <span class="c1"># (3)</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">8888:8888</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a>  <span class="nt">nginx</span><span class="p">:</span> <span class="c1"># (4)</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a>    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bitnami/nginx</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a>    <span class="nt">ports</span><span class="p">:</span> 
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a>     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">8080:8080</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a>    <span class="nt">volumes</span><span class="p">:</span> <span class="c1"># (5)</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a>     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">./app:/app</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a>     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">./conf/ldap_nginx.conf:/opt/bitnami/nginx/conf/server_blocks/ldap_nginx.conf</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a>  <span class="nt">openldap</span><span class="p">:</span> <span class="c1"># (6)</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16"></a>    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bitnami/openldap</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17"></a>    <span class="nt">ports</span><span class="p">:</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18"></a>      <span class="p p-Indicator">-</span> <span class="s">&#39;1389:1389&#39;</span>    
+<a id="__codelineno-2-19" name="__codelineno-2-19"></a>    <span class="nt">environment</span><span class="p">:</span> <span class="c1"># (7)</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">LDAP_ADMIN_USERNAME=admin</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">LDAP_ADMIN_PASSWORD=adminpassword</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">LDAP_USERS=customuser</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">LDAP_PASSWORDS=custompassword</span>
+</code></pre></div>
+<ol>
+<li>Nombre del contenedor</li>
+<li>Imagen que descargaremos del Dockerhub y a partir de la cual crearemos nuestro contenedor</li>
+<li>Puerto/s que se publicarán para el contenedor</li>
+<li>Nombre del contenedor</li>
+<li>Volúmenes o directorios compartidos entre nuestra máquina y el contenedor</li>
+<li>Nombre del contenedor</li>
+<li>Variables de entorno utilizadas para la configuración de este contenedor. Incluye credenciales del administrador de openldap, así como un usuario que se creará en dicho openldap (podéis cambiar usuario y contraseña si queréis, pero luego debéis recordarlas)</li>
+</ol>
+<p>Tras esto sólo queda ejecutar compose:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>docker-compose up
+</code></pre></div>
+<p>Y comprobar que no se producen errores.</p>
+<h2 id="referencias">Referencias</h2>
+<p><a href="https://www.redeszone.net/tutoriales/servidores/que-es-ldap-funcionamiento/">Para qué sirve el protocolo LDAP y cómo funciona</a></p>
+<p><a href="https://www.sergio-gonzalez.com/doc/10-ldap-samba-cups-pykota/html/openldap-que-es.html">OpenLDAP conceptos teóricos</a></p>
+<p><a href="https://www.nginx.com/blog/nginx-plus-authenticate-users/">Using Nginx and NGINX to Authenticate Application Users with LDAP</a></p>
+<p><a href="https://medium.com/ihme-tech/simple-docker-apache-php-authentication-with-ldap-3ac16b17bf31">Simple Docker/Apache/PHP Authentication with LDAP</a></p>
+<p><a href="https://hub.docker.com/r/bitnami/nginx-ldap-auth-daemon">bitnami/nginx-ldap-auth-daemon</a></p>
 
               
             </article>
@@ -1723,7 +1902,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
     <nav class="md-footer__inner md-grid" aria-label="Pie">
       
         
-        <a href="../data/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Persistiendo datos" rel="prev">
+        <a href="../P6.2/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Práctica 6.2 - Despliegue de una aplicación PHP con Nginx y MySQL usando Docker y docker-compose" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1732,20 +1911,20 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
               <span class="md-footer__direction">
                 Anterior
               </span>
-              Persistiendo datos
+              Práctica 6.2 - Despliegue de una aplicación PHP con Nginx y MySQL usando Docker y docker-compose
             </div>
           </div>
         </a>
       
       
         
-        <a href="../docker-compose/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Levantar un WordPress con Docker Compose" rel="next">
+        <a href="../cicd/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Tema 7 - CI/CD (Integración y despliegue continuo)" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Siguiente
               </span>
-              Levantar un WordPress con Docker Compose
+              Tema 7 - CI/CD (Integración y despliegue continuo)
             </div>
           </div>
           <div class="md-footer__button md-icon">
