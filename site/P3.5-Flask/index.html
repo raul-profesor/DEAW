@@ -1811,12 +1811,12 @@ Y tras crear los archivos, los editamos para dejarlos así:</p>
 </li>
 <li>
 <p>Comprobemos ahora que Gunicorn funciona correctamente también. Si os ha funcionado el servidor de desarrollo de Flask, podéis usar el siguiente comando para probar que la alicación funciona correctamente usando Gunicorn, accediendo con vuestro navegador de la misma forma que en el paso anterior:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>gunicorn -workers <span class="m">4</span> --bind <span class="m">0</span>.0.0.0:5000 wsgi:app
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>gunicorn --workers <span class="m">4</span> --bind <span class="m">0</span>.0.0.0:5000 wsgi:app
 </code></pre></div>
 Donde:</p>
 <ul>
 <li>
-<p><code>workers --N</code> establece el número de <code>workers</code> o hilos que queremos utilizar, como ocurría con Node Express. Dependerá del número de cores que le hayamos dado a la CPU de nuestra máquina virtual.</p>
+<p><code>--workers N</code> establece el número de <code>workers</code> o hilos que queremos utilizar, como ocurría con Node Express. Dependerá del número de cores que le hayamos dado a la CPU de nuestra máquina virtual.</p>
 </li>
 <li>
 <p><code>--bind 0.0.0.0:5000</code> hace que el servidor escuche peticiones por todas sus interfaces de red y en el puerto 5000</p>
@@ -1877,7 +1877,7 @@ Donde:</p>
 <a id="__codelineno-13-7" name="__codelineno-13-7"></a>
 <a id="__codelineno-13-8" name="__codelineno-13-8"></a>    <span class="l l-Scalar l-Scalar-Plain">location / {</span> 
 <a id="__codelineno-13-9" name="__codelineno-13-9"></a>            <span class="l l-Scalar l-Scalar-Plain">include proxy_params;</span>
-<a id="__codelineno-13-10" name="__codelineno-13-10"></a>            <span class="l l-Scalar l-Scalar-Plain">proxy_pass http://unix:/var/www/mi_aplicacion/mi_aplicacion.sock;</span> <span class="c1">#(3)</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10"></a>            <span class="l l-Scalar l-Scalar-Plain">proxy_pass http://unix:/var/www/nombre_aplicacion/nombre_aplicacion.sock;</span> <span class="c1">#(3)</span>
 <a id="__codelineno-13-11" name="__codelineno-13-11"></a>    <span class="err">}</span>
 <a id="__codelineno-13-12" name="__codelineno-13-12"></a><span class="err">}</span>   
 </code></pre></div>
@@ -1895,10 +1895,10 @@ Donde:</p>
 </li>
 <li>
 <p>Recordemos que ahora debemos crear un link simbólico del archivo de sitios webs disponibles al de sitios web activos:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a>sudo ln -s /etc/nginx/sites-available/myproject.conf /etc/nginx/sites-enabled/
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a>sudo ln -s /etc/nginx/sites-available/nombre_aplicacion /etc/nginx/sites-enabled/
 </code></pre></div>
 <p>Y nos aseguramos de que se ha creado dicho link simbólico:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a>ls -l /etc/nginx/sites-enabled/ <span class="p">|</span> grep myproject
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a>ls -l /etc/nginx/sites-enabled/ <span class="p">|</span> grep nombre_aplicacion
 </code></pre></div>
 </li>
 <li>
@@ -1935,7 +1935,7 @@ Donde:</p>
 <p>Y, <strong><em>tras activar el entorno virtual dentro del directorio del repositorio clonado</em></strong>, para instalar las dependencias del proyecto de la aplicación deberás hacer:</p>
 <p><code>pipenv install -r requirements.txt</code></p>
 <p>Y un último detalle, si miráis el código del proyecto, quee es muy sencillo, veréis que <em>Gunicorn</em> debe iniciarse ahora así:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a>gunicorn -workers 4 --bind 0.0.0.0:5000 wsgi:app
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a>gunicorn --workers 4 --bind 0.0.0.0:5000 wsgi:app
 </code></pre></div>
 <p>Y el resto sería proceder tal y como hemos hecho en esta práctica.</p>
 </div>
