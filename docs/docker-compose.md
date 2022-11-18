@@ -9,11 +9,11 @@ Para esta parte vamos a detener y borrar lo que hemos creado:
 !!! example
 
     Borra el trabajo actual:
-
-        docker container stop wordpress wordpress-db
-        docker container rm wordpress wordpress-db
-        docker volume rm wordpress-db
-
+    ```sh
+    docker container stop wordpress wordpress-db
+    docker container rm wordpress wordpress-db
+    docker volume rm wordpress-db
+    ```
 ## Docker Compose
 
 _Compose_ es una herramienta para definir y ejecutar aplicaciones multi-contenedor. Con un solo comando podremos crear e iniciar todos los servicios que necesitamos para nuestra aplicación.
@@ -35,34 +35,35 @@ _Compose_ tiene comandos para manejar todo el ciclo de vida de nuestra aplicaci�
 
 En el mismo directorio donde estábamos en el paso anterior (`~/Sites/wordpress`), vamos a crear un fichero llamado `docker-compose.yaml` con el siguiente contenido:
 
-    :::yaml
-    version: '3'
+```yaml
+version: '3'
 
-    services:
-        db:
-            image: mariadb:10.3.9
-            volumes:
-                - data:/var/lib/mysql
-            environment:
-                - MYSQL_ROOT_PASSWORD=secret
-                - MYSQL_DATABASE=wordpress
-                - MYSQL_USER=manager
-                - MYSQL_PASSWORD=secret
-        web:
-            image: wordpress:4.9.8
-            depends_on:
-                - db
-            volumes:
-                - ./target:/var/www/html
-            environment:
-                - WORDPRESS_DB_USER=manager
-                - WORDPRESS_DB_PASSWORD=secret
-                - WORDPRESS_DB_HOST=db
-            ports:
-                - 8080:80
+services:
+    db:
+        image: mariadb:10.3.9
+        volumes:
+            - data:/var/lib/mysql
+        environment:
+            - MYSQL_ROOT_PASSWORD=secret
+            - MYSQL_DATABASE=wordpress
+            - MYSQL_USER=manager
+            - MYSQL_PASSWORD=secret
+    web:
+        image: wordpress:4.9.8
+        depends_on:
+            - db
+        volumes:
+            - ./target:/var/www/html
+        environment:
+            - WORDPRESS_DB_USER=manager
+            - WORDPRESS_DB_PASSWORD=secret
+            - WORDPRESS_DB_HOST=db
+        ports:
+            - 8080:80
 
-    volumes:
-        data:
+volumes:
+    data:
+```    
 
 !!! info
     YAML es un lenguaje de serialización de datos diseñado para ser leído y escrito por personas. Se recomienda que sigas algún tutorial para entender su formato: [Aprende YAML en Y minutos](https://learnxinyminutes.com/docs/es-es/yaml-es/).
@@ -85,31 +86,35 @@ Vamos a ejecutar esta aplicación y luego procederemos a explicarla:
 
 Cuando arrancamos la aplicación, _Compose_ nos informa de los servicios que ha ido levantando:
 
-    $ docker-compose up -d
-    Creating network "wordpress_default" with the default driver
-    Creating volume "wordpress_data" with local driver
-    Creating wordpress_db_1 ... 
-    Creating wordpress_db_1 ... done
-    Creating wordpress_web_1 ... 
-    Creating wordpress_web_1 ... done
+```console
+$ docker-compose up -d
+Creating network "wordpress_default" with the default driver
+Creating volume "wordpress_data" with local driver
+Creating wordpress_db_1 ... 
+Creating wordpress_db_1 ... done
+Creating wordpress_web_1 ... 
+Creating wordpress_web_1 ... done
+```
 
 El parámetro `-d` es similar al que hemos visto en `docker run`: nos permite levantar los servicios en segundo plano.
 
 Veamos los contenedores activos:
 
-    $ docker container ls
-    CONTAINER ID  IMAGE            COMMAND      CREATED         STATUS         PORTS                  NAMES
-    a07b5d4d3982  wordpress:4.9.8  "docker.s…"  10 seconds ago  Up 8 seconds   0.0.0.0:8080->80/tcp   wordpress_web_1
-    d9204884cec5  mariadb:10.3.9   "docker.s…"  11 seconds ago  Up 10 seconds  3306/tcp               wordpress_db_1
-
+```console
+$ docker container ls
+CONTAINER ID  IMAGE            COMMAND      CREATED         STATUS         PORTS                  NAMES
+a07b5d4d3982  wordpress:4.9.8  "docker.s…"  10 seconds ago  Up 8 seconds   0.0.0.0:8080->80/tcp   wordpress_web_1
+d9204884cec5  mariadb:10.3.9   "docker.s…"  11 seconds ago  Up 10 seconds  3306/tcp               wordpress_db_1
+```
 También podemos ver los contenedores con _Compose_:
 
-    $ docker-compose ps
-        Name                    Command               State          Ports        
-    -------------------------------------------------------------------------------
-    wordpress_db_1    docker-entrypoint.sh mysqld      Up      3306/tcp            
-    wordpress_web_1   docker-entrypoint.sh apach ...   Up      0.0.0.0:8080->80/tcp
-
+```console
+$ docker-compose ps
+    Name                    Command               State          Ports        
+-------------------------------------------------------------------------------
+wordpress_db_1    docker-entrypoint.sh mysqld      Up      3306/tcp            
+wordpress_web_1   docker-entrypoint.sh apach ...   Up      0.0.0.0:8080->80/tcp
+```
 Lo que tenemos que tener en cuenta es lo siguiente:
 
 * `docker-compose ps` solo muestra información de los servicios que se define en `docker-compose.yaml`, mientras que `docker` muestra todos.
@@ -139,75 +144,82 @@ Si queremos borrar también los volúmenes:
 
 Veamos la configuración por partes:
 
-    :::yaml hl_lines="1"
-    version: '3'
+```yaml hl_lines="1"
+version: '3'
+```
 
 _Compose_ se actualiza a menudo, con lo que el archivo de configuración va adquiriendo nuevas funcionalidades. La versión '3' (es una cadena, importante poner comillas) es la última y para conocer todas sus características mira la [página de referencia de la versión 3 de Compose](https://docs.docker.com/compose/compose-file/).
 
-    :::yaml hl_lines="1"
-    volumes:
-        data:
+```yaml hl_lines="1"
+volumes:
+    data:
+```
 
 Ya hemos indicado que es importante guardar los datos volátiles de las aplicaciones en volúmenes. En este caso hemos creado un volumen llamado `data`. Recordemos que _Compose_ siempre añade como prefijo el nombre del directorio, con lo que el nombre real del volumen es `wordpress_data`. Podemos comprobarlo con el cliente de docker como hicimos en el capítulo de volúmenes:
 
-    $ docker volume ls
-    DRIVER              VOLUME NAME
-    local               wordpress_data
-
+```console
+$ docker volume ls
+DRIVER              VOLUME NAME
+local               wordpress_data
+```
 Nos saltamos la sección de redes (_networks_) y vamos a la sección de servicios, que son los contenedores que precisa o componen nuestra aplicación.
 
 Primero la base de datos:
 
-    :::yaml hl_lines="2"
-    services:
-        db:
-            image: mariadb:10.3.9
-            volumes:
-                - data:/var/lib/mysql
-            environment:
-                - MYSQL_ROOT_PASSWORD=secret
-                - MYSQL_DATABASE=wordpress
-                - MYSQL_USER=manager
-                - MYSQL_PASSWORD=secret
-
+```yaml hl_lines="2"
+services:
+    db:
+        image: mariadb:10.3.9
+        volumes:
+            - data:/var/lib/mysql
+        environment:
+            - MYSQL_ROOT_PASSWORD=secret
+            - MYSQL_DATABASE=wordpress
+            - MYSQL_USER=manager
+            - MYSQL_PASSWORD=secret
+```
 Después de abrir la parte de servicios, el primer nivel indica el nombre del servicio `db`, que genera el contenedor `wordpress_db`. Lo que vemos a continuación es lo mismo que hicimos en la sección anterior pero de forma parametrizada. Si recordamos, para levantar nuestra base de datos, indicamos la imagen (línea 3), luego montamos los volúmenes (línea 4), y después indicamos las variables de entorno que configuraban el contenedor (línea 6).
 
 Es decir, lo anterior es equivalente, excepto por el nombre, a:
 
-    $ docker run -d --name wordpress-db \
-            --mount source=wordpress-db,target=/var/lib/mysql \
-            -e MYSQL_ROOT_PASSWORD=secret \
-            -e MYSQL_DATABASE=wordpress \
-            -e MYSQL_USER=manager \
-            -e MYSQL_PASSWORD=secret mariadb:10.3.9
+```sh
+$ docker run -d --name wordpress-db \
+        --mount source=wordpress-db,target=/var/lib/mysql \
+        -e MYSQL_ROOT_PASSWORD=secret \
+        -e MYSQL_DATABASE=wordpress \
+        -e MYSQL_USER=manager \
+        -e MYSQL_PASSWORD=secret mariadb:10.3.9
+```
 
 Y después nuestro _WordPress_:
 
-    :::yaml
-    services:
-        web:
-            image: wordpress:4.9.8
-            depends_on:
-                - db
-            volumes:
-                - ./target:/var/www/html
-            environment:
-                - WORDPRESS_DB_USER=manager
-                - WORDPRESS_DB_PASSWORD=secret
-                - WORDPRESS_DB_HOST=db
-            ports:
-                - 8080:80
+```yaml
+services:
+    web:
+        image: wordpress:4.9.8
+        depends_on:
+            - db
+        volumes:
+            - ./target:/var/www/html
+        environment:
+            - WORDPRESS_DB_USER=manager
+            - WORDPRESS_DB_PASSWORD=secret
+            - WORDPRESS_DB_HOST=db
+        ports:
+            - 8080:80
+```
 
 En este caso la equivalencia es al comando:
 
-    $ docker run -d --name wordpress \
-        --link wordpress-db:mysql \
-        --mount type=bind,source="$(pwd)"/target,target=/var/www/html \
-        -e WORDPRESS_DB_USER=manager \
-        -e WORDPRESS_DB_PASSWORD=secret \
-        -p 8080:80 \
-        wordpress:4.9.8
-
+```sh
+$ docker run -d --name wordpress \
+    --link wordpress-db:mysql \
+    --mount type=bind,source="$(pwd)"/target,target=/var/www/html \
+    -e WORDPRESS_DB_USER=manager \
+    -e WORDPRESS_DB_PASSWORD=secret \
+    -p 8080:80 \
+    wordpress:4.9.8
+```
 La equivalencia de los parámetros es la siguiente:
 
 | parámetro _Docker_ | parámetro _Composer_ |
@@ -215,7 +227,7 @@ La equivalencia de los parámetros es la siguiente:
 | --link | depends_on |
 | --mount | volumes |
 | -e | environment |
-| -p,--publish | ports |
+| -p, --publish | ports |
 | | image |
 
 !!! note
@@ -225,29 +237,30 @@ La equivalencia de los parámetros es la siguiente:
 
     Para eso usaremos el parámetro `restart`. En el caso de la base de datos de nuestro ejemplo, la configuración quedaría como:
 
-        :::yaml hl_lines="4"
-        services:
-            db:
-                image: mariadb:10.3.9
-                restart: unless-stopped
-                volumes:
-                    - data:/var/lib/mysql
-                environment:
-                    - MYSQL_ROOT_PASSWORD=secret
-                    - MYSQL_DATABASE=wordpress
-                    - MYSQL_USER=manager
-                    - MYSQL_PASSWORD=secret
-
+    ```yaml hl_lines="4"
+    services:
+        db:
+            image: mariadb:10.3.9
+            restart: unless-stopped
+            volumes:
+                - data:/var/lib/mysql
+            environment:
+                - MYSQL_ROOT_PASSWORD=secret
+                - MYSQL_DATABASE=wordpress
+                - MYSQL_USER=manager
+                - MYSQL_PASSWORD=secret
+    ```
     El equivalente en la consola sería:
 
-        :::console hl_lines="2"
-        $ docker run -d --name wordpress-db \
-            --restart unless-stopped
-            --mount source=wordpress-db,target=/var/lib/mysql \
-            -e MYSQL_ROOT_PASSWORD=secret \
-            -e MYSQL_DATABASE=wordpress \
-            -e MYSQL_USER=manager \
-            -e MYSQL_PASSWORD=secret mariadb:10.3.9
+    ```sh hl_lines="2"
+    $ docker run -d --name wordpress-db \
+        --restart unless-stopped
+        --mount source=wordpress-db,target=/var/lib/mysql \
+        -e MYSQL_ROOT_PASSWORD=secret \
+        -e MYSQL_DATABASE=wordpress \
+        -e MYSQL_USER=manager \
+        -e MYSQL_PASSWORD=secret mariadb:10.3.9
+    ```
 
     Otros valores son: `no` (por defecto), `always` y `on-failure`.
 

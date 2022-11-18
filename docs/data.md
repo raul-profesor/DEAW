@@ -18,34 +18,38 @@ La razón para esto último es que tanto nuestro entorno de desarrollo como el c
 
 Como necesitamos crear una base de datos para nuestro blog con _WordPress_ vamos a crear un volumen donde guardar la información:
 
-    $ docker volume create wordpress-db
-    wordpress-db
+```console
+$ docker volume create wordpress-db
+wordpress-db
+```
 
 ## Listar volúmenes
 
 Con `docker volume ls` podemos visualizar todos los volumenes disponibles.
 
-    $ docker volume ls
-    DRIVER              VOLUME NAME
-    local               wordpress-db
-
+```console
+$ docker volume ls
+DRIVER              VOLUME NAME
+local               wordpress-db
+```
 ## Visualizar volúmenes
 
 Los volumenes se crean en un directorio del sistema y no es recomendable acceder a él, no al menos mientras haya un contenedor usándolo. En cualquier caso, si queremos ver los metadatos de un volumen podemos usar `docker volume inspect`
 
-    $ docker volume inspect wordpress-db 
-    [
-        {
-            "CreatedAt": "yyyy-mm-ddThh:ii:ss+Z",
-            "Driver": "local",
-            "Labels": {},
-            "Mountpoint": "/var/lib/docker/volumes/wordpress-db/_data",
-            "Name": "wordpress-db",
-            "Options": {},
-            "Scope": "local"
-        }
-    ]
-
+```console
+$ docker volume inspect wordpress-db 
+[
+    {
+        "CreatedAt": "yyyy-mm-ddThh:ii:ss+Z",
+        "Driver": "local",
+        "Labels": {},
+        "Mountpoint": "/var/lib/docker/volumes/wordpress-db/_data",
+        "Name": "wordpress-db",
+        "Options": {},
+        "Scope": "local"
+    }
+]
+```
 ## Borrar volumenes
 
 Como todos los objetos de _Docker_, los volúmenes también pueden ser borrados, pero solo si no están en uso. Mucha precaución al borrar los volúmenes, porque perderíamos todos los datos que contenga.

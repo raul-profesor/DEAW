@@ -4,36 +4,41 @@
 
 Portainer es una gestor de contenedores a través de una interfaz web. Para usarlo creamos un directorio donde guardar nuestro _docker-compose.yaml_.
 
-    mkdir -p ~/Sites/portainer
-    cd ~/Sites/portainer
+```sh
+mkdir -p ~/Sites/portainer
+cd ~/Sites/portainer
+```
 
 Guardamos el siguiente fichero como _docker-compose.yaml_ en nuestro directorio:
 
-    :::yaml
-    version: '2'
-    
-    services:
-      portainer:
-        image: portainer/portainer
-        command: -H unix:///var/run/docker.sock
-        volumes:
-          - /var/run/docker.sock:/var/run/docker.sock
-          - portainer_data:/data
-        ports:
-          - 127.0.0.1:9000:9000
+```yaml
+version: '2'
+
+services:
+    portainer:
+    image: portainer/portainer
+    command: -H unix:///var/run/docker.sock
     volumes:
-      portainer_data:
+        - /var/run/docker.sock:/var/run/docker.sock
+        - portainer_data:/data
+    ports:
+        - 127.0.0.1:9000:9000
+volumes:
+    portainer_data:
+```
 
 Y ejecutamos el contenedor:
 
-    docker-compose up -d
-
+```sh
+docker-compose up -d
+```
 ## Limpieza
 
 Para borrar objetos que no están en uso:
 
-    docker system prune
-
+```sh
+docker system prune
+```
 Para borrar volúmenes que no están asociados a ningún contenedor:
 
     docker volume rm $(docker volume ls -q -f "dangling=true")
