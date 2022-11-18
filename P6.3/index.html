@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#practica-62-despliegue-de-servidores-web-con-usuarios-autenticados-mediante-ldap-usando-docker-y-docker-compose" class="md-skip">
+        <a href="#practica-63-despliegue-de-servidores-web-con-usuarios-autenticados-mediante-ldap-usando-docker-y-docker-compose" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -1693,7 +1693,7 @@
                 
 
 
-<h1 id="practica-62-despliegue-de-servidores-web-con-usuarios-autenticados-mediante-ldap-usando-docker-y-docker-compose">Práctica 6.2 - Despliegue de servidores web con usuarios autenticados mediante LDAP usando <em>Docker</em> y <em>docker-compose</em></h1>
+<h1 id="practica-63-despliegue-de-servidores-web-con-usuarios-autenticados-mediante-ldap-usando-docker-y-docker-compose">Práctica 6.3 - Despliegue de servidores web con usuarios autenticados mediante LDAP usando <em>Docker</em> y <em>docker-compose</em></h1>
 <h2 id="introduccion">Introducción</h2>
 <h3 id="que-es-un-servicio-de-directorio-ldap">¿Qué es un servicio de directorio LDAP?</h3>
 <p>LDAP (Lightweight Directory Access Protocol) o también conocido como «Protocolo Ligero de Acceso a Directorios» es un protocolo de la capa de aplicación TCP/IP que permite el acceso a un servicio de directorio ordenado y distribuido, para buscar cualquier información en un entorno de red.</p>
@@ -1887,11 +1887,23 @@ En esta configuración le decimos a Nginx:</p>
 <p>Y comprobar que no se producen errores.</p>
 <h2 id="despliegue-con-docker-de-php-apache-con-autenticacion-ldap">Despliegue con Docker de PHP + Apache con autenticación LDAP</h2>
 <ol>
-<li>En primer lugar, como es obvio, debemos crear el <code>index.php</code> de nuestra aplicación:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cp">&lt;?php</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="k">echo</span> <span class="s1">&#39;Well, hello LDAP authenticated user!&#39;</span><span class="p">;</span>
+<li>
+<p>Creamos un directorio que se llame <code>Practica6.3</code></p>
+</li>
+<li>
+<p>En primer lugar, como es obvio, dentro del directorio creado debemos crear el <code>index.php</code> de nuestra aplicación:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="x">  </span><span class="cp">&lt;?php</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>  <span class="k">echo</span> <span class="s1">&#39;Well, hello LDAP authenticated user!&#39;</span><span class="p">;</span>
 </code></pre></div>
+</li>
+<li>
+<p>Dentro de nuestro directorio de trabajo, creado anteriormente, crearemos otro directorio llamado <code>Docker</code> y dentro de él, un Dockerfile (<code>./Docker/Dockerfile</code>)</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>En Linux, cuando queremos hacer referencia al directorio actual, lo hacemos con un punto <code>.</code> </p>
+<p>Si dentro de nuestro directorio actual tenemos una carpeta llamada <code>prueba</code>, podemos hacer referencia a ella como <code>./prueba</code>, ya que el <code>.</code> hace referencia precisamente al directorio donde nos encontramos.</p>
+</div>
+<p>Para completar este Dockerfile con las opciones/directivas adecuadas, leed los comentarios y podéis apoyaros <a href="https://raul-profesor.github.io/DEAW/dockerfile/?h=dockerfile#mi-primer-dockerfile">en la teoría</a> o en <a href="https://devhints.io/dockerfile">este cheatsheet</a>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c"># ./Docker/Dockerfile --&gt; directorio donde se encuentra este archivo</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2"></a>
 <a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="c"># Imagen base sobre la que vamos a trabajar</span>
@@ -1919,21 +1931,61 @@ En esta configuración le decimos a Nginx:</p>
 <a id="__codelineno-5-25" name="__codelineno-5-25"></a>
 <a id="__codelineno-5-26" name="__codelineno-5-26"></a>____ index.php ./
 </code></pre></div>
-<p>Construimos la imagen:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="l l-Scalar l-Scalar-Plain">docker build \</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a>    <span class="l l-Scalar l-Scalar-Plain">-t docker-ldap \</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3"></a>    <span class="l l-Scalar l-Scalar-Plain">-f ./Docker/dockerfile \</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4"></a>    <span class="l l-Scalar l-Scalar-Plain">.</span>
+<div class="admonition task">
+<p class="admonition-title">Tarea</p>
+<p>Completa el Dockerfile.</p>
+</div>
+</li>
+<li>
+<p>Ahora crearemos el archivo <code>./Docker/ldap-demo.conf</code>, que es la configuración LDAP. Aquí establecemos los criterios de conexión con el contenedor de Openldap, password y URL.</p>
+<p>Las directivas <code>PassEnv</code> al principio del archivo nos permiten omitir nuestras credenciales y pasarlas luego como variables de entorno al correr la imagen del contenedor:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="c1"># ./Docker/ldap-demo.conf</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>PassEnv LDAP_BIND_ON
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>PassEnv LDAP_PASSWORD
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>PassEnv LDAP_URL
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a>&lt;AuthnProviderAlias ldap demo&gt;
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a>    AuthLDAPBindDN <span class="si">${</span><span class="nv">LDAP_BIND_ON</span><span class="si">}</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a>    AuthLDAPBindPassword <span class="si">${</span><span class="nv">LDAP_PASSWORD</span><span class="si">}</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a>    AuthLDAPURL <span class="si">${</span><span class="nv">LDAP_URL</span><span class="si">}</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a>&lt;/AuthnProviderAlias&gt; 
 </code></pre></div>
-<p>Corremos el contenedor indicando las credenciales de nuestra cuenta LDAP:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="l l-Scalar l-Scalar-Plain">docker run \</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2"></a>    <span class="l l-Scalar l-Scalar-Plain">-p 3000:80 \</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3"></a>    <span class="l l-Scalar l-Scalar-Plain">--name ldap_demo \</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4"></a>    <span class="l l-Scalar l-Scalar-Plain">-e LDAP_BIND_ON=&#39;&quot;CN=example,OU=example,DC=example&quot;&#39; \</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5"></a>    <span class="l l-Scalar l-Scalar-Plain">-e LDAP_PASSWORD=&#39;&quot;my_ldap_password&quot;&#39; \</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6"></a>    <span class="l l-Scalar l-Scalar-Plain">-e LDAP_URL=&#39;&quot;my_ldap_url&quot;&#39; \</span>
-<a id="__codelineno-7-7" name="__codelineno-7-7"></a>    <span class="l l-Scalar l-Scalar-Plain">docker-ldap</span>
+</li>
+<li>
+<p>Creamos el archivo .htaccess:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="c"># ./.htaccess</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="nb">AuthBasicProvider</span> demo
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="nb">AuthType</span> Basic
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="nb">AuthName</span> <span class="s2">&quot;Protected Area&quot;</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="nb">Require</span> valid-user
 </code></pre></div>
+</li>
+<li>
+<p>Dentro de nuestro directorio de trabajo, construimos la imagen con el siguiente comando:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>docker build <span class="se">\</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>    -t docker-ldap <span class="se">\</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a>    -f ./Docker/dockerfile <span class="se">\</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a>    .
+</code></pre></div>
+</li>
+<li>
+<p>Corremos el contenedor indicando las credenciales de nuestra cuenta LDAP mediante variables de entorno con la flag <code>-e</code>. Para este caso, vamos a probar un servidor LDAP externo, csimulando que tuviéramos que integrar nuestro despliegue con un servidor ya existente en la empresa. Utilizaremos un servidor público en Internet dedicado a pruebas: <a href="https://www.forumsys.com/2022/05/10/online-ldap-test-server/">https://www.forumsys.com/2022/05/10/online-ldap-test-server/</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>docker run <span class="se">\</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a>    -p <span class="m">3000</span>:80 <span class="se">\</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a>    --name ldap_demo <span class="se">\</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a>    -e <span class="nv">LDAP_BIND_ON</span><span class="o">=</span><span class="s1">&#39;cn=read-only-admin,dc=example,dc=com&#39;</span> <span class="se">\</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a>    -e <span class="nv">LDAP_PASSWORD</span><span class="o">=</span><span class="s1">&#39;password&#39;</span> <span class="se">\</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a>    -e <span class="nv">LDAP_URL</span><span class="o">=</span><span class="s1">&#39;LDAP://ldap.forumsys.com/dc=example,dc=com&#39;</span> <span class="se">\</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a>    docker-ldap
+</code></pre></div>
+</li>
+<li>
+<p>No nos queda más que visitar <code>http://IP-Máq-Debian:3000/demo</code>. Si todo ha ido bien, nos solicitará nuestras credenciales para loguearnos contra el servidor openldap.</p>
+</li>
+</ol>
+<div class="admonition task">
+<p class="admonition-title">Tarea</p>
+<p>Documenta todo el proceso de la práctica, siguiendo los pasos y con las capturas y explicaciones pertinentes.</p>
+</div>
 <h2 id="referencias">Referencias</h2>
 <p><a href="https://www.redeszone.net/tutoriales/servidores/que-es-ldap-funcionamiento/">Para qué sirve el protocolo LDAP y cómo funciona</a></p>
 <p><a href="https://www.sergio-gonzalez.com/doc/10-ldap-samba-cups-pykota/html/openldap-que-es.html">OpenLDAP conceptos teóricos</a></p>

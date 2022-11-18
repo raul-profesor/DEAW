@@ -1657,38 +1657,37 @@
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <p>Los códigos de ejemplo irán acompañados de una caja como esta para poder copiar y pegar los comandos.</p>
-<div class="highlight"><pre><span></span><code>sudo docker run hello-world
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo docker run hello-world
 </code></pre></div>
 </div>
 <p>El resultado es el siguiente:</p>
-<div class="highlight"><pre><span></span><code>:::bash hl_lines=&quot;1 2 6&quot;
-$ sudo docker run hello-world
-Unable to find image &#39;hello-world:latest&#39; locally
-latest: Pulling from library/hello-world
-d1725b59e92d: Pull complete 
-Digest: sha256:0add3ace90ecb4adbf7777e9aacf18357296e799f81cabc9fde470971e499788
-Status: Downloaded newer image for hello-world:latest
-
-Hello from Docker!
-This message shows that your installation appears to be working correctly.
-
-To generate this message, Docker took the following steps:
- 1. The Docker client contacted the Docker daemon.
- 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.
-    (amd64)
- 3. The Docker daemon created a new container from that image which runs the
-    executable that produces the output you are currently reading.
- 4. The Docker daemon streamed that output to the Docker client, which sent it
-    to your terminal.
-
-To try something more ambitious, you can run an Ubuntu container with:
- $ docker run -it ubuntu bash
-
-Share images, automate workflows, and more with a free Docker ID:
- https://hub.docker.com/
-
-For more examples and ideas, visit:
- https://docs.docker.com/get-started/
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="hll">$ sudo docker run hello-world
+</span><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="hll">Unable to find image <span class="s1">&#39;hello-world:latest&#39;</span> locally
+</span><a id="__codelineno-1-3" name="__codelineno-1-3"></a>latest: Pulling from library/hello-world
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>d1725b59e92d: Pull <span class="nb">complete</span> 
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>Digest: sha256:0add3ace90ecb4adbf7777e9aacf18357296e799f81cabc9fde470971e499788
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="hll">Status: Downloaded newer image <span class="k">for</span> hello-world:latest
+</span><a id="__codelineno-1-7" name="__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a>Hello from Docker!
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a>This message shows that your installation appears to be working correctly.
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a>To generate this message, Docker took the following steps:
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="m">1</span>. The Docker client contacted the Docker daemon.
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="m">2</span>. The Docker daemon pulled the <span class="s2">&quot;hello-world&quot;</span> image from the Docker Hub.
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a>    <span class="o">(</span>amd64<span class="o">)</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="m">3</span>. The Docker daemon created a new container from that image which runs the
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a>    executable that produces the output you are currently reading.
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="m">4</span>. The Docker daemon streamed that output to the Docker client, which sent it
+<a id="__codelineno-1-18" name="__codelineno-1-18"></a>    to your terminal.
+<a id="__codelineno-1-19" name="__codelineno-1-19"></a>
+<a id="__codelineno-1-20" name="__codelineno-1-20"></a>To try something more ambitious, you can run an Ubuntu container with:
+<a id="__codelineno-1-21" name="__codelineno-1-21"></a>$ docker run -it ubuntu bash
+<a id="__codelineno-1-22" name="__codelineno-1-22"></a>
+<a id="__codelineno-1-23" name="__codelineno-1-23"></a>Share images, automate workflows, and more with a free Docker ID:
+<a id="__codelineno-1-24" name="__codelineno-1-24"></a>https://hub.docker.com/
+<a id="__codelineno-1-25" name="__codelineno-1-25"></a>
+<a id="__codelineno-1-26" name="__codelineno-1-26"></a>For more examples and ideas, visit:
+<a id="__codelineno-1-27" name="__codelineno-1-27"></a>https://docs.docker.com/get-started/
 </code></pre></div>
 <p>En la línea 1 estamos ejecutando el cliente de Docker, y estamos indicando que queremos ejecutar un contenedor a partir de la imagen <a href="https://hub.docker.com/_/hello-world/">hello-world</a> del registro público de Docker.</p>
 <p>Si es la primera vez que hemos ejecutado esa imagen, nos aparecerá la línea 2, que indica que la imagen no puede ser encontrada y va a proceder a buscarla, por defecto, en el registro público. Si tenemos conexión a Internet se descargará la imagen  (línea 6) y automáticamente creará un contenedor.</p>

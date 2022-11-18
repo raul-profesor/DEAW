@@ -1421,7 +1421,7 @@
       
         <li class="md-nav__item">
   <a href="#ejercicios" class="md-nav__link">
-    Ejercicios:
+    Ejercicios
   </a>
   
 </li>
@@ -1653,15 +1653,14 @@
 <h2 id="mi-primer-dockerfile">Mi primer Dockerfile</h2>
 <p>Los <em>Dockerfile</em> son los archivos que contienen las instrucciones que crean las imagenes. Deben estar guardados dentro de un <em>build context</em>, es decir, un directorio. Este directorio es el que contiene todos los archivos necesarios para construir nuestra imagen, de ahí lo de <em>build context</em>.</p>
 <p>Creamos nuestro <em>build context</em></p>
-<div class="highlight"><pre><span></span><code>mkdir -p  ~/Sites/hello-world
-cd ~/Sites/hello-world
-echo &quot;hello&quot; &gt; hello
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>mkdir -p  ~/Sites/hello-world
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="nb">cd</span> ~/Sites/hello-world
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="nb">echo</span> <span class="s2">&quot;hello&quot;</span> &gt; hello
 </code></pre></div>
 <p>Dentro de este directorio crearemos un archivo llamado <em>Dockerfile</em> con este contenido:</p>
-<div class="highlight"><pre><span></span><code>:::env
-FROM busybox
-COPY /hello /
-RUN cat /hello
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>FROM busybox
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>COPY /hello /
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>RUN cat /hello
 </code></pre></div>
 <table>
 <thead>
@@ -1686,121 +1685,120 @@ RUN cat /hello
 </tbody>
 </table>
 <p>Ahora para crear nuestra imagen usaremos <code>docker build</code>.</p>
-<div class="highlight"><pre><span></span><code>docker build -t helloapp:v1 .
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>docker build -t helloapp:v1 .
 </code></pre></div>
 <p>El parámetro <code>-t</code> nos permite etiquetar la imagen con un nombre y una versión. El <code>.</code> indica que el <em>build context</em> es el directorio actual.</p>
 <p>El resultado de ejecutar lo anterior sería:</p>
-<div class="highlight"><pre><span></span><code>$ docker build -t helloapp:v1 .
-Sending build context to Docker daemon  3.072kB
-Step 1/3 : FROM busybox
-latest: Pulling from library/busybox
-8c5a7da1afbc: Pull complete 
-Digest: sha256:cb63aa0641a885f54de20f61d152187419e8f6b159ed11a251a09d115fdff9bd
-Status: Downloaded newer image for busybox:latest
- ---&gt; e1ddd7948a1c
-Step 2/3 : COPY /hello /
- ---&gt; 8a092965dbc9
-Step 3/3 : RUN cat /hello
- ---&gt; Running in 83b5498790ca
-hello
-Removing intermediate container 83b5498790ca
- ---&gt; f738f117d4b6
-Successfully built f738f117d4b6
-Successfully tagged helloapp:v1
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="gp">$ </span>docker build -t helloapp:v1 .
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="go">Sending build context to Docker daemon  3.072kB</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="go">Step 1/3 : FROM busybox</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="go">latest: Pulling from library/busybox</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="go">8c5a7da1afbc: Pull complete </span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="go">Digest: sha256:cb63aa0641a885f54de20f61d152187419e8f6b159ed11a251a09d115fdff9bd</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="go">Status: Downloaded newer image for busybox:latest</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="go">    ---&gt; e1ddd7948a1c</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="go">Step 2/3 : COPY /hello /</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="go">    ---&gt; 8a092965dbc9</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="go">Step 3/3 : RUN cat /hello</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="go">    ---&gt; Running in 83b5498790ca</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="go">hello</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="go">Removing intermediate container 83b5498790ca</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="go">    ---&gt; f738f117d4b6</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="go">Successfully built f738f117d4b6</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="go">Successfully tagged helloapp:v1</span>
 </code></pre></div>
 <p>Y podremos ver que una nueva imagen está instalada en nuestro equipo:</p>
-<div class="highlight"><pre><span></span><code>$ docker images
-REPOSITORY   TAG  IMAGE ID      CREATED         SIZE
-helloapp     v1   f738f117d4b6  40 seconds ago  1.16MB
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="gp">$ </span>docker images
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="go">REPOSITORY   TAG  IMAGE ID      CREATED         SIZE</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="go">helloapp     v1   f738f117d4b6  40 seconds ago  1.16MB</span>
 </code></pre></div>
 <h2 id="creando-aplicaciones-en-contenedores">Creando aplicaciones en contenedores</h2>
 <p>Vamos a crear un aplicación en python y la vamos a guardarla en un contenedor. Comenzamos creando un nuevo <em>build context</em>:</p>
-<div class="highlight"><pre><span></span><code>mkdir -p  ~/Sites/friendlyhello
-cd ~/Sites/friendlyhello
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>mkdir -p  ~/Sites/friendlyhello
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="nb">cd</span> ~/Sites/friendlyhello
 </code></pre></div>
 <p>El código de la aplicación es el siguiente, lo guardaremos en un archivo llamado <code>app.py</code>:</p>
-<div class="highlight"><pre><span></span><code>:::python
-from flask import Flask
-from redis import Redis, RedisError
-import os
-import socket
-
-# Connect to Redis
-redis = Redis(host=&quot;redis&quot;, db=0, socket_connect_timeout=2, socket_timeout=2)
-
-app = Flask(__name__)
-
-@app.route(&quot;/&quot;)
-def hello():
-    try:
-        visits = redis.incr(&quot;counter&quot;)
-    except RedisError:
-        visits = &quot;&lt;i&gt;cannot connect to Redis, counter disabled&lt;/i&gt;&quot;
-
-    html = &quot;&lt;h3&gt;Hello {name}!&lt;/h3&gt;&quot; \
-           &quot;&lt;b&gt;Hostname:&lt;/b&gt; {hostname}&lt;br/&gt;&quot; \
-           &quot;&lt;b&gt;Visits:&lt;/b&gt; {visits}&quot;
-    return html.format(name=os.getenv(&quot;NAME&quot;, &quot;world&quot;), hostname=socket.gethostname(),  visits=visits)
-
-if __name__ == &quot;__main__&quot;:
-    app.run(host=&#39;0.0.0.0&#39;, port=80)
-</code></pre></div>
-<p>Nuestra aplicación tiene una serie de dependencias (librerías de terceros) que guardaremos en el archivo <em>requirements.txt</em>:</p>
-<div class="highlight"><pre><span></span><code>Flask
-Redis
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kn">from</span> <span class="nn">redis</span> <span class="kn">import</span> <span class="n">Redis</span><span class="p">,</span> <span class="n">RedisError</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="kn">import</span> <span class="nn">os</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="kn">import</span> <span class="nn">socket</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="c1"># Connect to Redis</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="n">redis</span> <span class="o">=</span> <span class="n">Redis</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s2">&quot;redis&quot;</span><span class="p">,</span> <span class="n">db</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">socket_connect_timeout</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">socket_timeout</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a>
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a>
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14"></a>        <span class="n">visits</span> <span class="o">=</span> <span class="n">redis</span><span class="o">.</span><span class="n">incr</span><span class="p">(</span><span class="s2">&quot;counter&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15"></a>    <span class="k">except</span> <span class="n">RedisError</span><span class="p">:</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16"></a>        <span class="n">visits</span> <span class="o">=</span> <span class="s2">&quot;&lt;i&gt;cannot connect to Redis, counter disabled&lt;/i&gt;&quot;</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17"></a>
+<a id="__codelineno-6-18" name="__codelineno-6-18"></a>    <span class="n">html</span> <span class="o">=</span> <span class="s2">&quot;&lt;h3&gt;Hello </span><span class="si">{name}</span><span class="s2">!&lt;/h3&gt;&quot;</span> \
+<a id="__codelineno-6-19" name="__codelineno-6-19"></a>            <span class="s2">&quot;&lt;b&gt;Hostname:&lt;/b&gt; </span><span class="si">{hostname}</span><span class="s2">&lt;br/&gt;&quot;</span> \
+<a id="__codelineno-6-20" name="__codelineno-6-20"></a>            <span class="s2">&quot;&lt;b&gt;Visits:&lt;/b&gt; </span><span class="si">{visits}</span><span class="s2">&quot;</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21"></a>    <span class="k">return</span> <span class="n">html</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;NAME&quot;</span><span class="p">,</span> <span class="s2">&quot;world&quot;</span><span class="p">),</span> <span class="n">hostname</span><span class="o">=</span><span class="n">socket</span><span class="o">.</span><span class="n">gethostname</span><span class="p">(),</span>  <span class="n">visits</span><span class="o">=</span><span class="n">visits</span><span class="p">)</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22"></a>
+<a id="__codelineno-6-23" name="__codelineno-6-23"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<a id="__codelineno-6-24" name="__codelineno-6-24"></a>    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<a id="__codelineno-6-25" name="__codelineno-6-25"></a>
+<a id="__codelineno-6-26" name="__codelineno-6-26"></a><span class="n">Nuestra</span> <span class="n">aplicación</span> <span class="n">tiene</span> <span class="n">una</span> <span class="n">serie</span> <span class="n">de</span> <span class="n">dependencias</span> <span class="p">(</span><span class="n">librerías</span> <span class="n">de</span> <span class="n">terceros</span><span class="p">)</span> <span class="n">que</span> <span class="n">guardaremos</span> <span class="n">en</span> <span class="n">el</span> <span class="n">archivo</span> <span class="n">_requirements</span><span class="o">.</span><span class="n">txt_</span><span class="p">:</span>
+<a id="__codelineno-6-27" name="__codelineno-6-27"></a>
+<a id="__codelineno-6-28" name="__codelineno-6-28"></a>    <span class="n">Flask</span>
+<a id="__codelineno-6-29" name="__codelineno-6-29"></a>    <span class="n">Redis</span>
 </code></pre></div>
 <p>Y por último definimos nuestro <em>Dockerfile</em>:</p>
-<div class="highlight"><pre><span></span><code>:::env
-# Partimos de una base oficial de python
-FROM python:2.7-slim
-
-# El directorio de trabajo es desde donde se ejecuta el contenedor al iniciarse
-WORKDIR /app
-
-# Copiamos todos los archivos del build context al directorio /app del contenedor
-COPY . /app
-
-# Ejecutamos pip para instalar las dependencias en el contenedor
-RUN pip install --trusted-host pypi.python.org -r requirements.txt
-
-# Indicamos que este contenedor se comunica por el puerto 80/tcp
-EXPOSE 80
-
-# Declaramos una variable de entorno
-ENV NAME World
-
-# Ejecuta nuestra aplicación cuando se inicia el contenedor
-CMD [&quot;python&quot;, &quot;app.py&quot;]
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="c"># Partimos de una base oficial de python</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="k">FROM</span> <span class="s">python:2.7-slim</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="c"># El directorio de trabajo es desde donde se ejecuta el contenedor al iniciarse</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="k">WORKDIR</span><span class="s"> /app</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="c"># Copiamos todos los archivos del build context al directorio /app del contenedor</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="k">COPY</span> . /app
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a>
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="c"># Ejecutamos pip para instalar las dependencias en el contenedor</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="k">RUN</span> pip install --trusted-host pypi.python.org -r requirements.txt
+<a id="__codelineno-7-12" name="__codelineno-7-12"></a>
+<a id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="c"># Indicamos que este contenedor se comunica por el puerto 80/tcp</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14"></a><span class="k">EXPOSE</span><span class="s"> 80</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15"></a>
+<a id="__codelineno-7-16" name="__codelineno-7-16"></a><span class="c"># Declaramos una variable de entorno</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17"></a><span class="k">ENV</span> NAME World
+<a id="__codelineno-7-18" name="__codelineno-7-18"></a>
+<a id="__codelineno-7-19" name="__codelineno-7-19"></a><span class="c"># Ejecuta nuestra aplicación cuando se inicia el contenedor</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20"></a><span class="k">CMD</span> <span class="p">[</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;app.py&quot;</span><span class="p">]</span>
 </code></pre></div>
 <p>Para conocer todas las directivas visita la <a href="https://docs.docker.com/engine/reference/builder/">documentación oficial de Dockerfile</a>.</p>
 <p>En total debemos tener 3 archivos:</p>
-<div class="highlight"><pre><span></span><code>$ ls
-app.py  Dockerfile  requirements.txt
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="gp">$ </span>ls
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="go">app.py  Dockerfile  requirements.txt</span>
 </code></pre></div>
 <p>Ahora construimos la imagen de nuestra aplicación:</p>
-<div class="highlight"><pre><span></span><code>docker build -t friendlyhello .
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>docker build -t friendlyhello .
 </code></pre></div>
 <p>Y comprobamos que está creada:</p>
-<div class="highlight"><pre><span></span><code>$ docker image ls
-REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-friendlyhello       latest              88a822b3107c        56 seconds ago      132MB
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="gp">$ </span>docker image ls
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="go">REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="go">friendlyhello       latest              88a822b3107c        56 seconds ago      132MB</span>
 </code></pre></div>
 <h3 id="probar-nuestro-contenedor">Probar nuestro contenedor</h3>
 <p>Vamos a arrancar nuestro contenedor y probar la aplicación:</p>
-<div class="highlight"><pre><span></span><code>docker run --rm -p 4000:80 friendlyhello
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a>docker run --rm -p <span class="m">4000</span>:80 friendlyhello
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Normalmente los contenedores son de usar y tirar, sobre todo cuando hacemos pruebas. El parámetro <code>--rm</code> borra automáticamente un contenedor cuando se para. Recordemos que los datos volátiles siempre se deben guardar en volúmenes.</p>
 </div>
 <p>Lo que arranca la aplicación Flask:</p>
-<div class="highlight"><pre><span></span><code>$ docker run --rm -p 4000:80 friendlyhello
- * Serving Flask app &quot;app&quot; (lazy loading)
- * Environment: production
-   WARNING: Do not use the development server in a production environment.
-   Use a production WSGI server instead.
- * Debug mode: off
- * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="gp">$ </span>docker run --rm -p <span class="m">4000</span>:80 friendlyhello
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="go">    * Serving Flask app &quot;app&quot; (lazy loading)</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="go">    * Environment: production</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="go">    WARNING: Do not use the development server in a production environment.</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="go">    Use a production WSGI server instead.</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="go">    * Debug mode: off</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="go">    * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)</span>
 </code></pre></div>
 <p>Comprobamos en el puerto 4000 si efectivamente está iniciada o no: <a href="http://localhost:4000">http://localhost:4000</a>.</p>
 <p>Obtendremos un mensaje como este:</p>
@@ -1814,67 +1812,67 @@ Visits: cannot connect to Redis, counter disabled
 <p>En este caso nuestro contenedor no funciona por sí mismo. Es muy habitual que dependamos de servicios para poder iniciar la aplicación, habitualmente bases de datos. En este caso necesitamos una base de datos <em>Redis</em> que no tenemos.</p>
 <p>Como vimos en el apartado anterior, vamos a aprovechar las características de <em>Compose</em> para levantar nuestra aplicación.</p>
 <p>Vamos a crear el siguiente archivo <em>docker-compose.yaml</em>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nt">version</span><span class="p">:</span> <span class="s">&quot;3&quot;</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="nt">services</span><span class="p">:</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="nt">web</span><span class="p">:</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a>        <span class="nt">build</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a>        <span class="nt">ports</span><span class="p">:</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a>            <span class="p p-Indicator">-</span> <span class="s">&quot;4000:80&quot;</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="nt">redis</span><span class="p">:</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8"></a>        <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">redis</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a>        <span class="nt">ports</span><span class="p">:</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a>            <span class="p p-Indicator">-</span> <span class="s">&quot;6379:6379&quot;</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a>        <span class="nt">volumes</span><span class="p">:</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12"></a>            <span class="p p-Indicator">-</span> <span class="s">&quot;./data:/data&quot;</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13"></a>        <span class="nt">command</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">redis-server --appendonly yes</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="nt">version</span><span class="p">:</span> <span class="s">&quot;3&quot;</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="nt">services</span><span class="p">:</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a>    <span class="nt">web</span><span class="p">:</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a>        <span class="nt">build</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a>        <span class="nt">ports</span><span class="p">:</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a>            <span class="p p-Indicator">-</span> <span class="s">&quot;4000:80&quot;</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7"></a>    <span class="nt">redis</span><span class="p">:</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8"></a>        <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">redis</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9"></a>        <span class="nt">ports</span><span class="p">:</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10"></a>            <span class="p p-Indicator">-</span> <span class="s">&quot;6379:6379&quot;</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11"></a>        <span class="nt">volumes</span><span class="p">:</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12"></a>            <span class="p p-Indicator">-</span> <span class="s">&quot;./data:/data&quot;</span>
+<a id="__codelineno-13-13" name="__codelineno-13-13"></a>        <span class="nt">command</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">redis-server --appendonly yes</span>
 </code></pre></div>
 <p>La principal diferencia con respecto al capítulo anterior, es que en un servicio podemos indicar una imagen (parámetro <code>imagen</code>) o un <em>build context</em> (parámetro <code>build</code>). </p>
 <p>Esta es una manera de integrar las dos herramientas que nos proporciona <em>Docker</em>: la creación de imágenes y la composición de aplicaciones con servicios.</p>
 <h3 id="balanceo-de-carga">Balanceo de carga</h3>
 <p>Vamos a modificar nuestro <em>docker-compose.yaml</em>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nt">version</span><span class="p">:</span> <span class="s">&quot;3&quot;</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="nt">services</span><span class="p">:</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a>    <span class="nt">web</span><span class="p">:</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4"></a>        <span class="nt">build</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5"></a>    <span class="nt">redis</span><span class="p">:</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6"></a>        <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">redis</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7"></a>        <span class="nt">volumes</span><span class="p">:</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8"></a>            <span class="p p-Indicator">-</span> <span class="s">&quot;./data:/data&quot;</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9"></a>        <span class="nt">command</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">redis-server --appendonly yes</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10"></a>    <span class="nt">lb</span><span class="p">:</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11"></a>        <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dockercloud/haproxy</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12"></a>        <span class="nt">ports</span><span class="p">:</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">4000:80</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14"></a>        <span class="nt">links</span><span class="p">:</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">web</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16"></a>        <span class="nt">volumes</span><span class="p">:</span>
-<a id="__codelineno-1-17" name="__codelineno-1-17"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock:/var/run/docker.sock</span> 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="nt">version</span><span class="p">:</span> <span class="s">&quot;3&quot;</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="nt">services</span><span class="p">:</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a>    <span class="nt">web</span><span class="p">:</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a>        <span class="nt">build</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5"></a>    <span class="nt">redis</span><span class="p">:</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6"></a>        <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">redis</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7"></a>        <span class="nt">volumes</span><span class="p">:</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8"></a>            <span class="p p-Indicator">-</span> <span class="s">&quot;./data:/data&quot;</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9"></a>        <span class="nt">command</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">redis-server --appendonly yes</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10"></a>    <span class="nt">lb</span><span class="p">:</span>
+<a id="__codelineno-14-11" name="__codelineno-14-11"></a>        <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dockercloud/haproxy</span>
+<a id="__codelineno-14-12" name="__codelineno-14-12"></a>        <span class="nt">ports</span><span class="p">:</span>
+<a id="__codelineno-14-13" name="__codelineno-14-13"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">4000:80</span>
+<a id="__codelineno-14-14" name="__codelineno-14-14"></a>        <span class="nt">links</span><span class="p">:</span>
+<a id="__codelineno-14-15" name="__codelineno-14-15"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">web</span>
+<a id="__codelineno-14-16" name="__codelineno-14-16"></a>        <span class="nt">volumes</span><span class="p">:</span>
+<a id="__codelineno-14-17" name="__codelineno-14-17"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock:/var/run/docker.sock</span> 
 </code></pre></div>
 <p>En este caso, el servicio web no va a tener acceso al exterior (hemos eliminado el parámetro <code>ports</code>). En su lugar hemos añadido un balanceador de carga (el servicio  <code>lb</code>).</p>
 <p>Vamos a arrancar esta nueva aplicación, pero esta vez añadiendo varios servicios web:</p>
 <div class="highlight"><pre><span></span><code>docker-composer up -d --scale web=5
 </code></pre></div>
 <p>Esperamos a que terminen de iniciar los servicios:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>$ docker-compose up -d --scale <span class="nv">web</span><span class="o">=</span><span class="m">5</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a>Creating network <span class="s2">&quot;friendlyhello_default&quot;</span> with the default driver
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a>Creating friendlyhello_redis_1 ... <span class="k">done</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a>Creating friendlyhello_web_1   ... <span class="k">done</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5"></a>Creating friendlyhello_web_2   ... <span class="k">done</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6"></a>Creating friendlyhello_web_3   ... <span class="k">done</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7"></a>Creating friendlyhello_web_4   ... <span class="k">done</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8"></a>Creating friendlyhello_web_5   ... <span class="k">done</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9"></a>Creating friendlyhello_lb_1    ... <span class="k">done</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="gp">$ </span>docker-compose up -d --scale <span class="nv">web</span><span class="o">=</span><span class="m">5</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="go">Creating network &quot;friendlyhello_default&quot; with the default driver</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="go">Creating friendlyhello_redis_1 ... done</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="go">Creating friendlyhello_web_1   ... done</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="go">Creating friendlyhello_web_2   ... done</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="go">Creating friendlyhello_web_3   ... done</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="go">Creating friendlyhello_web_4   ... done</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8"></a><span class="go">Creating friendlyhello_web_5   ... done</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9"></a><span class="go">Creating friendlyhello_lb_1    ... done</span>
 </code></pre></div>
 <p>Podemos comprobar como del servicio web nos ha iniciado 5 instancias, cada uno con su sufijo numérico correspondiente. Si usamos <code>docker ps</code> para ver los contenedores disponibles tendremos:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>$ docker ps
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a>CONTAINER ID  IMAGE                <span class="o">[</span>...<span class="o">]</span>   PORTS                                    NAMES
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a>77acae1d0567  dockercloud/haproxy  <span class="o">[</span>...<span class="o">]</span>   <span class="m">443</span>/tcp, <span class="m">1936</span>/tcp, <span class="m">0</span>.0.0.0:4000-&gt;80/tcp  friendlyhello_lb_1
-<a id="__codelineno-3-4" name="__codelineno-3-4"></a>5f12fb8b80c8  friendlyhello_web    <span class="o">[</span>...<span class="o">]</span>   <span class="m">80</span>/tcp                                   friendlyhello_web_5
-<a id="__codelineno-3-5" name="__codelineno-3-5"></a>fb0024591665  friendlyhello_web    <span class="o">[</span>...<span class="o">]</span>   <span class="m">80</span>/tcp                                   friendlyhello_web_2
-<a id="__codelineno-3-6" name="__codelineno-3-6"></a>a20d20bdd129  friendlyhello_web    <span class="o">[</span>...<span class="o">]</span>   <span class="m">80</span>/tcp                                   friendlyhello_web_4
-<a id="__codelineno-3-7" name="__codelineno-3-7"></a>53d7db212df8  friendlyhello_web    <span class="o">[</span>...<span class="o">]</span>   <span class="m">80</span>/tcp                                   friendlyhello_web_3
-<a id="__codelineno-3-8" name="__codelineno-3-8"></a>41218dbbb882  friendlyhello_web    <span class="o">[</span>...<span class="o">]</span>   <span class="m">80</span>/tcp                                   friendlyhello_web_1
-<a id="__codelineno-3-9" name="__codelineno-3-9"></a>06f5bf6ed070  redis                <span class="o">[</span>...<span class="o">]</span>   <span class="m">6379</span>/tcp                                 friendlyhello_redis_1
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="gp">$ </span>docker ps
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="go">CONTAINER ID  IMAGE                [...]   PORTS                                    NAMES</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="go">77acae1d0567  dockercloud/haproxy  [...]   443/tcp, 1936/tcp, 0.0.0.0:4000-&gt;80/tcp  friendlyhello_lb_1</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="go">5f12fb8b80c8  friendlyhello_web    [...]   80/tcp                                   friendlyhello_web_5</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="go">fb0024591665  friendlyhello_web    [...]   80/tcp                                   friendlyhello_web_2</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="go">a20d20bdd129  friendlyhello_web    [...]   80/tcp                                   friendlyhello_web_4</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="go">53d7db212df8  friendlyhello_web    [...]   80/tcp                                   friendlyhello_web_3</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8"></a><span class="go">41218dbbb882  friendlyhello_web    [...]   80/tcp                                   friendlyhello_web_1</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9"></a><span class="go">06f5bf6ed070  redis                [...]   6379/tcp                                 friendlyhello_redis_1</span>
 </code></pre></div>
 <p>Vamos a fijarnos en el <code>CONTAINER ID</code> y vamos a volver a abrir nuestra aplicación: <a href="http://localhost:4000">http://localhost:4000</a>.</p>
 <p>Si en esta ocasión vamos recargando la página, veremos como cambian los <em>hostnames</em>, que a su vez coinciden con los identificadores de los contenedores anteriores.</p>
@@ -1894,13 +1892,13 @@ Visits: cannot connect to Redis, counter disabled
 </li>
 <li>
 <p>Ahora tenemos que conectar nuestro cliente de <em>Docker</em> con nuestra cuenta en el <em>Hub</em>. Usamos el comando <code>docker login</code>.</p>
-<div class="highlight"><pre><span></span><code>$ docker login
-Login with your Docker ID to push and pull images from Docker Hub. If you don&#39;t have a Docker ID, head over to https://hub.docker.com to create one.
-Username: username
-Password: ********
-WARNING! Your password will be stored unencrypted in /home/sergio/.docker/config.json.
-Configure a credential helper to remove this warning. See
-https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="gp">$ </span>docker login
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="go">Login with your Docker ID to push and pull images from Docker Hub. If you don&#39;t have a Docker ID, head over to https://hub.docker.com to create one.</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="go">Username: username</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="go">Password: ********</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="go">WARNING! Your password will be stored unencrypted in /home/sergio/.docker/config.json.</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="go">Configure a credential helper to remove this warning. See</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="gp">https://docs.docker.com/engine/reference/commandline/login/#</span>credentials-store
 </code></pre></div>
 <div class="admonition danger">
 <p class="admonition-title">Danger</p>
@@ -1929,7 +1927,7 @@ https://docs.docker.com/engine/reference/commandline/login/#credentials-store
 </code></pre></div>
 </li>
 </ol>
-<h2 id="ejercicios">Ejercicios:</h2>
+<h2 id="ejercicios">Ejercicios</h2>
 <ol>
 <li>Cambia el <em>docker-compose.yaml</em> para usar tu imagen en vez de hacer <em>build</em>.</li>
 <li>Cambia el <em>docker-compose.yaml</em> para usar la imagen de algún compañero. </li>

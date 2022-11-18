@@ -1642,46 +1642,47 @@
 <p>En primer lugar, si eliminastéis el repositorio en su momento, debéis volver a clonarlo en vuestra Debian, en caso contrario obviad este paso:</p>
 <p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>git clone https://github.com/contentful/the-example-app.nodejs.git
 </code></pre></div>
-Ahora, puesto que la aplicación ya viene con el <code>Dockerfile</code> necesario dentro del directorio para construir la imagen y correr el contenedor, vamos a estudiar su contenido:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">FROM</span> <span class="s">node:9</span> 
+Ahora, puesto que la aplicación ya viene con el <code>Dockerfile</code> necesario dentro del directorio para construir la imagen y correr el contenedor, vamos a estudiar su contenido.</p>
+<div class="admonition task">
+<p class="admonition-title">Tarea</p>
+<p>Completa este Dockerfile con las opciones/directivas adecuadas, leed los comentarios y podéis apoyaros <a href="https://raul-profesor.github.io/DEAW/dockerfile/?h=dockerfile#mi-primer-dockerfile">en la teoría</a>, en <a href="https://devhints.io/dockerfile">este cheatsheet</a>, en <a href="https://kapeli.com/cheat_sheets/Dockerfile.docset/Contents/Resources/Documents/index">este otro</a> o en cualquiera que encontréis.</p>
+</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="l l-Scalar l-Scalar-Plain">_____ node:9</span> <span class="c1">#(1) </span>
 <a id="__codelineno-1-2" name="__codelineno-1-2"></a>
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="k">WORKDIR</span><span class="s"> /app</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="l l-Scalar l-Scalar-Plain">_____ /app</span> <span class="c1">#(2)</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4"></a>
-<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="k">RUN</span> npm install -g contentful-cli
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="l l-Scalar l-Scalar-Plain">_____ npm install -g contentful-cli</span> <span class="c1">#(3)</span>
 <a id="__codelineno-1-6" name="__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="k">COPY</span> package.json .
-<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="k">RUN</span> npm install
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="l l-Scalar l-Scalar-Plain">_____ package.json .</span> <span class="c1">#(4)</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="l l-Scalar l-Scalar-Plain">_____ npm install</span> <span class="c1">#(5)</span>
 <a id="__codelineno-1-9" name="__codelineno-1-9"></a>
-<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="k">COPY</span> . .
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="l l-Scalar l-Scalar-Plain">_____ . .</span> <span class="c1">#(6)</span>
 <a id="__codelineno-1-11" name="__codelineno-1-11"></a>
-<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="k">USER</span><span class="s"> node</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="k">EXPOSE</span><span class="s"> 3000</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="l l-Scalar l-Scalar-Plain">_____ node</span> <span class="c1">#(7)</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="l l-Scalar l-Scalar-Plain">_____ 3000</span> <span class="c1">#(8)</span>
 <a id="__codelineno-1-14" name="__codelineno-1-14"></a>
-<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="k">CMD</span> <span class="p">[</span><span class="s2">&quot;npm&quot;</span><span class="p">,</span> <span class="s2">&quot;run&quot;</span><span class="p">,</span> <span class="s2">&quot;start:dev&quot;</span><span class="p">]</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="l l-Scalar l-Scalar-Plain">_____ [&quot;npm&quot;, &quot;run&quot;, &quot;start:dev&quot;]</span> <span class="c1">#(9)</span>
 </code></pre></div>
 <ol>
-<li>Con <code>FROM</code> indicamos que vamos a utilizar la imagen de Docker Hub oficial de Node, en su versión 9</li>
-<li><code>WORKDIR</code> define el directorio sobre el que se ejecutarán las subsiguientes instrucciones del <code>Dockerfile</code></li>
-<li><code>RUN</code> ejecuta un comando en una nueva capa de la imagen (podemos tener varios comandos <code>RUN</code>)</li>
-<li>
-<p><code>COPY</code> como su nombre indica, copia los archivos que le indiquemos dentro del contenedor, en este caso <code>package.json</code></p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Recordemos que <code>package.json</code> cumplía ciertas funciones importantes:</p>
-<ul>
-<li>Centraliza la forma de interactuar con la aplicación por medio de definición de scripts (indica comandos que podemos correr dentro de nuestro proyecto, asociándolos a una palabra clave para que npm (o yarn) los reconozca cuando queramos ejecutarlos.)</li>
-<li>Gestiona de una forma clara y sencilla las dependencias necesarias para que la aplicación pueda funcionar correctamente.</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Con otro <code>RUN</code> ejecutamos el ya conocido comando que nos instala las dependencias que se indican en el archivo que hemos copiado en el paso anterior, el <code>package.json</code></p>
-</li>
+<li>Con <code>_____</code> indicamos que vamos a utilizar la imagen de Docker Hub oficial de Node, en su versión 9   </li>
+<li><code>_____</code> define el directorio sobre el que se ejecutarán las subsiguientes instrucciones del <code>Dockerfile</code>   </li>
+<li><code>_____</code> ejecuta un comando en una nueva capa de la imagen (podemos tener varios comandos <code>_____</code>)</li>
+<li><code>_____</code> como su nombre indica, copia los archivos que le indiquemos dentro del contenedor, en este caso <code>package.json</code>  <br />
+    !!!info
+        Recordemos que <code>package.json</code> cumplía ciertas funciones importantes:
+         + Centraliza la forma de interactuar con la aplicación por medio de definición de scripts (indica comandos que podemos correr dentro de nuestro proyecto, asociándolos a una palabra clave para que npm (o yarn) los reconozca cuando queramos ejecutarlos.)
+         + Gestiona de una forma clara y sencilla las dependencias necesarias para que la aplicación pueda funcionar correctamente.</li>
+<li>Con otro <code>_____</code> ejecutamos el ya conocido comando que nos instala las dependencias que se indican en el archivo que hemos copiado en el paso anterior, el <code>package.json</code></li>
 <li>Copiamos todos los archivos de nuestro directorio de trabajo al contenedor</li>
-<li>Con <code>USER</code> le indicaremos el usuario con el que correrá el contenedor</li>
-<li><code>EXPOSE</code> nos permite documentar que puertos están expuestos o a la escucha en el contenedor (sólo será accesible desde otros contenedores)</li>
-<li>Y finalmente <code>CMD</code> nos permite ejecutar un comando <strong><u>dentro</u></strong> del contenedor. En este caso iniciamos la aplicación.</li>
+<li>Con <code>_____</code> le indicaremos el usuario con el que correrá el contenedor</li>
+<li><code>_____</code> nos permite documentar que puertos están expuestos o a la escucha en el contenedor (sólo será accesible desde otros contenedores)</li>
+<li>Y finalmente <code>_____</code> nos permite ejecutar un comando <strong><u>dentro</u></strong> del contenedor. En este caso iniciamos la aplicación.</li>
 </ol>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>En Linux, cuando queremos hacer referencia al directorio actual, lo hacemos con un punto <code>.</code> </p>
+<p>Si dentro de nuestro directorio actual tenemos una carpeta llamada <code>prueba</code>, podemos hacer referencia a ella como <code>./prueba</code>, ya que el <code>.</code> hace referencia precisamente al directorio donde nos encontramos</p>
+</div>
 <p>Así pues, tener nuestra aplicación corriendo es cuestión de un par de comandos.</p>
 <p>Hacemos un build de la imagen de Docker. Le indicamos que ésta se llama <code>the-example-app.nodejs</code> y que haga el build con el contexto del directorio actual de trabajo, así como del Dockerfile que hay en él:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>docker build -t the-example-app.nodejs .
