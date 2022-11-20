@@ -1631,12 +1631,12 @@
 <h2 id="listado">Listado</h2>
 <p>La orden para ver el listado de contenedores del sistema es <code>docker container ls</code> o la forma abreviada <code>docker ps</code>. Si lo ejecutamos nos dará un listado vacío porque no hay ningún contenedor activo.</p>
 <p>Probemos con el parámetro <code>--all</code> o <code>-a</code>.</p>
-<div class="highlight"><pre><span></span><code>$ docker container ls -a
-CONTAINER ID  IMAGE        COMMAND     CREATED         STATUS      PORTS  NAMES
-4bd76e08b07f  wordpress    &quot;docker-…&quot;  11 minutes ago  Exited (0)         peaceful_murdock
-69a3c34c224d  hello-world  &quot;/hello&quot;    18 minutes ago  Exited (0)         blissful_goldwasser
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">$ </span>docker container ls -a
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="go">CONTAINER ID  IMAGE        COMMAND     CREATED         STATUS      PORTS  NAMES</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="go">4bd76e08b07f  wordpress    &quot;docker-…&quot;  11 minutes ago  Exited (0)         peaceful_murdock</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="go">69a3c34c224d  hello-world  &quot;/hello&quot;    18 minutes ago  Exited (0)         blissful_goldwasser</span>
 </code></pre></div>
-<p>Estos contenedores están parados y se pueden volver a ejecutar, con el mismo estado que tuviera el sistema de archivos cuando se detuvieron.</p>
+Estos contenedores están parados y se pueden volver a ejecutar, con el mismo estado que tuviera el sistema de archivos cuando se detuvieron.</p>
 <h2 id="ejecutar-comandos-dentro-de-un-contenedor">Ejecutar comandos dentro de un contenedor</h2>
 <p>Ya hemos usado <code>docker run</code> para crear e iniciar un contenedor. También podemos usar este comando para ejecutar programas que estén dentro del contenedor. Por ejemplo:</p>
 <div class="highlight"><pre><span></span><code>docker run --name ubuntu_bash --rm -i -t ubuntu bash
@@ -1683,28 +1683,28 @@ CONTAINER ID  IMAGE        COMMAND     CREATED         STATUS      PORTS  NAMES
 </div>
 <p>Pero esta forma de ejecutar cosas, crea un nuevo contenedor. Si queremos ejecutar un comando en un contenedor que ya esté iniciado, debemos usar <code>docker container exec</code>.</p>
 <p>Ejecuta lo siguiente en otro terminal (no cierres el anterior).</p>
-<div class="highlight"><pre><span></span><code>docker exec -w /tmp ubuntu_bash touch my_file.sh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>docker <span class="nb">exec</span> -w /tmp ubuntu_bash touch my_file.sh
 </code></pre></div>
 <p>El parámetro <code>-w</code> indica el directorio de trabajo, después indicamos el contenedor donde queremos ejecutar el comando (<code>ubuntu_bash</code>) y por último el comando a ejecutar (<code>touch my_file.sh</code>).</p>
 <p>Si en el primer terminal ejecutamos un listado del directorio tmp:</p>
-<div class="highlight"><pre><span></span><code># ls /tmp
-my_file.sh
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># ls /tmp</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>my_file.sh
 </code></pre></div>
-<p>Vemos como podemos modificar un contenedor ya iniciado con <code>docker container exec</code>.</p>
+Vemos como podemos modificar un contenedor ya iniciado con <code>docker container exec</code>.</p>
 <p>Pulsa <code>Control+C</code> en el primer terminal para cerrar y borrar el contenedor.</p>
 <h2 id="iniciar-un-contenedor">Iniciar un contenedor</h2>
 <p>Con <code>docker container start</code> podemos iniciar un contenedor parado:</p>
-<div class="highlight"><pre><span></span><code>$ docker container start peaceful_murdock 
-peaceful_murdock
-$ docker ps
-CONTAINER ID  IMAGE      COMMAND    CREATED         STATUS  PORTS                 NAMES
-4bd76e08b07f  wordpress  &quot;docker…&quot;  14 minutes ago  Up      0.0.0.0:8080-&gt;80/tcp  peaceful_murdock
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="gp">$ </span>docker container start peaceful_murdock 
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="go">peaceful_murdock</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="gp">$ </span>docker ps
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="go">CONTAINER ID  IMAGE      COMMAND    CREATED         STATUS  PORTS                 NAMES</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="go">4bd76e08b07f  wordpress  &quot;docker…&quot;  14 minutes ago  Up      0.0.0.0:8080-&gt;80/tcp  peaceful_murdock</span>
 </code></pre></div>
-<p>Veremos que la web de instalación de <em>WordPress</em> está de nuevo disponible. Solo que ahora el contenedor se ejecuta en segundo plano y no lo podemos detener como antes.</p>
+Veremos que la web de instalación de <em>WordPress</em> está de nuevo disponible. Solo que ahora el contenedor se ejecuta en segundo plano y no lo podemos detener como antes.</p>
 <h2 id="detener-un-contenedor">Detener un contenedor</h2>
 <p>Con <code>docker container stop</code> podemos detener un contenedor iniciado, indicando su id o su nombre</p>
-<div class="highlight"><pre><span></span><code>$ docker container stop 4bd76e08b07f
-4bd76e08b07f
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="gp">$ </span>docker container stop 4bd76e08b07f
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="go">4bd76e08b07f</span>
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1712,8 +1712,8 @@ CONTAINER ID  IMAGE      COMMAND    CREATED         STATUS  PORTS               
 </div>
 <h2 id="borrar-un-contenedor">Borrar un contenedor</h2>
 <p>Un contenedor detenido ocupa espacio. Si hemos dejado de necesitar un contenedor podemos borrarlo con <code>docker container rm</code>. Igualmente hay que indicar id o nombre.</p>
-<div class="highlight"><pre><span></span><code>$ docker container rm 4bd76e08b07f
-4bd76e08b07f
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="gp">$ </span>docker container rm 4bd76e08b07f
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="go">4bd76e08b07f</span>
 </code></pre></div>
 <div class="admonition danger">
 <p class="admonition-title">Danger</p>
