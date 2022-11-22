@@ -877,8 +877,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#creacio-de-larxiu-de-zona-pera-a-la-resolucio-inversa" class="md-nav__link">
-    Creació de l'arxiu de zona pera a la resolució inversa
+  <a href="#creacion-del-archivo-de-zona-para-la-resolucio-inversa" class="md-nav__link">
+    Creación del archivo de zona para la resolució inversa
   </a>
   
 </li>
@@ -903,8 +903,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tareas-a-realitzar" class="md-nav__link">
-    Tareas a realitzar
+  <a href="#tareas-a-realizar" class="md-nav__link">
+    Tareas a realizar
   </a>
   
 </li>
@@ -1675,9 +1675,6 @@
 
 
 <h1 id="practica-41-configuracion-de-un-servidor-dns">Práctica 4.1 - Configuración de un servidor DNS</h1>
-<div class="admonition danger">
-<p class="admonition-title">Atención, importante antes de comenzar</p>
-</div>
 <h2 id="instalacion-de-servidor-dns">Instalación de servidor DNS</h2>
 <p>Bind es el estándar de facto para servidores DNS. Es una herramienta de software libre y se distribuye con la mayoría de plataformas Unix y Linux, donde también se le conoce con el sobrenombre de named (name daemon). Bind9 es la versión recomendada para usarse y es la que emplearemos.</p>
 <p>Para instalar el servidor DNS en Ubuntu Server, usaremos los repositorios oficiales. Por ello, podremos instalarlo como cualquier paquete en Ubuntu:</p>
@@ -1704,16 +1701,17 @@
 <ul>
 <li>
 <p>Por motivos de seguridad, vamos a incluir una lista de acceso para que sólo puedan hacer consultas recursivas al servidor aquellos hosts que nosotros decidamos.</p>
-<p>En nuestro caso, los hosts confiables serán los de la red 192.168..X.0/24. Así pues, justo antes del bloque <code>options {…}</code>, al principio del archivo, añadiremos algo así:</p>
+<p>En nuestro caso, los hosts confiables serán los de la red 192.168.X.0/24 (donde la X depende de vuestra red de casa). Así pues, justo antes del bloque <code>options {…}</code>, al principio del archivo, añadiremos algo así:</p>
 <p><img alt="" src="../img/3.1.bind_2.png" /></p>
 </li>
 </ul>
 <p>Si nos fijamos el servidor por defecto ya viene configurado para ser un DNS caché. El directorio donde se cachearán o guardarán las zonas es <code>/var/cache/bind</code>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>/var/cache/bind
 </code></pre></div>
-<p>Debemos configurar los siguientes aspectos dentro del bloque <code>options {…}</code> ahora:
-+ Que sólo se permitan las consultas recursivas a los hosts que hemos decidido en la lista de acceso anterior</p>
 <ul>
+<li>
+<p>Que sólo se permitan las consultas recursivas a los hosts que hemos decidido en la lista de acceso anterior</p>
+</li>
 <li>
 <p>No permitir transferencia de zonas a nadie, de momento</p>
 </li>
@@ -1734,7 +1732,7 @@
 <p>Reiniciamos el servidor y comprobamos su estado:</p>
 <p><img alt="" src="../img/3.1.bind_5.png" /></p>
 <h3 id="configuracion-namedconflocal">Configuración <em>named.conf.local</em></h3>
-<p>En este archivo configuraremos aspectos relativos a nuestras zonas. Vamos a declarar la zona “daw.es”. Por ahora simplemente indicaremos que el servidor DNS es maestro para esta zona y donde estará ubicado el archivo de zona que crearemos más adelante:</p>
+<p>En este archivo configuraremos aspectos relativos a nuestras zonas. Vamos a declarar la zona “deaw.es”. Por ahora simplemente indicaremos que el servidor DNS es maestro para esta zona y donde estará ubicado el archivo de zona que crearemos más adelante:</p>
 <p><img alt="" src="../img/3.1.bind_6.png" /></p>
 <h3 id="creacion-del-archivo-de-zona">Creación del archivo de zona</h3>
 <p>Vamos a crear el archivo de zona de resolución directa justo en el directorio que hemos indicado antes y con el mismo nombre que hemos indicado antes.</p>
@@ -1742,7 +1740,7 @@
 <p><img alt="" src="../img/3.1.bind_7.png" /></p>
 <p>Recordad de teoría que los registros SOA son para detallar aspectos de la zona autoritativa, los NS para indicar los servidores DNS de la zona y los A las IPs respectivas.</p>
 <p>Donde aparecen las X debéis poner vuestras IPs privadas correspondientes, tanto de vuestro servidor como de vuestro cliente..</p>
-<h3 id="creacio-de-larxiu-de-zona-pera-a-la-resolucio-inversa">Creació de l'arxiu de zona pera a la resolució inversa</h3>
+<h3 id="creacion-del-archivo-de-zona-para-la-resolucio-inversa">Creación del archivo de zona para la resolució inversa</h3>
 <p>Recordad que deben existir ambos archivos de zona, uno para la resolución directa y otro para la inversa. Vamos pues a crear el archivo de zona inversa.</p>
 <p>En primer lugar, debemos añadir las líneas correspondientes a esta zona inversa en el archivo
 <strong><code>named.conf.local</code></strong>, igual que hemos hecho antes con la zona de resolución directa:</p>
@@ -1765,7 +1763,7 @@
 </div>
 <h3 id="comprobacion-de-las-resoluciones-y-de-las-consultas">Comprobación de las resoluciones y de las consultas</h3>
 <p>Podemos comprobar desde los clientes, con dig o nslookup las resoluciones directas e inversas:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Resoluciones nombre del server</label><label for="__tabbed_1_2">Resoluciones nombre del cliente</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Comprobación usando <em>dig</em></label><label for="__tabbed_1_2">Comprobación usando <em>nslookup</em></label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><img alt="" src="../img/3.1.bind_13.png" /></p>
@@ -1775,9 +1773,11 @@
 </div>
 </div>
 </div>
-<h2 id="tareas-a-realitzar">Tareas a realitzar</h2>
+<h2 id="tareas-a-realizar">Tareas a realizar</h2>
+<p>Poner direcciones páginas web ejercicios anteriores en el DNS y comprobar que funciona.</p>
+<p>Cuidado, páginas web necesitan añadir el dominio <code>deaw.es</code></p>
 <div class="admonition caution">
-<p class="admonition-title">Atenció para el informe</p>
+<p class="admonition-title">Atención para el informe</p>
 <p>Documenta toda la práctica con  las capturas de pantalla correspondientes de cada configuración y comprobación..</p>
 </div>
 <h2 id="cuestiones-finales">Cuestiones finales</h2>
