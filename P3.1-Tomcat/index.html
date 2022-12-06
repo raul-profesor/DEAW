@@ -1748,7 +1748,7 @@
 <p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>sudo apt install maven
 </code></pre></div>
 Para comprobar que todo ha ido correctamente, podemos ver la versión instalada de Maven:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>maven --v
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>mvn --v
 </code></pre></div>
 <h4 id="configuracion-de-maven">Configuración de Maven</h4>
 <p>Para poder realizar despliegues en nuestro Tomcat previamente instalado, necesitamos realizar la configuración adecuada para Maven. Ya sabemos que esto en Linux significa editar los archivos de configuración adecuados. Vamos a ello.</p>
@@ -1812,7 +1812,7 @@ Para comprobar que todo ha ido correctamente, podemos ver la versión instalada 
 </li>
 </ol>
 <h4 id="despliegue">Despliegue</h4>
-<p>Ahora crearemos una aplicación Java de prueba para ver si podemos desplegarla sobre la arquitectura que hemos montado. Para ello utilizamos el comando:</p>
+<p>Teniendo ya todo listo para realizar despliegues, ahora crearemos una aplicación Java <u>de prueba</u> para ver si podemos desplegarla sobre la arquitectura que hemos montado. Para ello utilizamos el comando:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>    mvn archetype:generate -DgroupId<span class="o">=</span>raul -DartifactId<span class="o">=</span>war-deploy -DarchetypeArtifactId<span class="o">=</span>maven-archetype-webapp -DinteractiveMode<span class="o">=</span><span class="nb">false</span>
 </code></pre></div>
 <p>Podéis sustituir los valores de <code>groupID</code> y <code>artifactId</code> (este será el nombre de la aplicación) por lo que queráis.</p>
@@ -1827,7 +1827,8 @@ Para comprobar que todo ha ido correctamente, podemos ver la versión instalada 
 <p>Y, accediendo a través de la GUI, debemos ver que la aplicación está desplegado y que podemos acceder a ella perfectamente:</p>
 <p><img alt="" src="../img/maven-desplegado.png" /></p>
 <h5 id="tarea">Tarea</h5>
-<p>Vamos a repetir el despliegue pero esta vez con otra aplicación. Más adelante ya hablaremos de <code>git</code> pero de momento, usaremos los comandos que veremos a continuación.</p>
+<p>Realizar el despliegue con la aplicación de prueba.</p>
+<p>Repetir el despliegue pero esta vez con otra aplicación que no es la de prueba. Más adelante ya hablaremos de <code>git</code> pero de momento, usaremos los comandos que veremos a continuación.</p>
 <p>Nos clonamos el repositorio:</p>
 <p><code>git clone https://github.com/cameronmcnz/rock-paper-scissors.git</code></p>
 <p>Nos situamos dentro de él:</p>

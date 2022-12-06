@@ -1731,7 +1731,7 @@ Se trata de una aplicación un tanto <em>prefabricada</em> en el sentido de que 
 <li>Debéis conectaros al servidor Debian mediante SSH</li>
 <li>Debéis crear un directorio para el proyecto de esta aplicación</li>
 <li>DENTRO del directorio ejecutaréis 2 comandos:<ol>
-<li><code>npm init</code> para crear automáticamente la estructura de carpetas y el archivo <code>package.json</code> (Con ir dándole a <ENTER> a todas las preguntas, o basta)</li>
+<li><code>npm init</code> para crear automáticamente la estructura de carpetas y el archivo <code>package.json</code> (Con ir dándole a &lt;ENTER> a todas las preguntas, os basta)</li>
 <li><code>npm install express</code> para instalar express para este proyecto</li>
 </ol>
 </li>
@@ -1836,9 +1836,9 @@ Esta aplicación hace lo mismo que antes pero esta vez estamos generando varios 
 <h4 id="uso-de-pm2-para-administrar-un-cluster-de-nodejs">Uso de PM2 para administrar un clúster de Node.js</h4>
 <p>En nuestra aplicación, hemos usado el módulo <code>cluster</code> de Node.js para crear y administrar manualmente los procesos.</p>
 <p>Primero hemos determinado la cantidad de <em>workers</em> (usando la cantidad de núcleos de CPU como referencia), luego los hemos generado y, finalmente, escuchamos si hay <em>workers</em> muertos para poder generar nuevos.</p>
-<p>En nuestra aplicación de ejemplo muy sencilla, tuvimos que escribir una cantidad considerable de código solo para administración la agrupación en clústeres. En una aplicación de producción es bastante problable que se deba escribir aún más código.</p>
+<p>En nuestra aplicación de ejemplo muy sencilla, tuvimos que escribir una cantidad considerable de código solo para administración la agrupación en clústeres. En una aplicación de producción es bastante probable que se deba escribir aún más código.</p>
 <p>Existe una herramienta que nos puede ayudar a administrar todo esto un poco mejor: el administrador de procesos <code>PM2</code>. <code>PM2</code> es un administrador de procesos de producción para aplicaciones Node.js con un balanceador de carga incorporado.</p>
-<p>Cuando está configurado correctamente, <code>PM2</code> ejecuta automáticamente la aplicación en modo de clúster, generando <em>workers</em> y se encargándose de generar nuevos <em>workers</em> cuando un <em>worker</em> muera.</p>
+<p>Cuando está configurado correctamente, <code>PM2</code> ejecuta automáticamente la aplicación en modo de clúster, generando <em>workers</em> y se encarga de generar nuevos <em>workers</em> cuando uno de ellos muera.</p>
 <p><code>PM2</code> facilita la parada, eliminación e inicio de procesos, además de disponer de algunas herramientas de monitorización que pueden ayudarnos a monitorizar y ajustar el rendimiento de su aplicación.</p>
 <p>Para usar <code>PM2</code>, primero instalamos globalmente en nuestra Debian:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>npm install pm2 -g
