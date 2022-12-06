@@ -879,8 +879,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#creacion-del-archivo-de-zona-para-la-resolucio-inversa" class="md-nav__link">
-    Creación del archivo de zona para la resolució inversa
+  <a href="#creacion-del-archivo-de-zona-para-la-resolucion-inversa" class="md-nav__link">
+    Creación del archivo de zona para la resolución inversa
   </a>
   
 </li>
@@ -905,8 +905,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tareas-a-realizar" class="md-nav__link">
-    Tareas a realizar
+  <a href="#tarea-a-realizar" class="md-nav__link">
+    Tarea a realizar
   </a>
   
 </li>
@@ -1677,6 +1677,10 @@
 
 
 <h1 id="practica-41-configuracion-de-un-servidor-dns">Práctica 4.1 - Configuración de un servidor DNS</h1>
+<div class="admonition note">
+<p class="admonition-title">Nota importante</p>
+<p>Es muy importante que antes de empezar esta práctica eliminéis las entradas que habéis ido introduciendo hasta ahora en vuestro archivo <code>/etc/hosts</code> para asegurarnos que realmente la resolución de nombres va a nuestro servidor DNS. Si no hacéis esto, resolverá los nombres, pensaréis que está bien pero en realidad estará mal.</p>
+</div>
 <h2 id="instalacion-de-servidor-dns">Instalación de servidor DNS</h2>
 <p>Bind es el estándar de facto para servidores DNS. Es una herramienta de software libre y se distribuye con la mayoría de plataformas Unix y Linux, donde también se le conoce con el sobrenombre de named (name daemon). Bind9 es la versión recomendada para usarse y es la que emplearemos.</p>
 <p>Para instalar el servidor DNS en Ubuntu Server, usaremos los repositorios oficiales. Por ello, podremos instalarlo como cualquier paquete en Ubuntu:</p>
@@ -1718,7 +1722,7 @@
 <p>No permitir transferencia de zonas a nadie, de momento</p>
 </li>
 <li>
-<p>Configurar el servidor para que escuche consultas DNS en el puerto 53 (por defecto DNS utiliza puerto 53 UDP) y en la IP de su interfaz de la red privada. Deberéis colocar la IP de la interfaz conectada a la red privada del servidor, puesto que resolverá las consultas DNS del cliente/s de esa red.</p>
+<p>Configurar el servidor para que escuche consultas DNS en el puerto 53 (por defecto DNS utiliza puerto 53 UDP) y en la IP de su interfaz de la red privada. <u><strong>Deberéis colocar la IP de la interfaz de vuestra Debian</strong></u>, puesto que resolverá las consultas DNS del cliente/s de esa red.</p>
 </li>
 <li>
 <p>Permitir las consultas recursivas, ya que en el primer punto ya le hemos dicho que sólo puedan hacerlas los hosts de la ACL.</p>
@@ -1742,12 +1746,12 @@
 <p><img alt="" src="../img/3.1.bind_7.png" /></p>
 <p>Recordad de teoría que los registros SOA son para detallar aspectos de la zona autoritativa, los NS para indicar los servidores DNS de la zona y los A las IPs respectivas.</p>
 <p>Donde aparecen las X debéis poner vuestras IPs privadas correspondientes, tanto de vuestro servidor como de vuestro cliente..</p>
-<h3 id="creacion-del-archivo-de-zona-para-la-resolucio-inversa">Creación del archivo de zona para la resolució inversa</h3>
+<h3 id="creacion-del-archivo-de-zona-para-la-resolucion-inversa">Creación del archivo de zona para la resolución inversa</h3>
 <p>Recordad que deben existir ambos archivos de zona, uno para la resolución directa y otro para la inversa. Vamos pues a crear el archivo de zona inversa.</p>
 <p>En primer lugar, debemos añadir las líneas correspondientes a esta zona inversa en el archivo
 <strong><code>named.conf.local</code></strong>, igual que hemos hecho antes con la zona de resolución directa:</p>
 <p><img alt="" src="../img/3.1.bind_8.png" /></p>
-<p>Donde la X es el tercer byte de vuestra red interna.</p>
+<p>Donde la X es el tercer byte de vuestra red.</p>
 <p>Y la configuración de la zona de resolución inversa:</p>
 <p><img alt="" src="../img/3.1.bind_9.png" /></p>
 <p>Podemos comprobar que la configuración de las zonas es correcta con el comando adecuado.</p>
@@ -1761,7 +1765,7 @@
 <p><img alt="" src="../img/3.1.bind_12.png" /></p>
 <div class="admonition warning">
 <p class="admonition-title">Atención</p>
-<p>Es muy importante que el cliente esté configurado para usar como servidor DNS el que acabamos de instalar y configurar.</p>
+<p>Es muy importante que el cliente esté configurado para usar como servidor DNS el que acabamos de instalar y configurar. Ya sea Windows, ya sea Linux, debéis cambiar vuestra configuración de red para que la máquina con la que hagáis las pruebas utilice este servidor DNS como el principal.</p>
 </div>
 <h3 id="comprobacion-de-las-resoluciones-y-de-las-consultas">Comprobación de las resoluciones y de las consultas</h3>
 <p>Podemos comprobar desde los clientes, con dig o nslookup las resoluciones directas e inversas:</p>
@@ -1775,9 +1779,9 @@
 </div>
 </div>
 </div>
-<h2 id="tareas-a-realizar">Tareas a realizar</h2>
-<p>Poner direcciones páginas web ejercicios anteriores en el DNS y comprobar que funciona.</p>
-<p>Cuidado, páginas web necesitan añadir el dominio <code>deaw.es</code></p>
+<h2 id="tarea-a-realizar">Tarea a realizar</h2>
+<p>Configura el DNS para que resuelva el nombre de vuestro sitio web de la práctica 3.5 y de la 3.2.</p>
+<p>Recuerda que con nuestra configuración actual, para acceder a los sitios web necesitaremos añadir el dominio <code>deaw.es</code> en el nombre.</p>
 <div class="admonition caution">
 <p class="admonition-title">Atención para el informe</p>
 <p>Documenta toda la práctica con  las capturas de pantalla correspondientes de cada configuración y comprobación..</p>
@@ -1794,6 +1798,34 @@
 <div class="admonition task">
 <p class="admonition-title">Cuestión 3</p>
 <p>El servidor DNS que acabáis de montar, ¿es autoritativo?¿Por qué?</p>
+</div>
+<div class="admonition task">
+<p class="admonition-title">Cuestión 4</p>
+<p>¿Dónde podemos encontrar la directiva $ORIGIN y para qué sirve?</p>
+</div>
+<div class="admonition task">
+<p class="admonition-title">Cuestión 5</p>
+<p>¿Una zona es idéntico a un dominio? </p>
+</div>
+<div class="admonition task">
+<p class="admonition-title">Cuestión 6</p>
+<p>¿Pueden editarse los archivos de zona de un servidor esclavo/secundario?</p>
+</div>
+<div class="admonition task">
+<p class="admonition-title">Cuestión 7</p>
+<p>¿Por qué podría querer tener más de un servidor esclavo para una misma zona?</p>
+</div>
+<div class="admonition task">
+<p class="admonition-title">Cuestión 8</p>
+<p>¿Cuántos servidores raíz existen?</p>
+</div>
+<div class="admonition task">
+<p class="admonition-title">Cuestión 9</p>
+<p>¿Qué es una consulta iterativa de referencia?</p>
+</div>
+<div class="admonition task">
+<p class="admonition-title">Cuestión 10</p>
+<p>En una resolución inversa, ¿a qué nombre se mapearía la dirección IP 172.16.34.56?</p>
 </div>
 <h2 id="evaluacion">Evaluación</h2>
 <table>
@@ -1814,6 +1846,10 @@
 </tr>
 <tr>
 <td align="left">Evidencias de las comprobaciones del correcto funcionamento</td>
+<td align="center"><strong> puntos</strong></td>
+</tr>
+<tr>
+<td align="left">Se ha utilizado SSH</td>
 <td align="center"><strong> puntos</strong></td>
 </tr>
 <tr>
