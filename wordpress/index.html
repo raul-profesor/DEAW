@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://raul-profesor.github.io/DEAW/wordpress/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
@@ -19,12 +19,14 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.975780f9.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
         
       
+      
+
     
     
     
@@ -39,10 +41,11 @@
     
       <link rel="stylesheet" href="../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
+    
     
     
   </head>
@@ -111,6 +114,7 @@
         
           
           
+          
           <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="blue"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_2" hidden>
@@ -118,6 +122,7 @@
             </label>
           
         
+          
           
           
           <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-orange"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_2">
@@ -145,7 +150,7 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -1578,10 +1583,43 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_2" type="checkbox" id="__nav_7_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_2">
+          Prácticas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Prácticas" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_2">
+          <span class="md-nav__icon md-icon"></span>
+          Prácticas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
-        Prácticas
+      <a href="../P7.1/" class="md-nav__link">
+        Práctica 7.1- Toma de contacto con CI/CD usando Github actions
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1601,10 +1639,11 @@
             
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
+                  
 
 
 <h1 id="levantar-un-wordpress-con-docker">Levantar un WordPress con Docker</h1>
@@ -1614,45 +1653,45 @@
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <p>Vamos a crear nuestra base de datos usando este volumen.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>docker run -d --name wordpress-db <span class="se">\</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a>    --mount <span class="nv">source</span><span class="o">=</span>wordpress-db,target<span class="o">=</span>/var/lib/mysql <span class="se">\</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a>    -e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>secret <span class="se">\</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a>    -e <span class="nv">MYSQL_DATABASE</span><span class="o">=</span>wordpress <span class="se">\</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a>    -e <span class="nv">MYSQL_USER</span><span class="o">=</span>manager <span class="se">\</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a>    -e <span class="nv">MYSQL_PASSWORD</span><span class="o">=</span>secret mariadb:10.3.9
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker run -d --name wordpress-db <span class="se">\</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    --mount <span class="nv">source</span><span class="o">=</span>wordpress-db,target<span class="o">=</span>/var/lib/mysql <span class="se">\</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    -e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>secret <span class="se">\</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    -e <span class="nv">MYSQL_DATABASE</span><span class="o">=</span>wordpress <span class="se">\</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    -e <span class="nv">MYSQL_USER</span><span class="o">=</span>manager <span class="se">\</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    -e <span class="nv">MYSQL_PASSWORD</span><span class="o">=</span>secret mariadb:10.3.9
 </code></pre></div>
 </div>
 <p>La imagen se descargará, si no lo estaba ya, y se iniciará nuestro contenedor de <em>MariaDB</em>:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="hll"><span class="gp">$ </span>docker run -d --name wordpress-db <span class="se">\</span>
-</span><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="hll">    --mount <span class="nv">source</span><span class="o">=</span>wordpress-db,target<span class="o">=</span>/var/lib/mysql <span class="se">\</span>
-</span><a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="hll">    -e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>secret <span class="se">\</span>
-</span><a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="hll">    -e <span class="nv">MYSQL_DATABASE</span><span class="o">=</span>wordpress <span class="se">\</span>
-</span><a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="hll">    -e <span class="nv">MYSQL_USER</span><span class="o">=</span>manager <span class="se">\</span>
-</span><a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="hll">    -e <span class="nv">MYSQL_PASSWORD</span><span class="o">=</span>secret mariadb:10.3.9
-</span><a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="go">Unable to find image &#39;mariadb:10.3.9&#39; locally</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="go">10.3.9: Pulling from library/mariadb</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="go">124c757242f8: Pull complete </span>
-<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="go">9d866f8bde2a: Pull complete </span>
-<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="go">fa3f2f277e67: Pull complete </span>
-<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="go">398d32b153e8: Pull complete </span>
-<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="go">afde35469481: Pull complete </span>
-<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="go">31f2ae82b3e3: Pull complete </span>
-<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="go">3eeaf7e45ea6: Pull complete </span>
-<a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="go">716982328e17: Pull complete </span>
-<a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="go">34ce605c9036: Pull complete </span>
-<a id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="go">4502ed9073c0: Pull complete </span>
-<a id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="go">2afafbdf5a96: Pull complete </span>
-<a id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="go">43d52b11dd31: Pull complete </span>
-<a id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="go">30c7b70556f3: Pull complete </span>
-<a id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="go">8b1b39f2f89a: Pull complete </span>
-<a id="__codelineno-1-23" name="__codelineno-1-23"></a><span class="go">41480b9319d7: Pull complete </span>
-<a id="__codelineno-1-24" name="__codelineno-1-24"></a><span class="go">Digest: sha256:b7894bd08e5752acdd41fea654cb89467c99e67b8293975bb5d787b27e66ce1a</span>
-<a id="__codelineno-1-25" name="__codelineno-1-25"></a><span class="go">Status: Downloaded newer image for mariadb:10.3.9</span>
-<a id="__codelineno-1-26" name="__codelineno-1-26"></a><span class="go">30634831d17108aa553a5774e27f398760bdbdf32debc3179843e73aa5957956</span>
-<a id="__codelineno-1-27" name="__codelineno-1-27"></a>
-<a id="__codelineno-1-28" name="__codelineno-1-28"></a><span class="gp">$ </span>docker ps
-<a id="__codelineno-1-29" name="__codelineno-1-29"></a><span class="go">CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES</span>
-<a id="__codelineno-1-30" name="__codelineno-1-30"></a><span class="go">30634831d171        mariadb:10.3.9      &quot;docker-entrypoint.s…&quot;   20 seconds ago      Up 16 seconds       3306/tcp            wordpress-db</span>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="hll"><span class="gp">$ </span>docker run -d --name wordpress-db <span class="se">\</span>
+</span><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="hll">    --mount <span class="nv">source</span><span class="o">=</span>wordpress-db,target<span class="o">=</span>/var/lib/mysql <span class="se">\</span>
+</span><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="hll">    -e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>secret <span class="se">\</span>
+</span><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="hll">    -e <span class="nv">MYSQL_DATABASE</span><span class="o">=</span>wordpress <span class="se">\</span>
+</span><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="hll">    -e <span class="nv">MYSQL_USER</span><span class="o">=</span>manager <span class="se">\</span>
+</span><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="hll">    -e <span class="nv">MYSQL_PASSWORD</span><span class="o">=</span>secret mariadb:10.3.9
+</span><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="go">Unable to find image &#39;mariadb:10.3.9&#39; locally</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="go">10.3.9: Pulling from library/mariadb</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="go">124c757242f8: Pull complete </span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="go">9d866f8bde2a: Pull complete </span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="go">fa3f2f277e67: Pull complete </span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="go">398d32b153e8: Pull complete </span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="go">afde35469481: Pull complete </span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="go">31f2ae82b3e3: Pull complete </span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="go">3eeaf7e45ea6: Pull complete </span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="go">716982328e17: Pull complete </span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="go">34ce605c9036: Pull complete </span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="go">4502ed9073c0: Pull complete </span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="go">2afafbdf5a96: Pull complete </span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="go">43d52b11dd31: Pull complete </span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="go">30c7b70556f3: Pull complete </span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="go">8b1b39f2f89a: Pull complete </span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="go">41480b9319d7: Pull complete </span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="go">Digest: sha256:b7894bd08e5752acdd41fea654cb89467c99e67b8293975bb5d787b27e66ce1a</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="go">Status: Downloaded newer image for mariadb:10.3.9</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="go">30634831d17108aa553a5774e27f398760bdbdf32debc3179843e73aa5957956</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="gp">$ </span>docker ps
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="go">CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="go">30634831d171        mariadb:10.3.9      &quot;docker-entrypoint.s…&quot;   20 seconds ago      Up 16 seconds       3306/tcp            wordpress-db</span>
 </code></pre></div>
 El principal cambio en <code>docker run</code> con respecto a la última vez es que no hemos usado
 <code>-p</code> (el parámetro para publicar puertos) y hemos añadido el parámetro <code>-d</code>.</p>
@@ -1679,19 +1718,19 @@ El principal cambio en <code>docker run</code> con respecto a la última vez es 
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <p>Vamos a crear el espacio de trabajo:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>mkdir -p ~/Sites/wordpress/target <span class="o">&amp;&amp;</span> <span class="nb">cd</span> ~/Sites/wordpress
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>mkdir -p ~/Sites/wordpress/target <span class="o">&amp;&amp;</span> <span class="nb">cd</span> ~/Sites/wordpress
 </code></pre></div>
 </div>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <p>Y dentro de este directorio arrancamos el contenedor:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>docker run -d --name wordpress <span class="se">\</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a>    --link wordpress-db:mysql <span class="se">\</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a>    --mount <span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">&quot;</span>/target,target<span class="o">=</span>/var/www/html <span class="se">\</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4"></a>    -e <span class="nv">WORDPRESS_DB_USER</span><span class="o">=</span>manager <span class="se">\</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5"></a>    -e <span class="nv">WORDPRESS_DB_PASSWORD</span><span class="o">=</span>secret <span class="se">\</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6"></a>    -p <span class="m">8080</span>:80 <span class="se">\</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7"></a>    wordpress:4.9.8
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker run -d --name wordpress <span class="se">\</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    --link wordpress-db:mysql <span class="se">\</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    --mount <span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">&quot;</span>/target,target<span class="o">=</span>/var/www/html <span class="se">\</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    -e <span class="nv">WORDPRESS_DB_USER</span><span class="o">=</span>manager <span class="se">\</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    -e <span class="nv">WORDPRESS_DB_PASSWORD</span><span class="o">=</span>secret <span class="se">\</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    -p <span class="m">8080</span>:80 <span class="se">\</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    wordpress:4.9.8
 </code></pre></div>
 </div>
 <p>Cuando termine la ejecución, si accedemos a la dirección <a href="http://localhost:8080/">http://localhost:8080/</a>, ahora sí podremos acabar el proceso de instalación de nuestro WordPress. Si listamos el directorio target comprobaremos que tenemos todos los archivos de instalación accesibles desde el directorio anfitrión.</p>
@@ -1707,12 +1746,18 @@ El principal cambio en <code>docker run</code> con respecto a la última vez es 
 </ol>
 </div>
 
-              
-            </article>
-          </div>
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             Volver al principio
           </a>
@@ -1721,7 +1766,8 @@ El principal cambio en <code>docker run</code> con respecto a la última vez es 
       
         <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="Pie">
+    
+    <nav class="md-footer__inner md-grid" aria-label="Pie" >
       
         
         <a href="../data/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Persistiendo datos" rel="prev">
@@ -1776,11 +1822,13 @@ El principal cambio en <code>docker run</code> con respecto a la última vez es 
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "toc.integrate", "search.highlight", "content.code.annotate"], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}}</script>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "toc.integrate", "search.highlight", "content.code.annotate"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
       
+    
     
   </body>
 </html>

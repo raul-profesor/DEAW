@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://raul-profesor.github.io/DEAW/docker-compose/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
@@ -19,12 +19,14 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.975780f9.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
         
       
+      
+
     
     
     
@@ -39,10 +41,11 @@
     
       <link rel="stylesheet" href="../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
+    
     
     
   </head>
@@ -111,6 +114,7 @@
         
           
           
+          
           <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="blue"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_2" hidden>
@@ -118,6 +122,7 @@
             </label>
           
         
+          
           
           
           <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-orange"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_2">
@@ -145,7 +150,7 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -1606,10 +1611,43 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_2" type="checkbox" id="__nav_7_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_2">
+          Prácticas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Prácticas" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_2">
+          <span class="md-nav__icon md-icon"></span>
+          Prácticas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
-        Prácticas
+      <a href="../P7.1/" class="md-nav__link">
+        Práctica 7.1- Toma de contacto con CI/CD usando Github actions
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1629,10 +1667,11 @@
             
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
+                  
 
 
 <h1 id="levantar-un-wordpress-con-docker-compose">Levantar un WordPress con Docker Compose</h1>
@@ -1642,9 +1681,9 @@
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <p>Borra el trabajo actual:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>docker container stop wordpress wordpress-db
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a>docker container rm wordpress wordpress-db
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a>docker volume rm wordpress-db
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker container stop wordpress wordpress-db
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>docker container rm wordpress wordpress-db
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>docker volume rm wordpress-db
 </code></pre></div></p>
 </div>
 <h2 id="docker-compose">Docker Compose</h2>
@@ -1664,33 +1703,33 @@
 </ul>
 <h2 id="creacion-de-contenedores-automatizada">Creación de contenedores automatizada</h2>
 <p>En el mismo directorio donde estábamos en el paso anterior (<code>~/Sites/wordpress</code>), vamos a crear un fichero llamado <code>docker-compose.yaml</code> con el siguiente contenido:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nt">version</span><span class="p">:</span> <span class="s">&#39;3&#39;</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a>
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="nt">services</span><span class="p">:</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4"></a>    <span class="nt">db</span><span class="p">:</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5"></a>        <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mariadb:10.3.9</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6"></a>        <span class="nt">volumes</span><span class="p">:</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">data:/var/lib/mysql</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8"></a>        <span class="nt">environment</span><span class="p">:</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">MYSQL_ROOT_PASSWORD=secret</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">MYSQL_DATABASE=wordpress</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">MYSQL_USER=manager</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">MYSQL_PASSWORD=secret</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13"></a>    <span class="nt">web</span><span class="p">:</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14"></a>        <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">wordpress:4.9.8</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15"></a>        <span class="nt">depends_on</span><span class="p">:</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">db</span>
-<a id="__codelineno-1-17" name="__codelineno-1-17"></a>        <span class="nt">volumes</span><span class="p">:</span>
-<a id="__codelineno-1-18" name="__codelineno-1-18"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">./target:/var/www/html</span>
-<a id="__codelineno-1-19" name="__codelineno-1-19"></a>        <span class="nt">environment</span><span class="p">:</span>
-<a id="__codelineno-1-20" name="__codelineno-1-20"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">WORDPRESS_DB_USER=manager</span>
-<a id="__codelineno-1-21" name="__codelineno-1-21"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">WORDPRESS_DB_PASSWORD=secret</span>
-<a id="__codelineno-1-22" name="__codelineno-1-22"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">WORDPRESS_DB_HOST=db</span>
-<a id="__codelineno-1-23" name="__codelineno-1-23"></a>        <span class="nt">ports</span><span class="p">:</span>
-<a id="__codelineno-1-24" name="__codelineno-1-24"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">8080:80</span>
-<a id="__codelineno-1-25" name="__codelineno-1-25"></a>
-<a id="__codelineno-1-26" name="__codelineno-1-26"></a><span class="nt">volumes</span><span class="p">:</span>
-<a id="__codelineno-1-27" name="__codelineno-1-27"></a>    <span class="nt">data</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3&#39;</span><span class="w"></span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nt">services</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nt">db</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mariadb:10.3.9</span><span class="w"></span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="nt">volumes</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data:/var/lib/mysql</span><span class="w"></span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">        </span><span class="nt">environment</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MYSQL_ROOT_PASSWORD=secret</span><span class="w"></span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MYSQL_DATABASE=wordpress</span><span class="w"></span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MYSQL_USER=manager</span><span class="w"></span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MYSQL_PASSWORD=secret</span><span class="w"></span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="nt">web</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wordpress:4.9.8</span><span class="w"></span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">        </span><span class="nt">depends_on</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db</span><span class="w"></span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">        </span><span class="nt">volumes</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./target:/var/www/html</span><span class="w"></span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">        </span><span class="nt">environment</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WORDPRESS_DB_USER=manager</span><span class="w"></span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WORDPRESS_DB_PASSWORD=secret</span><span class="w"></span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WORDPRESS_DB_HOST=db</span><span class="w"></span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">        </span><span class="nt">ports</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080:80</span><span class="w"></span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="nt">volumes</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">    </span><span class="nt">data</span><span class="p">:</span><span class="w"></span>
 </code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -1711,27 +1750,27 @@
 </code></pre></div>
 </div>
 <p>Cuando arrancamos la aplicación, <em>Compose</em> nos informa de los servicios que ha ido levantando:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="gp">$ </span>docker-compose up -d
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="go">Creating network &quot;wordpress_default&quot; with the default driver</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="go">Creating volume &quot;wordpress_data&quot; with local driver</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="go">Creating wordpress_db_1 ... </span>
-<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="go">Creating wordpress_db_1 ... done</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="go">Creating wordpress_web_1 ... </span>
-<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="go">Creating wordpress_web_1 ... done</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="gp">$ </span>docker-compose up -d
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="go">Creating network &quot;wordpress_default&quot; with the default driver</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="go">Creating volume &quot;wordpress_data&quot; with local driver</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="go">Creating wordpress_db_1 ... </span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="go">Creating wordpress_db_1 ... done</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="go">Creating wordpress_web_1 ... </span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="go">Creating wordpress_web_1 ... done</span>
 </code></pre></div>
 <p>El parámetro <code>-d</code> es similar al que hemos visto en <code>docker run</code>: nos permite levantar los servicios en segundo plano.</p>
 <p>Veamos los contenedores activos:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="gp">$ </span>docker container ls
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="go">CONTAINER ID  IMAGE            COMMAND      CREATED         STATUS         PORTS                  NAMES</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="go">a07b5d4d3982  wordpress:4.9.8  &quot;docker.s…&quot;  10 seconds ago  Up 8 seconds   0.0.0.0:8080-&gt;80/tcp   wordpress_web_1</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="go">d9204884cec5  mariadb:10.3.9   &quot;docker.s…&quot;  11 seconds ago  Up 10 seconds  3306/tcp               wordpress_db_1</span>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="gp">$ </span>docker container ls
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="go">CONTAINER ID  IMAGE            COMMAND      CREATED         STATUS         PORTS                  NAMES</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="go">a07b5d4d3982  wordpress:4.9.8  &quot;docker.s…&quot;  10 seconds ago  Up 8 seconds   0.0.0.0:8080-&gt;80/tcp   wordpress_web_1</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="go">d9204884cec5  mariadb:10.3.9   &quot;docker.s…&quot;  11 seconds ago  Up 10 seconds  3306/tcp               wordpress_db_1</span>
 </code></pre></div>
 También podemos ver los contenedores con <em>Compose</em>:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="gp">$ </span>docker-compose ps
-<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="go">    Name                    Command               State          Ports        </span>
-<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="go">-------------------------------------------------------------------------------</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="go">wordpress_db_1    docker-entrypoint.sh mysqld      Up      3306/tcp            </span>
-<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="go">wordpress_web_1   docker-entrypoint.sh apach ...   Up      0.0.0.0:8080-&gt;80/tcp</span>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="gp">$ </span>docker-compose ps
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="go">    Name                    Command               State          Ports        </span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="go">-------------------------------------------------------------------------------</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="go">wordpress_db_1    docker-entrypoint.sh mysqld      Up      3306/tcp            </span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="go">wordpress_web_1   docker-entrypoint.sh apach ...   Up      0.0.0.0:8080-&gt;80/tcp</span>
 </code></pre></div>
 Lo que tenemos que tener en cuenta es lo siguiente:</p>
 <ul>
@@ -1753,62 +1792,62 @@ Lo que tenemos que tener en cuenta es lo siguiente:</p>
 </code></pre></div>
 <h2 id="estructura-de-la-configuracion">Estructura de la configuración</h2>
 <p>Veamos la configuración por partes:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="hll"><span class="nt">version</span><span class="p">:</span> <span class="s">&#39;3&#39;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="hll"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3&#39;</span><span class="w"></span>
 </span></code></pre></div>
 <p><em>Compose</em> se actualiza a menudo, con lo que el archivo de configuración va adquiriendo nuevas funcionalidades. La versión '3' (es una cadena, importante poner comillas) es la última y para conocer todas sus características mira la <a href="https://docs.docker.com/compose/compose-file/">página de referencia de la versión 3 de Compose</a>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="hll"><span class="nt">volumes</span><span class="p">:</span>
-</span><a id="__codelineno-6-2" name="__codelineno-6-2"></a>    <span class="nt">data</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="hll"><span class="nt">volumes</span><span class="p">:</span><span class="w"></span>
+</span><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="nt">data</span><span class="p">:</span><span class="w"></span>
 </code></pre></div>
 <p>Ya hemos indicado que es importante guardar los datos volátiles de las aplicaciones en volúmenes. En este caso hemos creado un volumen llamado <code>data</code>. Recordemos que <em>Compose</em> siempre añade como prefijo el nombre del directorio, con lo que el nombre real del volumen es <code>wordpress_data</code>. Podemos comprobarlo con el cliente de docker como hicimos en el capítulo de volúmenes:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="gp">$ </span>docker volume ls
-<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="go">DRIVER              VOLUME NAME</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="go">local               wordpress_data</span>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="gp">$ </span>docker volume ls
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="go">DRIVER              VOLUME NAME</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="go">local               wordpress_data</span>
 </code></pre></div>
 Nos saltamos la sección de redes (<em>networks</em>) y vamos a la sección de servicios, que son los contenedores que precisa o componen nuestra aplicación.</p>
 <p>Primero la base de datos:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="nt">services</span><span class="p">:</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="hll">    <span class="nt">db</span><span class="p">:</span>
-</span><a id="__codelineno-8-3" name="__codelineno-8-3"></a>        <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mariadb:10.3.9</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4"></a>        <span class="nt">volumes</span><span class="p">:</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">data:/var/lib/mysql</span>
-<a id="__codelineno-8-6" name="__codelineno-8-6"></a>        <span class="nt">environment</span><span class="p">:</span>
-<a id="__codelineno-8-7" name="__codelineno-8-7"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">MYSQL_ROOT_PASSWORD=secret</span>
-<a id="__codelineno-8-8" name="__codelineno-8-8"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">MYSQL_DATABASE=wordpress</span>
-<a id="__codelineno-8-9" name="__codelineno-8-9"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">MYSQL_USER=manager</span>
-<a id="__codelineno-8-10" name="__codelineno-8-10"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">MYSQL_PASSWORD=secret</span>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nt">services</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="hll"><span class="w">    </span><span class="nt">db</span><span class="p">:</span><span class="w"></span>
+</span><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mariadb:10.3.9</span><span class="w"></span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">        </span><span class="nt">volumes</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data:/var/lib/mysql</span><span class="w"></span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">        </span><span class="nt">environment</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MYSQL_ROOT_PASSWORD=secret</span><span class="w"></span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MYSQL_DATABASE=wordpress</span><span class="w"></span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MYSQL_USER=manager</span><span class="w"></span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MYSQL_PASSWORD=secret</span><span class="w"></span>
 </code></pre></div>
 Después de abrir la parte de servicios, el primer nivel indica el nombre del servicio <code>db</code>, que genera el contenedor <code>wordpress_db</code>. Lo que vemos a continuación es lo mismo que hicimos en la sección anterior pero de forma parametrizada. Si recordamos, para levantar nuestra base de datos, indicamos la imagen (línea 3), luego montamos los volúmenes (línea 4), y después indicamos las variables de entorno que configuraban el contenedor (línea 6).</p>
 <p>Es decir, lo anterior es equivalente, excepto por el nombre, a:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>$ docker run -d --name wordpress-db <span class="se">\</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2"></a>        --mount <span class="nv">source</span><span class="o">=</span>wordpress-db,target<span class="o">=</span>/var/lib/mysql <span class="se">\</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3"></a>        -e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>secret <span class="se">\</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4"></a>        -e <span class="nv">MYSQL_DATABASE</span><span class="o">=</span>wordpress <span class="se">\</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5"></a>        -e <span class="nv">MYSQL_USER</span><span class="o">=</span>manager <span class="se">\</span>
-<a id="__codelineno-9-6" name="__codelineno-9-6"></a>        -e <span class="nv">MYSQL_PASSWORD</span><span class="o">=</span>secret mariadb:10.3.9
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>$ docker run -d --name wordpress-db <span class="se">\</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>        --mount <span class="nv">source</span><span class="o">=</span>wordpress-db,target<span class="o">=</span>/var/lib/mysql <span class="se">\</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>        -e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>secret <span class="se">\</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>        -e <span class="nv">MYSQL_DATABASE</span><span class="o">=</span>wordpress <span class="se">\</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>        -e <span class="nv">MYSQL_USER</span><span class="o">=</span>manager <span class="se">\</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>        -e <span class="nv">MYSQL_PASSWORD</span><span class="o">=</span>secret mariadb:10.3.9
 </code></pre></div>
 <p>Y después nuestro <em>WordPress</em>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="nt">services</span><span class="p">:</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2"></a>    <span class="nt">web</span><span class="p">:</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3"></a>        <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">wordpress:4.9.8</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4"></a>        <span class="nt">depends_on</span><span class="p">:</span>
-<a id="__codelineno-10-5" name="__codelineno-10-5"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">db</span>
-<a id="__codelineno-10-6" name="__codelineno-10-6"></a>        <span class="nt">volumes</span><span class="p">:</span>
-<a id="__codelineno-10-7" name="__codelineno-10-7"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">./target:/var/www/html</span>
-<a id="__codelineno-10-8" name="__codelineno-10-8"></a>        <span class="nt">environment</span><span class="p">:</span>
-<a id="__codelineno-10-9" name="__codelineno-10-9"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">WORDPRESS_DB_USER=manager</span>
-<a id="__codelineno-10-10" name="__codelineno-10-10"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">WORDPRESS_DB_PASSWORD=secret</span>
-<a id="__codelineno-10-11" name="__codelineno-10-11"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">WORDPRESS_DB_HOST=db</span>
-<a id="__codelineno-10-12" name="__codelineno-10-12"></a>        <span class="nt">ports</span><span class="p">:</span>
-<a id="__codelineno-10-13" name="__codelineno-10-13"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">8080:80</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nt">services</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="nt">web</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wordpress:4.9.8</span><span class="w"></span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">        </span><span class="nt">depends_on</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db</span><span class="w"></span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">        </span><span class="nt">volumes</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./target:/var/www/html</span><span class="w"></span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">        </span><span class="nt">environment</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WORDPRESS_DB_USER=manager</span><span class="w"></span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WORDPRESS_DB_PASSWORD=secret</span><span class="w"></span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WORDPRESS_DB_HOST=db</span><span class="w"></span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">        </span><span class="nt">ports</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080:80</span><span class="w"></span>
 </code></pre></div>
 <p>En este caso la equivalencia es al comando:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a>$ docker run -d --name wordpress <span class="se">\</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2"></a>    --link wordpress-db:mysql <span class="se">\</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3"></a>    --mount <span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">&quot;</span>/target,target<span class="o">=</span>/var/www/html <span class="se">\</span>
-<a id="__codelineno-11-4" name="__codelineno-11-4"></a>    -e <span class="nv">WORDPRESS_DB_USER</span><span class="o">=</span>manager <span class="se">\</span>
-<a id="__codelineno-11-5" name="__codelineno-11-5"></a>    -e <span class="nv">WORDPRESS_DB_PASSWORD</span><span class="o">=</span>secret <span class="se">\</span>
-<a id="__codelineno-11-6" name="__codelineno-11-6"></a>    -p <span class="m">8080</span>:80 <span class="se">\</span>
-<a id="__codelineno-11-7" name="__codelineno-11-7"></a>    wordpress:4.9.8
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>$ docker run -d --name wordpress <span class="se">\</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    --link wordpress-db:mysql <span class="se">\</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    --mount <span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">&quot;</span>/target,target<span class="o">=</span>/var/www/html <span class="se">\</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    -e <span class="nv">WORDPRESS_DB_USER</span><span class="o">=</span>manager <span class="se">\</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    -e <span class="nv">WORDPRESS_DB_PASSWORD</span><span class="o">=</span>secret <span class="se">\</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>    -p <span class="m">8080</span>:80 <span class="se">\</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>    wordpress:4.9.8
 </code></pre></div>
 La equivalencia de los parámetros es la siguiente:</p>
 <table>
@@ -1846,36 +1885,42 @@ La equivalencia de los parámetros es la siguiente:</p>
 <p>Si reiniciamos el ordenador, los contenedores estarán detenidos (stop), podremos reiniciarlos con <code>docker start</code> o <code>docker-compose start</code>. Este es el comportamiento predeterminado y el que nos interesa en un entorno de desarrollo.</p>
 <p>Sin embargo, en otros entornos, o para casos concretos, igual queremos que un contenedor tenga el mismo estado en el que estaba antes de reiniciar la máquina (iniciado o parado).</p>
 <p>Para eso usaremos el parámetro <code>restart</code>. En el caso de la base de datos de nuestro ejemplo, la configuración quedaría como:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="nt">services</span><span class="p">:</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2"></a>    <span class="nt">db</span><span class="p">:</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3"></a>        <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mariadb:10.3.9</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="hll">        <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
-</span><a id="__codelineno-12-5" name="__codelineno-12-5"></a>        <span class="nt">volumes</span><span class="p">:</span>
-<a id="__codelineno-12-6" name="__codelineno-12-6"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">data:/var/lib/mysql</span>
-<a id="__codelineno-12-7" name="__codelineno-12-7"></a>        <span class="nt">environment</span><span class="p">:</span>
-<a id="__codelineno-12-8" name="__codelineno-12-8"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">MYSQL_ROOT_PASSWORD=secret</span>
-<a id="__codelineno-12-9" name="__codelineno-12-9"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">MYSQL_DATABASE=wordpress</span>
-<a id="__codelineno-12-10" name="__codelineno-12-10"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">MYSQL_USER=manager</span>
-<a id="__codelineno-12-11" name="__codelineno-12-11"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">MYSQL_PASSWORD=secret</span>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nt">services</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="nt">db</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mariadb:10.3.9</span><span class="w"></span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="hll"><span class="w">        </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span><span class="w"></span>
+</span><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">        </span><span class="nt">volumes</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data:/var/lib/mysql</span><span class="w"></span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">        </span><span class="nt">environment</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MYSQL_ROOT_PASSWORD=secret</span><span class="w"></span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MYSQL_DATABASE=wordpress</span><span class="w"></span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MYSQL_USER=manager</span><span class="w"></span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MYSQL_PASSWORD=secret</span><span class="w"></span>
 </code></pre></div>
 El equivalente en la consola sería:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a>$ docker run -d --name wordpress-db <span class="se">\</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="hll">    --restart unless-stopped
-</span><a id="__codelineno-13-3" name="__codelineno-13-3"></a>    --mount <span class="nv">source</span><span class="o">=</span>wordpress-db,target<span class="o">=</span>/var/lib/mysql <span class="se">\</span>
-<a id="__codelineno-13-4" name="__codelineno-13-4"></a>    -e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>secret <span class="se">\</span>
-<a id="__codelineno-13-5" name="__codelineno-13-5"></a>    -e <span class="nv">MYSQL_DATABASE</span><span class="o">=</span>wordpress <span class="se">\</span>
-<a id="__codelineno-13-6" name="__codelineno-13-6"></a>    -e <span class="nv">MYSQL_USER</span><span class="o">=</span>manager <span class="se">\</span>
-<a id="__codelineno-13-7" name="__codelineno-13-7"></a>    -e <span class="nv">MYSQL_PASSWORD</span><span class="o">=</span>secret mariadb:10.3.9
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>$ docker run -d --name wordpress-db <span class="se">\</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="hll">    --restart unless-stopped
+</span><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>    --mount <span class="nv">source</span><span class="o">=</span>wordpress-db,target<span class="o">=</span>/var/lib/mysql <span class="se">\</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>    -e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>secret <span class="se">\</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>    -e <span class="nv">MYSQL_DATABASE</span><span class="o">=</span>wordpress <span class="se">\</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>    -e <span class="nv">MYSQL_USER</span><span class="o">=</span>manager <span class="se">\</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>    -e <span class="nv">MYSQL_PASSWORD</span><span class="o">=</span>secret mariadb:10.3.9
 </code></pre></div>
 <p>Otros valores son: <code>no</code> (por defecto), <code>always</code> y <code>on-failure</code>.</p>
 </div>
 
-              
-            </article>
-          </div>
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             Volver al principio
           </a>
@@ -1884,7 +1929,8 @@ El equivalente en la consola sería:</p>
       
         <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="Pie">
+    
+    <nav class="md-footer__inner md-grid" aria-label="Pie" >
       
         
         <a href="../wordpress/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Levantar un WordPress con Docker" rel="prev">
@@ -1939,11 +1985,13 @@ El equivalente en la consola sería:</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "toc.integrate", "search.highlight", "content.code.annotate"], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}}</script>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "toc.integrate", "search.highlight", "content.code.annotate"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
       
+    
     
   </body>
 </html>

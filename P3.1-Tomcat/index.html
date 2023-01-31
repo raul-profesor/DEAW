@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://raul-profesor.github.io/DEAW/P3.1-Tomcat/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
@@ -19,12 +19,14 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.975780f9.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
         
       
+      
+
     
     
     
@@ -39,10 +41,11 @@
     
       <link rel="stylesheet" href="../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
+    
     
     
   </head>
@@ -111,6 +114,7 @@
         
           
           
+          
           <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="blue"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_2" hidden>
@@ -118,6 +122,7 @@
             </label>
           
         
+          
           
           
           <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-orange"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_2">
@@ -145,7 +150,7 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -1666,10 +1671,43 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_2" type="checkbox" id="__nav_7_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_2">
+          Prácticas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Prácticas" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_2">
+          <span class="md-nav__icon md-icon"></span>
+          Prácticas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
-        Prácticas
+      <a href="../P7.1/" class="md-nav__link">
+        Práctica 7.1- Toma de contacto con CI/CD usando Github actions
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1689,10 +1727,11 @@
             
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
+                  
 
 
 <h1 id="practica-31-instalacion-de-tomcat">Práctica 3.1: Instalación de Tomcat</h1>
@@ -1742,13 +1781,13 @@
 <p>La primera, <u>recomendada</u>,  es mucho más sencilla y automatizada (establece todos los paths y variables de entorno), aunque con la segunda se podría conseguir un paquete más actualizado.</p>
 <p>Ambos métodos vienen explicados <a href="https://www.how2shout.com/linux/how-to-install-apache-maven-on-debian-11-bullseye/">aquí</a></p>
 <p>Si decidimos seguir el primer método, el más sencillo, vemos que es tan simple como actualizar los repositorios:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo apt update
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo apt update
 </code></pre></div>
 <p>E instalar Maven</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>sudo apt install maven
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo apt install maven
 </code></pre></div>
 Para comprobar que todo ha ido correctamente, podemos ver la versión instalada de Maven:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>mvn --v
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>mvn --v
 </code></pre></div>
 <h4 id="configuracion-de-maven">Configuración de Maven</h4>
 <p>Para poder realizar despliegues en nuestro Tomcat previamente instalado, necesitamos realizar la configuración adecuada para Maven. Ya sabemos que esto en Linux significa editar los archivos de configuración adecuados. Vamos a ello.</p>
@@ -1778,21 +1817,21 @@ Para comprobar que todo ha ido correctamente, podemos ver la versión instalada 
 </div>
 <p><img alt="" src="../img/POM.png" /></p>
 <p>Donde lo que añadimos es el bloque </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="l l-Scalar l-Scalar-Plain">&lt;build&gt;</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a>        <span class="l l-Scalar l-Scalar-Plain">&lt;finalName&gt;war-deploy&lt;/finalName&gt;</span> <span class="c1">#(1)</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a>        <span class="l l-Scalar l-Scalar-Plain">&lt;plugins&gt;</span> 
-<a id="__codelineno-3-4" name="__codelineno-3-4"></a>        <span class="l l-Scalar l-Scalar-Plain">&lt;plugin&gt;</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5"></a>        <span class="l l-Scalar l-Scalar-Plain">&lt;groupId&gt;org.apache.tomcat.maven&lt;/groupId&gt;</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6"></a>        <span class="l l-Scalar l-Scalar-Plain">&lt;artifactId&gt;tomcat7-maven-plugin&lt;/artifactId&gt;</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7"></a>        <span class="l l-Scalar l-Scalar-Plain">&lt;version&gt;2.2&lt;/version&gt;</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8"></a>        <span class="l l-Scalar l-Scalar-Plain">&lt;configuration&gt;</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9"></a>            <span class="l l-Scalar l-Scalar-Plain">&lt;url&gt;http://localhost:8080/manager/text&lt;/url&gt;</span> <span class="c1">#(2)</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10"></a>            <span class="l l-Scalar l-Scalar-Plain">&lt;server&gt;Tomcat.P.3.1&lt;/server&gt;</span> <span class="c1">#(3)</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11"></a>            <span class="l l-Scalar l-Scalar-Plain">&lt;path&gt;/myapp&lt;/path&gt;</span> <span class="c1">#(4)</span>
-<a id="__codelineno-3-12" name="__codelineno-3-12"></a>        <span class="l l-Scalar l-Scalar-Plain">&lt;/configuration&gt;</span>
-<a id="__codelineno-3-13" name="__codelineno-3-13"></a>        <span class="l l-Scalar l-Scalar-Plain">&lt;/plugin&gt;</span>
-<a id="__codelineno-3-14" name="__codelineno-3-14"></a>        <span class="l l-Scalar l-Scalar-Plain">&lt;/plugins&gt;</span>
-<a id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="l l-Scalar l-Scalar-Plain">&lt;/build&gt;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="l l-Scalar l-Scalar-Plain">&lt;build&gt;</span><span class="w"></span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">&lt;finalName&gt;war-deploy&lt;/finalName&gt;</span><span class="w"> </span><span class="c1">#(1)</span><span class="w"></span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">&lt;plugins&gt;</span><span class="w"> </span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">&lt;plugin&gt;</span><span class="w"></span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">&lt;groupId&gt;org.apache.tomcat.maven&lt;/groupId&gt;</span><span class="w"></span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">&lt;artifactId&gt;tomcat7-maven-plugin&lt;/artifactId&gt;</span><span class="w"></span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">&lt;version&gt;2.2&lt;/version&gt;</span><span class="w"></span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">&lt;configuration&gt;</span><span class="w"></span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">&lt;url&gt;http://localhost:8080/manager/text&lt;/url&gt;</span><span class="w"> </span><span class="c1">#(2)</span><span class="w"></span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">&lt;server&gt;Tomcat.P.3.1&lt;/server&gt;</span><span class="w"> </span><span class="c1">#(3)</span><span class="w"></span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">&lt;path&gt;/myapp&lt;/path&gt;</span><span class="w"> </span><span class="c1">#(4)</span><span class="w"></span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">&lt;/configuration&gt;</span><span class="w"></span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">&lt;/plugin&gt;</span><span class="w"></span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">&lt;/plugins&gt;</span><span class="w"></span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="l l-Scalar l-Scalar-Plain">&lt;/build&gt;</span><span class="w"></span>
 </code></pre></div>
 <ol>
 <li>
@@ -1813,7 +1852,7 @@ Para comprobar que todo ha ido correctamente, podemos ver la versión instalada 
 </ol>
 <h4 id="despliegue">Despliegue</h4>
 <p>Teniendo ya todo listo para realizar despliegues, ahora crearemos una aplicación Java <u>de prueba</u> para ver si podemos desplegarla sobre la arquitectura que hemos montado. Para ello utilizamos el comando:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>    mvn archetype:generate -DgroupId<span class="o">=</span>raul -DartifactId<span class="o">=</span>war-deploy -DarchetypeArtifactId<span class="o">=</span>maven-archetype-webapp -DinteractiveMode<span class="o">=</span><span class="nb">false</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>    mvn archetype:generate -DgroupId<span class="o">=</span>raul -DartifactId<span class="o">=</span>war-deploy -DarchetypeArtifactId<span class="o">=</span>maven-archetype-webapp -DinteractiveMode<span class="o">=</span><span class="nb">false</span>
 </code></pre></div>
 <p>Podéis sustituir los valores de <code>groupID</code> y <code>artifactId</code> (este será el nombre de la aplicación) por lo que queráis.</p>
 <p>Tras generar esta aplicación, los comandos finales que se utilizan en Maven para desplegar, volver a desplegar o desplegar una aplicación, son:</p>
@@ -1893,12 +1932,18 @@ Para comprobar que todo ha ido correctamente, podemos ver la versión instalada 
 </tbody>
 </table>
 
-              
-            </article>
-          </div>
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             Volver al principio
           </a>
@@ -1907,7 +1952,8 @@ Para comprobar que todo ha ido correctamente, podemos ver la versión instalada 
       
         <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="Pie">
+    
+    <nav class="md-footer__inner md-grid" aria-label="Pie" >
       
         
         <a href="../ServAplic/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Tema 3 - Servidores de aplicaciones" rel="prev">
@@ -1962,11 +2008,13 @@ Para comprobar que todo ha ido correctamente, podemos ver la versión instalada 
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "toc.integrate", "search.highlight", "content.code.annotate"], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}}</script>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "toc.integrate", "search.highlight", "content.code.annotate"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
       
+    
     
   </body>
 </html>

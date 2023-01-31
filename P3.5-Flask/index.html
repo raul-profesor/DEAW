@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://raul-profesor.github.io/DEAW/P3.5-Flask/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
@@ -19,12 +19,14 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.975780f9.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
         
       
+      
+
     
     
     
@@ -39,10 +41,11 @@
     
       <link rel="stylesheet" href="../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
+    
     
     
   </head>
@@ -111,6 +114,7 @@
         
           
           
+          
           <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="blue"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_2" hidden>
@@ -118,6 +122,7 @@
             </label>
           
         
+          
           
           
           <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-orange"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_2">
@@ -145,7 +150,7 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -1661,10 +1666,43 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_2" type="checkbox" id="__nav_7_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_2">
+          Prácticas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Prácticas" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_2">
+          <span class="md-nav__icon md-icon"></span>
+          Prácticas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
-        Prácticas
+      <a href="../P7.1/" class="md-nav__link">
+        Práctica 7.1- Toma de contacto con CI/CD usando Github actions
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1684,10 +1722,11 @@
             
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
+                  
 
 
 <h1 id="practica-35-despliegue-de-una-aplicacion-flask-python">Práctica 3.5: Despliegue de una aplicación Flask (Python)</h1>
@@ -1737,26 +1776,26 @@
 <ol>
 <li>
 <p>Instalamos el gestor de paquetes de Python pip:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo apt-get update
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a>sudo apt-get install python3-pip
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo apt-get update
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sudo apt-get install python3-pip
 </code></pre></div>
 </li>
 <li>
 <p>Instalamos el paquete <code>pipenv</code> para gestionar los entornos virtuales:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>pip3 install pipenv
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pip3 install pipenv
 </code></pre></div>
 </li>
 <li>
 <p>Y comprobamos que está instalado correctamente mostrando su versión:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/home/raul/.local/bin
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a>pipenv --version
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/home/raul/.local/bin
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>pipenv --version
 </code></pre></div>
 </li>
 <li>
 <p>Creamos el directorio en el que almacenaremos nuestro proyecto:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>sudo mkdir /var/www/nombre_mi_aplicacion
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo mkdir /var/www/nombre_mi_aplicacion
 </code></pre></div>
 </li>
 <li>
@@ -1765,12 +1804,12 @@
 </li>
 <li>
 <p>Hay que cambiarlo para que el dueño sea nuestro usuario (<code>raul-debian</code> en mi caso) y pertenezca al grupo <code>www-data</code>, el usuario usado por defecto por el servidor web para correr:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>sudo chown -R <span class="nv">$USER</span>:www-data /var/www/mi_aplicacion
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo chown -R <span class="nv">$USER</span>:www-data /var/www/mi_aplicacion
 </code></pre></div>
 </li>
 <li>
 <p>Establecemos los permisos adecuados a este directorio, para que pueda ser leído por todo el mundo:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>chmod -R <span class="m">775</span> /var/www/mi_aplicacion   
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>chmod -R <span class="m">775</span> /var/www/mi_aplicacion   
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1779,7 +1818,7 @@
 </li>
 <li>
 <p>Dentro del directorio de nuestra aplicación, creamos un archivo oculto <code>.env</code> que contendrá las variables de entorno necesarias:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>touch .env
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>touch .env
 </code></pre></div>
 </li>
 <li>
@@ -1792,19 +1831,19 @@
 </li>
 <li>
 <p>Iniciamos ahora nuestro entorno virtual. <code>Pipenv</code> cargará las variables de entorno desde el fichero <code>.env</code> de forma automática:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>pipenv shell
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>pipenv shell
 </code></pre></div>
 Veremos que se nos inicia el entorno virtual, cosa que comprobamos porque aparece su nombre al inicio del prompt del shell:</p>
 <p><img alt="" src="../img/entorno_virt.png" /></p>
 </li>
 <li>
 <p>Usamos <code>pipenv</code> para instalar las dependencias necesarias para nuestro proyecto:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>pipenv install flask gunicorn
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>pipenv install flask gunicorn
 </code></pre></div>
 </li>
 <li>
 <p>Vamos ahora a crear la aplicación <em>Flask</em> más simple posible, a modo de <em>PoC</em> (proof of concept o prueba de concepto). El archivo que contendrá la aplicación propiamente dicha será <code>application.py</code> y <code>wsgi.py</code> se encargará únicamente de iniciarla y dejarla corriendo:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>touch application.py wsgi.py
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>touch application.py wsgi.py
 </code></pre></div>
 Y tras crear los archivos, los editamos para dejarlos así:</p>
 <p><img alt="" src="../img/app-wsgi.png" /></p>
@@ -1820,7 +1859,7 @@ Y tras crear los archivos, los editamos para dejarlos así:</p>
 </li>
 <li>
 <p>Comprobemos ahora que Gunicorn funciona correctamente también. Si os ha funcionado el servidor de desarrollo de Flask, podéis usar el siguiente comando para probar que la alicación funciona correctamente usando Gunicorn, accediendo con vuestro navegador de la misma forma que en el paso anterior:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>gunicorn --workers <span class="m">4</span> --bind <span class="m">0</span>.0.0.0:5000 wsgi:app
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>gunicorn --workers <span class="m">4</span> --bind <span class="m">0</span>.0.0.0:5000 wsgi:app
 </code></pre></div>
 Donde:</p>
 <ul>
@@ -1845,9 +1884,9 @@ Donde:</p>
 </li>
 <li>
 <p>Puesto que ya debemos tener instalado Nginx en nuestro sistema, lo ininciamos y comprobamos que su estado sea activo:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a>sudo systemctl start nginx
-<a id="__codelineno-11-2" name="__codelineno-11-2"></a>
-<a id="__codelineno-11-3" name="__codelineno-11-3"></a>sudo systemctl status nginx
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>sudo systemctl start nginx
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>sudo systemctl status nginx
 </code></pre></div>
 </li>
 <li>
@@ -1868,27 +1907,27 @@ Donde:</p>
 </li>
 <li>
 <p>Ahora, como cada vez que se crea un servicio nuevo de <code>systemd</code>, se habilita y se inicia:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a>systemctl <span class="nb">enable</span> nombre_mi_servicio
-<a id="__codelineno-12-2" name="__codelineno-12-2"></a>
-<a id="__codelineno-12-3" name="__codelineno-12-3"></a>systemctl start nombre_mi_servicio
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>systemctl <span class="nb">enable</span> nombre_mi_servicio
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>systemctl start nombre_mi_servicio
 </code></pre></div>
 <p>Recordad que el nombre del servicio es el nombre del archivo que creastéis en el paso anterior.</p>
 <p>Pasemos ahora a configurar <u><strong>Nginx</strong></u>, que es algo que ya deberíamos tener dominado de capítulos anteriores.</p>
 </li>
 <li>
 <p>Creamos un archivo con el nombre de nuestra aplicación y dentro estableceremos la configuración para ese sitio web. El archivo, como recordáis, debe estar en <code>/etc/nginx/sites-available/nombre_aplicacion</code> y tras ello lo editamos para que quede:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="l l-Scalar l-Scalar-Plain">server {</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2"></a>    <span class="l l-Scalar l-Scalar-Plain">listen 80;</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3"></a>    <span class="l l-Scalar l-Scalar-Plain">server_name mi_aplicacion www.mi_aplicacion;</span> <span class="c1">#(1)</span>
-<a id="__codelineno-13-4" name="__codelineno-13-4"></a>
-<a id="__codelineno-13-5" name="__codelineno-13-5"></a>    <span class="l l-Scalar l-Scalar-Plain">access_log /var/log/nginx/mi_aplicacion.access.log;</span> <span class="c1">#(2)</span>
-<a id="__codelineno-13-6" name="__codelineno-13-6"></a>    <span class="l l-Scalar l-Scalar-Plain">error_log /var/log/nginx/mi_aplicacion.error.log;</span>
-<a id="__codelineno-13-7" name="__codelineno-13-7"></a>
-<a id="__codelineno-13-8" name="__codelineno-13-8"></a>    <span class="l l-Scalar l-Scalar-Plain">location / {</span> 
-<a id="__codelineno-13-9" name="__codelineno-13-9"></a>            <span class="l l-Scalar l-Scalar-Plain">include proxy_params;</span>
-<a id="__codelineno-13-10" name="__codelineno-13-10"></a>            <span class="l l-Scalar l-Scalar-Plain">proxy_pass http://unix:/var/www/nombre_aplicacion/nombre_aplicacion.sock;</span> <span class="c1">#(3)</span>
-<a id="__codelineno-13-11" name="__codelineno-13-11"></a>    <span class="err">}</span>
-<a id="__codelineno-13-12" name="__codelineno-13-12"></a><span class="err">}</span>   
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="l l-Scalar l-Scalar-Plain">server {</span><span class="w"></span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">listen 80;</span><span class="w"></span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">server_name mi_aplicacion www.mi_aplicacion;</span><span class="w"> </span><span class="c1">#(1)</span><span class="w"></span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">access_log /var/log/nginx/mi_aplicacion.access.log;</span><span class="w"> </span><span class="c1">#(2)</span><span class="w"></span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">error_log /var/log/nginx/mi_aplicacion.error.log;</span><span class="w"></span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">location / {</span><span class="w"> </span>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">include proxy_params;</span><span class="w"></span>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">proxy_pass http://unix:/var/www/nombre_aplicacion/nombre_aplicacion.sock;</span><span class="w"> </span><span class="c1">#(3)</span><span class="w"></span>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">    </span><span class="err">}</span><span class="w"></span>
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="err">}</span><span class="w">   </span>
 </code></pre></div>
 <ol>
 <li>
@@ -1904,19 +1943,19 @@ Donde:</p>
 </li>
 <li>
 <p>Recordemos que ahora debemos crear un link simbólico del archivo de sitios webs disponibles al de sitios web activos:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a>sudo ln -s /etc/nginx/sites-available/nombre_aplicacion /etc/nginx/sites-enabled/
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>sudo ln -s /etc/nginx/sites-available/nombre_aplicacion /etc/nginx/sites-enabled/
 </code></pre></div>
 <p>Y nos aseguramos de que se ha creado dicho link simbólico:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a>ls -l /etc/nginx/sites-enabled/ <span class="p">|</span> grep nombre_aplicacion
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>ls -l /etc/nginx/sites-enabled/ <span class="p">|</span> grep nombre_aplicacion
 </code></pre></div>
 </li>
 <li>
 <p>Nos aseguramos de que la configuración de Nginx no contiene errores, reiniciamos Nginx y comprobamos que se estado es activo:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a>nginx -t
-<a id="__codelineno-16-2" name="__codelineno-16-2"></a>
-<a id="__codelineno-16-3" name="__codelineno-16-3"></a>sudo systemctl restart nginx
-<a id="__codelineno-16-4" name="__codelineno-16-4"></a>
-<a id="__codelineno-16-5" name="__codelineno-16-5"></a>sudo systemctl status nginx
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>nginx -t
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>sudo systemctl restart nginx
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>sudo systemctl status nginx
 </code></pre></div>
 </li>
 <li>
@@ -1944,7 +1983,7 @@ Donde:</p>
 <p>Y, <strong><em>tras activar el entorno virtual dentro del directorio del repositorio clonado</em></strong>, para instalar las dependencias del proyecto de la aplicación deberás hacer:</p>
 <p><code>pipenv install -r requirements.txt</code></p>
 <p>Y un último detalle, si miráis el código del proyecto, quee es muy sencillo, veréis que <em>Gunicorn</em> debe iniciarse ahora así:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a>gunicorn --workers 4 --bind 0.0.0.0:5000 wsgi:app
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>gunicorn --workers 4 --bind 0.0.0.0:5000 wsgi:app
 </code></pre></div>
 <p>Y el resto sería proceder tal y como hemos hecho en esta práctica.</p>
 </div>
@@ -1998,12 +2037,18 @@ Donde:</p>
 </tbody>
 </table>
 
-              
-            </article>
-          </div>
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             Volver al principio
           </a>
@@ -2012,7 +2057,8 @@ Donde:</p>
       
         <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="Pie">
+    
+    <nav class="md-footer__inner md-grid" aria-label="Pie" >
       
         
         <a href="../P3.4-Heroku/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Práctica 3.4 - Despliegue de una aplicación Node.js en Heroku (PaaS) y Netlify (Paas)" rel="prev">
@@ -2067,11 +2113,13 @@ Donde:</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "toc.integrate", "search.highlight", "content.code.annotate"], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}}</script>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "toc.integrate", "search.highlight", "content.code.annotate"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
       
+    
     
   </body>
 </html>

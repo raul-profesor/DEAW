@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://raul-profesor.github.io/DEAW/containers/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
@@ -19,12 +19,14 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.975780f9.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
         
       
+      
+
     
     
     
@@ -39,10 +41,11 @@
     
       <link rel="stylesheet" href="../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
+    
     
     
   </head>
@@ -111,6 +114,7 @@
         
           
           
+          
           <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="blue"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_2" hidden>
@@ -118,6 +122,7 @@
             </label>
           
         
+          
           
           
           <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-orange"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_2">
@@ -145,7 +150,7 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -1599,10 +1604,43 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_2" type="checkbox" id="__nav_7_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_2">
+          Prácticas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Prácticas" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_2">
+          <span class="md-nav__icon md-icon"></span>
+          Prácticas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
-        Prácticas
+      <a href="../P7.1/" class="md-nav__link">
+        Práctica 7.1- Toma de contacto con CI/CD usando Github actions
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1622,10 +1660,11 @@
             
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
+                  
 
 
 <h1 id="contenedores">Contenedores</h1>
@@ -1633,10 +1672,10 @@
 <h2 id="listado">Listado</h2>
 <p>La orden para ver el listado de contenedores del sistema es <code>docker container ls</code> o la forma abreviada <code>docker ps</code>. Si lo ejecutamos nos dará un listado vacío porque no hay ningún contenedor activo.</p>
 <p>Probemos con el parámetro <code>--all</code> o <code>-a</code>.</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">$ </span>docker container ls -a
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="go">CONTAINER ID  IMAGE        COMMAND     CREATED         STATUS      PORTS  NAMES</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="go">4bd76e08b07f  wordpress    &quot;docker-…&quot;  11 minutes ago  Exited (0)         peaceful_murdock</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="go">69a3c34c224d  hello-world  &quot;/hello&quot;    18 minutes ago  Exited (0)         blissful_goldwasser</span>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">$ </span>docker container ls -a
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="go">CONTAINER ID  IMAGE        COMMAND     CREATED         STATUS      PORTS  NAMES</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="go">4bd76e08b07f  wordpress    &quot;docker-…&quot;  11 minutes ago  Exited (0)         peaceful_murdock</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="go">69a3c34c224d  hello-world  &quot;/hello&quot;    18 minutes ago  Exited (0)         blissful_goldwasser</span>
 </code></pre></div>
 Estos contenedores están parados y se pueden volver a ejecutar, con el mismo estado que tuviera el sistema de archivos cuando se detuvieron.</p>
 <h2 id="ejecutar-comandos-dentro-de-un-contenedor">Ejecutar comandos dentro de un contenedor</h2>
@@ -1685,28 +1724,28 @@ Estos contenedores están parados y se pueden volver a ejecutar, con el mismo es
 </div>
 <p>Pero esta forma de ejecutar cosas, crea un nuevo contenedor. Si queremos ejecutar un comando en un contenedor que ya esté iniciado, debemos usar <code>docker container exec</code>.</p>
 <p>Ejecuta lo siguiente en otro terminal (no cierres el anterior).</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>docker <span class="nb">exec</span> -w /tmp ubuntu_bash touch my_file.sh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker <span class="nb">exec</span> -w /tmp ubuntu_bash touch my_file.sh
 </code></pre></div>
 <p>El parámetro <code>-w</code> indica el directorio de trabajo, después indicamos el contenedor donde queremos ejecutar el comando (<code>ubuntu_bash</code>) y por último el comando a ejecutar (<code>touch my_file.sh</code>).</p>
 <p>Si en el primer terminal ejecutamos un listado del directorio tmp:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># ls /tmp</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a>my_file.sh
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># ls /tmp</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>my_file.sh
 </code></pre></div>
 Vemos como podemos modificar un contenedor ya iniciado con <code>docker container exec</code>.</p>
 <p>Pulsa <code>Control+C</code> en el primer terminal para cerrar y borrar el contenedor.</p>
 <h2 id="iniciar-un-contenedor">Iniciar un contenedor</h2>
 <p>Con <code>docker container start</code> podemos iniciar un contenedor parado:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="gp">$ </span>docker container start peaceful_murdock 
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="go">peaceful_murdock</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="gp">$ </span>docker ps
-<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="go">CONTAINER ID  IMAGE      COMMAND    CREATED         STATUS  PORTS                 NAMES</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="go">4bd76e08b07f  wordpress  &quot;docker…&quot;  14 minutes ago  Up      0.0.0.0:8080-&gt;80/tcp  peaceful_murdock</span>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="gp">$ </span>docker container start peaceful_murdock 
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="go">peaceful_murdock</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="gp">$ </span>docker ps
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="go">CONTAINER ID  IMAGE      COMMAND    CREATED         STATUS  PORTS                 NAMES</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="go">4bd76e08b07f  wordpress  &quot;docker…&quot;  14 minutes ago  Up      0.0.0.0:8080-&gt;80/tcp  peaceful_murdock</span>
 </code></pre></div>
 Veremos que la web de instalación de <em>WordPress</em> está de nuevo disponible. Solo que ahora el contenedor se ejecuta en segundo plano y no lo podemos detener como antes.</p>
 <h2 id="detener-un-contenedor">Detener un contenedor</h2>
 <p>Con <code>docker container stop</code> podemos detener un contenedor iniciado, indicando su id o su nombre</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="gp">$ </span>docker container stop 4bd76e08b07f
-<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="go">4bd76e08b07f</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="gp">$ </span>docker container stop 4bd76e08b07f
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="go">4bd76e08b07f</span>
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1714,20 +1753,26 @@ Veremos que la web de instalación de <em>WordPress</em> está de nuevo disponib
 </div>
 <h2 id="borrar-un-contenedor">Borrar un contenedor</h2>
 <p>Un contenedor detenido ocupa espacio. Si hemos dejado de necesitar un contenedor podemos borrarlo con <code>docker container rm</code>. Igualmente hay que indicar id o nombre.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="gp">$ </span>docker container rm 4bd76e08b07f
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="go">4bd76e08b07f</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="gp">$ </span>docker container rm 4bd76e08b07f
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="go">4bd76e08b07f</span>
 </code></pre></div>
 <div class="admonition danger">
 <p class="admonition-title">Danger</p>
 <p>Hay que tener cuidado al borrar contenedores. Cuando un contenedor se borra se elimina cualquier información que contenga y no esté almacenada en algún lugar externo al propio contenedor.</p>
 </div>
 
-              
-            </article>
-          </div>
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             Volver al principio
           </a>
@@ -1736,7 +1781,8 @@ Veremos que la web de instalación de <em>WordPress</em> está de nuevo disponib
       
         <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="Pie">
+    
+    <nav class="md-footer__inner md-grid" aria-label="Pie" >
       
         
         <a href="../images/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Imágenes" rel="prev">
@@ -1791,11 +1837,13 @@ Veremos que la web de instalación de <em>WordPress</em> está de nuevo disponib
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "toc.integrate", "search.highlight", "content.code.annotate"], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}}</script>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "toc.integrate", "search.highlight", "content.code.annotate"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
       
+    
     
   </body>
 </html>

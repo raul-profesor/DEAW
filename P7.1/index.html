@@ -6,16 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="En esta práctica vamos a utilizar Github actions para realizar una serie de test unitarios a una aplicación en NodeJS, al crearse un pull request. Tras ello, al realizar el merge del pull request con la rama main, se construirá una imagen Docker de la aplicación que se subirá tanto a Docker Hub como a Github container registry.">
       
       
-        <link rel="canonical" href="https://raul-profesor.github.io/DEAW/P1.3/">
+      
+        <link rel="canonical" href="https://raul-profesor.github.io/DEAW/P7.1/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
-        <title>Práctica 2.3 – Proxy inverso con Nginx - Despliegue de aplicaciones web</title>
+        <title>Práctica 7.1- Toma de contacto con CI/CD usando Github actions - Despliegue de aplicaciones web</title>
       
     
     
@@ -70,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#practica-23-proxy-inverso-con-nginx" class="md-skip">
+        <a href="#practica-71-toma-de-contacto-con-cicd-usando-github-actions" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -103,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Práctica 2.3 – Proxy inverso con Nginx
+              Práctica 7.1- Toma de contacto con CI/CD usando Github actions
             
           </span>
         </div>
@@ -341,14 +343,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
       
       
       
@@ -416,14 +416,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
       
       
       
@@ -472,146 +470,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Práctica 2.3 – Proxy inverso con Nginx
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../P1.3/" class="md-nav__link">
         Práctica 2.3 – Proxy inverso con Nginx
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#requisitos-antes-de-comenzar-la-practica" class="md-nav__link">
-    Requisitos antes de comenzar  la práctica
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#introduccion" class="md-nav__link">
-    Introducción
-  </a>
-  
-    <nav class="md-nav" aria-label="Introducción">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#que-es-un-servidor-proxy" class="md-nav__link">
-    ¿Qué es un servidor proxy?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#en-que-se-diferencia-un-proxy-inverso" class="md-nav__link">
-    ¿En qué se diferencia un proxy inverso?
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tarea" class="md-nav__link">
-    Tarea
-  </a>
-  
-    <nav class="md-nav" aria-label="Tarea">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#configuraciones" class="md-nav__link">
-    Configuraciones
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuraciones">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#nginx-servidor-web" class="md-nav__link">
-    Nginx servidor web
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#nginx-proxy-inverso" class="md-nav__link">
-    Nginx proxy inverso
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#comprobaciones" class="md-nav__link">
-    Comprobaciones
-  </a>
-  
-    <nav class="md-nav" aria-label="Comprobaciones">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#anadiendo-cabeceras" class="md-nav__link">
-    Añadiendo cabeceras
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#evaluacion" class="md-nav__link">
-    Evaluación
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1596,12 +1459,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
       
       
       
@@ -1669,12 +1534,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_2" type="checkbox" id="__nav_7_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_2" type="checkbox" id="__nav_7_2" checked>
       
       
       
@@ -1695,11 +1562,113 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../P7.1/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Práctica 7.1- Toma de contacto con CI/CD usando Github actions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Práctica 7.1- Toma de contacto con CI/CD usando Github actions
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccion" class="md-nav__link">
+    Introducción
+  </a>
+  
+    <nav class="md-nav" aria-label="Introducción">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#que-es-github-actions" class="md-nav__link">
+    ¿Qué es Github actions?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comenzamos" class="md-nav__link">
+    Comenzamos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creando-nuestro-primer-workflow" class="md-nav__link">
+    Creando nuestro primer workflow
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testeando-nuestro-codigo-con-un-workflow" class="md-nav__link">
+    Testeando nuestro código con un workflow
+  </a>
+  
+    <nav class="md-nav" aria-label="Testeando nuestro código con un workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comprobando-nuestro-workflow" class="md-nav__link">
+    Comprobando nuestro workflow
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#un-workflow-para-construir-imagenes-de-docker" class="md-nav__link">
+    Un workflow para construir imágenes de Docker
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    Referencias
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1733,233 +1702,122 @@
                   
 
 
-<h1 id="practica-23-proxy-inverso-con-nginx">Práctica 2.3 – Proxy inverso con Nginx</h1>
-<h2 id="requisitos-antes-de-comenzar-la-practica">Requisitos antes de comenzar  la práctica</h2>
-<div class="admonition danger">
-<p class="admonition-title">Atención, importante antes de comenzar</p>
-<ul>
-<li>La práctica 2.1 ha de estar funcionando correctamente</li>
-<li>No comenzar la práctica antes de tener la 2.1 <strong><em>funcionando y comprobada</em></strong></li>
-</ul>
-</div>
+<h1 id="practica-71-toma-de-contacto-con-cicd-usando-github-actions">Práctica 7.1- Toma de contacto con CI/CD usando Github actions</h1>
 <h2 id="introduccion">Introducción</h2>
-<h3 id="que-es-un-servidor-proxy">¿Qué es un servidor proxy?</h3>
-<p>Un proxy de reenvío, a menudo llamado proxy, servidor proxy o proxy web, es un servidor que se encuentra frente a un grupo de máquinas cliente. Cuando esas máquinas realizan solicitudes a sitios y servicios en Internet, el servidor proxy intercepta esas solicitudes y luego se comunica con los servidores web en nombre de esos clientes, como un intermediario. </p>
-<p>Por ejemplo, tomemos como ejemplo 3 máquinas involucradas en una comunicación típica de proxy de reenvío: </p>
-<ul>
-<li>
-<p>A: Esta es la máquina del hogar de un usuario. </p>
-</li>
-<li>
-<p>B: este es un servidor proxy de reenvío </p>
-</li>
-<li>
-<p>C: este es el servidor de origen de un sitio web (donde se almacenan los datos del sitio web) </p>
-</li>
-</ul>
-<p><img alt="" src="../img/4.1-7.png" /></p>
-<p>En una comunicación estándar por Internet, la máquina A se comunicaría directamente con la máquina C, con el cliente enviando solicitudes al servidor de origen y el servidor de origen respondiendo al cliente. Cuando hay un proxy de reenvío, A enviará solicitudes a B, que luego reenviará la solicitud a C. C enviará una respuesta a B, que reenviará la respuesta a A. </p>
-<p>¿Por qué agregar este intermediario adicional a nuestra actividad en Internet? </p>
-<p><img alt="" src="../img/proxy.jpg" /></p>
-<p>Hay algunas razones por las que uno podría querer usar un proxy de reenvío: </p>
-<ul>
-<li>
-<p><strong><em>Para evitar restricciones de navegación estatales o institucionales</em></strong>: algunos gobiernos, escuelas y otras organizaciones usan firewalls para dar a sus usuarios acceso a una versión limitada de Internet. Se puede usar un proxy de reenvío para sortear estas restricciones, ya que permiten que el usuario se conecte al proxy en lugar de directamente a los sitios que está visitando. </p>
-</li>
-<li>
-<p><strong><em>Para bloquear el acceso a cierto contenido</em></strong>: a la inversa, los proxies también se pueden configurar para bloquear el acceso de un grupo de usuarios a ciertos sitios. Por ejemplo, una red escolar puede estar configurada para conectarse a la web a través de un proxy que habilita reglas de filtrado de contenido, negándose a reenviar respuestas de Facebook y otros sitios de redes sociales. </p>
-</li>
-<li>
-<p><strong><em>Para proteger su identidad en línea</em></strong>: en algunos casos, los usuarios habituales de Internet simplemente desean un mayor anonimato en línea, pero en otros casos, los usuarios de Internet viven en lugares donde el gobierno puede imponer graves consecuencias a los disidentes políticos. Criticar al gobierno en un foro web o en las redes sociales puede dar lugar a multas o encarcelamiento para estos usuarios. Si uno de estos disidentes usa un proxy de reenvío para conectarse a un sitio web donde publica comentarios políticamente sensibles, la dirección IP utilizada para publicar los comentarios será más difícil de rastrear hasta el disidente. Solo estará visible la dirección IP del servidor proxy. </p>
-</li>
-</ul>
-<h3 id="en-que-se-diferencia-un-proxy-inverso">¿En qué se diferencia un proxy inverso?</h3>
-<p>Estaríamos hablando del caso opuesto al anterior. </p>
-<p>Un proxy inverso es un servidor que se encuentra frente a uno o más servidores web, interceptando las solicitudes de los clientes. Esto es diferente de un proxy de reenvío, donde el proxy se encuentra frente a los clientes. Con un proxy inverso, cuando los clientes envían solicitudes al servidor de un sitio web, esas solicitudes son interceptadas en la frontera de la red por el servidor proxy inverso. El servidor proxy inverso enviará solicitudes y recibirá respuestas del servidor del sitio web. </p>
-<p>La diferencia entre un proxy directo y inverso es sutil pero importante. Una forma simplificada de resumir sería decir que un <strong>proxy de reenvío</strong> <u>se encuentra frente a un cliente y garantiza que ningún servidor de origen se comunique nunca directamente con ese cliente específico</u>. Por otro lado, un <strong>proxy inverso</strong> <u>se encuentra frente a un servidor de origen y garantiza que ningún cliente se comunique nunca directamente con ese servidor de origen</u>. </p>
-<p>Una vez más, ilustremos nombrando las máquinas involucradas: </p>
-<ul>
-<li>
-<p>D: cualquier número de ordenadores domésticos de los usuarios </p>
-</li>
-<li>
-<p>E: este es un servidor proxy inverso </p>
-</li>
-<li>
-<p>F: uno o más servidores de origen </p>
-</li>
-</ul>
-<p><img alt="" src="../img/4.1-8.png" /></p>
-<p>Normalmente, todas las solicitudes de D irían directamente a F, y F enviaría respuestas directamente a D. Con un proxy inverso, todas las solicitudes de D irán directamente a E, y E enviará sus solicitudes ay recibirá respuestas de F. E luego transmita las respuestas apropiadas a D. </p>
-<p>A continuación se describen algunos de los beneficios de un proxy inverso: </p>
-<ul>
-<li>
-<p><strong>Balanceo de carga</strong>: es posible que un sitio web popular que recibe millones de usuarios todos los días no pueda manejar todo el tráfico entrante del sitio con un solo servidor de origen. En cambio, el sitio se puede distribuir entre un grupo de servidores diferentes, todos manejando solicitudes para el mismo sitio. En este caso, un proxy inverso puede proporcionar una solución de balanceo de carga que distribuirá el tráfico entrante de manera uniforme entre los diferentes servidores para evitar que un solo servidor se sobrecargue. En el caso de que un servidor falle por completo, otros servidores pueden intensificar para manejar el tráfico. </p>
-</li>
-<li>
-<p><strong>Protección contra ataques</strong>: con un proxy inverso en su lugar, un sitio web o servicio nunca necesita revelar la dirección IP de su (s) servidor (es) de origen. Esto hace que sea mucho más difícil para los atacantes aprovechar un ataque dirigido contra ellos, como un ataque DdoS. </p>
-</li>
-<li>
-<p><strong>Almacenamiento en cach</strong>é: un proxy inverso también puede almacenar contenido en caché , lo que resulta en un rendimiento más rápido. Por ejemplo, si un usuario en París visita un sitio web con proxy inverso con servidores web en Los Ángeles, el usuario podría conectarse a un servidor proxy inverso local en París, que luego tendrá que comunicarse con un servidor de origen en Los Ángeles. El servidor proxy luego puede almacenar en caché (o guardar temporalmente) los datos de respuesta. Los usuarios parisinos posteriores que naveguen por el sitio obtendrán la versión en caché local del servidor proxy inverso parisino, lo que dará como resultado un rendimiento mucho más rápido. </p>
-</li>
-<li>
-<p><strong>Cifrado SSL</strong> - Cifrado y descifrado SSL (o TLS comunicaciones) para cada cliente pueden ser computacionalmente caro para un servidor de origen. Se puede configurar un proxy inverso para descifrar todas las solicitudes entrantes y cifrar todas las respuestas salientes, liberando valiosos recursos en el servidor de origen. </p>
-</li>
-</ul>
-<p><img alt="" src="../img/Reverse_Proxy.png" /></p>
-<h2 id="tarea">Tarea</h2>
-<h3 id="configuraciones">Configuraciones</h3>
-<h4 id="nginx-servidor-web">Nginx servidor web</h4>
-<p>Vamos a configurar dos Debian con sendos servidores Nginx. Tenéis la máquina virtual inicial y debéis clonarla para tener una segunda: </p>
-<ul>
-<li>
-<p>Uno servirá las páginas web que ya hemos configurado, así pues utilizaremos el servidor que ya tenemos configurado de la Práctica 2.1. </p>
-</li>
-<li>
-<p>El nuevo servidor clon Debian con Nginx configurado como proxy inverso</p>
-</li>
-<li>
-<p>Realizaremos las peticiones HTTP desde el navegador web de nuestra máquina física/anfitrión hacia el proxy clonado, que nos redirigirá al servidor web original</p>
-</li>
-</ul>
-<div class="admonition warning">
-<p class="admonition-title">Cuidado</p>
-<p>Ojo al clonar las máquinas virtuales porque hay que darle a crear una nueva MAC, de lo contrario no tendréis IP en esa máquina.</p>
+<h3 id="que-es-github-actions">¿Qué es Github actions?</h3>
+<p>GitHub Actions es una plataforma de integración y despliegue continuos (CI/CD) que te permite automatizar tu mapa de compilación, pruebas y despliegue. Puedes crear flujos de trabajo (<em>workflows</em>) y crear y probar cada solicitud de cambios en tu repositorio o desplegar solicitudes de cambios fusionadas a producción.</p>
+<p>GitHub Actions va más allá de solo DevOps y te permite ejecutar flujos de trabajo cuando otros eventos suceden en tu repositorio. Por ejemplo, puedes ejecutar un flujo de trabajo para que agregue automáticamente las etiquetas adecuadas cada que alguien cree una propuesta nueva en tu repositorio.</p>
+<p>GitHub proporciona máquinas virtuales Linux, Windows y macOS para que ejecutes tus flujos de trabajo o puedes hospedar tus propios ejecutores auto-hospedados en tu propio centro de datos o infraestructura en la nube.</p>
+<p>Un <strong>workflow</strong> ejecutará uno o más jobs y se definen mediante un archivo YAML. Estos archivos se ubican en el directorio <code>.github/workflows</code> de un repositorio y puede haber varios archivos de workflow para diferentes cometidos.</p>
+<p>Un <strong>evento</strong> es una actividad que dispara un flujo de trabajo o workflow. Estos eventos pueden ser un <em>push</em>, un <em>pull request</em> o un <em>merge</em>.</p>
+<p>Por último, los <strong>jobs</strong> son acciones o pasos que se ejecutan dentro de un workflow.</p>
+<p>Una <em>acción</em> es una aplicación personalizada para la plataforma de GitHub Actions que realiza una tarea compleja pero que se repite frecuentemente</p>
+<p>Para entender detalladamente todos los componentes, podéis consultar <a href="https://docs.github.com/es/actions/learn-github-actions/understanding-github-actions">aquí</a>.</p>
+<h2 id="comenzamos">Comenzamos</h2>
+<p>El objetivo de esta práctica será utilizar GitHub Actions para añadir ciertas automatizaciones iniciales a nuestro repositorio. Haremos que se <em>disparen</em> pruebas sobre nuestro código cuando se abra un <em>pull request</em> y, automáticamente, construiremos una imagen Docker para nuestra aplicación.</p>
+<p>Vamos a utilizar una <a href="https://github.com/jamtur01/animal-farm-nodejs">aplicación simple</a> en NodeJS, que correrá en un servidor Express. Por tanto, como prerrequisitos, necesitamos tener instalados en nuestro sistema Node.js (ya deberíamos tenerlo de prácticas anteriores) y Yarn. Yarn es un gestor de paquetes de JavaScript y en Debian se puede instalar mediante npm, apt o script. </p>
+<div class="admonition tip">
+<p class="admonition-title">Instalación de Yarn</p>
+<p><a href="https://kifarunix.com/install-yarn-on-debian-11/">Aquí</a> se explican los 3 métodos de instalación, elegid el que más os guste.</p>
 </div>
-<p>El diagrama de red quedaría así: </p>
-<p><img alt="" src="../img/p2.3.png" /></p>
-<p>Para que todo quede más diferenciado y os quede más claro que la petición está pasando por el proxy inverso y llega al servidor web destino, vamos a hacer que cada uno de los servidores escuche las peticiones en un puerto distinto. </p>
-<ol>
-<li>
-<p>En primer lugar, debéis cambiar el nombre que tuviera vuestra web por el de <code>webserver</code>, ello implica: </p>
-<ul>
-<li>
-<p>Cambiar el nombre del archivo de configuración de sitios disponibles par Nginx</p>
-</li>
-<li>
-<p>Cambiar el nombre del sitio web dentro de este archivo de configuración donde haga falta </p>
-</li>
-<li>
-<p>No os olvidéis de eliminar el link simbólico antiguo  con el comando <code>unlink nombre_del_link</code> dentro de la carpeta <code>sites-enabled</code> y crear el nuevo para el nuevo nombre de archivo. </p>
-</li>
-</ul>
-</li>
-<li>
-<p>En el archivo de configuración del sitio web, en lugar de hacer que el servidor escuche en el puerto 80, cambiadlo al 8080. </p>
-</li>
-<li>
-<p>Reiniciar Nginx </p>
-</li>
-</ol>
-<h4 id="nginx-proxy-inverso">Nginx proxy inverso</h4>
-<p>Ahora, cuando intentamos acceder a <code>http://ejemplo-proxy</code> (o el nombre que tuvieráis de vuestra web de las prácticas anteriores), en realidad estaremos accediendo al proxy, que nos redirigirá a <code>http://webserver:8080</code>, el servidor web que acabamos de configurar para que escuche con ese nombre en el puerto 8080. </p>
-<p>Para ello: </p>
-<ul>
-<li>
-<p>Crear un archivo de configuración en <em>sites-available</em> con el nombre <code>ejemplo-proxy</code> (o el que tuvieráis vosotros) </p>
-</li>
-<li>
-<p>Este archivo de configuración será más simple, tendrá la siguiente forma </p>
-</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">server</span><span class="w"> </span>{<span class="w"> </span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="hll"><span class="w">    </span><span class="nb">listen</span><span class="w"> </span>__;<span class="w"> </span>
-</span><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="hll"><span class="w">    </span><span class="nb">server_name</span><span class="w"> </span>____________;<span class="w"> </span>
-</span><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nb">location</span><span class="w"> </span>/<span class="w"> </span>{<span class="w"> </span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="hll"><span class="w">    </span><span class="nb">proxy_pass</span><span class="w"> </span>http://_________:____;<span class="w"> </span>
-</span><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="err">}</span><span class="w"> </span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="err">}</span><span class="w"> </span>
+<p>Empezaremos clonando el repositorio necesario y echando un ojo a lo que tiene:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">$ </span>git clone https://github.com/raul-profesor/practica7.1.git
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="gp">$ </span><span class="nb">cd</span> practica7.1
 </code></pre></div>
-<p>Donde, <strong><em>mirando el diagrama de red y teniendo en cuenta la configuración hecha hasta ahora</em></strong>, debéis completar: </p>
-<ul>
-<li>
-<p>El puerto donde está escuchando el proxy inverso </p>
-</li>
-<li>
-<p>El nombre de vuestro dominio o sitio web original al que accedemos en el proxy </p>
-</li>
-<li>
-<p>La directiva <code>proxy_pass</code> indica a dónde se van a redirigir las peticiones, esto es, al servidor web. Por tanto, debéis poner la IP y número de puerto adecuados de vuestro sitio web configurado en el apartado anterior. </p>
-</li>
-<li>
-<p>Crear el link simbólico pertinente </p>
-</li>
-</ul>
-<p>Esto es para simular la situación en la que nosotros, como clientes, cuando accedamos a nuestro sitio web, no necesitemos saber cómo está todo configurado, sólo necesitamos saber el nombre de la web. </p>
-<div class="admonition warning">
-<p class="admonition-title">¡Atención, muy importante!</p>
-<p><strong>Debéis modificar el archivo host que configurastéis en la práctica 2.1. Si miráis el diagrama de red, ahora el nombre de vuestro sitio web se corresponderá con la IP de la nueva máquina clon que hace de proxy</strong>. Será ésta la encargada de redirigirnos automáticamente al verdadero sitio web.</p>
+<p>Utilizamos ahora <strong>yarn</strong> para instalar los módulos requeridos de Node.js</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gp">$ </span>yarn install
+</code></pre></div>
+<p>Y utilizamos yarn una vez más para iniciar la aplicación:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="gp">$ </span>yarn start
+</code></pre></div>
+<p>Si ahora accedemos a la IP de la máquina virtual, en el puerto 8080, deberíamos tener acceso al sitio web:</p>
+<p><img alt="" src="" /></p>
+<p>Si actualizáis varias veces, podréis ver qué otros animales hay en la granja. </p>
+<p>También tenemos una batería de pruebas, no muy exhaustiva, en el directorio <code>test</code>. Probemos a ejecutarlos con yarn:</p>
+<p><img alt="" src="" /></p>
+<h2 id="creando-nuestro-primer-workflow">Creando nuestro primer workflow</h2>
+<p>Todos los repositorios de GitHub vienen con <em>Actions</em> activado por defecto. Comprobad en vuestro repositorio que existe una pestaña llamada <strong>Actions</strong>. Lo que necesitáis hacer es, en los <em>settings</em> de vuestro repositorio buscar el apartado de <em>Actions</em> y darle permisos para realizar cualquier acción. Podéis consultar el procedimiento en detalle <a href="https://docs.github.com/es/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository">aquí</a></p>
+<p>Como ya hemos dicho, Actions ejecuta los workflows, los cuales suelen estar asociados a fases específicas del ciclo de desarrollo. Por ejemplo, un workflow que crra cuando se abra un pull request. También hemos comentado que dentro de los workflows están los jobs, que son acciones individuales dentro de un workflow. Por ejemplo:</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Workflow 1
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    1. Clona el repositorio
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    2. Instala los prerrequisitos
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    3. Ejecuta los tests
+</code></pre></div>
+En la <a href="./#que-es-github-actions">introducción</a> también se ha explicado dónde y cómo se definen estos workflows. Así pues, en el repositorio clonado en nuestra Debian, añadamos la carpeta pertinente:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="gp">$ </span>mkdir -p .github/workflows
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="gp">$ </span><span class="nb">cd</span> .github/workflows
+</code></pre></div>
+<h2 id="testeando-nuestro-codigo-con-un-workflow">Testeando nuestro código con un workflow</h2>
+<p>Como lo prometido es deuda, vamos a crear un workflow que ejecute nuestras pruebas cuando abramos un nuevo pull request. Creemos el archivo YAML para tal cometido:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="go">touch test.yml</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>El formato YAML puede llegar a ser bastante puñetero hasta que sea correcto. Podéis comprobar si vuestro archivo .yml está correctamente formateado en <a href="https://www.yamllint.com/">este validador online</a> </p>
 </div>
-<h2 id="comprobaciones">Comprobaciones</h2>
-<p>Si accedéis a vuestro sitio web, debéis poder seguir accediendo sin problemas. </p>
-<ul>
-<li>
-<p>Comprobad en los access.log de los dos servidores que llega la petición </p>
-</li>
-<li>
-<p>Comprobad además la petición y respuesta con las herramientas de desarrollador de Firefox en Xubuntu. Pulsando F12 en el navegador os aparecerán estas herramientas</p>
-</li>
-</ul>
-<p><img alt="" src="../img/4.1-10.png" /></p>
-<p>En la primera petición (marcada en rojo), utilizando el apartado “Red” (también marcado en rojo) y también en rojo está señalado dónde se puede ver la respuesta de la petición GET HTTP (200 OK). </p>
-<p>También vemos las cabeceras que se incluyen en la petición (método GET) y en la respuesta a esta petición. </p>
-<h3 id="anadiendo-cabeceras">Añadiendo cabeceras</h3>
-<p>Además de haber mirado los logs, vamos a demostrar aún de forma más clara que la petición está pasando por el proxy inverso y que está llegando al servidor web y que vuelve por el mismo camino. </p>
-<p>Si recordáis de teoría, el servidor web es capaz de añadir cabeceras en las respuestas a las peticiones. </p>
-<p>Así pues, vamos a configurar tanto el proxy inverso como el servidor web para que añadan cada uno la cabecera “Host” que también vimos en teoría. </p>
-<p>Para añadir cabeceras, en el archivo de configuración del sitio web debemos añadir dentro del bloque <code>location / { … }</code> debemos añadir la directiva: </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">add_header</span><span class="w"> </span>Host<span class="w"> </span>nombre_del_host;<span class="w"></span>
+<p>Y el contenido del archivo será:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Granja Animales Node.js CI</span><span class="w">  </span><span class="c1">#(1)</span><span class="w"></span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="c1">#(2)</span><span class="w"></span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">   </span><span class="nt">branches</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span><span class="w"></span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span><span class="w"></span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="nt">jobs</span><span class="p">:</span><span class="w"> </span><span class="c1">#(3)</span><span class="w"></span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">  </span><span class="nt">build</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span><span class="w"> </span><span class="c1">#(4)</span><span class="w"></span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w"> </span><span class="c1">#(5)</span><span class="w"></span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Checkout repository</span><span class="w"> </span><span class="c1"># (6)</span><span class="w"></span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span><span class="w"> </span><span class="c1">#(7)</span><span class="w"></span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Use Node.js</span><span class="w"></span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-node@v1</span><span class="w"> </span><span class="c1">#(8)</span><span class="w"></span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">      </span><span class="nt">with</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">        </span><span class="nt">node-version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;18.x&#39;</span><span class="w"></span>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run Yarn</span><span class="w"> </span><span class="c1">#(9)</span><span class="w"></span>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yarn</span><span class="w"></span>
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run tests</span><span class="w"></span>
+<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yarn test</span><span class="w"></span>
 </code></pre></div>
 <ol>
+<li>Nombre descriptivo para nuestro workflow</li>
 <li>
-<p>Añadiremos primero esta cabecera únicamente en el archivo de configuración del sitio web del proxy inverso. El Nombre_del_host será Proxy_inverso_vuestronombre. </p>
+<p>En este bloque <em>on</em> definimos cuándo va a ejecutarse nuestro workflow:</p>
+<ul>
+<li>Cuando alguien haga push sobre la rama <strong>main</strong></li>
+<li>Cuando alguien abra un pull request desde la rama <strong>main</strong></li>
+</ul>
 </li>
 <li>
-<p>Reiniciamos Nginx </p>
+<p>Aquí se definen los jobs, en nuestro caso uno solo: <code>build</code>. </p>
 </li>
-<li>
-<p>Comprobamos que podemos acceder al sitio web sin problemas </p>
-</li>
-<li>
-<p>Con las herramientas de desarrollador comprobamos que la petición ha pasado por el proxy inverso que ha añadido la cabecera en la respuesta: </p>
-<p><img alt="" src="../img/4.1-11.png" /></p>
-</li>
-<li>
-<p>Hacemos lo propio con el servidor web. Esta vez el <code>Nombre_del_host</code> será <code>servidor_web_vuestronombre</code>. </p>
-<p>Si todo está configurado correctamente, al examinar las peticiones y respuestas, os aparecerán las dos cabeceras que han incluido en la respuesta tanto el proxy inverso como el servidor web. .</p>
-<p><img alt="" src="../img/4.1-12.png" /></p>
-</li>
+<li>Cada job corre en una <a href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on">plataforma esecífica</a>, pudiendo elegir entre Linux, Windows o MacOS. En nuestro caso particular vamos a ejecutar nuestro job en un contenedor usando Ubuntu Linux.</li>
+<li>Las tareas o <em>pasos</em> que ejecutará el job. Si un paso falla, por norma general, fallará todo el job.</li>
+<li>Nombramos cada paso del job</li>
+<li>Este paso básicamente hace un clonado del repositorio. 
+  Hace uso de una acción pre-empaquetada (<code>actions/checkout@v2</code>). Este tipo de acciones las suele proporcionar la comunidad de GitHub y, normalmente, ejecutan tareas que de otra forma supondrían múltiples pasos o supondrían una configuración muy repetitiva.</li>
+<li>Se trata de otra acción pre-empaquetada. Se encarga de intalar Node.js dentro del contenedor que está corriendo o ejecutando nuestro job. Podemos pasarle argumentos, en este caso con el bloque <code>with</code> le decimos qué versión de Node.js debe instalar.</li>
+<li>Estos pasos son el núcleo de nuestro job ya que se encargará de ejecutar yarn para instalar los módulos necesarios de Node.js y, en el último paso, ejecutar los tests con <code>yarn tests</code></li>
 </ol>
-<p>Es muy importante que para realizar estas comprobaciones tengáis marcado el checkbox <em>Desactivar caché</em> o en <u>una ventana privada del navegador.</u></p>
-<p><img alt="" src="../img/4.1-13.png" /></p>
-<p>Si no marcáis esto, la página se guardará en la memoria caché del navegador y no estaréis recibiendo la respuesta del servidor sino de la caché del navegador, lo que puede dar lugar a resultados erróneos. </p>
-<h2 id="evaluacion">Evaluación</h2>
-<table>
-<thead>
-<tr>
-<th align="left">Criterio</th>
-<th align="center">Puntuación</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">Configuración correcta y completa del servidor web</td>
-<td align="center"><strong>3 puntos</strong></td>
-</tr>
-<tr>
-<td align="left">Configuración correcta y completa del proxy inverso</td>
-<td align="center"><strong>4 puntos</strong></td>
-</tr>
-<tr>
-<td align="left">Comprobación del correcto funcionamento, incluyendo las cabeceras</td>
-<td align="center"><strong>1 puntos</strong></td>
-</tr>
-<tr>
-<td align="left">Se ha prestado especial atención al formato del documento, utilizando la plantilla actualizada y haciendo un correcto uso del lenguaje técnico</td>
-<td align="center"><strong>2 puntos</strong></td>
-</tr>
-</tbody>
-</table>
+<h3 id="comprobando-nuestro-workflow">Comprobando nuestro workflow</h3>
+<p>Vamos a realizar un cambio en nuestra aplicación para después crear un pull request con él. </p>
+<ol>
+<li>Debéis modificar por tant el código de la app (fichero <code>app.js</code>), añadiendo un nuevo animal junto con su onomatopeya.</li>
+<li>Ahora crearemos una nueva rama y subimos el cambio al repositorio en ella: 
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="gp">  $ </span>git checkout -b feat-nuevoanimal
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="gp">  $ </span>git add app.js
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="gp">  $ </span>git commit -a -m “Añadido un nuevo animal”
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="gp">  $ </span>git push origin feat-nuevoanimal
+</code></pre></div>
+Ahora crearemos un pull request para esta rama. Tras crearlo, Actions iniciará automáticamente nuestro workflow. </li>
+</ol>
+<h2 id="un-workflow-para-construir-imagenes-de-docker">Un workflow para construir imágenes de Docker</h2>
+<h2 id="referencias">Referencias</h2>
+<p><a href="https://github.com/readme/guides/sothebys-github-actions">Build a CI/CD workflow with Github Actions </a></p>
 
 
 
@@ -1985,7 +1843,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Pie" >
       
         
-        <a href="../P1.2/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Práctica 2.2 – Autenticación en Nginx" rel="prev">
+        <a href="../cicd/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Tema 7 - CI/CD (Integración y despliegue continuo)" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1994,26 +1852,11 @@
               <span class="md-footer__direction">
                 Anterior
               </span>
-              Práctica 2.2 – Autenticación en Nginx
+              Tema 7 - CI/CD (Integración y despliegue continuo)
             </div>
           </div>
         </a>
       
-      
-        
-        <a href="../P1.4/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Práctica 2.4 – Balanceo de carga con proxy inverso en Nginx" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Siguiente
-              </span>
-              Práctica 2.4 – Balanceo de carga con proxy inverso en Nginx
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
       
     </nav>
   
