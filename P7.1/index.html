@@ -46,6 +46,18 @@
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-3NX5MD5C8H"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-3NX5MD5C8H",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-3NX5MD5C8H",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
 
     
     
@@ -1703,6 +1715,10 @@
 
 
 <h1 id="practica-71-toma-de-contacto-con-cicd-usando-github-actions">Práctica 7.1- Toma de contacto con CI/CD usando Github actions</h1>
+<div class="admonition warning">
+<p class="admonition-title">Atención</p>
+<p>Antes de comenzar esta práctica, debéis tener una cuenta en Docker Hub: <a href="https://hub.docker.com/">https://hub.docker.com/</a></p>
+</div>
 <h2 id="introduccion">Introducción</h2>
 <h3 id="que-es-github-actions">¿Qué es Github actions?</h3>
 <p>GitHub Actions es una plataforma de integración y despliegue continuos (CI/CD) que te permite automatizar tu mapa de compilación, pruebas y despliegue. Puedes crear flujos de trabajo (<em>workflows</em>) y crear y probar cada solicitud de cambios en tu repositorio o desplegar solicitudes de cambios fusionadas a producción.</p>
@@ -1734,7 +1750,7 @@
 <p><img alt="" src="" /></p>
 <p>Si actualizáis varias veces, podréis ver qué otros animales hay en la granja. </p>
 <p>También tenemos una batería de pruebas, no muy exhaustiva, en el directorio <code>test</code>. Probemos a ejecutarlos con yarn:</p>
-<p><img alt="" src="" /></p>
+<p><img alt="" src="../img/7.1.Primer.test.png" /></p>
 <h2 id="creando-nuestro-primer-workflow">Creando nuestro primer workflow</h2>
 <p>Todos los repositorios de GitHub vienen con <em>Actions</em> activado por defecto. Comprobad en vuestro repositorio que existe una pestaña llamada <strong>Actions</strong>. Lo que necesitáis hacer es, en los <em>settings</em> de vuestro repositorio buscar el apartado de <em>Actions</em> y darle permisos para realizar cualquier acción. Podéis consultar el procedimiento en detalle <a href="https://docs.github.com/es/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository">aquí</a></p>
 <p>Como ya hemos dicho, Actions ejecuta los workflows, los cuales suelen estar asociados a fases específicas del ciclo de desarrollo. Por ejemplo, un workflow que crra cuando se abra un pull request. También hemos comentado que dentro de los workflows están los jobs, que son acciones individuales dentro de un workflow. Por ejemplo:</p>
@@ -1748,7 +1764,8 @@ En la <a href="./#que-es-github-actions">introducción</a> también se ha explic
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="gp">$ </span><span class="nb">cd</span> .github/workflows
 </code></pre></div>
 <h2 id="testeando-nuestro-codigo-con-un-workflow">Testeando nuestro código con un workflow</h2>
-<p>Como lo prometido es deuda, vamos a crear un workflow que ejecute nuestras pruebas cuando abramos un nuevo pull request. Creemos el archivo YAML para tal cometido:</p>
+<p>Como lo prometido es deuda, vamos a crear un workflow que ejecute nuestras pruebas cuando abramos un nuevo pull request. Creemos el archivo YAML para tal cometido. </p>
+<p>En el directorio de nuestro repositorio crearemos una carpeta llamada <code>test</code> y dentro de ella crearemos el archivo que definirá nuestras pruebas:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="go">touch test.yml</span>
 </code></pre></div>
 <div class="admonition note">
@@ -1803,7 +1820,7 @@ En la <a href="./#que-es-github-actions">introducción</a> también se ha explic
 <h3 id="comprobando-nuestro-workflow">Comprobando nuestro workflow</h3>
 <p>Vamos a realizar un cambio en nuestra aplicación para después crear un pull request con él. </p>
 <ol>
-<li>Debéis modificar por tant el código de la app (fichero <code>app.js</code>), añadiendo un nuevo animal junto con su onomatopeya.</li>
+<li>Debéis modificar por tanto el código de la app (fichero <code>app.js</code>), añadiendo un nuevo animal junto con su onomatopeya.</li>
 <li>Ahora crearemos una nueva rama y subimos el cambio al repositorio en ella: 
   <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="gp">  $ </span>git checkout -b feat-nuevoanimal
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
@@ -1815,10 +1832,109 @@ En la <a href="./#que-es-github-actions">introducción</a> también se ha explic
 </code></pre></div>
 Ahora crearemos un pull request para esta rama. Tras crearlo, Actions iniciará automáticamente nuestro workflow. </li>
 </ol>
+<p>En la pestaña de checks podremos comprobar el estado de nuestro workflow.</p>
+<div class="admonition task">
+<p class="admonition-title">Tarea</p>
+<p>Comprueba si este workflow se ha completado con éxito (check verde) o no (aspa roja). En caso de no haberlo hecho, modifica el test con lo necesario y súbelo al repositorio para que se pueda completar con éxito.</p>
+</div>
+<p>Cuando el workflow se ejecute correctamente, deberemos ver algo como esto:</p>
+<p><img alt="" src="../img/7.1.Test.actions.ok.png" /></p>
 <h2 id="un-workflow-para-construir-imagenes-de-docker">Un workflow para construir imágenes de Docker</h2>
+<p>Nuestro objetivo ahora, puesto que hemos automatizado los tests a nuestro código, es que cuando éstos se completen con éxito, se construya una imagen Docker de nuestra aplicación y automáticamente se suba a los repositorios de Docker Hub y Github Container Registry (el repositorio para imágegenes Docker de GitHub). Veamos como crear esta nueva Action.</p>
+<p>En primer lugar, como ya sabemos, debemos crear un archivo para el nuevo workflow:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="go">cd .github/workflows</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="go">touch docker.yml</span>
+</code></pre></div>
+<p>Y lo editamos, introduciendo el código yaml necesario:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Publicar imagen Docker</span><span class="w"></span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="nt">on</span><span class="p">:</span><span class="w"> </span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span><span class="w"></span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="nt">jobs</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">  </span><span class="nt">build-and-push</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span><span class="w"></span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"></span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Checkout</span><span class="w"></span>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span><span class="w"></span>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"></span>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Set up QEMU</span><span class="w"></span>
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker/setup-qemu-action@v1</span><span class="w"></span>
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"></span>
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Set up Docker Buildx</span><span class="w"></span>
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker/setup-buildx-action@v1</span><span class="w"></span>
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"></span>
+<a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Login to DockerHub</span><span class="w"></span>
+<a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker/login-action@v1</span><span class="w"></span>
+<a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a><span class="w">          </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.DOCKERHUB_USERNAME }}</span><span class="w"></span>
+<a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a><span class="w">          </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.DOCKERHUB_TOKEN }}</span><span class="w"></span>
+<a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"></span>
+<a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Login to GitHub Container Registry</span><span class="w"></span>
+<a id="__codelineno-9-29" name="__codelineno-9-29" href="#__codelineno-9-29"></a><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker/login-action@v1</span><span class="w"></span>
+<a id="__codelineno-9-30" name="__codelineno-9-30" href="#__codelineno-9-30"></a><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-9-31" name="__codelineno-9-31" href="#__codelineno-9-31"></a><span class="w">          </span><span class="nt">registry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io</span><span class="w"></span>
+<a id="__codelineno-9-32" name="__codelineno-9-32" href="#__codelineno-9-32"></a><span class="w">          </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ github.repository_owner }}</span><span class="w"></span>
+<a id="__codelineno-9-33" name="__codelineno-9-33" href="#__codelineno-9-33"></a><span class="w">          </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.GHRC_TOKEN }}</span><span class="w"></span>
+<a id="__codelineno-9-34" name="__codelineno-9-34" href="#__codelineno-9-34"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"></span>
+<a id="__codelineno-9-35" name="__codelineno-9-35" href="#__codelineno-9-35"></a><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build and push</span><span class="w"></span>
+<a id="__codelineno-9-36" name="__codelineno-9-36" href="#__codelineno-9-36"></a><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker/build-push-action@v2</span><span class="w"></span>
+<a id="__codelineno-9-37" name="__codelineno-9-37" href="#__codelineno-9-37"></a><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-9-38" name="__codelineno-9-38" href="#__codelineno-9-38"></a><span class="w">          </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span><span class="w"></span>
+<a id="__codelineno-9-39" name="__codelineno-9-39" href="#__codelineno-9-39"></a><span class="w">          </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./Dockerfile</span><span class="w"></span>
+<a id="__codelineno-9-40" name="__codelineno-9-40" href="#__codelineno-9-40"></a><span class="w">          </span><span class="nt">push</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<a id="__codelineno-9-41" name="__codelineno-9-41" href="#__codelineno-9-41"></a><span class="w">          </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"> </span><span class="c1">#(1)</span><span class="w"></span>
+<a id="__codelineno-9-42" name="__codelineno-9-42" href="#__codelineno-9-42"></a><span class="w">            </span><span class="no">raul-profesor/practica7.1:latest </span><span class="w"></span>
+<a id="__codelineno-9-43" name="__codelineno-9-43" href="#__codelineno-9-43"></a><span class="w">            </span><span class="no">ghcr.io/raul-profesor/practica7.1:latest </span><span class="w"></span>
+</code></pre></div>
+<ol>
+<li>Sustituid <code>raul-profesor</code> por vuestro nombre de usuario de Docker Hub y Github (ghcr) respectivamente</li>
+</ol>
+<p>Hemos llamado a nuestro nuevo workflow <em>Publicar imagen Docker</em>. En este caso nuestro bloque <code>on</code> sólo se "dispara" o activa cuando se produce un merge en la rama main.</p>
+<p>Tenemos un job en nuestro workflow llamado <code>build-and-push</code> que se ejecuta en <code>ubuntu-latest</code>. Este job hace check out (clonado) usando la action que usamos en nuestro anterior workflow. Tras ello, utiliza unas actions pre-empaquetadas nuevas, con el fin de configurar un entorno para construir imágenes de Docker usando QEMU y Docker buildx.</p>
+<div class="admonition note">
+<p class="admonition-title">Aclaración</p>
+<p><a href="https://wiki.archlinux.org/title/QEMU_(Espa%C3%B1ol)">Qemu</a> es una aplicación de código abierto que emula diferentes arquitecturas hardware y permite virtualizar.</p>
+<p><a href="https://docs.docker.com/build/">Buildx</a> es un plugin de Docker para ampliar las capacidades a la hora de construir imágenes.</p>
+</div>
+<p>Utilizamos otra Action para hacer login en ambos, Docker Hub y Github Container Registry. En los pasos de esta nueva Action vemos un nuevo elemento, las <u><strong>variables</strong></u></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="l l-Scalar l-Scalar-Plain">${{ secrets.DOCKERHUB_USERNAME }}</span><span class="w"></span>
+</code></pre></div>
+<p>Las Actions pueden usar variables para personalizar los workflows y permitir que introduzcamos datos externos. Estos datos pueden incluir secretos (secrets), como nuestro usuario y password/token de Docker Hub, variables de entorno como nuestro path o valores específicamente definidos por el usuario.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Los secretos cifrados permiten almacenar información sensible en un repositorio.</p>
+<p>Los secretos son variables cifradas que creas en una organización, repositorio o entorno de repositorio. Los secretos que creas están disponibles para utilizarse en los flujos de trabajo de GitHub Actions. GitHub garantiza que los secretos se cifren antes de llegar a GitHub y permanezcan cifrados hasta que los use en un flujo de trabajo.</p>
+<p>Más información <a href="https://docs.github.com/es/actions/security-guides/encrypted-secrets">aquí</a>.</p>
+</div>
+<p>Para configurar los secrets de nuestro repositorio, debemos acceder dentro de él a <code>Settings &gt; Secrets and variables &gt; Actions</code>:</p>
+<p><img alt="" src="../img/7.1.Secrets.png" /></p>
+<p>Y ahí crearemos los secretos para nuestro repositorio con el mismo nombre que aparecen en el archivo del workflow, así como los valores pertinentes para vuestro caso.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>En caso de no tenerlo, podéis crearos un token en Docker Hub en <code>Account Settings &gt; Security</code>.</p>
+</div>
+<p>En última instancia, nuestro workflow construye la nueva imagen de Docker usando el Dockerfile disponible en nuestro repositorio y hace <em>push</em> de la imagen construida tanto a Docker Hub como a Github Container Registry.</p>
+<div class="admonition warning">
+<p class="admonition-title">Cuidado</p>
+<p>No olvidéis hacer otra vez commit y push para subir este workflow al repositorio, de otra forma, al no existir en el repositorio y sólo en vuestra máquina local, no se ejecutará.</p>
+</div>
+<p>Así las cosas, hagamos merge de nuestro PR (Pull Request). Esto activará nuestros dos workflows, el primero que correrá una vez más los tests para confirmar que la nueva rama main está funcionando correctamente y el segundo que construirá la imagen Docker y hará el push a los repositorios de imágenes.</p>
+<p>Si todo se ha hecho bien, funcionará correctamente.</p>
+<p>Merge del pull request:</p>
+<p><img alt="" src="../img/7.1.merge.png" /></p>
+<p>Resultado de los workflows:</p>
+<p><img alt="" src="../img/7.1.Action.docker.1.png" /></p>
+<p><img alt="" src="../img/7.1.Action.docker.2.png" /></p>
+<p>Y esto es sólo una pequeñínisima muestra de todo lo que se puede hacer con GitHub Actions.</p>
 <h2 id="referencias">Referencias</h2>
 <p><a href="https://github.com/readme/guides/sothebys-github-actions">Build a CI/CD workflow with Github Actions </a></p>
 
+
+  
 
 
 
