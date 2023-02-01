@@ -1929,6 +1929,16 @@ Ahora crearemos un pull request para esta rama. Tras crearlo, Actions iniciará 
 <p>Resultado de los workflows:</p>
 <p><img alt="" src="../img/7.1.Action.docker.1.png" /></p>
 <p><img alt="" src="../img/7.1.Action.docker.2.png" /></p>
+<div class="admonition task">
+<p class="admonition-title">Tarea</p>
+<ol>
+<li>Comprobad, entrando via web, que la imagen Docker que acabáis de construir está disponible en vuestro repositorio personal.</li>
+<li>Comprobad que podéis descargarla y correr el contenedor asociado sin problemas:
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="go">docker run -p 9000:8080 vuestro_usuario_docker/practica7.1</span>
+</code></pre></div></li>
+<li>Comprueba que el contenedor está funcionando correctamente accediendo a la aplicación en <code>http://IP_Maq_Virtual:9000</code> (hemos hecho corresponder el puerto 8080 del contenedor con el 9000 del anfitrión)</li>
+</ol>
+</div>
 <p>Y esto es sólo una pequeñínisima muestra de todo lo que se puede hacer con GitHub Actions.</p>
 <h2 id="referencias">Referencias</h2>
 <p><a href="https://github.com/readme/guides/sothebys-github-actions">Build a CI/CD workflow with Github Actions </a></p>
