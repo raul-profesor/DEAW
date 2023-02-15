@@ -1737,8 +1737,8 @@
 <p><a href="https://kifarunix.com/install-yarn-on-debian-11/">Aquí</a> se explican los 3 métodos de instalación, elegid el que más os guste.</p>
 </div>
 <p>Empezaremos clonando el repositorio necesario y echando un ojo a lo que tiene:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">$ </span>git clone https://github.com/raul-profesor/practica7.1.git
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="gp">$ </span><span class="nb">cd</span> practica7.1
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">$ </span>git clone https://github.com/raul-profesor/practica_7.1.git
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="gp">$ </span><span class="nb">cd</span> practica_7.1
 </code></pre></div>
 <p>Utilizamos ahora <strong>yarn</strong> para instalar los módulos requeridos de Node.js</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gp">$ </span>yarn install
@@ -1765,7 +1765,7 @@ En la <a href="./#que-es-github-actions">introducción</a> también se ha explic
 </code></pre></div>
 <h2 id="testeando-nuestro-codigo-con-un-workflow">Testeando nuestro código con un workflow</h2>
 <p>Como lo prometido es deuda, vamos a crear un workflow que ejecute nuestras pruebas cuando abramos un nuevo pull request. Creemos el archivo YAML para tal cometido. </p>
-<p>En el directorio de nuestro repositorio crearemos una carpeta llamada <code>test</code> y dentro de ella crearemos el archivo que definirá nuestras pruebas:</p>
+<p>En el directorio de nuestros workflows crearemos un archivo llamado <code>test</code>, que definirá nuestras pruebas:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="go">touch test.yml</span>
 </code></pre></div>
 <div class="admonition note">
@@ -1887,8 +1887,8 @@ Ahora crearemos un pull request para esta rama. Tras crearlo, Actions iniciará 
 <a id="__codelineno-9-39" name="__codelineno-9-39" href="#__codelineno-9-39"></a><span class="w">          </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./Dockerfile</span><span class="w"></span>
 <a id="__codelineno-9-40" name="__codelineno-9-40" href="#__codelineno-9-40"></a><span class="w">          </span><span class="nt">push</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
 <a id="__codelineno-9-41" name="__codelineno-9-41" href="#__codelineno-9-41"></a><span class="w">          </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"> </span><span class="c1">#(1)</span><span class="w"></span>
-<a id="__codelineno-9-42" name="__codelineno-9-42" href="#__codelineno-9-42"></a><span class="w">            </span><span class="no">raul-profesor/practica7.1:latest </span><span class="w"></span>
-<a id="__codelineno-9-43" name="__codelineno-9-43" href="#__codelineno-9-43"></a><span class="w">            </span><span class="no">ghcr.io/raul-profesor/practica7.1:latest </span><span class="w"></span>
+<a id="__codelineno-9-42" name="__codelineno-9-42" href="#__codelineno-9-42"></a><span class="w">            </span><span class="no">raul-profesor/practica_7.1:latest </span><span class="w"></span>
+<a id="__codelineno-9-43" name="__codelineno-9-43" href="#__codelineno-9-43"></a><span class="w">            </span><span class="no">ghcr.io/raul-profesor/practica_7.1:latest </span><span class="w"></span>
 </code></pre></div>
 <ol>
 <li>Sustituid <code>raul-profesor</code> por vuestro nombre de usuario de Docker Hub y Github (ghcr) respectivamente</li>
@@ -1934,7 +1934,7 @@ Ahora crearemos un pull request para esta rama. Tras crearlo, Actions iniciará 
 <ol>
 <li>Comprobad, entrando via web, que la imagen Docker que acabáis de construir está disponible en vuestro repositorio personal.</li>
 <li>Comprobad que podéis descargarla y correr el contenedor asociado sin problemas:
-    <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="go">docker run -p 9000:8080 vuestro_usuario_docker/practica7.1</span>
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="go">docker run -p 9000:8080 vuestro_usuario_docker/practica_7.1</span>
 </code></pre></div></li>
 <li>Comprueba que el contenedor está funcionando correctamente accediendo a la aplicación en <code>http://IP_Maq_Virtual:9000</code> (hemos hecho corresponder el puerto 8080 del contenedor con el 9000 del anfitrión)</li>
 </ol>
