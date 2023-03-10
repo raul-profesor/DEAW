@@ -1677,6 +1677,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#evaluacion" class="md-nav__link">
+    Evaluación
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1840,7 +1847,7 @@ Ahora crearemos un pull request para esta rama. Tras crearlo, Actions iniciará 
 <p>Cuando el workflow se ejecute correctamente, deberemos ver algo como esto:</p>
 <p><img alt="" src="../img/7.1.Test.actions.ok.png" /></p>
 <h2 id="un-workflow-para-construir-imagenes-de-docker">Un workflow para construir imágenes de Docker</h2>
-<p>Nuestro objetivo ahora, puesto que hemos automatizado los tests a nuestro código, es que cuando éstos se completen con éxito, se construya una imagen Docker de nuestra aplicación y automáticamente se suba a los repositorios de Docker Hub y Github Container Registry (el repositorio para imágegenes Docker de GitHub). Veamos como crear esta nueva Action.</p>
+<p>Nuestro objetivo ahora, puesto que hemos automatizado los tests a nuestro código, es que cuando éstos se completen con éxito, se construya una imagen Docker de nuestra aplicación y automáticamente se suba a los repositorios de Docker Hub y Github Container Registry (el repositorio para imágenes Docker de GitHub). Veamos como crear esta nueva Action.</p>
 <p>En primer lugar, como ya sabemos, debemos crear un archivo para el nuevo workflow:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="go">cd .github/workflows</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="go">touch docker.yml</span>
@@ -1942,6 +1949,33 @@ Ahora crearemos un pull request para esta rama. Tras crearlo, Actions iniciará 
 <p>Y esto es sólo una pequeñínisima muestra de todo lo que se puede hacer con GitHub Actions.</p>
 <h2 id="referencias">Referencias</h2>
 <p><a href="https://github.com/readme/guides/sothebys-github-actions">Build a CI/CD workflow with Github Actions </a></p>
+<h2 id="evaluacion">Evaluación</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Criterio</th>
+<th align="center">Puntuación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Creación y comprobación del correcto funcionamiento del workflow de test</td>
+<td align="center"><strong>3 puntos</strong></td>
+</tr>
+<tr>
+<td align="left">Creación y comprobación del correcto funcionamiento del workflow de creación de imágenes Docker</td>
+<td align="center"><strong>4 puntos</strong></td>
+</tr>
+<tr>
+<td align="left">Comprobación del correcto funcionamiento de los contenedores creados a partir de las imágenes anteriores</td>
+<td align="center"><strong>2.5 puntos</strong></td>
+</tr>
+<tr>
+<td align="left">Se ha prestado especial atención al formato del documento, utilizando la plantilla actualizada y haciendo un correcto uso del lenguaje técnico</td>
+<td align="center"><strong>0.5 puntos</strong></td>
+</tr>
+</tbody>
+</table>
 
 
   
