@@ -1773,7 +1773,7 @@
 <p><img alt="" src="" /></p>
 <p>Si actualizáis varias veces, podréis ver qué otros animales hay en la granja. </p>
 <p>También tenemos una batería de pruebas, no muy exhaustiva, en el directorio <code>test</code>. Probemos a ejecutarlos con yarn:</p>
-<p><img alt="" src="img/7.1.Primer.test.png" /></p>
+<p><img alt="" src="../img/7.1.Primer.test.png" /></p>
 <h2 id="creando-nuestro-primer-workflow">Creando nuestro primer workflow</h2>
 <p>Todos los repositorios de GitHub vienen con <em>Actions</em> activado por defecto. Comprobad en vuestro repositorio que existe una pestaña llamada <strong>Actions</strong>. Lo que necesitáis hacer es, en los <em>settings</em> de vuestro repositorio buscar el apartado de <em>Actions</em> y darle permisos para realizar cualquier acción. Podéis consultar el procedimiento en detalle <a href="https://docs.github.com/es/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository">aquí</a></p>
 <p>Como ya hemos dicho, Actions ejecuta los workflows, los cuales suelen estar asociados a fases específicas del ciclo de desarrollo. Por ejemplo, un workflow que crra cuando se abra un pull request. También hemos comentado que dentro de los workflows están los jobs, que son acciones individuales dentro de un workflow. Por ejemplo:</p>
@@ -1861,7 +1861,7 @@ Ahora crearemos un pull request para esta rama. Tras crearlo, Actions iniciará 
 <p>Comprueba si este workflow se ha completado con éxito (check verde) o no (aspa roja). En caso de no haberlo hecho, modifica el test con lo necesario y súbelo al repositorio para que se pueda completar con éxito.</p>
 </div>
 <p>Cuando el workflow se ejecute correctamente, deberemos ver algo como esto:</p>
-<p><img alt="" src="img/7.1.Test.actions.ok.png" /></p>
+<p><img alt="" src="../img/7.1.Test.actions.ok.png" /></p>
 <h2 id="un-workflow-para-construir-imagenes-de-docker">Un workflow para construir imágenes de Docker</h2>
 <p>Nuestro objetivo ahora, puesto que hemos automatizado los tests a nuestro código, es que cuando éstos se completen con éxito, se construya una imagen Docker de nuestra aplicación y automáticamente se suba a los repositorios de Docker Hub y Github Container Registry (el repositorio para imágenes Docker de GitHub). Veamos como crear esta nueva Action.</p>
 <p>En primer lugar, como ya sabemos, debemos crear un archivo para el nuevo workflow:</p>
@@ -1934,7 +1934,7 @@ Ahora crearemos un pull request para esta rama. Tras crearlo, Actions iniciará 
 <p>Más información <a href="https://docs.github.com/es/actions/security-guides/encrypted-secrets">aquí</a>.</p>
 </div>
 <p>Para configurar los secrets de nuestro repositorio, debemos acceder dentro de él a <code>Settings &gt; Secrets and variables &gt; Actions</code>:</p>
-<p><img alt="" src="img/7.1.Secrets.png" /></p>
+<p><img alt="" src="../img/7.1.Secrets.png" /></p>
 <p>Y ahí crearemos los secretos para nuestro repositorio con el mismo nombre que aparecen en el archivo del workflow, así como los valores pertinentes para vuestro caso.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1948,10 +1948,10 @@ Ahora crearemos un pull request para esta rama. Tras crearlo, Actions iniciará 
 <p>Así las cosas, hagamos merge de nuestro PR (Pull Request). Esto activará nuestros dos workflows, el primero que correrá una vez más los tests para confirmar que la nueva rama main está funcionando correctamente y el segundo que construirá la imagen Docker y hará el push a los repositorios de imágenes.</p>
 <p>Si todo se ha hecho bien, funcionará correctamente.</p>
 <p>Merge del pull request:</p>
-<p><img alt="" src="img/7.1.merge.png" /></p>
+<p><img alt="" src="../img/7.1.merge.png" /></p>
 <p>Resultado de los workflows:</p>
-<p><img alt="" src="img/7.1.Action.docker.1.png" /></p>
-<p><img alt="" src="img/7.1.Action.docker.2.png" /></p>
+<p><img alt="" src="../img/7.1.Action.docker.1.png" /></p>
+<p><img alt="" src="../img/7.1.Action.docker.2.png" /></p>
 <div class="admonition task">
 <p class="admonition-title">Tarea</p>
 <ol>
