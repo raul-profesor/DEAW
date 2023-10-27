@@ -8,7 +8,9 @@ Apuntes y prácticas del módulo **Despliegue de aplicaciones web** de <u>2º de
 6. Contenedores
 7. CI/CD (Integración y despliegue continuo)
 
-!!!info 
-    Si has llegado a esta página y tienes previsto hacer uso de ella debes saber algo. Tengo prevista una revisión profunda de las prácticas de este módulo, queriéndome centrar en despliegues en Cloud, Dockerización y CI/CD, además de la integración con los módulos de Desarrollo en entorno servidor y Desarrollo en entorno cliente.
+!!!warning "Atención"
+    Estos apuntes siguen aquí para temas de consulta pero a día de hoy tiene ciertas partes que pueden haberse quedado obsoletas (Heroku por ejemplo ahora es de pago), los iré actualizando en la medida que el tiempo me lo permita [en esta nueva página](https://raul-profesor.github.io/Despliegue/).
 
-    Como siempre, una cosa es la intención y otra el tiempo disponible para su ejecución. De momento aquí dejo esta versión.
+    De momento los cambios hasta ahora son:
+        + Se han eliminado prácticas del Tema 2 que se hacían demasiado complicadas y "robaban" tiempo del resto del temario
+        + Se ha modificado y reordenado el enunciado de la a práctica 3.1  para adaptarlo a *Debian 12 Bookworm*
